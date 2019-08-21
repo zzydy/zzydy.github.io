@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
-    <title>Gridea</title>
-    <updated>2019-08-21T13:55:46.832Z</updated>
+    <title>听故事的人</title>
+    <updated>2019-08-21T15:07:51.106Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io//atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>My first blog</subtitle>
     <logo>https://zy080080.github.io//images/avatar.png</logo>
     <icon>https://zy080080.github.io//favicon.ico</icon>
-    <rights>All rights reserved 2019, Gridea</rights>
+    <rights>All rights reserved 2019, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[My First Personal Blog]]></title>
+        <id>https://zy080080.github.io//post/my-first-personal-blog</id>
+        <link href="https://zy080080.github.io//post/my-first-personal-blog">
+        </link>
+        <updated>2019-08-21T18:29:47.000Z</updated>
+        <content type="html"><![CDATA[<p> This is the first article I have written to celebrate the opening of my personal blog. I'm going to use it as a technology blog and put any note on it which is important in programming or anything else computer involved.<br>
+ I'll try my best to write articles in English. I hope this is a good challenge and a good chance to prove my proficiency in English.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://zy080080.github.io//post/hello-gridea</id>
