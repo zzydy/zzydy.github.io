@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2019-08-23T14:23:23.261Z</updated>
+    <updated>2019-08-23T14:31:15.499Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io//atom.xml"/>
-    <subtitle>good good study, day day up</subtitle>
+    <subtitle>天青色等烟雨，而我在等你</subtitle>
     <logo>https://zy080080.github.io//images/avatar.png</logo>
     <icon>https://zy080080.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, 听故事的人</rights>
@@ -32,10 +32,10 @@
         <id>https://zy080080.github.io//post/my-first-personal-blog</id>
         <link href="https://zy080080.github.io//post/my-first-personal-blog">
         </link>
-        <updated>2019-08-22T10:06:53.000Z</updated>
-        <summary type="html"><![CDATA[<p> I watched a video on bilibili in which the author suggests that people who want to work at an IT company should start a blog. So I took hold day to figure out how to create a blog in github.</p>
+        <updated>2019-08-22T11:06:53.000Z</updated>
+        <summary type="html"><![CDATA[<p> I watched a video on bilibili in which the author suggests that people who want to work at an IT company should start a blog. So I took whole day to figure out how to create a blog in github.</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p> I watched a video on bilibili in which the author suggests that people who want to work at an IT company should start a blog. So I took hold day to figure out how to create a blog in github.</p>
+        <content type="html"><![CDATA[<p> I watched a video on bilibili in which the author suggests that people who want to work at an IT company should start a blog. So I took whole day to figure out how to create a blog in github.</p>
 <!-- more --> 
 <p> This is the first article I have written to celebrate the opening of my personal blog which at last ran successfully in 20190821. I'm going to use it as a technology blog and put any note on it which is important in programming or anything else computer involved.<br>
  I'll try my best to write articles in English. I hope this is a good challenge and a good chance to prove my proficiency in English.<br>
