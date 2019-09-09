@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2019-09-09T02:29:26.449Z</updated>
+    <updated>2019-09-09T10:26:05.881Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io//atom.xml"/>
@@ -10,6 +10,65 @@
     <logo>https://zy080080.github.io//images/avatar.png</logo>
     <icon>https://zy080080.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[The way to make sure never to draw a number twice]]></title>
+        <id>https://zy080080.github.io//post/the-way-to-make-sure-never-to-draw-a-number-twice</id>
+        <link href="https://zy080080.github.io//post/the-way-to-make-sure-never-to-draw-a-number-twice">
+        </link>
+        <updated>2019-09-09T15:02:54.000Z</updated>
+        <summary type="html"><![CDATA[<p> When we draw k numbers from numbers[n], how to be sure never to draw a number again?</p>
+]]></summary>
+        <content type="html"><![CDATA[<p> When we draw k numbers from numbers[n], how to be sure never to draw a number again?</p>
+ <!-- more --> 
+<p> This program draws a random combination of numbers for a lottery game.<br>
+ The way to draw a number just once is :</p>
+<blockquote>
+<p> To overwrite numbers[r] with the last number in the array and reduce n by 1.</p>
+</blockquote>
+<p> 将原本number[r]的元素移除后，通过n每次的缩小随机数产生的范围避免重复。</p>
+<pre><code>import java.util.*;
+
+public class LotteryDrawing {
+	public static void main (String[] args) {
+		Scanner in = new Scanner(System.in);
+	
+		System.out.print(&quot;How many numbers do you need to draw? &quot;);
+		int k = in.nextInt();
+	
+		System.out.print(&quot;What is the highest numbers you can draw? &quot;);
+		int n = in.nextInt();
+	
+		//fill an arry with numbers 1 2 3. . .n
+		int[] numbers = new int[n];
+		for(int i = 0; i &lt; numbers.length; i++) {
+			numbers[i] = i + 1;
+		}
+		
+		//draw k numbers and put them into a second array
+		int[] result = new int[k];
+		for(int i = 0; i &lt; result.length; i++) {
+			//make a random index between 0 and n - 1
+			int r = (int)(Math.random() * n);
+			
+			//pick the element at the random location
+			result[i] = numbers[r];
+			
+			//move the last element into the random location
+			numbers[r] = numbers[n - 1];
+			n--;
+		}
+	
+		//print the sorted array
+		Arrays.sort(result);
+		System.out.println(&quot;Bet the following combination. It'll make you rich!&quot;);
+		for(int r : result) {
+			System.out.print(r + &quot; &quot;);
+		}
+	}
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[汇编语言笔记（第一章）]]></title>
         <id>https://zy080080.github.io//post/hui-bian-yu-yan-bi-ji</id>
