@@ -1,24 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://zy080080.github.io/</id>
-    <title>听故事的人</title>
-    <updated>2019-09-09T02:15:45.370Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://zy080080.github.io/"/>
-    <link rel="self" href="https://zy080080.github.io//atom.xml"/>
-    <subtitle>天青色等烟雨，而我在等你</subtitle>
-    <logo>https://zy080080.github.io//images/avatar.png</logo>
-    <icon>https://zy080080.github.io//favicon.ico</icon>
-    <rights>All rights reserved 2019, 听故事的人</rights>
-    <entry>
-        <title type="html"><![CDATA[汇编语言笔记]]></title>
-        <id>https://zy080080.github.io//post/hui-bian-yu-yan-bi-ji</id>
-        <link href="https://zy080080.github.io//post/hui-bian-yu-yan-bi-ji">
-        </link>
-        <updated>2019-09-09T03:11:53.000Z</updated>
-        <summary type="html"><![CDATA[<p>汇编语言（第三版） 王爽著 清华大学出版社</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>汇编语言（第三版） 王爽著 清华大学出版社</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>汇编语言笔记 | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1567995309439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1567995309439" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">汇编语言笔记</h2>
+            <div class="post-date">2019-09-09 </div>
+            
+              <div class="feature-container" style="background-image: url('https://zy080080.github.io//post-images/hui-bian-yu-yan-bi-ji.png')">
+              </div>
+            
+            <div class="post-content">
+              <p>汇编语言（第三版） 王爽著 清华大学出版社</p>
 <!-- more -->
 <h1 id="第一章">第一章</h1>
 <h2 id="1基础知识">1.基础知识</h2>
@@ -78,40 +163,47 @@ BIOS是由主板和各类接口卡（显卡网卡等）厂商提供的软件系�
 <li>CPU对他们进行读或写的时候都通过控制总线发出内存读写命令。</li>
 </ul>
 <p> 所有的物理储存器被看作一个由若干储存单元组成的逻辑储存器，每个物理储存器在这个逻辑储存器中占有一个地址段，即一段地址空间。CPU在这段地址空间中读写数据，实际上就是在相对应的物理储存器中读写数据。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Java time !]]></title>
-        <id>https://zy080080.github.io//post/java-time</id>
-        <link href="https://zy080080.github.io//post/java-time">
-        </link>
-        <updated>2019-08-23T17:21:07.000Z</updated>
-        <summary type="html"><![CDATA[<p>  It's time to learn something in English.</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>  It's time to learn something in English.</p>
-<!-- more --> 
-<p>  These days, I'm learning Java by watching videoes. Though I'd been learning Java for half a year, but meanwhile I was preparing my college entrance exam. so I could not concentrate on programming. I think it is necessary to have a review because in next term I'm going to attend Java class which is taught in Japanese.<br>
-  It's kind of a difficult stuff that learning something in three languages. I'm trying to review what I have learned by using a book called 'Head First Java', the English version.</p>
-<hr>
-<br>
-<p><img src="https://zy080080.github.io//post-images/1566570199123.png" alt=""><br>
- 整个暑假都在折腾英语和Java了....最近打算把汇编的书看一看，提前预习免得下学期忙不过来</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[My First Personal Blog]]></title>
-        <id>https://zy080080.github.io//post/my-first-personal-blog</id>
-        <link href="https://zy080080.github.io//post/my-first-personal-blog">
-        </link>
-        <updated>2019-08-22T11:06:53.000Z</updated>
-        <summary type="html"><![CDATA[<p> I watched a video on bilibili in which the author suggests that people who want to work at an IT company should start a blog. So I took whole day to figure out how to create a blog in github.</p>
-]]></summary>
-        <content type="html"><![CDATA[<p> I watched a video on bilibili in which the author suggests that people who want to work at an IT company should start a blog. So I took whole day to figure out how to create a blog in github.</p>
-<!-- more --> 
-<p> This is the first article I have written to celebrate the opening of my personal blog which at last ran successfully in 20190821. I'm going to use it as a technology blog and put any note on it which is important in programming or anything else computer involved.<br>
- I'll try my best to write articles in English. I hope this is a good challenge and a good chance to prove my proficiency in English.<br>
- Never Stop Learning.<br>
- 厚积薄发。</p>
-]]></content>
-    </entry>
-</feed>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io//post/java-time">
+                  <h3 class="post-title">
+                    Java time !
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
