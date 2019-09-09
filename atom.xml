@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2019-09-09T02:28:32.337Z</updated>
+    <updated>2019-09-09T02:29:26.449Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io//atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zy080080.github.io//post/hui-bian-yu-yan-bi-ji</id>
         <link href="https://zy080080.github.io//post/hui-bian-yu-yan-bi-ji">
         </link>
-        <updated>2019-09-09T07:11:53.000Z</updated>
+        <updated>2019-09-09T03:28:56.000Z</updated>
         <summary type="html"><![CDATA[<p>汇编语言（第三版） 王爽著 清华大学出版社</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>汇编语言（第三版） 王爽著 清华大学出版社</p>
@@ -78,15 +78,6 @@ BIOS是由主板和各类接口卡（显卡网卡等）厂商提供的软件系�
 <li>CPU对他们进行读或写的时候都通过控制总线发出内存读写命令。</li>
 </ul>
 <p> 所有的物理储存器被看作一个由若干储存单元组成的逻辑储存器，每个物理储存器在这个逻辑储存器中占有一个地址段，即一段地址空间。CPU在这段地址空间中读写数据，实际上就是在相对应的物理储存器中读写数据。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[汇编语言笔记（第一章）2]]></title>
-        <id>https://zy080080.github.io//post/hui-bian-yu-yan-bi-ji-di-yi-zhang-2</id>
-        <link href="https://zy080080.github.io//post/hui-bian-yu-yan-bi-ji-di-yi-zhang-2">
-        </link>
-        <updated>2019-09-09T03:27:43.000Z</updated>
-        <content type="html"><![CDATA[<p>233</p>
 ]]></content>
     </entry>
     <entry>
