@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1568078344816">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1568084290601">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zy080080.github.io/">
-        <img src="https://zy080080.github.io//images/avatar.png?v=1568078344816" class="site-logo">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1568084290601" class="site-logo">
         <h1 class="site-title">听故事的人</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -276,6 +276,45 @@
 <ul>
 <li>200（段地址）x10 + 826（偏移地址） = 2826（物理地址）</li>
 </ul>
+<h2 id="28-段的概念">2.8 段的概念</h2>
+<p> 内存并没有分段，段的划分来自于CPU，由于8086CPU用“基础地质+偏移地址=-物理地址”的方式给出内存单元的物理地址，使得我们可以用分段的方式来管理内存。<br>
+ 在编程时可以根据需要，将若干地址连续的内存单元看作一个段，用段地址x16的起始地址（基础地址），用偏移地址定位段中的内存单元。</p>
+<blockquote>
+<h3 id="内存单元地址小结">内存单元地址小结</h3>
+<p> CPU可以用不同的段地址和偏移地址形成同一个物理地址。</p>
+<ul>
+<li>例如CPU要访问21F60H单元，则它给出的段地址SA和偏移地址EA满足SAx16+EA=21F60H即可。</li>
+</ul>
+<p> 偏移地址16位，变化范围为0~FFFFH，仅用偏移地址来寻址最多可寻64KB个内存单元。</p>
+<ul>
+<li>比如给定段地址1000H，用偏移地址寻址，CPU的寻址范围为：10000H~1FFFFH。</li>
+</ul>
+<p> “数据在21F60H中。”这句话对于8086CPU机一般不这样讲，取而代之的是两种类似的说法：</p>
+<ol>
+<li>数据存在内存 2000:1F60 中；</li>
+<li>数据存在内存的2000H段中的1F60H单元中。</li>
+</ol>
+</blockquote>
+<blockquote>
+<h3 id="检测点22">检测点2.2</h3>
+<p> 有一数据存放在内存20000H单元中，现给定段地址位SA，若想用偏移地址寻到此单元。则SA应满足的条件是：最小为（1001H），最大为（2000H）。</p>
+<blockquote>
+<p>网上给出的解析：20000H - FFFFH/10H = 2000H - 0FFFH = 1001H</p>
+</blockquote>
+<blockquote>
+<p>个人思考：20000H - FFFFH = 10001H，右移一位成为1000H，但是不够的，所以最小应为1001H。</p>
+</blockquote>
+</blockquote>
+<h2 id="29-段存器">2.9 段存器</h2>
+<p>​ 段地址在8086CPU的段寄存器中存放。8086CPU有4个段寄存器：CS、DS、SS、ES。当8086CPU要访问内存时由这4个段寄存器提供内存单元的段地址。本章只看一下CS。</p>
+<h2 id="210-cs和ip">2.10 CS和IP</h2>
+<p> CS和IP是8086CPU中两个最关键的寄存器，它们指示了CPU当前尧都区指令的地址。CS为代码段寄存器，IP位指令指针寄存器。<br>
+ 8086机中，任意时刻，CPU将 CS:IP 指向的内容当做指令执行。</p>
+<blockquote>
+<p>图解看书P26。</p>
+</blockquote>
+<p> 在8086CPU加电启动或复位后（即CPU刚开始工作时）CS和IP被设置为CS=FFFFH，IP=0000H，即在8086PC机刚启动时，CPU从内存 FFFF0H单元中读取指令执行，FFFF0H单元中的指令是8086PC机开机后执行的第一条指令。<br>
+ 在任何时候，CPU将CS、IP中的内容当做指令的段地址和偏移地址，用它们合成指令的物理地址，到内存中读取指令码，执行。如果说，内存中的一段信息曾被CPU执行过的话，那么，他所在的内存单元必然被 CS:IP 指向过。</p>
 
             </div>
             
