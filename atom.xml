@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2019-09-10T04:35:35.013Z</updated>
+    <updated>2019-09-11T00:02:30.460Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io//atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zy080080.github.io//post/hui-bian-yu-yan-bi-ji-di-er-zhang</id>
         <link href="https://zy080080.github.io//post/hui-bian-yu-yan-bi-ji-di-er-zhang">
         </link>
-        <updated>2019-09-10T09:07:01.000Z</updated>
+        <updated>2019-09-10T10:07:01.000Z</updated>
         <summary type="html"><![CDATA[<p>汇编语言（第三版） 王爽著 清华大学出版社</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>汇编语言（第三版） 王爽著 清华大学出版社</p>
@@ -230,6 +230,39 @@
 </blockquote>
 <p> 在8086CPU加电启动或复位后（即CPU刚开始工作时）CS和IP被设置为CS=FFFFH，IP=0000H，即在8086PC机刚启动时，CPU从内存 FFFF0H单元中读取指令执行，FFFF0H单元中的指令是8086PC机开机后执行的第一条指令。<br>
  在任何时候，CPU将CS、IP中的内容当做指令的段地址和偏移地址，用它们合成指令的物理地址，到内存中读取指令码，执行。如果说，内存中的一段信息曾被CPU执行过的话，那么，他所在的内存单元必然被 CS:IP 指向过。</p>
+<h2 id="211-修改cs-ip的指令">2.11 修改CS、IP的指令</h2>
+<p> 在CPU中，程序员能够用指令修改的部件只有寄存器，可以通过改变CS、IP中的内容来控制CPU执行目标指令。<br>
+ jmp指令</p>
+<ul>
+<li>若想同时修改CS、IP的内容，可用形如“jmp 段地址：偏移地址”的指令完成，如
+<ul>
+<li>jmp 2AE3:3，执行后： CS=2AE3H，IP=0003H，CPU将从2AE33H处读取指令。</li>
+</ul>
+</li>
+<li>若只想修改IP的内容，可用形如“jmp 某一合法寄存器”的指令完成，如：
+<ul>
+<li>jmp ax<br>
+指令执行前：ax=1000H, CS=2000H, IP=0003H<br>
+执行后：ax=1000H, CS=2000H, IP=1000H</li>
+</ul>
+</li>
+</ul>
+<p> jmp ax，在含义上好似： mov IP,ax。</p>
+<blockquote>
+<h3 id="检测点23">检测点2.3</h3>
+<p>下面的三条指令执行后，CPU几次修改IP？都是在什么时候？最后IP中的值是多少？<br>
+(1) mov ax,bx<br>
+(2) sub ax,ax<br>
+(3) jmp ax</p>
+<p>答案：四次</p>
+<ul>
+<li>第一次：(1)执行前</li>
+<li>第二次：(2)执行前</li>
+<li>第三次：(3)执行前</li>
+<li>第四次：jmp指令执行后，IP变为0</li>
+</ul>
+<p>注：指令在被传到指令缓冲器，被执行前IP自动指向下一指令。</p>
+</blockquote>
 ]]></content>
     </entry>
     <entry>
