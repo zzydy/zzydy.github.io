@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2019-09-12T03:55:06.650Z</updated>
+    <updated>2019-09-12T03:59:40.178Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io//atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zy080080.github.io//post/java-dao-di-shi-zhi-chuan-di-huan-shi-yin-yong-chuan-di</id>
         <link href="https://zy080080.github.io//post/java-dao-di-shi-zhi-chuan-di-huan-shi-yin-yong-chuan-di">
         </link>
-        <updated>2019-09-12T06:49:48.000Z</updated>
+        <updated>2019-09-12T07:49:48.000Z</updated>
         <summary type="html"><![CDATA[<p>原文作者：Intopass<br>
 链接：<a href="https://www.zhihu.com/question/31203609/answer/50992895">https://www.zhihu.com/question/31203609/answer/50992895</a><br>
 来源：知乎</p>
@@ -101,7 +101,7 @@ foo(sb); // sb 没有被改变，还是 &quot;iphone&quot;。
         <id>https://zy080080.github.io//post/hui-bian-yu-yan-xiang-guan-zhi-ling-ying-wen-quan-cheng</id>
         <link href="https://zy080080.github.io//post/hui-bian-yu-yan-xiang-guan-zhi-ling-ying-wen-quan-cheng">
         </link>
-        <updated>2019-09-11T05:41:55.000Z</updated>
+        <updated>2019-09-11T06:41:55.000Z</updated>
         <content type="html"><![CDATA[<p>AH&amp;AL＝AX(accumulator)：累加寄存器<br>
 BH&amp;BL＝BX(base)：基址寄存器<br>
 CH&amp;CL＝CX(count)：计数寄存器<br>
