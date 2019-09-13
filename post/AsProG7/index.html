@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>StringBuffer作为参数传递问题 | 听故事的人</title>
+<title>The way to make sure never to draw a number twice | 听故事的人</title>
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1568339001821">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1568339306706">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zy080080.github.io/">
-        <img src="https://zy080080.github.io//images/avatar.png?v=1568339001821" class="site-logo">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1568339306706" class="site-logo">
         <h1 class="site-title">听故事的人</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -96,44 +96,87 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">StringBuffer作为参数传递问题</h2>
-            <div class="post-date">2019-09-12 </div>
+            <h2 class="post-title">The way to make sure never to draw a number twice</h2>
+            <div class="post-date">2019-09-10 </div>
+            
+              <div class="feature-container" style="background-image: url('https://zy080080.github.io//post-images/AsProG7.png')">
+              </div>
             
             <div class="post-content">
-              <pre><code>public class StringBufferTest {
-    public static void main(String[] args) {
-	    String s1 = &quot;hello&quot;;
-		String s2 = &quot;world&quot;;
-    	System.out.println(s1 + &quot;---&quot; + s2);// hello---world
-	    change(s1, s2);
-		System.out.println(s1 + &quot;---&quot; + s2);// hello---world 
+              <p> When we draw k numbers from numbers[n], how to be sure never to draw a number again?</p>
+ <!-- more --> 
+<p> This program draws a random combination of numbers for a lottery game.<br>
+ The way to draw a number just once is :</p>
+<blockquote>
+<p> To overwrite numbers[r] with the last number in the array and reduce n by 1.</p>
+</blockquote>
+<p> 将原本number[r]的元素移除后，通过n每次的缩小随机数产生的范围避免重复。</p>
+<pre><code>import java.util.*;
 
-    	StringBuffer sb1 = new StringBuffer(&quot;hello&quot;);
-	    StringBuffer sb2 = new StringBuffer(&quot;world&quot;);
-    	System.out.println(sb1 + &quot;---&quot; + sb2);// hello---world
-		change(sb1, sb2);
-		System.out.println(sb1 + &quot;---&quot; + sb2);// hello---worldworld
+public class LotteryDrawing {
+	public static void main (String[] args) {
+		Scanner in = new Scanner(System.in);
+	
+		System.out.print(&quot;How many numbers do you need to draw? &quot;);
+		int k = in.nextInt();
+	
+		System.out.print(&quot;What is the highest numbers you can draw? &quot;);
+		int n = in.nextInt();
+	
+		//fill an arry with numbers 1 2 3. . .n
+		int[] numbers = new int[n];
+		for(int i = 0; i &lt; numbers.length; i++) {
+			numbers[i] = i + 1;
+		}
+		
+		//draw k numbers and put them into a second array
+		int[] result = new int[k];
+		for(int i = 0; i &lt; result.length; i++) {
+			//make a random index between 0 and n - 1
+			int r = (int)(Math.random() * n);
+			
+			//pick the element at the random location
+			result[i] = numbers[r];
+			
+			//move the last element into the random location
+			numbers[r] = numbers[n - 1];
+			n--;
+		}
+	
+		//print the sorted array
+		Arrays.sort(result);
+		System.out.println(&quot;Bet the following combination. It'll make you rich!&quot;);
+		for(int r : result) {
+			System.out.print(r + &quot; &quot;);
+		}
 	}
-
-	public static void change(StringBuffer sb1, StringBuffer sb2) {
-		sb1 = sb2;//引用的东西变了而已，main中的sb1引用没变
-		sb2.append(sb1);
-	}
-
-    public static void change(String s1, String s2) {
-	    s1 = s2;
-	    s2 = s1 + s2;
-    }
-}</code></pre>
+}
+</code></pre>
 
             </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io//tag/notes" class="tag">
+                    Notes
+                  </a>
+                
+                  <a href="https://zy080080.github.io//tag/xue-xi-bi-ji" class="tag">
+                    学习笔记
+                  </a>
+                
+                  <a href="https://zy080080.github.io//tag/2a7cYaXp0" class="tag">
+                    Java
+                  </a>
+                
+              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://zy080080.github.io//post/UYqd_tZ7B">
+                <a href="https://zy080080.github.io//post/HBYybJD1Z">
                   <h3 class="post-title">
-                    Java到底是值传递还是引用传递？
+                    汇编语言笔记（第一章）
                   </h3>
                 </a>
               </div>
