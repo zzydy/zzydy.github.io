@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2019-09-12T03:59:40.178Z</updated>
+    <updated>2019-09-13T01:32:36.644Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io//atom.xml"/>
@@ -11,11 +11,153 @@
     <icon>https://zy080080.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, 听故事的人</rights>
     <entry>
+        <title type="html"><![CDATA[汇编语言笔记（第三章）]]></title>
+        <id>https://zy080080.github.io//post/hui-bian-yu-yan-bi-ji-di-san-zhang</id>
+        <link href="https://zy080080.github.io//post/hui-bian-yu-yan-bi-ji-di-san-zhang">
+        </link>
+        <updated>2019-09-13T03:31:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>汇编语言（第三版） 王爽著 清华大学出版社</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>汇编语言（第三版） 王爽著 清华大学出版社</p>
+<!-- more -->
+<h1 id="第三章-寄存器内存访问">第三章 寄存器（内存访问）</h1>
+<h2 id="31-内存中字的存储">3.1 内存中字的存储</h2>
+<p> CPU中用16位寄存器来存储一个字，高8位存放高位字节，低8位存放低位字节，在内存中储存时，由于内存单元是字节单元（一个字节存放一个单元），则一个字要用两个地址连续的内存单元来存放。</p>
+<table>
+<thead>
+<tr>
+<th>地址</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>20H</td>
+</tr>
+<tr>
+<td>1</td>
+<td>4EH</td>
+</tr>
+<tr>
+<td>2</td>
+<td>12H</td>
+</tr>
+<tr>
+<td>4</td>
+<td>00H</td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p> 如表格，我们用0，1两个内存单元存放数据20000（4E20H）。4E20H的低位字节存放在0号单元中，高位字节存放在1号单元中。这两个内存单元可以看做一个起始地址为0的字单元（存放一个字的内存单元，由0、1两个字节单元组成）。数据18（0012H）同理。</p>
+<h3 id="我们将起始地址为n的字单元简称为n地址字单元-比如一个字单元有2-3两个内存单元组成则这个字单元的起始地址为2我们可以说这是2地址字单元"> <strong>我们将起始地址为N的字单元简称为N地址字单元。比如一个字单元有2、3两个内存单元组成，则这个字单元的起始地址为2，我们可以说这是2地址字单元</strong></h3>
+<h2 id="32-ds和adress">3.2 DS和[adress]</h2>
+<p> CPU要读写一个内存单元的时候，必须先给出这个内存单元的地址，在8086CPU中，内存地址由段地址和偏移地址组成。8086CPU中有个DS寄存器，通常用来存放要访问数据的段地址。比如我们要读取10000H单元的内容，可以用如下的程序段进行：</p>
+<p>mov bx,1000H<br>
+mov ds,bx<br>
+mov al,[0]</p>
+<p> 上面的三条指令将10000H（1000：0）中的数据读到al中<br>
+ mov指令可以将一个内存单元中的内容送入一个寄存器中，内存单元需要用内存单元的地址来指明。格式为 mov 寄存器名，内存单元地址。<br>
+ “[···]“表示一个内存单元，其中的内容表示内存单元的偏移地址。而段地址存储在DS寄存器中。<br>
+ DS是一个段寄存器，8086CPU不支持将数据直接从入段寄存器的操作。 mov ds，1000H <strong>是非法的</strong></p>
+<p> 数据还可以从寄存器送入内存单元，如：</p>
+<pre><code>mov bx,1000H
+mov ds,bx 
+mov [0],al
+</code></pre>
+<h2 id="33-字的传送">3.3 字的传送</h2>
+<p> 8086CPU是16位结构，有16根数据线，所以可以一次性传送16位的数据，即一次性传送一个字。</p>
+<pre><code>mov ax,1000H
+mov ds,bx
+mov ax,[0] //1000:0 处的字形数据送入ax
+mov [0],cx //cx中的16位数据送到 1000:0 处
+</code></pre>
+<blockquote>
+<p>注意：传送到ax，bx，cx的是字形数据，传送到al，ah，bl，bh的是字节型数据。</p>
+</blockquote>
+<h2 id="34-mov-add-sub指令">3.4 mov、add、sub指令</h2>
+<p> 到现在，我们知道mov指令可以有以下几种形式：</p>
+<pre><code>mov ax,8    //寄存器，数据
+mov ax,bx   //寄存器，寄存器
+mov ax,[0]  //寄存器，内存单元
+mov [0],ax  //内存单元，寄存器
+mov ds,ax   //段寄存器，寄存器
+</code></pre>
+<p> 利用Debug验证后，下列指令也可成立：</p>
+<pre><code>mov ax,dx   //寄存器，段寄存器
+mov [0],cs  //内存单元，段寄存器
+mov ds,[0]  //段寄存器，内存单元
+</code></pre>
+<p> add和sub指令同mov一样，都有两个操作对象，它们也可以有以下几种形式：</p>
+<pre><code>add ax,8    //寄存器，数据
+add ax,bx   //寄存器，寄存器
+add ax,[0]  //寄存器，内存单元
+add [0],ax  //内存单元，寄存器
+sub ax,9    //寄存器，数据
+sub sx,bx   //寄存器，寄存器
+sub ax,[0]  //寄存器，内存单元
+sub [0],ax  //内存单元，寄存器
+</code></pre>
+<p> <mark>但他们无法对段寄存器操作</mark></p>
+<h2 id="35-数据段">3.5 数据段</h2>
+<p> 对于8086机，在编程时，可以根据需要，将一组内存单元定义为一个段。我们可以将一组长度为N(N&lt;=64KB)、地址连续、起始地址为16的倍数的内存单元当做专门存储数据的内存空间，从而定义了一个数据段。<br>
+ 比如讲 123B0H~123B9H 的内存单元定义为数据段。现在要累加这个数据段中的前3个单元的数据，代码如下。</p>
+<pre><code>mov ax,123BH    
+mov ds,ax       //将123BH送入ds中，作为数据段的段地址
+mov al,0        //用al存放累加结果
+add al,[0]      //将数据段第一个单元（偏移地址为0）中的数值加到al中
+add al,[1]      //将数据段第二个单元（偏移地址为0）中的数值加到al中
+add al,[2]      //将数据段第三个单元（偏移地址为0）中的数值加到al中
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[StringBuffer作为参数传递问题]]></title>
+        <id>https://zy080080.github.io//post/stringbuffer-zuo-wei-can-shu-chuan-di-wen-ti</id>
+        <link href="https://zy080080.github.io//post/stringbuffer-zuo-wei-can-shu-chuan-di-wen-ti">
+        </link>
+        <updated>2019-09-12T07:12:57.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>public class StringBufferTest {
+    public static void main(String[] args) {
+	    String s1 = &quot;hello&quot;;
+		String s2 = &quot;world&quot;;
+    	System.out.println(s1 + &quot;---&quot; + s2);// hello---world
+	    change(s1, s2);
+		System.out.println(s1 + &quot;---&quot; + s2);// hello---world 
+
+    	StringBuffer sb1 = new StringBuffer(&quot;hello&quot;);
+	    StringBuffer sb2 = new StringBuffer(&quot;world&quot;);
+    	System.out.println(sb1 + &quot;---&quot; + sb2);// hello---world
+		change(sb1, sb2);
+		System.out.println(sb1 + &quot;---&quot; + sb2);// hello---worldworld
+	}
+
+	public static void change(StringBuffer sb1, StringBuffer sb2) {
+		sb1 = sb2;//引用的东西变了而已，main中的sb1引用没变
+		sb2.append(sb1);
+	}
+
+    public static void change(String s1, String s2) {
+	    s1 = s2;
+	    s2 = s1 + s2;
+    }
+}</code></pre>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Java 到底是值传递还是引用传递？]]></title>
         <id>https://zy080080.github.io//post/java-dao-di-shi-zhi-chuan-di-huan-shi-yin-yong-chuan-di</id>
         <link href="https://zy080080.github.io//post/java-dao-di-shi-zhi-chuan-di-huan-shi-yin-yong-chuan-di">
         </link>
-        <updated>2019-09-12T07:49:48.000Z</updated>
+        <updated>2019-09-12T03:49:48.000Z</updated>
         <summary type="html"><![CDATA[<p>原文作者：Intopass<br>
 链接：<a href="https://www.zhihu.com/question/31203609/answer/50992895">https://www.zhihu.com/question/31203609/answer/50992895</a><br>
 来源：知乎</p>

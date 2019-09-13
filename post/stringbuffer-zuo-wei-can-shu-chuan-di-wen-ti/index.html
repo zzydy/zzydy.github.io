@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>转载 | 听故事的人</title>
+<title>StringBuffer作为参数传递问题 | 听故事的人</title>
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -95,51 +95,53 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 转载</h2>
-          
-            <article class="post-item">
-              <div class="left">
+          <div class="post-detail">
+            <h2 class="post-title">StringBuffer作为参数传递问题</h2>
+            <div class="post-date">2019-09-12 </div>
+            
+            <div class="post-content">
+              <pre><code>public class StringBufferTest {
+    public static void main(String[] args) {
+	    String s1 = &quot;hello&quot;;
+		String s2 = &quot;world&quot;;
+    	System.out.println(s1 + &quot;---&quot; + s2);// hello---world
+	    change(s1, s2);
+		System.out.println(s1 + &quot;---&quot; + s2);// hello---world 
+
+    	StringBuffer sb1 = new StringBuffer(&quot;hello&quot;);
+	    StringBuffer sb2 = new StringBuffer(&quot;world&quot;);
+    	System.out.println(sb1 + &quot;---&quot; + sb2);// hello---world
+		change(sb1, sb2);
+		System.out.println(sb1 + &quot;---&quot; + sb2);// hello---worldworld
+	}
+
+	public static void change(StringBuffer sb1, StringBuffer sb2) {
+		sb1 = sb2;//引用的东西变了而已，main中的sb1引用没变
+		sb2.append(sb1);
+	}
+
+    public static void change(String s1, String s2) {
+	    s1 = s2;
+	    s2 = s1 + s2;
+    }
+}</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
                 <a href="https://zy080080.github.io//post/java-dao-di-shi-zhi-chuan-di-huan-shi-yin-yong-chuan-di">
-                  <h2 class="post-title">Java 到底是值传递还是引用传递？</h2>
+                  <h3 class="post-title">
+                    Java 到底是值传递还是引用传递？
+                  </h3>
                 </a>
-                <div class="post-date">
-                  2019-09-12 
-                </div>
-                <div class="post-abstract">
-                  <p>原文作者：Intopass<br>
-链接：<a href="https://www.zhihu.com/question/31203609/answer/50992895">https://www.zhihu.com/question/31203609/answer/50992895</a><br>
-来源：知乎</p>
-
-                </div>
               </div>
-              
-                <a class="right" href="https://zy080080.github.io//post/java-dao-di-shi-zhi-chuan-di-huan-shi-yin-yong-chuan-di">
-                  <div class="feature-container" style="background-image: url('https://pic2.zhimg.com/v2-7ef340b263bcbc95c0b4dffb0fc6b25b_1200x500.jpg')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zy080080.github.io//post/hui-bian-yu-yan-xiang-guan-zhi-ling-ying-wen-quan-cheng">
-                  <h2 class="post-title">汇编语言相关指令英文全称</h2>
-                </a>
-                <div class="post-date">
-                  2019-09-11 
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+            
 
-          <div class="pagination-container">
-  
-  
-</div>
+            
+
+          </div>
 
         </div>
       </div>
