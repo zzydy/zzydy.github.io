@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1568552485715">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1568599329229">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zy080080.github.io/">
-        <img src="https://zy080080.github.io//images/avatar.png?v=1568552485715" class="site-logo">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1568599329229" class="site-logo">
         <h1 class="site-title">听故事的人</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -202,6 +202,300 @@ add al,[0]      //将数据段第一个单元（偏移地址为0）中的数值�
 add al,[1]      //将数据段第二个单元（偏移地址为0）中的数值加到al中
 add al,[2]      //将数据段第三个单元（偏移地址为0）中的数值加到al中
 </code></pre>
+<h2 id="36-桟">3.6 桟</h2>
+<p> 桟是一种具有特殊的访问方式的存储空间。它的特殊性就在于，最后进入这个空间的数据，最先出去。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">桟</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">...</td>
+</tr>
+<tr>
+<td style="text-align:center">...</td>
+</tr>
+<tr>
+<td style="text-align:center">四单个数据</td>
+</tr>
+<tr>
+<td style="text-align:center">第二个数据</td>
+</tr>
+<tr>
+<td style="text-align:center">第一个数据</td>
+</tr>
+</tbody>
+</table>
+<p> 入栈就是将一个新的元素放到栈顶，出栈就是从栈顶取出一个元素。栈顶的元素总是最后入桟，需要出栈时，由最先被从桟中取出。桟的这种操作规则被称为：LIFO（Last In First Out）。</p>
+<h2 id="37-cpu提供的桟机制">3.7 CPU提供的桟机制</h2>
+<p> 8086CPU提供入栈和出栈指令，最基本的两个是 PUSH（入栈）和 POP（出栈）。</p>
+<pre><code>push ax //将寄存器ax中的数据送入桟中
+pop ax  //从栈顶取出数据送入ax
+</code></pre>
+<p> <mark>8086CPU的入栈和出栈操作都是以<strong>字</strong>为单位进行的</mark></p>
+<p> 8086CPU中，有两个寄存器，段寄存器 SS 和寄存器 SP，栈顶的段地址存放在 SS 中，偏移地址存放在 SP 中。任意时刻， SS:SP 指向<strong>栈顶元素</strong>。push指令和pop指令执行时，CPU从SS和SP中得到栈顶的地址。</p>
+<p> push ax的执行，由以下两步组成。</p>
+<ol>
+<li>SP=SP-2，SS:SP指向当前栈顶前面的单元，以当前栈顶前面的单元为新的栈顶。</li>
+<li>将ax中的内容送入SS:SP指向的内存单元处，SS:SP此时指向新栈顶。</li>
+</ol>
+<p> 8086CPU对push指令的执行过程：</p>
+<table>
+<thead>
+<tr>
+<th>地址</th>
+<th>内容</th>
+<th>SS:SP位置</th>
+<th>当前状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+<td>SS=1000</td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+<td>SP=000E</td>
+</tr>
+<tr>
+<td>1000B</td>
+<td></td>
+<td></td>
+<td>AX=2266</td>
+</tr>
+<tr>
+<td>1000C</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1000D</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1000E</td>
+<td>23</td>
+<td>←SS:SP</td>
+<td></td>
+</tr>
+<tr>
+<td>1000F</td>
+<td>01</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p> ↑栈中原本存在数据0123H，此时SS:SP指向1000EH。</p>
+<table>
+<thead>
+<tr>
+<th>地址</th>
+<th>内容</th>
+<th>SS:SP位置</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+<td>SS=1000</td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+<td>SP=000C</td>
+</tr>
+<tr>
+<td>1000B</td>
+<td></td>
+<td></td>
+<td>AX=2266</td>
+</tr>
+<tr>
+<td>1000C</td>
+<td></td>
+<td>←SS:SP</td>
+<td></td>
+</tr>
+<tr>
+<td>1000D</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1000E</td>
+<td>23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1000F</td>
+<td>01</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p> ↑CPU执行push，第一步：SP=SP-2，SS:SP指向1000CH。</p>
+<table>
+<thead>
+<tr>
+<th>地址</th>
+<th>内容</th>
+<th>SS:SP位置</th>
+<th>当前状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+<td>SS=1000</td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+<td>SP=000C</td>
+</tr>
+<tr>
+<td>1000B</td>
+<td></td>
+<td></td>
+<td>AX=2266</td>
+</tr>
+<tr>
+<td>1000C</td>
+<td>66</td>
+<td>←SS:SP</td>
+<td></td>
+</tr>
+<tr>
+<td>1000D</td>
+<td>22</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1000E</td>
+<td>23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1000F</td>
+<td>01</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p> ↑CPU执行push，第二步：将AX中的数据送入SS:SP指向的内存单元处。</p>
+<p> pop ax 的执行过程：</p>
+<ol>
+<li>将SS:SP指向的内存单元处的数据送入ax中。</li>
+<li>SP=SP+2，SS:SP指向当前栈顶下面的单元，以当前栈顶下面的单元为新的栈顶。</li>
+</ol>
+<p>注意：出栈后，原本SS:SP指向的单元内的内容依然存在，但是它已经不在栈中。当再次执行push等入栈指令后，会被新数据覆盖。</p>
+<h2 id="38-栈顶超界的问题">3.8 栈顶超界的问题</h2>
+<p> 8086CPU不保证我对栈的操作不会越界。也就是说，8086CPU只知道栈顶在何处（SS:SP），而不知道我们安排的栈空间有多大。这好像CPU只知道当前要执行的指令在哪里（CS:IP），而不知道要执行的指令有多少。从这两点我们可以看出8086CPU的工作机理，它只考虑当前的情况：当前的栈顶在何处、当前要执行的指令是哪一条。<br>
+ 我们在编程时要自己操心栈顶超界的问题。</p>
+<h2 id="39-push-pop指令">3.9 push、pop指令</h2>
+<p> push和pop指令的格式可以是如下形式：</p>
+<pre><code>push 寄存器     //将一个寄存器的数据入栈
+pop 寄存器      //出栈，用一个寄存器接收出栈的数据
+</code></pre>
+<p> 当然也可以是如下形式：</p>
+<pre><code>push 段寄存器   //将一个段寄存器的数据入栈
+pop 段寄存器    //出栈，用一个段寄存器接收出栈的数据
+</code></pre>
+<p> push和pop也可以在内存单元和内存单元之间传送数据：</p>
+<pre><code>push 内存单元   //将一个内存字单元处的字入栈（**注意：栈操作都是以字为单位的**）
+pop 内存单元    //出栈，用一个内存字单元接收出栈的数据
+</code></pre>
+<p> 比如：</p>
+<pre><code>mov ax,1000H    
+mov ds,ax       //内存单元的段地址要放在DS中
+push [0]        //将1000：0处的字压入栈中
+pop [2]         //出栈，出栈的数据送入1000：2处
+</code></pre>
+<p> 栈为空的情况：<br>
+将10000~1000F当做栈，初始状态为空</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">地址</th>
+<th style="text-align:center">内容</th>
+<th>SS:SP指向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">10000</td>
+<td style="text-align:center">空</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">...</td>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">...</td>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">1000C</td>
+<td style="text-align:center">空</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">1000D</td>
+<td style="text-align:center">空</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">1000E</td>
+<td style="text-align:center">空</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">1000F</td>
+<td style="text-align:center">空</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">10010</td>
+<td style="text-align:center">(其他内容)</td>
+<td>←SS:SP</td>
+</tr>
+</tbody>
+</table>
+<p> 执行push时，CPU的两步操作是：先改变SP，后向SS:SP处传送。<br>
+ 执行pop时，CPU的两步操作是：先读取SS:SP处的数据，后改变SP。</p>
+<p> 栈顶的变化范围：0~FFFFH。</p>
+<h2 id="310-栈段">3.10 栈段</h2>
+<p> 我们可以将长度为N（N&lt;=64KB）的一组地址连续、起始地址为16的倍数的内存单元当做栈来使用。</p>
+<p> 如果将10000H~1FFFFH这段空间当做栈段，初始状态栈是空的，此时SS=1000H，<strong>SP=0</strong>。（任意时刻，SS:SP指向栈顶元素，当栈为空时，也就不存在栈顶元素，所以SS:SP只能指向站的最底部单元下面的单元，该单元的地址为栈最底部的字单元的地址+2。栈最底部字单元的地址为1000:FFFE，所以栈空时，SP=0000H）</p>
+<h3 id="实验2">实验2：</h3>
+<p> 当用T执行mov ss，ax（任何修改SS的指令）的时候，它的下一条指令也会被紧接着执行。</p>
 
             </div>
             
