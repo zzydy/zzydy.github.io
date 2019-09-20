@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1568599329229">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1568947829586">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zy080080.github.io/">
-        <img src="https://zy080080.github.io//images/avatar.png?v=1568599329229" class="site-logo">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1568947829586" class="site-logo">
         <h1 class="site-title">听故事的人</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -151,13 +151,13 @@ foo(sb); // sb 没有被改变，还是 &quot;iphone&quot;。
 </code></pre>
 <p> 重点理解为什么，第三个例子和第四个例子结果不同？</p>
 <h3 id="下面是第三个例子的图解">下面是第三个例子的图解：</h3>
-<p><img src="https://pic2.zhimg.com/80/d8b82e07ea21375ca6b300f9162aa95f_hd.jpg" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="https://pic2.zhimg.com/80/d8b82e07ea21375ca6b300f9162aa95f_hd.jpg" alt=""></figure>
 <p> builder.append(&quot;4&quot;)之后</p>
-<p><img src="https://pic2.zhimg.com/80/ff2ede9c6c55568d42425561f25a0fd7_hd.jpg" alt=""></p>
+<figure data-type="image" tabindex="2"><img src="https://pic2.zhimg.com/80/ff2ede9c6c55568d42425561f25a0fd7_hd.jpg" alt=""></figure>
 <h3 id="下面是第四个例子的图解">下面是第四个例子的图解：</h3>
-<p><img src="https://pic2.zhimg.com/80/d8b82e07ea21375ca6b300f9162aa95f_hd.jpg" alt=""></p>
+<figure data-type="image" tabindex="3"><img src="https://pic2.zhimg.com/80/d8b82e07ea21375ca6b300f9162aa95f_hd.jpg" alt=""></figure>
 <p> builder = new StringBuilder(&quot;ipad&quot;); 之后</p>
-<p><img src="https://pic4.zhimg.com/80/46fa5f10cc135a3ca087dae35a5211bd_hd.jpg" alt=""></p>
+<figure data-type="image" tabindex="4"><img src="https://pic4.zhimg.com/80/46fa5f10cc135a3ca087dae35a5211bd_hd.jpg" alt=""></figure>
 <hr>
 <p>2018年1月31日添加部分内容：</p>
 <h2 id="从局部变量方法参数开始讲起">从局部变量/方法参数开始讲起：</h2>
@@ -167,16 +167,16 @@ foo(sb); // sb 没有被改变，还是 &quot;iphone&quot;。
 <h2 id="数组类型引用和对象">数组类型引用和对象：</h2>
 <p> 当我们声明一个数组时，如int[] arr = new int[10]，因为数组也是对象，arr实际上是引用，stack上仅仅占用4字节空间，new int[10]会在heap中开辟一个数组对象，然后arr指向它。</p>
 <p> 当我们声明一个二维数组时，如 int[][] arr2 = new int[2][4]，arr2同样仅在stack中占用4个字节，会在内存中开辟一个长度为2的，类型为int[]的数组，然后arr2指向这个数组。这个数组内部有两个引用（大小为4字节），分别指向两个长度为4的类型为int的数组。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-6590cb935ae8bf3b7241cb309fe041d7_hd.jpg" alt=""></p>
+<figure data-type="image" tabindex="5"><img src="https://pic4.zhimg.com/80/v2-6590cb935ae8bf3b7241cb309fe041d7_hd.jpg" alt=""></figure>
 <p> 所以当我们传递一个数组引用给一个方法时，数组的元素是可以被改变的，但是无法让数组引用指向新的数组。</p>
 <p> 你还可以这样声明：int[][] arr3 = new int[3][]，这时内存情况如下图</p>
-<p><img src="https://pic2.zhimg.com/80/v2-fdc86227021d56a02b559d6485983c71_hd.jpg" alt=""></p>
+<figure data-type="image" tabindex="6"><img src="https://pic2.zhimg.com/80/v2-fdc86227021d56a02b559d6485983c71_hd.jpg" alt=""></figure>
 <p> 你还可以这样 arr3[0] = new int [5]; arr3[1] = arr2[0];</p>
-<p><img src="https://pic1.zhimg.com/80/v2-fdc5e737a95d625a47d66ab61e4a2f55_hd.jpg" alt=""></p>
+<figure data-type="image" tabindex="7"><img src="https://pic1.zhimg.com/80/v2-fdc5e737a95d625a47d66ab61e4a2f55_hd.jpg" alt=""></figure>
 <h2 id="关于string">关于String：</h2>
 <p> 原本回答中关于String的图解是简化过的，实际上String对象内部仅需要维护三个变量，char[] chars, int startIndex, int length。而chars在某些情况下是可以共用的。但是因为String被设计成为了不可变类型，所以你思考时把String对象简化考虑也是可以的。</p>
 <p> String str = new String(&quot;hello&quot;);</p>
-<p><img src="https://pic4.zhimg.com/80/v2-a143d0a3594d06f54c6853c46c429e08_hd.jpg" alt=""></p>
+<figure data-type="image" tabindex="8"><img src="https://pic4.zhimg.com/80/v2-a143d0a3594d06f54c6853c46c429e08_hd.jpg" alt=""></figure>
 <p> 当然某些JVM实现会把&quot;hello&quot;字面量生成的String对象放到常量池中，而常量池中的对象可以实际分配在heap中，有些实现也许会分配在方法区，当然这对我们理解影响不大。</p>
 
             </div>
