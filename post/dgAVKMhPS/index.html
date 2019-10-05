@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>标签列表 | 听故事的人</title>
+<title>A solution of unable to boot up Raspberry Pi 4B | 听故事的人</title>
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,28 +104,49 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="tag-list-title">标签列表</h2>
-          <div class="tags-container">
+          <div class="post-detail">
+            <h2 class="post-title">A solution of unable to boot up Raspberry Pi 4B</h2>
+            <div class="post-date">2019-10-05 </div>
             
-              <a class="tag" href="https://zy080080.github.io//tag/xTak9Zn5O">Repost</a>
+              <div class="feature-container" style="background-image: url('https://zy080080.github.io//post-images/dgAVKMhPS.jpeg')">
+              </div>
             
-              <a class="tag" href="https://zy080080.github.io//tag/2a7cYaXp0">Java</a>
+            <div class="post-content">
+              <p> I received my new Raspberry Pi yesterday. I tried to boot up the Pi in two ways, but it couldn't be boot.<br>
+ At last, I found the solution on its homepage:</p>
+<blockquote>
+<p><a href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a><br>
+If your Raspberry Pi 4 will not boot, it is possible that the SPI EEPROM has become corrupted.<br>
+To check, remove the SD card, disconnect the device from power, then reconnect it. If the green LED does not flash, you will need to reprogram the EEPROM:</p>
+<ul>
+<li>Download the bootloader</li>
+<li>Extract it to an empty FAT-formatted SD card and insert it into your Raspberry Pi 4</li>
+<li>Connect the power and wait for the green LED to flash quickly</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>The updated bootloader improves compatibility with HATs by changing the behaviour of HALT to keep the 3V3 pin powered (view the full bootloader release notes)</li>
+<li>The previous bootloader remains available for download</li>
+</ul>
+</blockquote>
+
+            </div>
             
-              <a class="tag" href="https://zy080080.github.io//tag/xue-xi-bi-ji">学习笔记</a>
             
-              <a class="tag" href="https://zy080080.github.io//tag/hui-bian-yu-yan">汇编语言</a>
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io//post/fFi1CAqNV">
+                  <h3 class="post-title">
+                    Does Java pass by reference or pass by value?
+                  </h3>
+                </a>
+              </div>
             
-              <a class="tag" href="https://zy080080.github.io//tag/javazhong-wen">Java(中文)</a>
+
             
-              <a class="tag" href="https://zy080080.github.io//tag/zhuan-zai">转载</a>
-            
-              <a class="tag" href="https://zy080080.github.io//tag/DQLqh7V4P">Assembly Language</a>
-            
-              <a class="tag" href="https://zy080080.github.io//tag/notes">Notes</a>
-            
-              <a class="tag" href="https://zy080080.github.io//tag/ri-chang">日常</a>
-            
+
           </div>
+
         </div>
       </div>
     </div>

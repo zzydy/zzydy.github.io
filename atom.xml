@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2019-09-20T02:57:44.038Z</updated>
+    <updated>2019-10-05T12:40:06.381Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io//atom.xml"/>
@@ -10,6 +10,57 @@
     <logo>https://zy080080.github.io//images/avatar.png</logo>
     <icon>https://zy080080.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[解决无法启动树莓派4B的问题]]></title>
+        <id>https://zy080080.github.io//post/pE2JY0ig0</id>
+        <link href="https://zy080080.github.io//post/pE2JY0ig0">
+        </link>
+        <updated>2019-10-05T13:34:08.000Z</updated>
+        <content type="html"><![CDATA[<p> 昨天从日亚买的树莓派4B到货了，但是按网上说的无论是用NOOBS还是直接装系统都无法正常启动，一直处于红灯常亮状态。<br>
+ 找了半天相关消息都比较少，知道从官网看到：</p>
+<blockquote>
+<p><a href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a><br>
+If your Raspberry Pi 4 will not boot, it is possible that the SPI EEPROM has become corrupted.<br>
+To check, remove the SD card, disconnect the device from power, then reconnect it. If the green LED does not flash, you will need to reprogram the EEPROM:</p>
+<ul>
+<li>Download the bootloader</li>
+<li>Extract it to an empty FAT-formatted SD card and insert it into your Raspberry Pi 4</li>
+<li>Connect the power and wait for the green LED to flash quickly</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>The updated bootloader improves compatibility with HATs by changing the behaviour of HALT to keep the 3V3 pin powered (view the full bootloader release notes)</li>
+<li>The previous bootloader remains available for download</li>
+</ul>
+</blockquote>
+<p> 按照这个将下载的bootloader装进SD卡启动直到绿灯闪烁后，再次装NOOBS或者Raspbian系统，问题才得以解决。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[A solution of unable to boot up Raspberry Pi 4B]]></title>
+        <id>https://zy080080.github.io//post/dgAVKMhPS</id>
+        <link href="https://zy080080.github.io//post/dgAVKMhPS">
+        </link>
+        <updated>2019-10-05T13:26:46.000Z</updated>
+        <content type="html"><![CDATA[<p> I received my new Raspberry Pi yesterday. I tried to boot up the Pi in two ways, but it couldn't be boot.<br>
+ At last, I found the solution on its homepage:</p>
+<blockquote>
+<p><a href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a><br>
+If your Raspberry Pi 4 will not boot, it is possible that the SPI EEPROM has become corrupted.<br>
+To check, remove the SD card, disconnect the device from power, then reconnect it. If the green LED does not flash, you will need to reprogram the EEPROM:</p>
+<ul>
+<li>Download the bootloader</li>
+<li>Extract it to an empty FAT-formatted SD card and insert it into your Raspberry Pi 4</li>
+<li>Connect the power and wait for the green LED to flash quickly</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>The updated bootloader improves compatibility with HATs by changing the behaviour of HALT to keep the 3V3 pin powered (view the full bootloader release notes)</li>
+<li>The previous bootloader remains available for download</li>
+</ul>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Does Java pass by reference or pass by value?]]></title>
         <id>https://zy080080.github.io//post/fFi1CAqNV</id>
@@ -1343,40 +1394,6 @@ BIOS是由主板和各类接口卡（显卡网卡等）厂商提供的软件系�
 <li>CPU对他们进行读或写的时候都通过控制总线发出内存读写命令。</li>
 </ul>
 <p> 所有的物理储存器被看作一个由若干储存单元组成的逻辑储存器，每个物理储存器在这个逻辑储存器中占有一个地址段，即一段地址空间。CPU在这段地址空间中读写数据，实际上就是在相对应的物理储存器中读写数据。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Java time !]]></title>
-        <id>https://zy080080.github.io//post/java-time</id>
-        <link href="https://zy080080.github.io//post/java-time">
-        </link>
-        <updated>2019-08-23T17:21:07.000Z</updated>
-        <summary type="html"><![CDATA[<p>  It's time to learn something in English.</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>  It's time to learn something in English.</p>
-<!-- more --> 
-<p>  These days, I'm learning Java by watching videoes. Though I'd been learning Java for half a year, but meanwhile I was preparing my college entrance exam. so I could not concentrate on programming. I think it is necessary to have a review because in next term I'm going to attend Java class which is taught in Japanese.<br>
-  It's kind of a difficult stuff that learning something in three languages. I'm trying to review what I have learned by using a book called 'Head First Java', the English version.</p>
-<hr>
-<br>
-<p><img src="https://zy080080.github.io//post-images/1566570199123.png" alt=""><br>
- 整个暑假都在折腾英语和Java了....最近打算把汇编的书看一看，提前预习免得下学期忙不过来</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[My First Personal Blog]]></title>
-        <id>https://zy080080.github.io//post/my-first-personal-blog</id>
-        <link href="https://zy080080.github.io//post/my-first-personal-blog">
-        </link>
-        <updated>2019-08-22T11:06:53.000Z</updated>
-        <summary type="html"><![CDATA[<p> I watched a video on bilibili in which the author suggests that people who want to work at an IT company should start a blog. So I took whole day to figure out how to create a blog in github.</p>
-]]></summary>
-        <content type="html"><![CDATA[<p> I watched a video on bilibili in which the author suggests that people who want to work at an IT company should start a blog. So I took whole day to figure out how to create a blog in github.</p>
-<!-- more --> 
-<p> This is the first article I have written to celebrate the opening of my personal blog which at last ran successfully in 20190821. I'm going to use it as a technology blog and put any note on it which is important in programming or anything else computer involved.<br>
- I'll try my best to write articles in English. I hope this is a good challenge and a good chance to prove my proficiency in English.<br>
- Never Stop Learning.<br>
- 厚积薄发。</p>
 ]]></content>
     </entry>
 </feed>
