@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2019-10-05T12:51:41.316Z</updated>
+    <updated>2019-10-05T21:59:21.593Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io//atom.xml"/>
@@ -10,6 +10,45 @@
     <logo>https://zy080080.github.io//images/avatar.png</logo>
     <icon>https://zy080080.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[ラズベリーパイ 4Bが起動しない時の対応法]]></title>
+        <id>https://zy080080.github.io//post/1tSysQNzy</id>
+        <link href="https://zy080080.github.io//post/1tSysQNzy">
+        </link>
+        <updated>2019-10-05T23:00:08.000Z</updated>
+        <content type="html"><![CDATA[<p>ラズベリーパイを手に入れた</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[A solution of unable to boot up Raspberry Pi 4B]]></title>
+        <id>https://zy080080.github.io//post/dgAVKMhPS</id>
+        <link href="https://zy080080.github.io//post/dgAVKMhPS">
+        </link>
+        <updated>2019-10-05T20:26:46.000Z</updated>
+        <summary type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a></p>
+]]></summary>
+        <content type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a></p>
+<!-- more -->
+<p> I received my new Raspberry Pi yesterday. I tried to boot up the Pi in two ways, but it couldn't be boot.<br>
+ At last, I found the solution on its homepage:</p>
+<blockquote>
+<p><a href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a><br>
+If your Raspberry Pi 4 will not boot, it is possible that the SPI EEPROM has become corrupted.<br>
+To check, remove the SD card, disconnect the device from power, then reconnect it. If the green LED does not flash, you will need to reprogram the EEPROM:</p>
+<ul>
+<li>Download the bootloader</li>
+<li>Extract it to an empty FAT-formatted SD card and insert it into your Raspberry Pi 4</li>
+<li>Connect the power and wait for the green LED to flash quickly</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>The updated bootloader improves compatibility with HATs by changing the behaviour of HALT to keep the 3V3 pin powered (view the full bootloader release notes)</li>
+<li>The previous bootloader remains available for download</li>
+</ul>
+</blockquote>
+<hr>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[解决无法启动树莓派4B的问题]]></title>
         <id>https://zy080080.github.io//post/pE2JY0ig0</id>
@@ -38,35 +77,6 @@ To check, remove the SD card, disconnect the device from power, then reconnect i
 </ul>
 </blockquote>
 <p> 按照这个将下载的bootloader装进SD卡启动直到绿灯闪烁后，再次装NOOBS或者Raspbian系统，问题才得以解决。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[A solution of unable to boot up Raspberry Pi 4B]]></title>
-        <id>https://zy080080.github.io//post/dgAVKMhPS</id>
-        <link href="https://zy080080.github.io//post/dgAVKMhPS">
-        </link>
-        <updated>2019-10-05T15:26:46.000Z</updated>
-        <summary type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a></p>
-]]></summary>
-        <content type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a></p>
-<!-- more -->
-<p> I received my new Raspberry Pi yesterday. I tried to boot up the Pi in two ways, but it couldn't be boot.<br>
- At last, I found the solution on its homepage:</p>
-<blockquote>
-<p><a href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a><br>
-If your Raspberry Pi 4 will not boot, it is possible that the SPI EEPROM has become corrupted.<br>
-To check, remove the SD card, disconnect the device from power, then reconnect it. If the green LED does not flash, you will need to reprogram the EEPROM:</p>
-<ul>
-<li>Download the bootloader</li>
-<li>Extract it to an empty FAT-formatted SD card and insert it into your Raspberry Pi 4</li>
-<li>Connect the power and wait for the green LED to flash quickly</li>
-</ul>
-<p>Notes:</p>
-<ul>
-<li>The updated bootloader improves compatibility with HATs by changing the behaviour of HALT to keep the 3V3 pin powered (view the full bootloader release notes)</li>
-<li>The previous bootloader remains available for download</li>
-</ul>
-</blockquote>
 ]]></content>
     </entry>
     <entry>
@@ -1332,76 +1342,6 @@ public class LotteryDrawing {
 	}
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[汇编语言笔记（第一章）]]></title>
-        <id>https://zy080080.github.io//post/HBYybJD1Z</id>
-        <link href="https://zy080080.github.io//post/HBYybJD1Z">
-        </link>
-        <updated>2019-09-09T05:28:56.000Z</updated>
-        <summary type="html"><![CDATA[<p>汇编语言（第三版） 王爽著 清华大学出版社</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>汇编语言（第三版） 王爽著 清华大学出版社</p>
-<!-- more -->
-<h1 id="第一章">第一章</h1>
-<h2 id="1基础知识">1.基础知识</h2>
-<h3 id="11-机器语言">1.1 机器语言</h3>
-<ul>
-<li>电子计算机的机器指令是一列二进制数字。计算机将之转变为一列高低电平，以使计算机的电子器件受到驱动，进行运算。</li>
-<li>现在我们常用的PC机中，有一个芯片来完成上面所说的计算机的功能。这个芯片是CPU（Central Processing Unit），是一种微型处理器。</li>
-</ul>
-<h3 id="14-储存器">1.4 储存器</h3>
-<ul>
-<li>要想让一个CPU工作，就必须向它提供指令和数据。指令和数据在储存器中存放，也就是我们平时所说的内存。</li>
-<li>磁盘不同于内存，磁盘上的数据或程序如果不读到内存中，就无法被CPU使用。</li>
-</ul>
-<h3 id="16-储存单元">1.6 储存单元</h3>
-<ul>
-<li>储存器被划分成若干个储存单元，每个储存单元从0开始顺序编号，例如一个储存器有128个储存单元，编号从0~127。</li>
-<li><strong>微型机储存器的储存单元可以储存一个Byte</strong>，即8个二进制单位（bit）。一个储存器有128个储存单元，它可以储存128个Byte。</li>
-<li>微机储存器的容量是以字节为最小单位来计算的。对于拥有128个储存单元的储存器，我们可以说，它的容量是128个字节。</li>
-</ul>
-<h3 id="17-cpu对储存器的读写">1.7 CPU对储存器的读写</h3>
-<ul>
-<li>CPU想要进行数据的读写，必须和外部器件（标准的说法是芯片）进行下面三类信息的交互。
-<ul>
-<li>储存单元的地址（地址信息）。</li>
-<li>器件的选择，读说写的命令（控制信息）。</li>
-<li>读或写的数据（数据信息）。</li>
-</ul>
-</li>
-<li>地址总线、数据总线和控制总线。
-<ul>
-<li>地址总线的宽度决定了CPU的寻地址能力，一个CPU有N根地址总线，则可以说这个CPU的地址总线跨度为N。这样的CPU最多可以寻找2的N次方个内存单元。</li>
-<li>数据总线的宽度决定了CPU与其他器件进行数据传送时的一次数据传送量，决定了CPU和外接的数据传送速度。8根数据总线一次可以传送一个8位二进制数据（即一个字节）。16根数据总线一次可以传送两个字节。</li>
-<li>控制总线的宽度决定了CPU对系统中其他器件的控制能力。有多少根控制总线，就意味着CPU提供了对外部器件的多少种控制。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h4 id="检测点11">检测点1.1</h4>
-<p>1个CPU的寻地址能力是8KB，那么他的地址总线的宽度为<u>13</u>。（以二为底的log(8*1024)）<br>
-可寻址2^10个内存单元 = 2^10 Byte内存单元。<br>
-2^20 个不同的数据 = (2^20)/1024 = 1024KB 不同数据 = 1MB不同数据。</p>
-</blockquote>
-<h3 id="114-各类储存器芯片">1.14 各类储存器芯片</h3>
-<ul>
-<li>随机储存器（RAM），可读可写但必须带电储存，关机后储存的内容消失。<br>
-用于存放供CPU使用的决大份程序个数据，主随机储存器一般由两个位置上的RAM组成，装在主板上的RAM和插在扩展插槽上的RAM。</li>
-<li>装有BIOS（Basic Input/Output System，基本输入/输出系统）的ROM。<br>
-BIOS是由主板和各类接口卡（显卡网卡等）厂商提供的软件系统，可以通过它利用该硬件设备进行最基本的输入输出。<br>
-在主板和某些接口卡上插有储存相应BIOS的ROM。例如，主板上的ROM中分储存着主板的BIOS（通常称为系统BIOS）；显卡上的ROM中储存着显卡的BIOS。</li>
-<li>接口卡上的RAM。<br>
-某些接口卡需要对大批量输入、输出数据进行暂时储存，在其上装有RAM。最典型的是显示卡上的RAM，一般称为显存。显示卡随时将显存中的数据向显示器上输出。</li>
-</ul>
-<h3 id="115-内存地址空间">1.15 内存地址空间</h3>
-<p> 上述的那些储存器，在物理上是独立的器件，但是在以下两点上相同：</p>
-<ul>
-<li>都和CPU的总线相连。</li>
-<li>CPU对他们进行读或写的时候都通过控制总线发出内存读写命令。</li>
-</ul>
-<p> 所有的物理储存器被看作一个由若干储存单元组成的逻辑储存器，每个物理储存器在这个逻辑储存器中占有一个地址段，即一段地址空间。CPU在这段地址空间中读写数据，实际上就是在相对应的物理储存器中读写数据。</p>
 ]]></content>
     </entry>
 </feed>
