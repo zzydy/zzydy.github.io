@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2019-10-05T21:59:21.593Z</updated>
+    <updated>2019-10-05T22:08:33.698Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io//atom.xml"/>
@@ -15,8 +15,14 @@
         <id>https://zy080080.github.io//post/1tSysQNzy</id>
         <link href="https://zy080080.github.io//post/1tSysQNzy">
         </link>
-        <updated>2019-10-05T23:00:08.000Z</updated>
-        <content type="html"><![CDATA[<p>ラズベリーパイを手に入れた</p>
+        <updated>2019-10-06T01:00:08.000Z</updated>
+        <summary type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a><br>
+<a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a></p>
+]]></summary>
+        <content type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a><br>
+<a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a></p>
+<!-- more -->
+<p>ラズベリーパイを手に入れた</p>
 ]]></content>
     </entry>
     <entry>
@@ -24,10 +30,12 @@
         <id>https://zy080080.github.io//post/dgAVKMhPS</id>
         <link href="https://zy080080.github.io//post/dgAVKMhPS">
         </link>
-        <updated>2019-10-05T20:26:46.000Z</updated>
-        <summary type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a></p>
+        <updated>2019-10-05T21:26:46.000Z</updated>
+        <summary type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a><br>
+<a href="https://zy080080.github.io/post/1tSysQNzy/">ラズベリーパイ 4Bが起動しない時の対応法</a></p>
 ]]></summary>
-        <content type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a></p>
+        <content type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a><br>
+<a href="https://zy080080.github.io/post/1tSysQNzy/">ラズベリーパイ 4Bが起動しない時の対応法</a></p>
 <!-- more -->
 <p> I received my new Raspberry Pi yesterday. I tried to boot up the Pi in two ways, but it couldn't be boot.<br>
  At last, I found the solution on its homepage:</p>
@@ -54,10 +62,12 @@ To check, remove the SD card, disconnect the device from power, then reconnect i
         <id>https://zy080080.github.io//post/pE2JY0ig0</id>
         <link href="https://zy080080.github.io//post/pE2JY0ig0">
         </link>
-        <updated>2019-10-05T15:34:08.000Z</updated>
-        <summary type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a></p>
+        <updated>2019-10-05T16:34:08.000Z</updated>
+        <summary type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a><br>
+<a href="https://zy080080.github.io/post/1tSysQNzy/">ラズベリーパイ 4Bが起動しない時の対応法</a></p>
 ]]></summary>
-        <content type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a></p>
+        <content type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a><br>
+<a href="https://zy080080.github.io/post/1tSysQNzy/">ラズベリーパイ 4Bが起動しない時の対応法</a></p>
 <!-- more -->
 <p> 昨天从日亚买的树莓派4B到货了，但是按网上说的无论是用NOOBS还是直接装系统都无法正常启动，一直处于红灯常亮状态。<br>
  找了半天相关消息都比较少，直到从官网看到：</p>
