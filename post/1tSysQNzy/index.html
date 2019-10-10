@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1570313278411">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1570698805265">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
 
@@ -39,7 +39,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zy080080.github.io/">
-        <img src="https://zy080080.github.io//images/avatar.png?v=1570313278411" class="site-logo">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1570698805265" class="site-logo">
         <h1 class="site-title">听故事的人</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -115,7 +115,26 @@
               <p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a><br>
 <a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a></p>
 <!-- more -->
-<p>ラズベリーパイを手に入れた</p>
+<p>ラズベリーパイを手に入れてからすぐにNOOBSでインストールしてみたが、起動できませんでした。<br>
+そしてシステムを直接SDカードにインストールするのも試しましたが、同じく赤いLEDだけが点灯して、起動が失敗しました。</p>
+<p>まだラズパイ４Bに関してネット上に乗っている情報が少ないですが、公式Webページから対応法が見つかりました。</p>
+<blockquote>
+<p><a href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a><br>
+If your Raspberry Pi 4 will not boot, it is possible that the SPI EEPROM has become corrupted.<br>
+To check, remove the SD card, disconnect the device from power, then reconnect it. If the green LED does not flash, you will need to reprogram the EEPROM:</p>
+<ul>
+<li>Download the bootloader</li>
+<li>Extract it to an empty FAT-formatted SD card and insert it into your Raspberry Pi 4</li>
+<li>Connect the power and wait for the green LED to flash quickly</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>The updated bootloader improves compatibility with HATs by changing the behaviour of HALT to keep the 3V3 pin powered (view the full bootloader release notes)</li>
+<li>The previous bootloader remains available for download</li>
+</ul>
+</blockquote>
+<p>やっぱり英語は大切ですね。。。。</p>
+<p>ちなみに、SDカードをカードリーダに入れてUSBとしてラズパイに差し込んだ人もいたらしいですが、ちゃんと裏面にセットすれば問題ないはずです。</p>
 
             </div>
             
