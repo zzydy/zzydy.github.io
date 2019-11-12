@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2019-11-12T13:12:53.337Z</updated>
+    <updated>2019-11-12T13:14:12.472Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io//atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zy080080.github.io//post/jfUUCCexq</id>
         <link href="https://zy080080.github.io//post/jfUUCCexq">
         </link>
-        <updated>2019-11-12T15:09:20.000Z</updated>
+        <updated>2019-11-12T16:09:20.000Z</updated>
         <summary type="html"><![CDATA[<p>异常分为运行时异常（可查异常）和非运行时异常（不可查异常），他们的主要区别是……</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>异常分为运行时异常（可查异常）和非运行时异常（不可查异常），他们的主要区别是……</p>
@@ -32,7 +32,7 @@
 </ul>
 <p>在编写代码的时候，依然可以使用try cathc throws进行处理，与可查异常（非运行时异常）不同之处在于：</p>
 <ul>
-<li>即使不进行try catch，也==<strong>不会有编译错误</strong>==</li>
+<li>即使不进行try catch，也 <mark><strong>不会有编译错误</strong></mark></li>
 </ul>
 <p>Java之所以设计运行时异常的原因之一，是因为下标越界，空指针这些运行时异常<strong>太过于普遍</strong>，如果都需要进行捕捉，代码的可读性就会变得很糟。</p>
 <h2 id="错误-error">错误 Error</h2>
