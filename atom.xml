@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2019-11-12T13:24:48.383Z</updated>
+    <updated>2019-11-13T13:12:03.967Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io//atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zy080080.github.io//post/jfUUCCexq</id>
         <link href="https://zy080080.github.io//post/jfUUCCexq">
         </link>
-        <updated>2019-11-12T14:24:40.000Z</updated>
+        <updated>2019-11-12T15:24:40.000Z</updated>
         <summary type="html"><![CDATA[<p>异常分为运行时异常（可查异常）和非运行时异常（不可查异常），他们的主要区别是……</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>异常分为运行时异常（可查异常）和非运行时异常（不可查异常），他们的主要区别是……</p>
@@ -40,7 +40,7 @@
 <blockquote>
 <p>总结：</p>
 <p>运行时异常与非运行时异常的最大区别是，运行时异常（不可查异常）不需要进行显式的捕捉，编译器会让你通过。</p>
-<p>而非运行时异常（可查异常）需要进行显式的捕捉，不然编译器不会饶过你通过。</p>
+<p>而非运行时异常（可查异常）需要进行显式的捕捉，不然编译器不会让你通过。</p>
 </blockquote>
 ]]></content>
     </entry>
