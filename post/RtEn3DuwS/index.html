@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Notes | 听故事的人</title>
+<title>流的关闭方式 | 听故事的人</title>
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,54 +104,86 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: Notes</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zy080080.github.io//post/HbyyXGZL23">
-                  <h2 class="post-title">汇编语言相关指令英文全称</h2>
-                </a>
-                <div class="post-date">
-                  2019-09-11 
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
+          <div class="post-detail">
+            <h2 class="post-title">流的关闭方式</h2>
+            <div class="post-date">2019-11-15 </div>
+            
+              <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1559834648-865411cc1498?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1234&amp;q=80')">
               </div>
-              
-                <a class="right" href="https://zy080080.github.io//post/HbyyXGZL23">
-                  <div class="feature-container" style="background-image: url('https://images.freeimages.com/images/large-previews/b80/free-grunge-alphabet-set-1636579.jpg')">
-                  </div>
-                </a>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zy080080.github.io//post/AsProG7">
-                  <h2 class="post-title">The way to make sure never to draw a number twice</h2>
-                </a>
-                <div class="post-date">
-                  2019-09-10 
-                </div>
-                <div class="post-abstract">
-                  <p> When we draw k numbers from numbers[n], how to be sure never to draw a number again?</p>
+            
+            <div class="post-content">
+              <p> 所有的流都应该在使用完毕后关闭。如果不关闭，会占用资源。</p>
+<!-- more -->
+<h2 id="在try中关闭">在try中关闭</h2>
+<p> 有隐患。如果文件不存在或者在读取时出现异常，关闭流的方法不会被执行。 <strong>不推荐使用</strong></p>
+<h2 id="在finally中关闭">在finally中关闭</h2>
+<p> 这是标准的关闭流的方式。<br>
+ 在关闭时，需要进行一次try catch处理。<br>
+ 在写不重要的代码时可以采用try中关闭，不麻烦。</p>
+<pre><code>try {
+    FileOutputStream fos = new FileOutputStream(f);
+    fos.write(data1);
+    fos.write(data2);
+    fos.write(data4);
+    fos.write(data3);
+    //fos.close();  
+} catch (IOException e) {
+    e.printStackTrace();
+}finally {
+    try {
+        fos.close();
+    }catch(IOException e) {
+        e.printStackTrace();
+    }
+}
+</code></pre>
+<h2 id="使用try的方式">使用try()的方式</h2>
+<p> 把流定义在try()里,try,catch或者finally结束的时候，会自动关闭。<br>
+ 这种编写代码的方式叫做 <mark>try-with-resources</mark>， 这是从JDK7开始支持的技术<br>
+ 所有的流，都实现了一个接口叫做 <mark>AutoCloseable</mark>，任何类实现了这个接口，都可以在try()中进行实例化。 并且在try, catch, finally结束的时候自动关闭，回收相关资源。</p>
+<pre><code>public static void main(String[] args) {
+File f = new File(&quot;d:/lol.txt&quot;);
 
-                </div>
+    //把流定义在try()里,try,catch或者finally结束的时候，会自动关闭
+    try (FileInputStream fis = new FileInputStream(f)) {
+        byte[] all = new byte[(int) f.length()];
+        fis.read(all);
+        for (byte b : all) {
+            System.out.println(b);
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io//tag/javazhong-wen" class="tag">
+                    Java(中文)
+                  </a>
+                
+                  <a href="https://zy080080.github.io//tag/xue-xi-bi-ji" class="tag">
+                    学习笔记
+                  </a>
+                
               </div>
-              
-                <a class="right" href="https://zy080080.github.io//post/AsProG7">
-                  <div class="feature-container" style="background-image: url('https://zy080080.github.io//post-images/AsProG7.png')">
-                  </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io//post/jfUUCCexq">
+                  <h3 class="post-title">
+                    异常 Exception
+                  </h3>
                 </a>
-              
-            </article>
-          
+              </div>
+            
 
-          <div class="pagination-container">
-  
-  
-</div>
+            
+
+          </div>
 
         </div>
       </div>
