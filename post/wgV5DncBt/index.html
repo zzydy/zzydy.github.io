@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Java | 听故事的人</title>
+<title>IO Stream总结 | 听故事的人</title>
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,50 +104,118 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: Java</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zy080080.github.io//post/fFi1CAqNV">
-                  <h2 class="post-title">Does Java pass by reference or pass by value?</h2>
-                </a>
-                <div class="post-date">
-                  2019-09-16 
-                </div>
-                <div class="post-abstract">
-                  <p>Source：<a href="https://www.javaworld.com/article/2077424/learn-java-does-java-pass-by-reference-or-pass-by-value.html">https://www.javaworld.com/article/2077424/learn-java-does-java-pass-by-reference-or-pass-by-value.html</a></p>
-
-                </div>
+          <div class="post-detail">
+            <h2 class="post-title">IO Stream总结</h2>
+            <div class="post-date">2019-12-07 </div>
+            
+              <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1561736778-92e52a7769ef?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80')">
               </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zy080080.github.io//post/AsProG7">
-                  <h2 class="post-title">The way to make sure never to draw a number twice</h2>
-                </a>
-                <div class="post-date">
-                  2019-09-10 
-                </div>
-                <div class="post-abstract">
-                  <p> When we draw k numbers from numbers[n], how to be sure never to draw a number again?</p>
+            
+            <div class="post-content">
+              <p>IO流种类虽然多，但用法基本相同。</p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://zy080080.github.io//post-images/1575721507863.png" alt=""></figure>
+<h2 id="字节流">字节流</h2>
+<h3 id="字节输入流">字节输入流</h3>
+<h4 id="inputstream">InputStream</h4>
+<ul>
+<li>方法及子类
+<ul>
+<li>int read() : 一次读取一个字节</li>
+<li>int read(byte[] bys) : 一次读取一个字节数组</li>
+</ul>
+</li>
+<li>FileInputStream</li>
+<li>BufferedInputStream</li>
+</ul>
+<h3 id="字节输出流">字节输出流</h3>
+<h4 id="outputstream">OutputStream</h4>
+<ul>
+<li>方法及子类
+<ul>
+<li>void write(int by) : 一次写一个字节</li>
+<li>void write(byte[] bys, int i, int len) : 一次写一个字节数组的一部分</li>
+</ul>
+</li>
+<li>FileOutputStream</li>
+<li>BufferedOutputStream</li>
+</ul>
+<h2 id="转换流">转换流</h2>
+<ul>
+<li>InputStreamReader(InputStream is)</li>
+<li>OutputStreamWriter(OutputStream os)</li>
+</ul>
+<h2 id="字符流-字节流-编码表">字符流 = 字节流 + 编码表</h2>
+<h3 id="字符输入流">字符输入流</h3>
+<h4 id="reader">Reader</h4>
+<ul>
+<li>方法及子类
+<ul>
+<li>int read() : 一次读取一个字符</li>
+<li>int read(char[] chs) : 一次读取一个字符数组</li>
+</ul>
+</li>
+<li>InputStreamReader
+<ul>
+<li>FileReader</li>
+</ul>
+</li>
+<li>BufferedReader
+<ul>
+<li>String readLine() : 一次读取一行数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="字符输出流">字符输出流</h3>
+<h4 id="writer">Writer</h4>
+<ul>
+<li>方法及子类
+<ul>
+<li>void write(int ch) : 一次写一个字符</li>
+<li>void write(char[] chs, int i, int len) : 一次写一个字符数组的一部分</li>
+</ul>
+</li>
+<li>OutputStreamWriter
+<ul>
+<li>FileWriter</li>
+</ul>
+</li>
+<li>BufferedWriter
+<ul>
+<li>void newLine() : 写换行符号</li>
+<li>void write(String s) : 写一个字符串</li>
+</ul>
+</li>
+</ul>
 
-                </div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io//tag/javazhong-wen" class="tag">
+                    Java(中文)
+                  </a>
+                
+                  <a href="https://zy080080.github.io//tag/xue-xi-bi-ji" class="tag">
+                    学习笔记
+                  </a>
+                
               </div>
-              
-                <a class="right" href="https://zy080080.github.io//post/AsProG7">
-                  <div class="feature-container" style="background-image: url('https://zy080080.github.io//post-images/AsProG7.png')">
-                  </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io//post/7045yjWiy">
+                  <h3 class="post-title">
+                    计算机如何识别中文字符
+                  </h3>
                 </a>
-              
-            </article>
-          
+              </div>
+            
 
-          <div class="pagination-container">
-  
-  
-</div>
+            
+
+          </div>
 
         </div>
       </div>
