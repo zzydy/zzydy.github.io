@@ -2,25 +2,34 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2019-12-07T12:26:54.916Z</updated>
+    <updated>2020-01-13T02:01:47.631Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
-    <link rel="self" href="https://zy080080.github.io//atom.xml"/>
+    <link rel="self" href="https://zy080080.github.io/atom.xml"/>
     <subtitle>天青色等烟雨，而我在等你</subtitle>
-    <logo>https://zy080080.github.io//images/avatar.png</logo>
-    <icon>https://zy080080.github.io//favicon.ico</icon>
-    <rights>All rights reserved 2019, 听故事的人</rights>
+    <logo>https://zy080080.github.io/images/avatar.png</logo>
+    <icon>https://zy080080.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[线程的状态转换图]]></title>
+        <id>https://zy080080.github.io/post/9uq8XXg02</id>
+        <link href="https://zy080080.github.io/post/9uq8XXg02">
+        </link>
+        <updated>2020-01-13T03:00:10.000Z</updated>
+        <content type="html"><![CDATA[<p>Thread</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[IO Stream总结]]></title>
-        <id>https://zy080080.github.io//post/wgV5DncBt</id>
-        <link href="https://zy080080.github.io//post/wgV5DncBt">
+        <id>https://zy080080.github.io/post/wgV5DncBt</id>
+        <link href="https://zy080080.github.io/post/wgV5DncBt">
         </link>
-        <updated>2019-12-07T13:25:56.000Z</updated>
+        <updated>2019-12-07T14:25:56.000Z</updated>
         <summary type="html"><![CDATA[<p>IO流种类虽然多，但用法基本相同。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>IO流种类虽然多，但用法基本相同。</p>
 <!-- more -->
-<figure data-type="image" tabindex="1"><img src="https://zy080080.github.io//post-images/1575721507863.png" alt=""></figure>
+<figure data-type="image" tabindex="1"><img src="https://zy080080.github.io//post-images/1575721507863.png" alt="" loading="lazy"></figure>
 <h2 id="字节流">字节流</h2>
 <h3 id="字节输入流">字节输入流</h3>
 <h4 id="inputstream">InputStream</h4>
@@ -97,8 +106,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[计算机如何识别中文字符]]></title>
-        <id>https://zy080080.github.io//post/7045yjWiy</id>
-        <link href="https://zy080080.github.io//post/7045yjWiy">
+        <id>https://zy080080.github.io/post/7045yjWiy</id>
+        <link href="https://zy080080.github.io/post/7045yjWiy">
         </link>
         <updated>2019-11-30T14:32:11.000Z</updated>
         <summary type="html"><![CDATA[<p>使用字节输入流将中文字符打印到控制台时往往无法识别，而使用字节流复制文件却可以完美显示，计算机是如何识别中文字符的呢？</p>
@@ -116,8 +125,8 @@ System.out.println(by.toString());
     </entry>
     <entry>
         <title type="html"><![CDATA[流的关闭方式]]></title>
-        <id>https://zy080080.github.io//post/RtEn3DuwS</id>
-        <link href="https://zy080080.github.io//post/RtEn3DuwS">
+        <id>https://zy080080.github.io/post/RtEn3DuwS</id>
+        <link href="https://zy080080.github.io/post/RtEn3DuwS">
         </link>
         <updated>2019-11-15T13:13:12.000Z</updated>
         <summary type="html"><![CDATA[<p> 所有的流都应该在使用完毕后关闭。如果不关闭，会占用资源。</p>
@@ -169,8 +178,8 @@ File f = new File(&quot;d:/lol.txt&quot;);
     </entry>
     <entry>
         <title type="html"><![CDATA[异常 Exception]]></title>
-        <id>https://zy080080.github.io//post/jfUUCCexq</id>
-        <link href="https://zy080080.github.io//post/jfUUCCexq">
+        <id>https://zy080080.github.io/post/jfUUCCexq</id>
+        <link href="https://zy080080.github.io/post/jfUUCCexq">
         </link>
         <updated>2019-11-12T15:24:40.000Z</updated>
         <summary type="html"><![CDATA[<p>异常分为运行时异常（可查异常）和非运行时异常（不可查异常），他们的主要区别是……</p>
@@ -203,8 +212,8 @@ File f = new File(&quot;d:/lol.txt&quot;);
     </entry>
     <entry>
         <title type="html"><![CDATA[ラズベリーパイ 4Bが起動しない時の対応法]]></title>
-        <id>https://zy080080.github.io//post/1tSysQNzy</id>
-        <link href="https://zy080080.github.io//post/1tSysQNzy">
+        <id>https://zy080080.github.io/post/1tSysQNzy</id>
+        <link href="https://zy080080.github.io/post/1tSysQNzy">
         </link>
         <updated>2019-10-06T03:00:08.000Z</updated>
         <summary type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a><br>
@@ -237,8 +246,8 @@ To check, remove the SD card, disconnect the device from power, then reconnect i
     </entry>
     <entry>
         <title type="html"><![CDATA[A solution of unable to boot up Raspberry Pi 4B]]></title>
-        <id>https://zy080080.github.io//post/dgAVKMhPS</id>
-        <link href="https://zy080080.github.io//post/dgAVKMhPS">
+        <id>https://zy080080.github.io/post/dgAVKMhPS</id>
+        <link href="https://zy080080.github.io/post/dgAVKMhPS">
         </link>
         <updated>2019-10-05T21:26:46.000Z</updated>
         <summary type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a><br>
@@ -269,8 +278,8 @@ To check, remove the SD card, disconnect the device from power, then reconnect i
     </entry>
     <entry>
         <title type="html"><![CDATA[解决无法启动树莓派4B的问题]]></title>
-        <id>https://zy080080.github.io//post/pE2JY0ig0</id>
-        <link href="https://zy080080.github.io//post/pE2JY0ig0">
+        <id>https://zy080080.github.io/post/pE2JY0ig0</id>
+        <link href="https://zy080080.github.io/post/pE2JY0ig0">
         </link>
         <updated>2019-10-05T16:34:08.000Z</updated>
         <summary type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a><br>
@@ -301,8 +310,8 @@ To check, remove the SD card, disconnect the device from power, then reconnect i
     </entry>
     <entry>
         <title type="html"><![CDATA[Does Java pass by reference or pass by value?]]></title>
-        <id>https://zy080080.github.io//post/fFi1CAqNV</id>
-        <link href="https://zy080080.github.io//post/fFi1CAqNV">
+        <id>https://zy080080.github.io/post/fFi1CAqNV</id>
+        <link href="https://zy080080.github.io/post/fFi1CAqNV">
         </link>
         <updated>2019-09-15T16:46:51.000Z</updated>
         <summary type="html"><![CDATA[<p>Source：<a href="https://www.javaworld.com/article/2077424/learn-java-does-java-pass-by-reference-or-pass-by-value.html">https://www.javaworld.com/article/2077424/learn-java-does-java-pass-by-reference-or-pass-by-value.html</a></p>
@@ -348,15 +357,15 @@ X: 100 Y: 100
 X: 0 Y: 0
 </code></pre>
 <p>The method successfully alters the value of pnt1, even though it is passed by value; however, a swap of pnt1 and pnt2 fails! This is the major source of confusion. In the main() method, pnt1 and pnt2 are nothing more than object references. When you pass pnt1 and pnt2 to the tricky() method, Java passes the references by value just like any other parameter. This means the references passed to the method are actually copies of the original references. Figure 1 below shows two references pointing to the same object after Java passes an object to a method.</p>
-<figure data-type="image" tabindex="1"><img src="https://images.techhive.com/images/idge/imported/article/jvw/2000/05/03-qa-0512-pass1-100158781-orig.gif" alt="Figure 1. After being passed to a method, an object will have at least two references"></figure>
+<figure data-type="image" tabindex="1"><img src="https://images.techhive.com/images/idge/imported/article/jvw/2000/05/03-qa-0512-pass1-100158781-orig.gif" alt="Figure 1. After being passed to a method, an object will have at least two references" loading="lazy"></figure>
 <p>Java copies and passes the reference by value, not the object. Thus, method manipulation will alter the objects, since the references point to the original objects. But since the references are copies, swaps will fail. As Figure 2 illustrates, the method references swap, but not the original references. Unfortunately, after a method call, you are left with only the unswapped original references. For a swap to succeed outside of the method call, we need to swap the original references, not the copies.</p>
 <p>O'Reilly's Java in a Nutshell by David Flanagan (see Resources) puts it best: &quot;Java manipulates objects 'by reference,' but it passes object references to methods 'by value.'&quot; As a result, you cannot write a standard swap method to swap objects.</p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[汇编语言笔记（第三章）]]></title>
-        <id>https://zy080080.github.io//post/lwMS0nfZZ</id>
-        <link href="https://zy080080.github.io//post/lwMS0nfZZ">
+        <id>https://zy080080.github.io/post/lwMS0nfZZ</id>
+        <link href="https://zy080080.github.io/post/lwMS0nfZZ">
         </link>
         <updated>2019-09-13T03:39:41.000Z</updated>
         <summary type="html"><![CDATA[<p>汇编语言（第三版） 王爽著 清华大学出版社</p>
@@ -754,39 +763,6 @@ pop [2]         //出栈，出栈的数据送入1000：2处
 <p> 如果将10000H~1FFFFH这段空间当做栈段，初始状态栈是空的，此时SS=1000H，<strong>SP=0</strong>。（任意时刻，SS:SP指向栈顶元素，当栈为空时，也就不存在栈顶元素，所以SS:SP只能指向站的最底部单元下面的单元，该单元的地址为栈最底部的字单元的地址+2。栈最底部字单元的地址为1000:FFFE，所以栈空时，SP=0000H）</p>
 <h3 id="实验2">实验2：</h3>
 <p> 当用T执行mov ss，ax（任何修改SS的指令）的时候，它的下一条指令也会被紧接着执行。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[StringBuffer作为参数传递问题]]></title>
-        <id>https://zy080080.github.io//post/SbZ2wCsCd</id>
-        <link href="https://zy080080.github.io//post/SbZ2wCsCd">
-        </link>
-        <updated>2019-09-12T09:12:57.000Z</updated>
-        <content type="html"><![CDATA[<pre><code>public class StringBufferTest {
-    public static void main(String[] args) {
-	    String s1 = &quot;hello&quot;;
-		String s2 = &quot;world&quot;;
-    	System.out.println(s1 + &quot;---&quot; + s2);// hello---world
-	    change(s1, s2);
-		System.out.println(s1 + &quot;---&quot; + s2);// hello---world 
-
-    	StringBuffer sb1 = new StringBuffer(&quot;hello&quot;);
-	    StringBuffer sb2 = new StringBuffer(&quot;world&quot;);
-    	System.out.println(sb1 + &quot;---&quot; + sb2);// hello---world
-		change(sb1, sb2);
-		System.out.println(sb1 + &quot;---&quot; + sb2);// hello---worldworld
-	}
-
-	public static void change(StringBuffer sb1, StringBuffer sb2) {
-		sb1 = sb2;//引用的东西变了而已，main中的sb1引用没变
-		sb2.append(sb1);
-	}
-
-    public static void change(String s1, String s2) {
-	    s1 = s2;
-	    s2 = s1 + s2;
-    }
-}</code></pre>
 ]]></content>
     </entry>
 </feed>
