@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-01-17T14:05:53.019Z</updated>
+    <updated>2020-01-17T14:12:22.976Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -15,28 +15,30 @@
         <id>https://zy080080.github.io/post/9KbTa6Jc8</id>
         <link href="https://zy080080.github.io/post/9KbTa6Jc8">
         </link>
-        <updated>2020-01-17T14:45:54.000Z</updated>
-        <content type="html"><![CDATA[<pre><code>import java.util.Scanner;
+        <updated>2020-01-17T15:45:54.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>package exceptionTest;
+
+import java.util.Scanner;
 
 public class ScannerExceptionTest {
     public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
+    	Scanner sc = new Scanner(System.in);
 
     	sc.close();
 
     	Scanner scan = new Scanner(System.in);
-	    int num = scan.nextInt();
-	    System.out.println(num);	
+	int num = scan.nextInt();
+	System.out.println(num);
     }
 }
 </code></pre>
 <p>出现异常</p>
 <pre><code>Exception in thread &quot;main&quot; java.util.NoSuchElementException
-at java.util.Scanner.throwFor(Scanner.java:862)
-at java.util.Scanner.next(Scanner.java:1485)
-at java.util.Scanner.nextInt(Scanner.java:2117)
-at java.util.Scanner.nextInt(Scanner.java:2076)
-at exceptionTest.ScannerExceptionTest.main(ScannerExceptionTest.java:12)
+    at java.util.Scanner.throwFor(Scanner.java:862)
+    at java.util.Scanner.next(Scanner.java:1485)
+    at java.util.Scanner.nextInt(Scanner.java:2117)
+    at java.util.Scanner.nextInt(Scanner.java:2076)
+    at exceptionTest.ScannerExceptionTest.main(ScannerExceptionTest.java:12)
 </code></pre>
 <p>close()方法被调用时，导致标准输入System.in的关闭，<strong>关闭后无法再次打开</strong>。</p>
 ]]></content>
