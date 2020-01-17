@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-01-17T14:12:22.976Z</updated>
+    <updated>2020-01-17T14:13:48.597Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zy080080.github.io/post/9KbTa6Jc8</id>
         <link href="https://zy080080.github.io/post/9KbTa6Jc8">
         </link>
-        <updated>2020-01-17T15:45:54.000Z</updated>
+        <updated>2020-01-17T16:45:54.000Z</updated>
         <content type="html"><![CDATA[<pre><code>package exceptionTest;
 
 import java.util.Scanner;
@@ -27,8 +27,8 @@ public class ScannerExceptionTest {
     	sc.close();
 
     	Scanner scan = new Scanner(System.in);
-	int num = scan.nextInt();
-	System.out.println(num);
+	    int num = scan.nextInt();
+	    System.out.println(num);
     }
 }
 </code></pre>
