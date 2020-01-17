@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>A solution of unable to boot up Raspberry Pi 4B | 听故事的人</title>
+<title>Scanner-java.util.NoSuchElementException | 听故事的人</title>
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -105,43 +105,57 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">A solution of unable to boot up Raspberry Pi 4B</h2>
-            <div class="post-date">2019-10-06 </div>
+            <h2 class="post-title">Scanner-java.util.NoSuchElementException</h2>
+            <div class="post-date">2020-01-17 </div>
             
-              <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1553406830-4fd6df625354?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=3578&amp;q=80')">
+              <div class="feature-container" style="background-image: url('https://images.freeimages.com/images/large-previews/7ec/showreel-1144208.jpg')">
               </div>
             
             <div class="post-content">
-              <p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a><br>
-<a href="https://zy080080.github.io/post/1tSysQNzy/">ラズベリーパイ 4Bが起動しない時の対応法</a></p>
-<!-- more -->
-<p> I received my new Raspberry Pi yesterday. I tried to boot up the Pi in two ways, but it couldn't be boot.<br>
- At last, I found the solution on its homepage:</p>
-<blockquote>
-<p><a href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a><br>
-If your Raspberry Pi 4 will not boot, it is possible that the SPI EEPROM has become corrupted.<br>
-To check, remove the SD card, disconnect the device from power, then reconnect it. If the green LED does not flash, you will need to reprogram the EEPROM:</p>
-<ul>
-<li>Download the bootloader</li>
-<li>Extract it to an empty FAT-formatted SD card and insert it into your Raspberry Pi 4</li>
-<li>Connect the power and wait for the green LED to flash quickly</li>
-</ul>
-<p>Notes:</p>
-<ul>
-<li>The updated bootloader improves compatibility with HATs by changing the behaviour of HALT to keep the 3V3 pin powered (view the full bootloader release notes)</li>
-<li>The previous bootloader remains available for download</li>
-</ul>
-</blockquote>
-<hr>
+              <pre><code>import java.util.Scanner;
+
+public class ScannerExceptionTest {
+    public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+
+    	sc.close();
+
+    	Scanner scan = new Scanner(System.in);
+	    int num = scan.nextInt();
+	    System.out.println(num);	
+    }
+}
+</code></pre>
+<p>出现异常</p>
+<pre><code>Exception in thread &quot;main&quot; java.util.NoSuchElementException
+at java.util.Scanner.throwFor(Scanner.java:862)
+at java.util.Scanner.next(Scanner.java:1485)
+at java.util.Scanner.nextInt(Scanner.java:2117)
+at java.util.Scanner.nextInt(Scanner.java:2076)
+at exceptionTest.ScannerExceptionTest.main(ScannerExceptionTest.java:12)
+</code></pre>
+<p>close()方法被调用时，导致标准输入System.in的关闭，<strong>关闭后无法再次打开</strong>。</p>
 
             </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/javazhong-wen" class="tag">
+                    Java(中文)
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/xue-xi-bi-ji" class="tag">
+                    学习笔记
+                  </a>
+                
+              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://zy080080.github.io/post/pE2JY0ig0">
+                <a href="https://zy080080.github.io/post/9uq8XXg02">
                   <h3 class="post-title">
-                    解决无法启动树莓派4B的问题
+                    线程的状态转换图
                   </h3>
                 </a>
               </div>
