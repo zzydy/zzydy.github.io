@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-01-17T14:13:48.597Z</updated>
+    <updated>2020-02-25T23:05:25.924Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -11,9 +11,45 @@
     <icon>https://zy080080.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 听故事的人</rights>
     <entry>
+        <title type="html"><![CDATA[The relation among Frame, Container, Component]]></title>
+        <id>https://zy080080.github.io/post/h3kJtgJgp/</id>
+        <link href="https://zy080080.github.io/post/h3kJtgJgp/">
+        </link>
+        <updated>2020-02-25T23:58:07.000Z</updated>
+        <summary type="html"><![CDATA[<p>References from API</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>References from API</p>
+<!-- more -->
+<ul>
+<li>java.lang.Object
+<ul>
+<li>java.awt.Component
+<ul>
+<li>java.awt.Container
+<ul>
+<li>java.awt.Window
+<ul>
+<li>java.awt.Frame</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>A component is an object having a graphical representation that can be displayed on the screen and that can interact with the user. Examples of components are the buttons, checkboxes, and scrollbars of a typical graphical user interface.</p>
+<p>A generic Abstract Window Toolkit(AWT) container object is a component that can contain other AWT components.</p>
+<p>A Window object is a top-level window with no borders and no menubar. The default layout for a window is BorderLayout.<br>
+A window must have either a frame, dialog, or another window defined as its owner when it's constructed.</p>
+<p>A Frame is a top-level window with a title and a border.</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Scanner-java.util.NoSuchElementException]]></title>
-        <id>https://zy080080.github.io/post/9KbTa6Jc8</id>
-        <link href="https://zy080080.github.io/post/9KbTa6Jc8">
+        <id>https://zy080080.github.io/post/9KbTa6Jc8/</id>
+        <link href="https://zy080080.github.io/post/9KbTa6Jc8/">
         </link>
         <updated>2020-01-17T16:45:54.000Z</updated>
         <content type="html"><![CDATA[<pre><code>package exceptionTest;
@@ -45,8 +81,8 @@ public class ScannerExceptionTest {
     </entry>
     <entry>
         <title type="html"><![CDATA[线程的状态转换图]]></title>
-        <id>https://zy080080.github.io/post/9uq8XXg02</id>
-        <link href="https://zy080080.github.io/post/9uq8XXg02">
+        <id>https://zy080080.github.io/post/9uq8XXg02/</id>
+        <link href="https://zy080080.github.io/post/9uq8XXg02/">
         </link>
         <updated>2020-01-13T03:00:10.000Z</updated>
         <content type="html"><![CDATA[<p>Thread</p>
@@ -54,8 +90,8 @@ public class ScannerExceptionTest {
     </entry>
     <entry>
         <title type="html"><![CDATA[IO Stream总结]]></title>
-        <id>https://zy080080.github.io/post/wgV5DncBt</id>
-        <link href="https://zy080080.github.io/post/wgV5DncBt">
+        <id>https://zy080080.github.io/post/wgV5DncBt/</id>
+        <link href="https://zy080080.github.io/post/wgV5DncBt/">
         </link>
         <updated>2019-12-07T14:25:56.000Z</updated>
         <summary type="html"><![CDATA[<p>IO流种类虽然多，但用法基本相同。</p>
@@ -139,8 +175,8 @@ public class ScannerExceptionTest {
     </entry>
     <entry>
         <title type="html"><![CDATA[计算机如何识别中文字符]]></title>
-        <id>https://zy080080.github.io/post/7045yjWiy</id>
-        <link href="https://zy080080.github.io/post/7045yjWiy">
+        <id>https://zy080080.github.io/post/7045yjWiy/</id>
+        <link href="https://zy080080.github.io/post/7045yjWiy/">
         </link>
         <updated>2019-11-30T14:32:11.000Z</updated>
         <summary type="html"><![CDATA[<p>使用字节输入流将中文字符打印到控制台时往往无法识别，而使用字节流复制文件却可以完美显示，计算机是如何识别中文字符的呢？</p>
@@ -158,8 +194,8 @@ System.out.println(by.toString());
     </entry>
     <entry>
         <title type="html"><![CDATA[流的关闭方式]]></title>
-        <id>https://zy080080.github.io/post/RtEn3DuwS</id>
-        <link href="https://zy080080.github.io/post/RtEn3DuwS">
+        <id>https://zy080080.github.io/post/RtEn3DuwS/</id>
+        <link href="https://zy080080.github.io/post/RtEn3DuwS/">
         </link>
         <updated>2019-11-15T13:13:12.000Z</updated>
         <summary type="html"><![CDATA[<p> 所有的流都应该在使用完毕后关闭。如果不关闭，会占用资源。</p>
@@ -211,8 +247,8 @@ File f = new File(&quot;d:/lol.txt&quot;);
     </entry>
     <entry>
         <title type="html"><![CDATA[异常 Exception]]></title>
-        <id>https://zy080080.github.io/post/jfUUCCexq</id>
-        <link href="https://zy080080.github.io/post/jfUUCCexq">
+        <id>https://zy080080.github.io/post/jfUUCCexq/</id>
+        <link href="https://zy080080.github.io/post/jfUUCCexq/">
         </link>
         <updated>2019-11-12T15:24:40.000Z</updated>
         <summary type="html"><![CDATA[<p>异常分为运行时异常（可查异常）和非运行时异常（不可查异常），他们的主要区别是……</p>
@@ -245,8 +281,8 @@ File f = new File(&quot;d:/lol.txt&quot;);
     </entry>
     <entry>
         <title type="html"><![CDATA[ラズベリーパイ 4Bが起動しない時の対応法]]></title>
-        <id>https://zy080080.github.io/post/1tSysQNzy</id>
-        <link href="https://zy080080.github.io/post/1tSysQNzy">
+        <id>https://zy080080.github.io/post/1tSysQNzy/</id>
+        <link href="https://zy080080.github.io/post/1tSysQNzy/">
         </link>
         <updated>2019-10-06T03:00:08.000Z</updated>
         <summary type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a><br>
@@ -279,8 +315,8 @@ To check, remove the SD card, disconnect the device from power, then reconnect i
     </entry>
     <entry>
         <title type="html"><![CDATA[A solution of unable to boot up Raspberry Pi 4B]]></title>
-        <id>https://zy080080.github.io/post/dgAVKMhPS</id>
-        <link href="https://zy080080.github.io/post/dgAVKMhPS">
+        <id>https://zy080080.github.io/post/dgAVKMhPS/</id>
+        <link href="https://zy080080.github.io/post/dgAVKMhPS/">
         </link>
         <updated>2019-10-05T21:26:46.000Z</updated>
         <summary type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a><br>
@@ -311,8 +347,8 @@ To check, remove the SD card, disconnect the device from power, then reconnect i
     </entry>
     <entry>
         <title type="html"><![CDATA[解决无法启动树莓派4B的问题]]></title>
-        <id>https://zy080080.github.io/post/pE2JY0ig0</id>
-        <link href="https://zy080080.github.io/post/pE2JY0ig0">
+        <id>https://zy080080.github.io/post/pE2JY0ig0/</id>
+        <link href="https://zy080080.github.io/post/pE2JY0ig0/">
         </link>
         <updated>2019-10-05T16:34:08.000Z</updated>
         <summary type="html"><![CDATA[<p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a><br>
@@ -339,60 +375,6 @@ To check, remove the SD card, disconnect the device from power, then reconnect i
 </ul>
 </blockquote>
 <p> 按照这个将下载的bootloader装进SD卡启动直到绿灯闪烁后，再次装NOOBS或者Raspbian系统，问题才得以解决。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Does Java pass by reference or pass by value?]]></title>
-        <id>https://zy080080.github.io/post/fFi1CAqNV</id>
-        <link href="https://zy080080.github.io/post/fFi1CAqNV">
-        </link>
-        <updated>2019-09-15T16:46:51.000Z</updated>
-        <summary type="html"><![CDATA[<p>Source：<a href="https://www.javaworld.com/article/2077424/learn-java-does-java-pass-by-reference-or-pass-by-value.html">https://www.javaworld.com/article/2077424/learn-java-does-java-pass-by-reference-or-pass-by-value.html</a></p>
-]]></summary>
-        <content type="html"><![CDATA[<p>Source：<a href="https://www.javaworld.com/article/2077424/learn-java-does-java-pass-by-reference-or-pass-by-value.html">https://www.javaworld.com/article/2077424/learn-java-does-java-pass-by-reference-or-pass-by-value.html</a></p>
-<!-- more -->
-<p><a href="https://zy080080.github.io/post/UYqd_tZ7B/">点此查看相关中文文章</a></p>
-<h2 id="q-learn-java-if-java-uses-the-pass-by-reference-why-wont-a-swap-function-work">Q: Learn Java: If Java uses the pass-by reference, why won't a swap function work?</h2>
-<p>A: Java does manipulate objects by reference, and all object variables are references. However, Java doesn't pass method arguments by reference; it passes them by value.</p>
-<p>Take the badSwap() method for example:</p>
-<pre><code>public void badSwap(int var1, int var2)
-{
- int temp = var1;
- var1 = var2;
- var2 = temp;
-}
-</code></pre>
-<p>When badSwap() returns, the variables passed as arguments will still hold their original values. The method will also fail if we change the arguments type from int to Object, since Java passes object references by value as well. Now, here is where it gets tricky:</p>
-<pre><code>public void tricky(Point arg1, Point arg2)
-{
- arg1.x = 100;
- arg1.y = 100;
- Point temp = arg1;
- arg1 = arg2;
- arg2 = temp;
-}
-public static void main(String [] args)
-{
- Point pnt1 = new Point(0,0);
- Point pnt2 = new Point(0,0);
- System.out.println(&quot;X: &quot; + pnt1.x + &quot; Y: &quot; +pnt1.y); 
- System.out.println(&quot;X: &quot; + pnt2.x + &quot; Y: &quot; +pnt2.y);
- System.out.println(&quot; &quot;);
- tricky(pnt1,pnt2);
- System.out.println(&quot;X: &quot; + pnt1.x + &quot; Y:&quot; + pnt1.y); 
- System.out.println(&quot;X: &quot; + pnt2.x + &quot; Y: &quot; +pnt2.y);  
-}
-</code></pre>
-<p>If we execute this main() method, we see the following output:</p>
-<pre><code>X: 0 Y: 0
-X: 0 Y: 0
-X: 100 Y: 100
-X: 0 Y: 0
-</code></pre>
-<p>The method successfully alters the value of pnt1, even though it is passed by value; however, a swap of pnt1 and pnt2 fails! This is the major source of confusion. In the main() method, pnt1 and pnt2 are nothing more than object references. When you pass pnt1 and pnt2 to the tricky() method, Java passes the references by value just like any other parameter. This means the references passed to the method are actually copies of the original references. Figure 1 below shows two references pointing to the same object after Java passes an object to a method.</p>
-<figure data-type="image" tabindex="1"><img src="https://images.techhive.com/images/idge/imported/article/jvw/2000/05/03-qa-0512-pass1-100158781-orig.gif" alt="Figure 1. After being passed to a method, an object will have at least two references" loading="lazy"></figure>
-<p>Java copies and passes the reference by value, not the object. Thus, method manipulation will alter the objects, since the references point to the original objects. But since the references are copies, swaps will fail. As Figure 2 illustrates, the method references swap, but not the original references. Unfortunately, after a method call, you are left with only the unswapped original references. For a swap to succeed outside of the method call, we need to swap the original references, not the copies.</p>
-<p>O'Reilly's Java in a Nutshell by David Flanagan (see Resources) puts it best: &quot;Java manipulates objects 'by reference,' but it passes object references to methods 'by value.'&quot; As a result, you cannot write a standard swap method to swap objects.</p>
 ]]></content>
     </entry>
 </feed>
