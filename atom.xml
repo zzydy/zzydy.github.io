@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-03-18T06:49:33.925Z</updated>
+    <updated>2020-03-18T06:58:03.732Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -15,13 +15,14 @@
         <id>https://zy080080.github.io/post/lDrxzMPwn/</id>
         <link href="https://zy080080.github.io/post/lDrxzMPwn/">
         </link>
-        <updated>2020-03-18T18:34:17.000Z</updated>
-        <summary type="html"><![CDATA[<p>The Tomcat server.xml file allows you to configure Tomcat using a simple XML descriptor. This XML file is at the heart of Tomcat.</p>
+        <updated>2020-03-18T19:34:17.000Z</updated>
+        <summary type="html"><![CDATA[<p><a name="top"></a><br>
+The Tomcat server.xml file allows you to configure Tomcat using a simple XML descriptor. This XML file is at the heart of Tomcat.</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>The Tomcat server.xml file allows you to configure Tomcat using a simple XML descriptor. This XML file is at the heart of Tomcat.</p>
+        <content type="html"><![CDATA[<p><a name="top"></a><br>
+The Tomcat server.xml file allows you to configure Tomcat using a simple XML descriptor. This XML file is at the heart of Tomcat.</p>
 <!-- more -->
-<p><a href="#cn">跳转至中文资料</a><br>
-<a name="top"></a></p>
+<p><a href="#cn">跳转至中文资料</a></p>
 <p><a href="https://www.akadia.com/download/soug/tomcat/html/tomcat_server_xml.html">resource: Demystifying Tomcat 4's server.xml File - Akadia</a><br>
 <br /><br>
 In this article, I will focus on the configuration of all of the major Tomcat components found in the server.xml file. To examine these components, open your server.xml file, which can be found in the conf/ directory of your Tomcat installation. The following listing contains a simplified version of the default server.xml file.</p>
@@ -185,9 +186,9 @@ reloadable=&quot;true&quot;&gt;
 <p>This &lt;Connector&gt; defines an HttpConnector that listens for requests on port 8080. It starts with a minimum of five processors and can start up to as many as 75 processors.</p>
 <p><a href="#top">TOP</a></p>
 <hr>
+<p><a name="cn"></a></p>
 <h1 id="中文资料">中文资料</h1>
-<p><a name="cn"></a><br>
-<a href="https://www.cnblogs.com/kismetv/p/7228274.html">来源：详解Tomcat 配置文件server.xml</a></p>
+<p><a href="https://www.cnblogs.com/kismetv/p/7228274.html">来源：详解Tomcat 配置文件server.xml</a></p>
 <h2 id="serverxml配置实例">server.xml配置实例</h2>
 <pre><code>&lt;Server port=&quot;8005&quot; shutdown=&quot;SHUTDOWN&quot;&gt;  
     &lt;Listener className=&quot;org.apache.catalina.startup.VersionLoggerListener&quot; /&gt;  
@@ -803,7 +804,7 @@ reloadable=&quot;true&quot;&gt;
         <id>https://zy080080.github.io/post/h3kJtgJgp/</id>
         <link href="https://zy080080.github.io/post/h3kJtgJgp/">
         </link>
-        <updated>2020-02-26T01:58:07.000Z</updated>
+        <updated>2020-02-26T02:58:07.000Z</updated>
         <summary type="html"><![CDATA[<p>References from API</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>References from API</p>
@@ -839,7 +840,7 @@ A window must have either a frame, dialog, or another window defined as its owne
         <id>https://zy080080.github.io/post/9KbTa6Jc8/</id>
         <link href="https://zy080080.github.io/post/9KbTa6Jc8/">
         </link>
-        <updated>2020-01-17T16:45:54.000Z</updated>
+        <updated>2020-01-17T17:45:54.000Z</updated>
         <content type="html"><![CDATA[<pre><code>package exceptionTest;
 
 import java.util.Scanner;
@@ -872,7 +873,7 @@ public class ScannerExceptionTest {
         <id>https://zy080080.github.io/post/9uq8XXg02/</id>
         <link href="https://zy080080.github.io/post/9uq8XXg02/">
         </link>
-        <updated>2020-01-13T03:00:10.000Z</updated>
+        <updated>2020-01-13T04:00:10.000Z</updated>
         <content type="html"><![CDATA[<p>Thread</p>
 ]]></content>
     </entry>
@@ -881,7 +882,7 @@ public class ScannerExceptionTest {
         <id>https://zy080080.github.io/post/wgV5DncBt/</id>
         <link href="https://zy080080.github.io/post/wgV5DncBt/">
         </link>
-        <updated>2019-12-07T14:25:56.000Z</updated>
+        <updated>2019-12-07T15:25:56.000Z</updated>
         <summary type="html"><![CDATA[<p>IO流种类虽然多，但用法基本相同。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>IO流种类虽然多，但用法基本相同。</p>
@@ -966,7 +967,7 @@ public class ScannerExceptionTest {
         <id>https://zy080080.github.io/post/7045yjWiy/</id>
         <link href="https://zy080080.github.io/post/7045yjWiy/">
         </link>
-        <updated>2019-11-30T14:32:11.000Z</updated>
+        <updated>2019-11-30T15:32:11.000Z</updated>
         <summary type="html"><![CDATA[<p>使用字节输入流将中文字符打印到控制台时往往无法识别，而使用字节流复制文件却可以完美显示，计算机是如何识别中文字符的呢？</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>使用字节输入流将中文字符打印到控制台时往往无法识别，而使用字节流复制文件却可以完美显示，计算机是如何识别中文字符的呢？</p>
@@ -985,7 +986,7 @@ System.out.println(by.toString());
         <id>https://zy080080.github.io/post/RtEn3DuwS/</id>
         <link href="https://zy080080.github.io/post/RtEn3DuwS/">
         </link>
-        <updated>2019-11-15T13:13:12.000Z</updated>
+        <updated>2019-11-15T14:13:12.000Z</updated>
         <summary type="html"><![CDATA[<p> 所有的流都应该在使用完毕后关闭。如果不关闭，会占用资源。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p> 所有的流都应该在使用完毕后关闭。如果不关闭，会占用资源。</p>
@@ -1038,7 +1039,7 @@ File f = new File(&quot;d:/lol.txt&quot;);
         <id>https://zy080080.github.io/post/jfUUCCexq/</id>
         <link href="https://zy080080.github.io/post/jfUUCCexq/">
         </link>
-        <updated>2019-11-12T15:24:40.000Z</updated>
+        <updated>2019-11-12T16:24:40.000Z</updated>
         <summary type="html"><![CDATA[<p>异常分为运行时异常（可查异常）和非运行时异常（不可查异常），他们的主要区别是……</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>异常分为运行时异常（可查异常）和非运行时异常（不可查异常），他们的主要区别是……</p>
