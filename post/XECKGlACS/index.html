@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Java基礎まとめ | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1584622141736">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1584622141736" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Java基礎まとめ</h2>
+            <div class="post-date">2020-03-19 </div>
+            
+              <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1519419166318-4f5c601b8e6c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2467&amp;q=80')">
+              </div>
+            
+            <div class="post-content">
+              <p>Java基础知识总结</p>
+<!-- more -->
+<p><a href="#jp">日本語文章へ</a></p>
+<h1 id="java基础">Java基础</h1>
+<h2 id="1面向对象和面向过程的区别">1.面向对象和面向过程的区别</h2>
+<ul>
+<li>面向过程：面向过程性能比面向对象高。因为类调用时需要实例化，开销比较大，比较消耗资源，所以当性能是最重要的考量因素时，比如单片机、嵌入式开发、Linux/Unix等一般采用面向过程开发。但是，面向过程没有面向对象易维护、易复用、易扩展。</li>
+<li>面向对象：面向对象易维护、易复用、易扩展。因为面向对象有封装、继承、多态的特性，所以可以设计出<strong>低耦合</strong>的系统，使系统更加灵活、更易于维护。但是面向对象性能比面向过程低。</li>
+</ul>
+<blockquote>
+<p>面向过程性能比面向对象高？<br>
+面向过程也需要分配内存，计算内存偏移量，Java性能差的主要原因并不是因为它是面向对象语言，而是Java是半编译语言，最终的执行代码并不是可以直接被CPU执行的二进制机械码。<br>
+而面向过程语言大多都是直接编译成机械码在电脑上执行，并且其他一些面向过程的脚本语言性能也并不一定比Java好。</p>
+</blockquote>
+<h2 id="2java语言有哪些特点">2.Java语言有哪些特点</h2>
+<ol>
+<li>简单易学；</li>
+<li>面向对象（封装、继承、多态）；</li>
+<li>平台无关性；</li>
+<li>可靠性；</li>
+<li>安全性；</li>
+<li>支持多线程（C++语言没有内置的多线程机制，因此必须调用操作系统的多线程功能来进行多线程程序设计，而Java语言提供了多线程支持）；</li>
+<li>支持网络编程并且很方便（Java语言诞生本身就是为简化网络编程设计的，因此Java语言不仅支持网络编程而且很方便）；</li>
+<li>编译与解释并存；</li>
+</ol>
+<h2 id="3关于jvm-jdk和jre的最详细通俗的解答">3.关于JVM、JDK和JRE的最详细通俗的解答</h2>
+<h3 id="jvm">JVM</h3>
+<p>Java虚拟机（JVM）是运行Java字节码的虚拟机。JVM有针对不用系统的特定实现（Windows，Linux，MacOS），目前是使用相同的字节码，他们都会给出相同的结果。</p>
+<h4 id="什么是字节码以及采用字节码的好处">什么是字节码以及采用字节码的好处</h4>
+<blockquote>
+<p>在Java中，JVM可以理解的代码就叫做字节码（即扩展名为.class的文件），它不面向任何特定的处理器，只面向虚拟机。Java语言通过字节码的方式，在一定程度上解决了传统解释型语言（这种类型的编程语言，会将代码一句一句直接运行，不需要像编译语言一样，经过编译器先行编译为机器代码，之后再运行。）执行效率低的问题，同时又保留了解释型语言可以移植的特点。所以Java程序运行时比较高效，而且，由于字节码并不针对一种特定的机器，因此Java程序无需重新编译便可在多种不同操作系统的计算机上运行。</p>
+</blockquote>
+<p>Java程序从源码到运行一般有下面3步：</p>
+<figure data-type="image" tabindex="1"><img src="https://camo.githubusercontent.com/8f6eceddf64b5948c69a398d1a0e777c9c7f8e5b/68747470733a2f2f6d792d626c6f672d746f2d7573652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f4a6176612532302545372541382538422545352542412538462545382542462539302545382541312538432545382542462538372545372541382538422e706e67" alt="Java程序运行过程" loading="lazy"></figure>
+<p>我们需要格外注意的是.class-&gt;机器码这一步。在这一步JVM类加载器首先加载字节码文件，然后通过解释器逐行解释执行，这种方式的执行速度会相对比较慢。而且，有些方法和代码块是经常需要被调用的（也就是所谓的热点代码），所以后面引进了JIT（Just In Time）编译器，而JIT属于运行时编译。当JIT编译器完成第一次编译后，会将字节码对应的机器码保存下来，下次可以直接使用。而我们知道，机器码的运行效率肯定是高于Java解释器的。这也解释了我们为什么经常会说Java是编译与解释共存的语言。</p>
+<p>总结：<br>
+Java虚拟机是运行Java字节码的虚拟机，JVM有针对不同系统的特定实现（Windows，Linux，macOS），目的是使用相同的字节码，他们都会给出相同的结果。字节码和不同系统的JVM实现是Java语言“一次编译，随处运行”的关键所在。</p>
+<h3 id="jdk和jre">JDK和JRE</h3>
+<p>JDK（Java Development Kit）是功能最齐全的Java SDK（Software Development Kit）。它拥有JRE所拥有的一切，还有编译器（javac）和工具（如javadoc和jdb）。它能够创建和编译程序。</p>
+<p>JRE（Java Runtime Environment）是Java运行时环境。它是运行已编译Java程序所需的所有内容的集合，包括Java虚拟机，Java类库，Java命令和其他的一些基础构建。但是，它不能用于创建新程序。</p>
+<blockquote>
+<p>Java类库：Java 官方为开发者提供了很多功能强大的类，这些类被分别放在各个包中，随JDK一起发布，称为Java类库或Java API。</p>
+</blockquote>
+<p>如果你只是为了运行以下Java程序的话，那么你只需要安装JRE就可以了。如果你需要运行一些Java编程方面的工作，那么你就需要安装JDK了。但是，这不是绝对的。有时，即使不打算在计算机上进行任何Java开发，仍然需要安装JDK。例如，如果要使用JSP部署Web程序，那么从技术上讲，你只是在应用程序服务器中运行Java程序。那么你为什么需要JDK呢？因为应用程序服务器会将JSP转换为Java servlet，并且需要使用JDK来编译servlet。</p>
+<p><a name="jp"></a></p>
+<h1 id="java基礎">Java基礎</h1>
+<h2 id="1オブジェクト指向言語と手続き型言語の違い">1.オブジェクト指向言語と手続き型言語の違い</h2>
+<ul>
+<li>手続き型言語：性能がよい。クラスを呼び出す際にインスタンス化が必要のため、オブジェクト指向言語の方が性能が下です。なので、性能が優先される時、例えばマイクロコントローラ、組み込みシステムの開発およびLinux/Unixなどで手続き言語が使われている。</li>
+<li>オブジェクト指向言語：更新、再利用、拡張が便利。オブジェクト指向言語はカプセル化、継承、多態性などの特性を持ち、凝集度が高く結合度の低いシステムが設計できる。</li>
+</ul>
+<blockquote>
+<p>C言語のようにソースコードをまとめて機械語に翻訳し実行ファイルとして保存するシステムをコンパイラと呼びます。実行ファイルはコンパイラなし単独で実行可能です。さらに機械語に翻訳済みなので、実行は高速です。<br>
+Javaなどのオブジェクト指向言語では、ソースコードを中間言語コード（仮想の機械語）に翻訳するコンパイラと中間言語コードを実行するインタープリタ（仮想機械）を組み合わせた中間言語(interlanguage)方式が使われるので、性能が手続き言語より下である。</p>
+<p><a href="http://www.ics.kagoshima-u.ac.jp/edu/gengo2j/p1.html" target="_blank">参考：１.Jａｖａ言語の特徴</a><br>
+<a href="https://ja.wikipedia.org/wiki/Javaの性能" target="_blank">もっと詳しく：Javaの性能 ———— Wikipedia</a></p>
+</blockquote>
+<h2 id="2javaの特徴">2.Javaの特徴</h2>
+<ol>
+<li>学びやすい。</li>
+<li>オブジェクト指向言語。</li>
+<li>一度コードを書けばどこでも動く。</li>
+<li>堅牢性。</li>
+<li>セキュリティ－。</li>
+<li>マルチスレッド。</li>
+<li>Socket</li>
+<li>JVM、JIT</li>
+</ol>
+<h2 id="3jvm-jdk-jre">3.JVM、JDK、JRE</h2>
+<p>Java仮想マシン（Java　Virtual　Machine）は、Javaバイトコードとして定義された命令セットを実行するスタッフ型の仮想マシン。APIやいくつかのツールとセットでJava実行環境（Java　Runtime Environment）としてリリースされている。この環境を移植することで、様々な環境でJavaのプログラムを実行することができる。</p>
+<p>バイトコードとは？<br>
+Javaバイトコードは、Java仮想マシンが実行する命令形式である。</p>
+<p>インタープリタは遅いと言われるが、Javaのバイトコードは仮想の機械語で、ソースコードを直接インタプリタで実行するよりは高速に解釈と実行が行える。さらにJVMではバイトコードを実行環境の機械語にまとめてコンパイルしてから実行するJIT（Just　In　Time　Compiler）や実行速度向上に重要な部分を選んでコンパイルし実行するHotSpotなどの手法が使われることで、実行速度は改善されている。<br>
+計算機の機種やOSごとにBytecode　CompilerやJVMを用意することで、ソースコードとバイトコードは同じものが機種やOSによらず使える。Java言語は広く普及し、利用者も多いことから主要な機種とOSに対してコンパイラとJVMおよび標準クラスライブラリー（※）が用意されている。</p>
+<p>※GUIの部分はOSによっても違いが出てしまう。このため、実行環境に応じたJVMだけでなく標準クラスライブラリーも用意しなければならない。バイトコードを実行するために、実行環境ごとのJRE（JVM＋標準クラスライブラリー）が提供されている。JDK（Java　Development　Kit）はJRE＋バイトコードコンパイラ等の開発環境である。<br>
+<img src="http://www.ics.kagoshima-u.ac.jp/edu/gengo2j/p1/img3.gif" alt="Javaプログラムの実行" loading="lazy"><br>
+<a href="http://www.ics.kagoshima-u.ac.jp/edu/gengo2j/p1.html" target="_blank">参考：１.Jａｖａ言語の特徴</a></p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/S_X7H6n_S/" class="tag">
+                    Java SE
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/lDrxzMPwn/">
+                  <h3 class="post-title">
+                    Demystifying Tomcat 4&#39;s server.xml File
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
