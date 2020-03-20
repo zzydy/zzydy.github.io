@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>A solution of unable to boot up Raspberry Pi 4B | 听故事的人</title>
+<title>How to start Tomcat with output on console in Linux? | 听故事的人</title>
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -105,43 +105,37 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">A solution of unable to boot up Raspberry Pi 4B</h2>
-            <div class="post-date">2019-10-06 </div>
-            
-              <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1553406830-4fd6df625354?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=3578&amp;q=80')">
-              </div>
+            <h2 class="post-title">How to start Tomcat with output on console in Linux?</h2>
+            <div class="post-date">2020-03-20 </div>
             
             <div class="post-content">
-              <p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a><br>
-<a href="https://zy080080.github.io/post/1tSysQNzy/">ラズベリーパイ 4Bが起動しない時の対応法</a></p>
-<!-- more -->
-<p> I received my new Raspberry Pi yesterday. I tried to boot up the Pi in two ways, but it couldn't be boot.<br>
- At last, I found the solution on its homepage:</p>
-<blockquote>
-<p><a href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a><br>
-If your Raspberry Pi 4 will not boot, it is possible that the SPI EEPROM has become corrupted.<br>
-To check, remove the SD card, disconnect the device from power, then reconnect it. If the green LED does not flash, you will need to reprogram the EEPROM:</p>
-<ul>
-<li>Download the bootloader</li>
-<li>Extract it to an empty FAT-formatted SD card and insert it into your Raspberry Pi 4</li>
-<li>Connect the power and wait for the green LED to flash quickly</li>
-</ul>
-<p>Notes:</p>
-<ul>
-<li>The updated bootloader improves compatibility with HATs by changing the behaviour of HALT to keep the 3V3 pin powered (view the full bootloader release notes)</li>
-<li>The previous bootloader remains available for download</li>
-</ul>
-</blockquote>
-<hr>
+              <p><a href="https://stackoverflow.com/questions/14010448/how-to-start-tomcat-with-output-on-console-in-linux">source: How to start Tomcat with output on console in Linux? [closed]<br>
+</a></p>
+<p>You're looking for</p>
+<pre><code>tomcat/bin/catalina.sh run
+</code></pre>
+<p>instead of</p>
+<pre><code>tomcat/bin/startup.sh; tail -f tomcat/logs/catalina.out
+</code></pre>
+<p>Tomcat stays in foreground this way (first option). If you want to shut it down, Ctrl-C in your console window will do the trick.</p>
+<p>If you choose the second option, tomcat will run in background, while tail will run in foreground, but you'll have to give the same directory path twice.</p>
 
             </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/nbExELLRD/" class="tag">
+                    Tomcat
+                  </a>
+                
+              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://zy080080.github.io/post/pE2JY0ig0/">
+                <a href="https://zy080080.github.io/post/XECKGlACS/">
                   <h3 class="post-title">
-                    解决无法启动树莓派4B的问题
+                    Java基礎まとめ
                   </h3>
                 </a>
               </div>
