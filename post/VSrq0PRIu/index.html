@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Java基礎まとめ・２ | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1587101761983">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1587101761983" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Java基礎まとめ・２</h2>
+            <div class="post-date">2020-04-17 </div>
+            
+              <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1519419166318-4f5c601b8e6c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2467&amp;q=80')">
+              </div>
+            
+            <div class="post-content">
+              <p><a href="#cn">跳转至中文内容</a></p>
+<h1 id="java基礎-4~10">Java基礎　4~10</h1>
+<h2 id="4oracle-jdk-と-openjdk">4.Oracle JDK と OpenJDK</h2>
+<p>略</p>
+<h2 id="5javaとcの比較">5.JavaとC++の比較</h2>
+<ul>
+<li>どっちもオブジェクト指向言語。カプセル化，継承，多態性。</li>
+<li>C++ではポインタを使ってメモリアドレスを直接操作できる。Javaはメモリアドレスを直接操作できるポインタを持っていない。C++ではポインタへのポインタを定義できるが，Javaではオブジェクトアクセスにだけ参照を用いる。</li>
+<li>C++は任意のクラスの多重継承をサポートする。Javaは肩の多重継承をインタフェースよりサポートするが，実装は単一検証のみをサポートする。Javaのクラスは複数のインタフェースを実装することができす。</li>
+<li>Javaは自動ガベージコレクションを必要とする。C++のメモリ管理は普通，手動で行われるか，スマートポインタを通して行われる。</li>
+</ul>
+<h2 id="6アプリケーションのmainクラスとアプレットのmainクラス">6.アプリケーションのmainクラスとアプレットのmainクラス</h2>
+<p>一つのアプリケーションには複数のクラスが存在しえるが，mainクラスは一つしか存在しない。Javaアプリケーションでは，mainクラスとはmain()メソッドのあるクラスです。<br>
+アプレットでは，mainクラスはJAppletまたはAppletから継承したクラスです。<br>
+アプリケーションのmainクラスはpublicでなくてもよいが，アプレットのmainクラスはpublicに限る。</p>
+<h2 id="7javaアプリケーションとjavaアプレット">7.JavaアプリケーションとJavaアプレット</h2>
+<p>Javaプログラムは，mainメソッドから開始される。<br>
+アプレットには，mainメソッドが存在しない，WEBページに組み込んで実行される（init()またはrun()から）。</p>
+<h2 id="8文字型変数と文字列">8.文字型変数と文字列</h2>
+<ul>
+<li>文字型は''で囲んだ一つの文字（2Byte），文字列は&quot;&quot;で囲んだ複数の文字。</li>
+<li>文字型変数は符号なし整数に当たり，演算子を使って数値の計算ができる。文字列は参照型なので一つのメモリアドレスに当たり，＋で連結することができる。</li>
+</ul>
+<h2 id="9コンストラクタはoverrideできるか">9.コンストラクタはoverrideできるか</h2>
+<p>Constructorはoverrideできないが，overloadできる。なので複数のConstructorが存在し得る。</p>
+<h2 id="10override-と-overload">10.Override と Overload</h2>
+<p>Overrideとは，継承した親クラスのメソッドの内容を子クラスで再定義すること。</p>
+<p>Overloadとは，引数の数、型、順番を変えることで同一クラスに同名メソッドを複数定義する機能。</p>
+<hr>
+<p><a name="cn"></a></p>
+<h1 id="java基础-4~10">Java基础 4~10</h1>
+<h2 id="4oracle-jdk-和-openjdk-的对比">4.Oracle JDK 和 OpenJDK 的对比</h2>
+<p>略</p>
+<h2 id="5java和c的区别">5.Java和C++的区别</h2>
+<ul>
+<li>都是面向对象的语言，都支持封装、继承和多态。</li>
+<li>Java不提供指针来直接访问内存，程序内存更加安全。</li>
+<li>Java的类是单继承的，C++支持多重继承；虽然Java的类不可以多继承，但是接口可以多继承。</li>
+<li>Java有自动内存管理机制，不需要手动释放无用内存。</li>
+</ul>
+<h2 id="6什么是java程序的主类应用程序和小程序的主类有何不同">6.什么是Java程序的主类，应用程序和小程序的主类有何不同</h2>
+<p>一个程序中可以有多个类，但只能有一个类是主类。在Java应用程序中，这个主类是指包含main()方法的类。而在Java小程序中，这个主类是一个继承自系统类JApplet或Applet的子类。应用程序的主类不一定要求是public类，但小程序的主类要求必须是public类。主类是Java程序执行的入口点。</p>
+<h2 id="7java应用程序与小程序之间有哪些差别">7.Java应用程序与小程序之间有哪些差别</h2>
+<p>简单说应用程序是从主线程启动（也就是main()方法）。applet小程序没有main方法，主要是嵌在浏览器页面上运行（调用init()或run()来启动），嵌入浏览器这点跟flash的小游戏类似。</p>
+<h2 id="8字符型常量和字符串常量的区别">8.字符型常量和字符串常量的区别</h2>
+<ul>
+<li>形式上：字符常量是单引号引起的一个字符；字符串常量是双引号引起的若干个字符。</li>
+<li>含以上：字符常量相当于一个整型值（ASCII值），可以参加表达式运算；字符串常量代表一个地址值（该字符串在内存中存放位置）。</li>
+<li>占内存大小：字符常量只占2个字节；字符串常量占若干个字节。</li>
+</ul>
+<h2 id="9构造器constructor是否可被override">9.构造器Constructor是否可被override</h2>
+<p>Constructor不能被override（重写），但是可以overload（重载），所以你可以看到一个类中有多个构造器函数的情况。</p>
+<h2 id="10重载和重写的区别">10.重载和重写的区别</h2>
+<h3 id="重载">重载</h3>
+<p>发生在同一个类中，方法名必须相同，参数类型不同、个数不同、顺序不同，方法返回值和访问修饰符可以不同。</p>
+<h3 id="重写">重写</h3>
+<p>重写是子类对父类的允许访问的方法的实现过程进行重新编写，发生在子类中，方法名、参数列表必须相同，返回值范围小于等于父类，访问修饰符范围大于等于父类。另外，如果父类方法访问修饰符为private则子类就不能重写该方法。<strong>也就是说方法提供的行为发生改变，而方法的外貌并没有改变</strong>。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/S_X7H6n_S/" class="tag">
+                    Java SE
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/pKZECUQCU/">
+                  <h3 class="post-title">
+                    How to start Tomcat with output on console in Linux?
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

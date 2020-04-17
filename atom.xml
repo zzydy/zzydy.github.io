@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-03-20T06:36:45.321Z</updated>
+    <updated>2020-04-17T05:36:35.633Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -10,6 +10,71 @@
     <logo>https://zy080080.github.io/images/avatar.png</logo>
     <icon>https://zy080080.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[Java基礎まとめ・２]]></title>
+        <id>https://zy080080.github.io/post/VSrq0PRIu/</id>
+        <link href="https://zy080080.github.io/post/VSrq0PRIu/">
+        </link>
+        <updated>2020-04-17T09:32:02.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="#cn">跳转至中文内容</a></p>
+<h1 id="java基礎-4~10">Java基礎　4~10</h1>
+<h2 id="4oracle-jdk-と-openjdk">4.Oracle JDK と OpenJDK</h2>
+<p>略</p>
+<h2 id="5javaとcの比較">5.JavaとC++の比較</h2>
+<ul>
+<li>どっちもオブジェクト指向言語。カプセル化，継承，多態性。</li>
+<li>C++ではポインタを使ってメモリアドレスを直接操作できる。Javaはメモリアドレスを直接操作できるポインタを持っていない。C++ではポインタへのポインタを定義できるが，Javaではオブジェクトアクセスにだけ参照を用いる。</li>
+<li>C++は任意のクラスの多重継承をサポートする。Javaは肩の多重継承をインタフェースよりサポートするが，実装は単一検証のみをサポートする。Javaのクラスは複数のインタフェースを実装することができす。</li>
+<li>Javaは自動ガベージコレクションを必要とする。C++のメモリ管理は普通，手動で行われるか，スマートポインタを通して行われる。</li>
+</ul>
+<h2 id="6アプリケーションのmainクラスとアプレットのmainクラス">6.アプリケーションのmainクラスとアプレットのmainクラス</h2>
+<p>一つのアプリケーションには複数のクラスが存在しえるが，mainクラスは一つしか存在しない。Javaアプリケーションでは，mainクラスとはmain()メソッドのあるクラスです。<br>
+アプレットでは，mainクラスはJAppletまたはAppletから継承したクラスです。<br>
+アプリケーションのmainクラスはpublicでなくてもよいが，アプレットのmainクラスはpublicに限る。</p>
+<h2 id="7javaアプリケーションとjavaアプレット">7.JavaアプリケーションとJavaアプレット</h2>
+<p>Javaプログラムは，mainメソッドから開始される。<br>
+アプレットには，mainメソッドが存在しない，WEBページに組み込んで実行される（init()またはrun()から）。</p>
+<h2 id="8文字型変数と文字列">8.文字型変数と文字列</h2>
+<ul>
+<li>文字型は''で囲んだ一つの文字（2Byte），文字列は&quot;&quot;で囲んだ複数の文字。</li>
+<li>文字型変数は符号なし整数に当たり，演算子を使って数値の計算ができる。文字列は参照型なので一つのメモリアドレスに当たり，＋で連結することができる。</li>
+</ul>
+<h2 id="9コンストラクタはoverrideできるか">9.コンストラクタはoverrideできるか</h2>
+<p>Constructorはoverrideできないが，overloadできる。なので複数のConstructorが存在し得る。</p>
+<h2 id="10override-と-overload">10.Override と Overload</h2>
+<p>Overrideとは，継承した親クラスのメソッドの内容を子クラスで再定義すること。</p>
+<p>Overloadとは，引数の数、型、順番を変えることで同一クラスに同名メソッドを複数定義する機能。</p>
+<hr>
+<p><a name="cn"></a></p>
+<h1 id="java基础-4~10">Java基础 4~10</h1>
+<h2 id="4oracle-jdk-和-openjdk-的对比">4.Oracle JDK 和 OpenJDK 的对比</h2>
+<p>略</p>
+<h2 id="5java和c的区别">5.Java和C++的区别</h2>
+<ul>
+<li>都是面向对象的语言，都支持封装、继承和多态。</li>
+<li>Java不提供指针来直接访问内存，程序内存更加安全。</li>
+<li>Java的类是单继承的，C++支持多重继承；虽然Java的类不可以多继承，但是接口可以多继承。</li>
+<li>Java有自动内存管理机制，不需要手动释放无用内存。</li>
+</ul>
+<h2 id="6什么是java程序的主类应用程序和小程序的主类有何不同">6.什么是Java程序的主类，应用程序和小程序的主类有何不同</h2>
+<p>一个程序中可以有多个类，但只能有一个类是主类。在Java应用程序中，这个主类是指包含main()方法的类。而在Java小程序中，这个主类是一个继承自系统类JApplet或Applet的子类。应用程序的主类不一定要求是public类，但小程序的主类要求必须是public类。主类是Java程序执行的入口点。</p>
+<h2 id="7java应用程序与小程序之间有哪些差别">7.Java应用程序与小程序之间有哪些差别</h2>
+<p>简单说应用程序是从主线程启动（也就是main()方法）。applet小程序没有main方法，主要是嵌在浏览器页面上运行（调用init()或run()来启动），嵌入浏览器这点跟flash的小游戏类似。</p>
+<h2 id="8字符型常量和字符串常量的区别">8.字符型常量和字符串常量的区别</h2>
+<ul>
+<li>形式上：字符常量是单引号引起的一个字符；字符串常量是双引号引起的若干个字符。</li>
+<li>含以上：字符常量相当于一个整型值（ASCII值），可以参加表达式运算；字符串常量代表一个地址值（该字符串在内存中存放位置）。</li>
+<li>占内存大小：字符常量只占2个字节；字符串常量占若干个字节。</li>
+</ul>
+<h2 id="9构造器constructor是否可被override">9.构造器Constructor是否可被override</h2>
+<p>Constructor不能被override（重写），但是可以overload（重载），所以你可以看到一个类中有多个构造器函数的情况。</p>
+<h2 id="10重载和重写的区别">10.重载和重写的区别</h2>
+<h3 id="重载">重载</h3>
+<p>发生在同一个类中，方法名必须相同，参数类型不同、个数不同、顺序不同，方法返回值和访问修饰符可以不同。</p>
+<h3 id="重写">重写</h3>
+<p>重写是子类对父类的允许访问的方法的实现过程进行重新编写，发生在子类中，方法名、参数列表必须相同，返回值范围小于等于父类，访问修饰符范围大于等于父类。另外，如果父类方法访问修饰符为private则子类就不能重写该方法。<strong>也就是说方法提供的行为发生改变，而方法的外貌并没有改变</strong>。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[How to start Tomcat with output on console in Linux?]]></title>
         <id>https://zy080080.github.io/post/pKZECUQCU/</id>
@@ -29,17 +94,17 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Java基礎まとめ]]></title>
+        <title type="html"><![CDATA[Java基礎まとめ・１]]></title>
         <id>https://zy080080.github.io/post/XECKGlACS/</id>
         <link href="https://zy080080.github.io/post/XECKGlACS/">
         </link>
-        <updated>2020-03-19T10:46:41.000Z</updated>
+        <updated>2020-03-19T11:46:41.000Z</updated>
         <summary type="html"><![CDATA[<p>Java基础知识总结</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>Java基础知识总结</p>
 <!-- more -->
 <p><a href="#jp">日本語文章へ</a></p>
-<h1 id="java基础">Java基础</h1>
+<h1 id="java基础-1~3">Java基础 1~3</h1>
 <h2 id="1面向对象和面向过程的区别">1.面向对象和面向过程的区别</h2>
 <ul>
 <li>面向过程：面向过程性能比面向对象高。因为类调用时需要实例化，开销比较大，比较消耗资源，所以当性能是最重要的考量因素时，比如单片机、嵌入式开发、Linux/Unix等一般采用面向过程开发。但是，面向过程没有面向对象易维护、易复用、易扩展。</li>
@@ -81,7 +146,7 @@ Java虚拟机是运行Java字节码的虚拟机，JVM有针对不同系统的特
 </blockquote>
 <p>如果你只是为了运行以下Java程序的话，那么你只需要安装JRE就可以了。如果你需要运行一些Java编程方面的工作，那么你就需要安装JDK了。但是，这不是绝对的。有时，即使不打算在计算机上进行任何Java开发，仍然需要安装JDK。例如，如果要使用JSP部署Web程序，那么从技术上讲，你只是在应用程序服务器中运行Java程序。那么你为什么需要JDK呢？因为应用程序服务器会将JSP转换为Java servlet，并且需要使用JDK来编译servlet。</p>
 <p><a name="jp"></a></p>
-<h1 id="java基礎">Java基礎</h1>
+<h1 id="java基礎-1~3">Java基礎 1~3</h1>
 <h2 id="1オブジェクト指向言語と手続き型言語の違い">1.オブジェクト指向言語と手続き型言語の違い</h2>
 <ul>
 <li>手続き型言語：性能がよい。クラスを呼び出す際にインスタンス化が必要のため、オブジェクト指向言語の方が性能が下です。なので、性能が優先される時、例えばマイクロコントローラ、組み込みシステムの開発およびLinux/Unixなどで手続き言語が使われている。</li>
@@ -1084,59 +1149,6 @@ System.out.println(by.toString());
 //输出打印结果为[-28, -72, -83, -26, -106, -121, -24, -66, -109, -27, -123, -91]
 </code></pre>
 <p>遇到负数时，自动与下一个数拼接，得到中文字符。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[流的关闭方式]]></title>
-        <id>https://zy080080.github.io/post/RtEn3DuwS/</id>
-        <link href="https://zy080080.github.io/post/RtEn3DuwS/">
-        </link>
-        <updated>2019-11-15T14:13:12.000Z</updated>
-        <summary type="html"><![CDATA[<p> 所有的流都应该在使用完毕后关闭。如果不关闭，会占用资源。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p> 所有的流都应该在使用完毕后关闭。如果不关闭，会占用资源。</p>
-<!-- more -->
-<h2 id="在try中关闭">在try中关闭</h2>
-<p> 有隐患。如果文件不存在或者在读取时出现异常，关闭流的方法不会被执行。 <strong>不推荐使用</strong></p>
-<h2 id="在finally中关闭">在finally中关闭</h2>
-<p> 这是标准的关闭流的方式。<br>
- 在关闭时，需要进行一次try catch处理。<br>
- 在写不重要的代码时可以采用try中关闭，不麻烦。</p>
-<pre><code>try {
-    FileOutputStream fos = new FileOutputStream(f);
-    fos.write(data1);
-    fos.write(data2);
-    fos.write(data4);
-    fos.write(data3);
-    //fos.close();  
-} catch (IOException e) {
-    e.printStackTrace();
-}finally {
-    try {
-        fos.close();
-    }catch(IOException e) {
-        e.printStackTrace();
-    }
-}
-</code></pre>
-<h2 id="使用try的方式">使用try()的方式</h2>
-<p> 把流定义在try()里,try,catch或者finally结束的时候，会自动关闭。<br>
- 这种编写代码的方式叫做 <mark>try-with-resources</mark>， 这是从JDK7开始支持的技术<br>
- 所有的流，都实现了一个接口叫做 <mark>AutoCloseable</mark>，任何类实现了这个接口，都可以在try()中进行实例化。 并且在try, catch, finally结束的时候自动关闭，回收相关资源。</p>
-<pre><code>public static void main(String[] args) {
-File f = new File(&quot;d:/lol.txt&quot;);
-
-    //把流定义在try()里,try,catch或者finally结束的时候，会自动关闭
-    try (FileInputStream fis = new FileInputStream(f)) {
-        byte[] all = new byte[(int) f.length()];
-        fis.read(all);
-        for (byte b : all) {
-            System.out.println(b);
-        }
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}</code></pre>
 ]]></content>
     </entry>
 </feed>
