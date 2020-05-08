@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-05-08T06:24:37.960Z</updated>
+    <updated>2020-05-08T11:43:41.883Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zy080080.github.io/post/nj0dzADHm/</id>
         <link href="https://zy080080.github.io/post/nj0dzADHm/">
         </link>
-        <updated>2020-05-08T08:17:56.000Z</updated>
+        <updated>2020-05-08T09:17:56.000Z</updated>
         <summary type="html"><![CDATA[<p>protected variable is a bit interesting in Java</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>protected variable is a bit interesting in Java</p>
@@ -37,7 +37,7 @@
         <id>https://zy080080.github.io/post/VSrq0PRIu/</id>
         <link href="https://zy080080.github.io/post/VSrq0PRIu/">
         </link>
-        <updated>2020-04-17T09:32:02.000Z</updated>
+        <updated>2020-04-17T10:32:02.000Z</updated>
         <content type="html"><![CDATA[<p><a href="#cn">跳转至中文内容</a></p>
 <h1 id="java基礎-4~10">Java基礎　4~10</h1>
 <h2 id="4oracle-jdk-と-openjdk">4.Oracle JDK と OpenJDK</h2>
@@ -102,7 +102,7 @@
         <id>https://zy080080.github.io/post/pKZECUQCU/</id>
         <link href="https://zy080080.github.io/post/pKZECUQCU/">
         </link>
-        <updated>2020-03-20T07:34:49.000Z</updated>
+        <updated>2020-03-20T08:34:49.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://stackoverflow.com/questions/14010448/how-to-start-tomcat-with-output-on-console-in-linux">source: How to start Tomcat with output on console in Linux? [closed]<br>
 </a></p>
 <p>You're looking for</p>
@@ -120,7 +120,7 @@
         <id>https://zy080080.github.io/post/XECKGlACS/</id>
         <link href="https://zy080080.github.io/post/XECKGlACS/">
         </link>
-        <updated>2020-03-19T11:46:41.000Z</updated>
+        <updated>2020-03-19T12:46:41.000Z</updated>
         <summary type="html"><![CDATA[<p>Java基础知识总结</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>Java基础知识总结</p>
@@ -207,7 +207,7 @@ Javaバイトコードは、Java仮想マシンが実行する命令形式であ
         <id>https://zy080080.github.io/post/lDrxzMPwn/</id>
         <link href="https://zy080080.github.io/post/lDrxzMPwn/">
         </link>
-        <updated>2020-03-18T19:34:17.000Z</updated>
+        <updated>2020-03-18T20:34:17.000Z</updated>
         <summary type="html"><![CDATA[<p><a name="top"></a><br>
 The Tomcat server.xml file allows you to configure Tomcat using a simple XML descriptor. This XML file is at the heart of Tomcat.</p>
 ]]></summary>
@@ -524,11 +524,20 @@ reloadable=&quot;true&quot;&gt;
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[appBase和docBase]]></title>
+        <id>https://zy080080.github.io/post/ffFtbMD3A/</id>
+        <link href="https://zy080080.github.io/post/ffFtbMD3A/">
+        </link>
+        <updated>2020-03-18T15:48:55.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/4e2be8b4397f">appBase和docBase</a></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[HTML标签英文全称]]></title>
         <id>https://zy080080.github.io/post/cHLSqLDIx/</id>
         <link href="https://zy080080.github.io/post/cHLSqLDIx/">
         </link>
-        <updated>2020-03-06T00:26:17.000Z</updated>
+        <updated>2020-03-06T01:26:17.000Z</updated>
         <content type="html"><![CDATA[<!-- more -->
 <html>
 <body>
@@ -996,7 +1005,7 @@ reloadable=&quot;true&quot;&gt;
         <id>https://zy080080.github.io/post/h3kJtgJgp/</id>
         <link href="https://zy080080.github.io/post/h3kJtgJgp/">
         </link>
-        <updated>2020-02-26T02:58:07.000Z</updated>
+        <updated>2020-02-26T03:58:07.000Z</updated>
         <summary type="html"><![CDATA[<p>References from API</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>References from API</p>
@@ -1032,7 +1041,7 @@ A window must have either a frame, dialog, or another window defined as its owne
         <id>https://zy080080.github.io/post/9KbTa6Jc8/</id>
         <link href="https://zy080080.github.io/post/9KbTa6Jc8/">
         </link>
-        <updated>2020-01-17T17:45:54.000Z</updated>
+        <updated>2020-01-17T18:45:54.000Z</updated>
         <content type="html"><![CDATA[<pre><code>package exceptionTest;
 
 import java.util.Scanner;
@@ -1061,97 +1070,29 @@ public class ScannerExceptionTest {
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[线程的状态转换图]]></title>
-        <id>https://zy080080.github.io/post/9uq8XXg02/</id>
-        <link href="https://zy080080.github.io/post/9uq8XXg02/">
+        <title type="html"><![CDATA[标准输入输出流]]></title>
+        <id>https://zy080080.github.io/post/MIqBqxzzK/</id>
+        <link href="https://zy080080.github.io/post/MIqBqxzzK/">
         </link>
-        <updated>2020-01-13T04:00:10.000Z</updated>
-        <content type="html"><![CDATA[<p>Thread</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[IO Stream总结]]></title>
-        <id>https://zy080080.github.io/post/wgV5DncBt/</id>
-        <link href="https://zy080080.github.io/post/wgV5DncBt/">
-        </link>
-        <updated>2019-12-07T15:25:56.000Z</updated>
-        <summary type="html"><![CDATA[<p>IO流种类虽然多，但用法基本相同。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>IO流种类虽然多，但用法基本相同。</p>
-<!-- more -->
-<figure data-type="image" tabindex="1"><img src="https://zy080080.github.io//post-images/1575721507863.png" alt="" loading="lazy"></figure>
-<h2 id="字节流">字节流</h2>
-<h3 id="字节输入流">字节输入流</h3>
-<h4 id="inputstream">InputStream</h4>
-<ul>
-<li>方法及子类
-<ul>
-<li>int read() : 一次读取一个字节</li>
-<li>int read(byte[] bys) : 一次读取一个字节数组</li>
-</ul>
-</li>
-<li>FileInputStream</li>
-<li>BufferedInputStream</li>
-</ul>
-<h3 id="字节输出流">字节输出流</h3>
-<h4 id="outputstream">OutputStream</h4>
-<ul>
-<li>方法及子类
-<ul>
-<li>void write(int by) : 一次写一个字节</li>
-<li>void write(byte[] bys, int i, int len) : 一次写一个字节数组的一部分</li>
-</ul>
-</li>
-<li>FileOutputStream</li>
-<li>BufferedOutputStream</li>
-</ul>
-<h2 id="转换流">转换流</h2>
-<ul>
-<li>InputStreamReader(InputStream is)</li>
-<li>OutputStreamWriter(OutputStream os)</li>
-</ul>
-<h2 id="字符流-字节流-编码表">字符流 = 字节流 + 编码表</h2>
-<h3 id="字符输入流">字符输入流</h3>
-<h4 id="reader">Reader</h4>
-<ul>
-<li>方法及子类
-<ul>
-<li>int read() : 一次读取一个字符</li>
-<li>int read(char[] chs) : 一次读取一个字符数组</li>
-</ul>
-</li>
-<li>InputStreamReader
-<ul>
-<li>FileReader</li>
-</ul>
-</li>
-<li>BufferedReader
-<ul>
-<li>String readLine() : 一次读取一行数据</li>
-</ul>
-</li>
-</ul>
-<h3 id="字符输出流">字符输出流</h3>
-<h4 id="writer">Writer</h4>
-<ul>
-<li>方法及子类
-<ul>
-<li>void write(int ch) : 一次写一个字符</li>
-<li>void write(char[] chs, int i, int len) : 一次写一个字符数组的一部分</li>
-</ul>
-</li>
-<li>OutputStreamWriter
-<ul>
-<li>FileWriter</li>
-</ul>
-</li>
-<li>BufferedWriter
-<ul>
-<li>void newLine() : 写换行符号</li>
-<li>void write(String s) : 写一个字符串</li>
-</ul>
-</li>
-</ul>
+        <updated>2020-01-17T18:08:43.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>(1)System类下面有这样的两个字段
+	in 标准输入流
+	out 标准输出流
+(2)三种键盘录入方式
+	A:main方法的args接收参数
+	B:System.in通过BufferedReader进行包装
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	C:Scanner
+		Scanner sc = new Scanner(System.in);
+(3)输出语句的原理和如何使用字符流输出数据
+	A:原理
+		System.out.println(&quot;helloworld&quot;);
+		
+		PrintStream ps = System.out;
+		ps.println(&quot;helloworld&quot;);
+	B:把System.out用字符缓冲流包装一下使用
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+</code></pre>
 ]]></content>
     </entry>
 </feed>
