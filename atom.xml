@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-04-17T05:36:35.633Z</updated>
+    <updated>2020-05-08T06:24:19.762Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -10,6 +10,28 @@
     <logo>https://zy080080.github.io/images/avatar.png</logo>
     <icon>https://zy080080.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[About protected]]></title>
+        <id>https://zy080080.github.io/post/nj0dzADHm/</id>
+        <link href="https://zy080080.github.io/post/nj0dzADHm/">
+        </link>
+        <updated>2020-05-08T07:17:56.000Z</updated>
+        <summary type="html"><![CDATA[<p>protected variable is a bit interesting in Java</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>protected variable is a bit interesting in Java</p>
+<!-- more -->
+<p>Quoted from Core Java 9th Edition</p>
+<blockquote>
+<p>However, the Manager class methods can peek inside the hireDay field of Manager objects only, not of other Employee objects. This restriction is made so that you can’t abuse the protected mechanism by forming subclasses just to gain access to the protected fields</p>
+</blockquote>
+<p>Quoted from &quot;Thinking in Java&quot; Fourth Edition p180:</p>
+<blockquote>
+<p>In an ideal world, the private keyword would be enough. In real projects, there are times when you want to make something hidden from the world at large and yet allow access for members of derived classes.</p>
+<p>The protected keyword is a nod to pragmatism. It says “This is private as far as the class user is concerned, but available to anyone who inherits from this class or anyone else in the same package.” (In Java, protected also provides package access.)</p>
+<p>Although it’s possible to create protected fields, the best approach is to leave the fields private; you should always preserve your right to change the underlying implementation. You can then allow controlled access to inheritors of your class through protected methods</p>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Java基礎まとめ・２]]></title>
         <id>https://zy080080.github.io/post/VSrq0PRIu/</id>
@@ -1130,25 +1152,6 @@ public class ScannerExceptionTest {
 </ul>
 </li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[计算机如何识别中文字符]]></title>
-        <id>https://zy080080.github.io/post/7045yjWiy/</id>
-        <link href="https://zy080080.github.io/post/7045yjWiy/">
-        </link>
-        <updated>2019-11-30T15:32:11.000Z</updated>
-        <summary type="html"><![CDATA[<p>使用字节输入流将中文字符打印到控制台时往往无法识别，而使用字节流复制文件却可以完美显示，计算机是如何识别中文字符的呢？</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>使用字节输入流将中文字符打印到控制台时往往无法识别，而使用字节流复制文件却可以完美显示，计算机是如何识别中文字符的呢？</p>
-<!-- more -->
-<pre><code>String str = &quot;中文输入&quot;;
-byte[] by = str.getBytes();
-System.out.println(by.toString());
-
-//输出打印结果为[-28, -72, -83, -26, -106, -121, -24, -66, -109, -27, -123, -91]
-</code></pre>
-<p>遇到负数时，自动与下一个数拼接，得到中文字符。</p>
 ]]></content>
     </entry>
 </feed>

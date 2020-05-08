@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Gridea | 听故事的人</title>
+<title>About protected | 听故事的人</title>
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,35 +104,40 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: Gridea</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zy080080.github.io/post/hello-gridea/">
-                  <h2 class="post-title">Hello Gridea</h2>
-                </a>
-                <div class="post-date">
-                  2018-12-12 
-                </div>
-                <div class="post-abstract">
-                  <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+          <div class="post-detail">
+            <h2 class="post-title">About protected</h2>
+            <div class="post-date">2020-05-08 </div>
+            
+            <div class="post-content">
+              <p>protected variable is a bit interesting in Java</p>
+<!-- more -->
+<p>Quoted from Core Java 9th Edition</p>
+<blockquote>
+<p>However, the Manager class methods can peek inside the hireDay field of Manager objects only, not of other Employee objects. This restriction is made so that you can’t abuse the protected mechanism by forming subclasses just to gain access to the protected fields</p>
+</blockquote>
+<p>Quoted from &quot;Thinking in Java&quot; Fourth Edition p180:</p>
+<blockquote>
+<p>In an ideal world, the private keyword would be enough. In real projects, there are times when you want to make something hidden from the world at large and yet allow access for members of derived classes.</p>
+<p>The protected keyword is a nod to pragmatism. It says “This is private as far as the class user is concerned, but available to anyone who inherits from this class or anyone else in the same package.” (In Java, protected also provides package access.)</p>
+<p>Although it’s possible to create protected fields, the best approach is to leave the fields private; you should always preserve your right to change the underlying implementation. You can then allow controlled access to inheritors of your class through protected methods</p>
+</blockquote>
 
-                </div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/VSrq0PRIu/">
+                  <h3 class="post-title">
+                    Java基礎まとめ・２
+                  </h3>
+                </a>
               </div>
-              
-                <a class="right" href="https://zy080080.github.io/post/hello-gridea/">
-                  <div class="feature-container" style="background-image: url('https://zy080080.github.io//post-images/hello-gridea.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
+            
 
-          <div class="pagination-container">
-  
-  
-</div>
+            
+
+          </div>
 
         </div>
       </div>
