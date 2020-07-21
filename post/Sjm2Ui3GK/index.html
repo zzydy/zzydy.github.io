@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>よく使われるストリームのまとめ | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1595334049899">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1595334049899" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">よく使われるストリームのまとめ</h2>
+            <div class="post-date">2020-07-21 </div>
+            
+            <div class="post-content">
+              <p>1.ファイルを操作するクラスやメソッドの活用方法<br>
+Fileクラス：ファイルおよびディレクトリのパス名の抽象表現である。<br>
+Fileクラスを用いたファイル操作やディレクトリ操作方法：<br>
+boolean delete()：ファイルの削除。<br>
+boolean renameTo(File dest)：ファイルの名前変更する。<br>
+boolean exists()：ファイルの存在確認。<br>
+String[] list()：ディレクトリ一覧を得る。<br>
+File[] listFiles()：ディレクトリ一覧を得る。<br>
+boolean mkdir()：指定したディレクトリを単独で作成する。<br>
+boolean mkdirs()：ディレクトリが深い場合でも親ディレクトリを含めて作成する。<br>
+String getAbsolutePath()：指定したファイルの絶対パスを取得する。<br>
+String getPath()：ファイルの相対パスを取得する。</p>
+<p>2.色々なストリーム：<br>
+バイトストリーム：文字ではない単なるデータ（いわゆるバイナリデータ）を取り扱うためのもの<br>
+InputStream：抽象クラスで、バイト入力ストリームを表現するすべてのクラスのスーパー・クラスである。<br>
+メソッド：<br>
+read()：この入力ストリームからデータのバイトを読み込む。<br>
+read()：最大b.lengthバイトのデータを、この入力ストリームからバイト配列に読み込む。<br>
+close()：最大b.lengthバイトのデータを、この入力ストリームからバイト配列に読み込む。<br>
+よく使うサブクラス：<br>
+FileInputStream：ファイル・システム内のファイルから入力バイトを取得するためのクラスである。イメージ・データなどのrawバイトのストリームを読み込むときに使用する。<br>
+FileInputStreamのサブクラス：<br>
+BufferedInputStream：ほかの入力ストリームに機能、特に入力をバッファに格納する機能とmarkおよびresetメソッドをサポートする機能を追加したクラスである。入力ストリームから必要に応じて一度に多数のバイトが内部バッファに補充される。<br>
+DataInputStream：プリミティブ型のJavaデータをベースとなる入力ストリームからマシンに依存せずに読み込むときに使用する。</p>
+<p>OutputStream：抽象クラスは、バイト出力ストリームを表現するすべてのクラスのスーパー・クラスである。<br>
+よく使うメソッド：<br>
+write(byte[] b)：指定されたバイト配列のb.lengthバイトをこの出力ストリームに書き込む。<br>
+write(int b)：指定されたバイトをこの出力ストリームに書き込む。<br>
+flush()：出力ストリームをフラッシュして、バッファリングされていたすべての出力バイトを強制的に書き込む。<br>
+close()：出力ストリームを閉じ、このストリームに関連するすべてのシステム・リソースを解放する。<br>
+よく使うサブクラス：<br>
+FileOutputStream：FileまたはFileDescriptorにデータを書き込むための出力ストリームである。<br>
+FileOutputStreamのサブクラス：<br>
+BufferedOutputStream：バッファリングされた出力ストリームを実装したクラスである。<br>
+PrintStream：<br>
+ほかの出力ストリームに機能、具体的には、さまざまなデータ値の表現を簡易的に出力する機能を追加したクラスである。PrintStreamはほかの出力ストリームとは違って、IOExceptionをスローすることはない。<br>
+printlnを呼び出すと，PrintStreamを自動的にフラッシュする。<br>
+よく使うメソッド：<br>
+さまざまなデータ値を出力するprint()，println()およびprintf()。<br>
+close()：ストリームを閉じる。<br>
+DataOutputStreamなど。</p>
+<p>文字ストリーム：基本的にはテキストを取り扱うためのものである。<br>
+Reader：文字ストリームを読み込むための抽象クラスである。<br>
+よく使うサブクラス：<br>
+InputStreamReader：バイト・ストリームから文字ストリームへの橋渡しの役目を持つ。バイトを読み込み、指定されたcharsetを使用して文字にデコードする。<br>
+よく使うメソッド：<br>
+read()：単一の文字を読み込む。<br>
+close()：ストリームを閉じて、それに関連するすべてのシステム・リソースを解放する。<br>
+よく使うサブクラス：<br>
+FileReader：文字ファイルを読み込むための簡易クラスである。<br>
+BufferedReader：文字、配列、行をバッファリングすることによって、文字型入力ストリームからテキストを効率良く読み込むクラスである。</p>
+<p>Writer：文字ストリームに書き込むための抽象クラスである。<br>
+OutputStreamWriter：FileまたはFileDescriptorにデータを書き込むための出力ストリームである。<br>
+よく使うメソッド：<br>
+write(String str, int off, int len)：文字列の一部を書き込む。<br>
+write(char[] cbuf, int off, int len)：文字の配列の一部を書き込む。<br>
+write(int c)：単一の文字を書き込む。<br>
+close()：ストリームを最初にフラッシュして、閉じる。<br>
+flush()：ストリームをフラッシュする。<br>
+よく使うサブクラス：<br>
+FileWriter：文字ファイルを書き込むための簡易クラスである。<br>
+PrintWriter：<br>
+オブジェクトの書式付き表現をテキスト出力ストリームに出力するクラスである。<br>
+このクラスは、PrintStreamで見つかったすべてのprintメソッドを実装する。<br>
+ただし、rawバイトを書き込むメソッドは含まれない。<br>
+PrintStreamクラスとは異なり、自動フラッシュが有効な場合は、改行文字が出力されるときではなく、println、printf、またはformatのいずれかのメソッドが呼び出されたときにのみ実行される。<br>
+よく使うメソッド：<br>
+さまざまなデータ値を出力するprint()，println()およびprintf()。これらのメソッドは、改行文字ではなく、プラットフォームに固有の行区切りの表記を使用する。<br>
+close()：ストリームを閉じる。<br>
+BufferedWriter：文字をバッファリングすることによって、文字、配列、または文字列を効率良く文字型出力ストリームに書き込むクラスである。</p>
+<p>3.文字ストリームとバイトストリームの違い<br>
+ストリームとは，連続したデータの流れを抽象化したものである。<br>
+文字ストリームとは，テキストを取り扱うための，16ビット単位（文字リテラル）で入出力するストリームである。<br>
+バイトストリームとは，バイナリデータを取り扱うための，最小単位8ビット単位で入出力するストリームである。<br>
+文字ストリームを使用すれば，文字コードに依存しないプログラムを作成可能になる。入力・出力の文字コードに関わらず，Java内部ではUnicodeに変換される。</p>
+<p>4.バッファリング<br>
+データを二次記憶装置から一時記憶装置にまとめて読み込む処理である。</p>
+<p>5.ファイルの最後に書き込みたい場合<br>
+FileWriterはFileWriter(File file, boolean append)というコンストラクタを持つ。appendがtrueの場合，バイトはファイルの先頭ではなく最後に書き込まれる。<br>
+PrintWriterのコンストラクタに渡せる変数は，File，String，Writer，OutputStreamである。つまり，全てのprintメソッドとファイルの最後に書きたい場合，PrintWriter(new FileWriter(File,true))を使えばよい。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/S_X7H6n_S/" class="tag">
+                    Java SE
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/nj0dzADHm/">
+                  <h3 class="post-title">
+                    About protected
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
