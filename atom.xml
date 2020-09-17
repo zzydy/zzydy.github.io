@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-07-21T12:20:53.030Z</updated>
+    <updated>2020-09-17T07:13:20.915Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://zy080080.github.io/images/avatar.png</logo>
     <icon>https://zy080080.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[MavenでMybatisを使う際のjava.io.IOException: Could not find resource XXX.xmlについて]]></title>
+        <id>https://zy080080.github.io/post/OUJh9scJm/</id>
+        <link href="https://zy080080.github.io/post/OUJh9scJm/">
+        </link>
+        <updated>2020-09-17T07:59:22.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://zy080080.github.io//post-images/1600326566880.png" alt="" loading="lazy"></figure>
+<p>開発環境はIntelliJ IDEAです。<br>
+Mybatisを勉強し始めたところですが，簡単なselect ステートメントを実行すると，java.io.IOException: Could not find resource XXX.xmlという例外が発生しました。</p>
+<p>その理由は，srcディレクトリの中のxmlファイルはコンパイルされないからです。<br>
+xmlファイルをresourceディレクトリに入れれば解決できます。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[よく使われるストリームのまとめ]]></title>
         <id>https://zy080080.github.io/post/Sjm2Ui3GK/</id>
@@ -1122,39 +1135,6 @@ reloadable=&quot;true&quot;&gt;
 <p>A Window object is a top-level window with no borders and no menubar. The default layout for a window is BorderLayout.<br>
 A window must have either a frame, dialog, or another window defined as its owner when it's constructed.</p>
 <p>A Frame is a top-level window with a title and a border.</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Scanner-java.util.NoSuchElementException]]></title>
-        <id>https://zy080080.github.io/post/9KbTa6Jc8/</id>
-        <link href="https://zy080080.github.io/post/9KbTa6Jc8/">
-        </link>
-        <updated>2020-01-17T18:45:54.000Z</updated>
-        <content type="html"><![CDATA[<pre><code>package exceptionTest;
-
-import java.util.Scanner;
-
-public class ScannerExceptionTest {
-    public static void main(String[] args) {
-    	Scanner sc = new Scanner(System.in);
-
-    	sc.close();
-
-    	Scanner scan = new Scanner(System.in);
-	    int num = scan.nextInt();
-	    System.out.println(num);
-    }
-}
-</code></pre>
-<p>出现异常</p>
-<pre><code>Exception in thread &quot;main&quot; java.util.NoSuchElementException
-    at java.util.Scanner.throwFor(Scanner.java:862)
-    at java.util.Scanner.next(Scanner.java:1485)
-    at java.util.Scanner.nextInt(Scanner.java:2117)
-    at java.util.Scanner.nextInt(Scanner.java:2076)
-    at exceptionTest.ScannerExceptionTest.main(ScannerExceptionTest.java:12)
-</code></pre>
-<p>close()方法被调用时，导致标准输入System.in的关闭，<strong>关闭后无法再次打开</strong>。</p>
 ]]></content>
     </entry>
 </feed>
