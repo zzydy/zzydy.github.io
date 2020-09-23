@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-09-17T07:13:20.915Z</updated>
+    <updated>2020-09-23T14:47:58.648Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -10,6 +10,99 @@
     <logo>https://zy080080.github.io/images/avatar.png</logo>
     <icon>https://zy080080.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[Git：分散型バージョン管理〜Gitの基本　メモ]]></title>
+        <id>https://zy080080.github.io/post/BtnRgcd13/</id>
+        <link href="https://zy080080.github.io/post/BtnRgcd13/">
+        </link>
+        <updated>2020-09-23T15:57:22.000Z</updated>
+        <summary type="html"><![CDATA[<p>分散型バージョン管理は，個々の開発者ごとに複数のリポジトリを持つことができ，開発の形態や規模に応じて柔軟な開発ができる。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>分散型バージョン管理は，個々の開発者ごとに複数のリポジトリを持つことができ，開発の形態や規模に応じて柔軟な開発ができる。</p>
+<!-- more -->
+<h1 id="git">Git</h1>
+<p>これはGitを勉強する際に大切なことや忘れやすいことをまとめた文章である。</p>
+<h2 id="gitの仕組み">Gitの仕組み</h2>
+<ul>
+<li>Gitがスナップショットとしてデータを記録している。その理由は，Gitが持つブランチ機能を使った開発でその力を発揮することができるからである。</li>
+<li>ローカルリポジトリを持つため，全ての操作をローカルで完結できます（リモートリポジトリにアクセスする必要がない）。</li>
+<li>ローカルリポジトリは自分専用のリポジトリとしてブランチの作成やコミットが可能。</li>
+<li>障害が発生し，ローカルリポジトリを失った場合に別のリポジトリから復元が可能。</li>
+<li>スポードと大規模プロジェクトでも効率の高い開発が可能。</li>
+</ul>
+<h2 id="gitの初期設定">Gitの初期設定</h2>
+<p>チームで共有するためにユーザー情報が必要となる。</p>
+<pre><code>開発者の名前を設定
+git config --global user.name &quot;new username&quot;
+開発者のメールアドレスを設定
+git config --global user.email &quot;user@email.com&quot;
+ユーザー名とパスワードのキャッシュを有効にする
+git config --global credential helper osxkeychain
+git config --global credential helper wincred
+git statusなどで日本語ファイル名をエスケープせずに表示する
+git config --global core.quotepath false
+</code></pre>
+<h2 id="gitの三つの状態">Gitの三つの状態</h2>
+<ol>
+<li>変更がない状態</li>
+<li>変更済み：<br>
+作業コピーのファイルに変更を加えたり，ファイルを新規作成したりした状態のこと。自分の作業コピー内で修正中、または修正を完了していても，ローカルリポジトリにコミット対象であることを示すマークをつけていない。</li>
+<li>ステージ済み状態<br>
+バージョン管理対象のファイルが追跡され，マークされた状態。またローカルリポジトリにコミットされていないことを意味する。</li>
+</ol>
+<h2 id="リポジトリをクローン作成する">リポジトリをクローン/作成する</h2>
+<p>作成：<br>
+ローカルリポジトリのフォルダを作成し，<br>
+git init<br>
+を実行する。</p>
+<p>クローン：<br>
+git initでリポジトリを準備し，<br>
+git clone https://username@domain/path/to/repository<br>
+を実行する。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git status</td>
+<td>作業コピー状態を表示</td>
+</tr>
+<tr>
+<td>git add fileName</td>
+<td>新しいファイルをコミット対象としてステージ済みに登録</td>
+</tr>
+<tr>
+<td>git add .</td>
+<td>複数のファイルを一度にステージ済みに登録</td>
+</tr>
+<tr>
+<td>git commit -m &quot;message&quot;</td>
+<td>変更をコミットする</td>
+</tr>
+<tr>
+<td>git rm fileName</td>
+<td>ファイルの削除を実行し，ステージ済みにする</td>
+</tr>
+<tr>
+<td>git mv fileName newFileName</td>
+<td>ファイルの名前を変更</td>
+</tr>
+</tbody>
+</table>
+<h3 id="コミットメッセージは将来のチームと自分のため">コミットメッセージは将来のチームと自分のため</h3>
+<p>コミット時に，-mオプションを付けない場合，コミットメッセージを入力するために，エディターが起動する。<br>
+コミットメッセいーじには，そのコミットを説明する内容を記述するようにすべきである。機能追加なのか，バグ対応なのか。。。<br>
+人間の記憶は曖昧のため，コミット時のメッセージをできるだけ詳しく記録することが大切。</p>
+<p>良い例：<br>
+HTTP/2に対応するライブラリを追加<br>
+ヘッダーを共通化した（ref　#143）<br>
+起動時にクラッシュするバグに対応</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[MavenでMybatisを使う際のjava.io.IOException: Could not find resource XXX.xmlについて]]></title>
         <id>https://zy080080.github.io/post/OUJh9scJm/</id>
@@ -1100,41 +1193,5 @@ reloadable=&quot;true&quot;&gt;
   </table>
 </body>
 </html>]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[The definition of Component, Container, and Frame]]></title>
-        <id>https://zy080080.github.io/post/h3kJtgJgp/</id>
-        <link href="https://zy080080.github.io/post/h3kJtgJgp/">
-        </link>
-        <updated>2020-02-26T03:58:07.000Z</updated>
-        <summary type="html"><![CDATA[<p>References from API</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>References from API</p>
-<!-- more -->
-<ul>
-<li>java.lang.Object
-<ul>
-<li>java.awt.Component
-<ul>
-<li>java.awt.Container
-<ul>
-<li>java.awt.Window
-<ul>
-<li>java.awt.Frame</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>A component is an object having a graphical representation that can be displayed on the screen and that can interact with the user. Examples of components are the buttons, checkboxes, and scrollbars of a typical graphical user interface.</p>
-<p>A generic Abstract Window Toolkit(AWT) container object is a component that can contain other AWT components.</p>
-<p>A Window object is a top-level window with no borders and no menubar. The default layout for a window is BorderLayout.<br>
-A window must have either a frame, dialog, or another window defined as its owner when it's constructed.</p>
-<p>A Frame is a top-level window with a title and a border.</p>
-]]></content>
     </entry>
 </feed>
