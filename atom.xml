@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-09-29T11:04:11.762Z</updated>
+    <updated>2020-09-29T11:05:53.743Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zy080080.github.io/post/7zzNKr8JI/</id>
         <link href="https://zy080080.github.io/post/7zzNKr8JI/">
         </link>
-        <updated>2020-09-29T12:07:33.000Z</updated>
+        <updated>2020-09-29T13:07:33.000Z</updated>
         <summary type="html"><![CDATA[<p>アプリケーションやシステム開発においては，開発効率を向上させるためにフレームワークを使用する企業は少なくありません。<br>
 Javaの開発環境でよく使用されるフレームワークはSpring Framework。</p>
 ]]></summary>
