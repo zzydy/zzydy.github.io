@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1600873944750">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1601349264218">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
 
@@ -39,7 +39,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zy080080.github.io/">
-        <img src="https://zy080080.github.io//images/avatar.png?v=1600873944750" class="site-logo">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1601349264218" class="site-logo">
         <h1 class="site-title">听故事的人</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -146,13 +146,15 @@ git config --global core.quotepath false
 </ol>
 <h2 id="リポジトリをクローン作成する">リポジトリをクローン/作成する</h2>
 <p>作成：<br>
-ローカルリポジトリのフォルダを作成し，<br>
-git init<br>
-を実行する。</p>
+ローカルリポジトリのフォルダを作成し，</p>
+<pre><code>git init
+</code></pre>
+<p>を実行する。</p>
 <p>クローン：<br>
-git initでリポジトリを準備し，<br>
-git clone https://username@domain/path/to/repository<br>
-を実行する。</p>
+git initでリポジトリを準備し，</p>
+<pre><code>git clone https://username@domain/path/to/repository
+</code></pre>
+<p>を実行する。</p>
 <table>
 <thead>
 <tr>
@@ -195,6 +197,118 @@ git clone https://username@domain/path/to/repository<br>
 HTTP/2に対応するライブラリを追加<br>
 ヘッダーを共通化した（ref　#143）<br>
 起動時にクラッシュするバグに対応</p>
+<h2 id="ファイルの削除移動と名前変更">ファイルの削除，移動と名前変更</h2>
+<p>git rmコマンドは，ファイルの削除を実行して，<strong>ステージングに登録した状態「ステージ済み」にする</strong>。</p>
+<pre><code>git rm sample.txt
+</code></pre>
+<p>ファイルを直接削除した場合も自動で検知する。ただし，自動的に「ステージ済み」にならない。</p>
+<p>git mv コマンドはファイル名の変更，ステージング登録を一度に行う便利なコマンドである。</p>
+<pre><code>git mv sample.txt newSample.txt
+</code></pre>
+<h2 id="バージョン管理から対象外にする">バージョン管理から対象外にする</h2>
+<p>バージョン管理したくてもよいファイル例</p>
+<ul>
+<li>~や.swpや.bakで終わるファイル
+<ul>
+<li>Emacs/Vim/Windows系エディタのバックアップファイル</li>
+</ul>
+</li>
+<li>Thumbs.dbやDS_Store
+<ul>
+<li>WindowsやMacのOSが出力するファイル</li>
+</ul>
+</li>
+<li>~$で始まるファイル
+<ul>
+<li>Office関係のファイルを開いたときに生成される隠しファイル</li>
+</ul>
+</li>
+</ul>
+<h3 id="対象外を定義するgitignoreを作成する">対象外を定義する「.gitignore」を作成する</h3>
+<pre><code>echo &quot;.DS_Store&quot; &gt; .gitignore
+</code></pre>
+<p>.gitignoreの保存場所は，.gitと同じディレクトリを指定する。</p>
+<h3 id="gitignoreファイルの書き方">.gitignoreファイルの書き方</h3>
+<table>
+<thead>
+<tr>
+<th>書式</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#</td>
+<td>空行や＃で始まる行はコメントとして扱われる</td>
+</tr>
+<tr>
+<td>sample.txt</td>
+<td>ディレクトリに関係なくsample.txtを対象外とする</td>
+</tr>
+<tr>
+<td>/sample.txt</td>
+<td>.gitignoreが配置されたディレクトリにあるsample.txtを対象外とする</td>
+</tr>
+<tr>
+<td>folder-a/</td>
+<td>ディレクトリ以下の全てを対象外とする</td>
+</tr>
+<tr>
+<td>*.log</td>
+<td>ファイルの拡張子が.logのファイルを全て対象外とする</td>
+</tr>
+<tr>
+<td>file-[1-9].html</td>
+<td>globパターンに一致するファイルを対象外とする</td>
+</tr>
+</tbody>
+</table>
+<h2 id="コミットログ履歴を確認する">コミットログ（履歴）を確認する</h2>
+<pre><code>git log
+</code></pre>
+<p>git logでよく使われるオプション</p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p</td>
+<td>各コミットのバッチ情報を表示する</td>
+</tr>
+<tr>
+<td>--stat</td>
+<td>各コミットで変更されたファイルの統計情報を表示する</td>
+</tr>
+<tr>
+<td>--numstat</td>
+<td>ファイル毎の削除や追加された行数を表示する</td>
+</tr>
+<tr>
+<td>--name-status</td>
+<td>変更したファイルを表示する</td>
+</tr>
+<tr>
+<td>-- path/to/*.txt</td>
+<td>特定のファイルの履歴を表示する</td>
+</tr>
+<tr>
+<td>--author='xxx'</td>
+<td>コミットしたユーザー「xxx」で絞り込み表示する</td>
+</tr>
+</tbody>
+</table>
+<p>また，表示形式を指定することが可能である。</p>
+<pre><code>git log --oneline --graph --decorate
+</code></pre>
+<p>とすることで見やすく表示することが可能である。</p>
+<h2 id="変更作業のやり直し">変更作業のやり直し</h2>
+<pre><code>git reset HEAD sample.txt
+</code></pre>
+<p>これでsample.txtのステージ済みの状態を取り消した。</p>
 
             </div>
             
