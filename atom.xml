@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-09-29T04:18:57.865Z</updated>
+    <updated>2020-09-29T11:01:52.847Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -10,6 +10,73 @@
     <logo>https://zy080080.github.io/images/avatar.png</logo>
     <icon>https://zy080080.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[Spring Frameworkの特徴と役割]]></title>
+        <id>https://zy080080.github.io/post/7zzNKr8JI/</id>
+        <link href="https://zy080080.github.io/post/7zzNKr8JI/">
+        </link>
+        <updated>2020-09-29T11:07:33.000Z</updated>
+        <summary type="html"><![CDATA[<p>アプリケーションやシステム開発においては，開発効率を向上させるためにフレームワークを使用する企業は少なくありません。<br>
+Javaの開発環境でよく使用されるフレームワークはSpring Framework。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>アプリケーションやシステム開発においては，開発効率を向上させるためにフレームワークを使用する企業は少なくありません。<br>
+Javaの開発環境でよく使用されるフレームワークはSpring Framework。</p>
+<!-- more -->
+<h2 id="従来のwebアプリケーションの問題点">従来のWebアプリケーションの問題点</h2>
+<p>一般的に，JavaのWebアプリケーションでは，レイヤー構造を採用します。</p>
+<table>
+<thead>
+<tr>
+<th>レイヤー</th>
+<th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>プレゼンテーション・レイヤー</td>
+<td>クライアントの画面表示や画面からの入力を受け付ける</td>
+</tr>
+<tr>
+<td>ビジネス・レイヤー</td>
+<td>業務処理を行う</td>
+</tr>
+<tr>
+<td>データアクセス・レイヤー</td>
+<td>データベースなどのリソースにアクセスする</td>
+</tr>
+</tbody>
+</table>
+<p>Webアプリケーションは，レイヤーによって論理的に分割され，各レイヤーでは様々なフレームワークを使用して効率的に開発を行います。<br>
+例えば，プレゼンテーション・レイヤーにはStruts，データアクセス・レイヤーにはHibernateを使うといった具合です。</p>
+<p>このように各レイヤーごとに，フレームワークを適用して開発する方式はかなり一般的になりましたが，実際にプログラムを作っていく上で，いくつかの問題が出てきました。</p>
+<h3 id="変更に弱い">変更に弱い</h3>
+<figure data-type="image" tabindex="1"><img src="https://zy080080.github.io//post-images/1601360542249.jpg" alt="" loading="lazy"></figure>
+<p>各レイヤーは一見独立しているように見えるのですが，実際のところ，隣り合うレイヤーは密接に連結しています。例えば，ビジネス・レイヤーからデータアクセス・レイヤーのオブジェクトにアクセスする場合，通常は以下のようなプログラムになるでしょう。</p>
+<pre><code>DataAccessObject dao = new DataAccessObject();
+</code></pre>
+<p>これは，データアクセス・レイヤー（DataAccessObjectメソッドなど）に変更があった場合，呼び出し元のビジネス・レイヤーにも変更が発生することを意味しています。できるならば，データアクセス・レイヤーの変更だけに留めたいものです。</p>
+<h3 id="単体テストが困難">単体テストが困難</h3>
+<p>レイヤー同士が密接に連結している場合，単体テストが困難になります。例えば，ビジネス・レイヤーの単体テストをする場合，しぞんしているレイヤーの環境，つまり，データアクセス・レイヤーの実装とデータベース環境が必要となります。ビジネス・レイヤーのテストをしたいだけなのに，わざわざデータベースを用意してテストデータを投入するというのは面倒です。</p>
+<p>また，複数のレイヤーをまとめてテストすると，エラーが発生した時に何が原因でエラーになったのか，切り分けの手間が増えます。可能ならば，ビジネス・レイヤー単体で試験したいものです。</p>
+<h3 id="トランザクションコードが散在">トランザクション・コードが散在</h3>
+<p>データベースにアクセスするアプリケーションでは，データベースのトランザクションを処理するコードがプレゼンテーション・レイヤーやビジネス・レイヤーに散在します。プログラムのメンテナンスのしやすさや再利用性を考えると，トランザクション・コードは分離して，まとめて管理したいところです。</p>
+<figure data-type="image" tabindex="2"><img src="https://docs.spring.io/spring-framework/docs/4.3.x/spring-framework-reference/html/images/spring-overview.png" alt="" loading="lazy"></figure>
+<h2 id="spring-frameworkの特徴">Spring Frameworkの特徴</h2>
+<p>Spring Frameworkの特徴として，AOPとDiと呼ばれる概念で構築されていること，専用のテストプログラムがあることなどが挙げられます。</p>
+<h3 id="diにより変更がしやすい">DIにより変更がしやすい</h3>
+<p>Dependency Injection，依存性の注入と言います。<br>
+DIを重視した設計になっていると，依存性のあるプログラムを外部から取り入れできるようになります。<br>
+オブジェクトを注入することより，クラスの依存関係が解消され，動作のテストを行えるようになります。結果として，１つひとつのプログラムを独立させやすくなり，システム開発や改修が楽になるのです。</p>
+<h3 id="aopによりメンテナンスがしやすい">AOPによりメンテナンスがしやすい</h3>
+<p>AOPとは，Aspect Orientation Programmingの略で，アスペクト指向プログラミングと言います。<br>
+システム内で行われる同じ処理（共通処理）を抽出して集約をするプログラミング手法で，プログラムをシンプルにまとめることができます。コードを短くわかりやすくすることで，不具合の特定が容易になるほか，プログラムの修正も行いやすくなります。</p>
+<h3 id="開発に役立つテストプログラムがある">開発に役立つテストプログラムがある</h3>
+<p>１つひとつのシステムを統合した際のバグ検出ができる専用テストプトグラムがあります。開発したシステムが問題なく処理できるかを事前にチェックすることで，バグを最小限に抑えられるようになります。</p>
+<p>参照：<br>
+<a href="https://hnavi.co.jp/knowledge/blog/spring-framework/">https://hnavi.co.jp/knowledge/blog/spring-framework/</a><br>
+<a href="https://xtech.nikkei.com/it/article/COLUMN/20070710/277218/">https://xtech.nikkei.com/it/article/COLUMN/20070710/277218/</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Git：分散型バージョン管理〜チーム開発　メモ]]></title>
         <id>https://zy080080.github.io/post/l0qMHfM-n/</id>
@@ -941,15 +1008,6 @@ reloadable=&quot;true&quot;&gt;
 <p>path：静态部署时，可以显式指定path属性，但是仍然受到了严格的限制：只有当自动部署完全关闭(deployOnStartup和autoDeploy都为false)或docBase不在appBase中时，才可以设置path属性。在本例中，docBase不在appBase中，因此path属性可以设置。</p>
 <p>reloadable属性的用法与自动部署时相同。</p>
 <p><a href="#top">返回顶部</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[appBase和docBase]]></title>
-        <id>https://zy080080.github.io/post/ffFtbMD3A/</id>
-        <link href="https://zy080080.github.io/post/ffFtbMD3A/">
-        </link>
-        <updated>2020-03-18T15:48:55.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/4e2be8b4397f">appBase和docBase</a></p>
 ]]></content>
     </entry>
 </feed>

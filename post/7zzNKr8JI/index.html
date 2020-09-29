@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Spring Frameworkの特徴と役割 | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1601377172571">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1601377172571" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Spring Frameworkの特徴と役割</h2>
+            <div class="post-date">2020-09-29 </div>
+            
+              <div class="feature-container" style="background-image: url('https://www.websoptimization.com/blog/wp-content/uploads/2019/03/top-10-reasons-to-use-spring-framework-1.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <p>アプリケーションやシステム開発においては，開発効率を向上させるためにフレームワークを使用する企業は少なくありません。<br>
+Javaの開発環境でよく使用されるフレームワークはSpring Framework。</p>
+<!-- more -->
+<h2 id="従来のwebアプリケーションの問題点">従来のWebアプリケーションの問題点</h2>
+<p>一般的に，JavaのWebアプリケーションでは，レイヤー構造を採用します。</p>
+<table>
+<thead>
+<tr>
+<th>レイヤー</th>
+<th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>プレゼンテーション・レイヤー</td>
+<td>クライアントの画面表示や画面からの入力を受け付ける</td>
+</tr>
+<tr>
+<td>ビジネス・レイヤー</td>
+<td>業務処理を行う</td>
+</tr>
+<tr>
+<td>データアクセス・レイヤー</td>
+<td>データベースなどのリソースにアクセスする</td>
+</tr>
+</tbody>
+</table>
+<p>Webアプリケーションは，レイヤーによって論理的に分割され，各レイヤーでは様々なフレームワークを使用して効率的に開発を行います。<br>
+例えば，プレゼンテーション・レイヤーにはStruts，データアクセス・レイヤーにはHibernateを使うといった具合です。</p>
+<p>このように各レイヤーごとに，フレームワークを適用して開発する方式はかなり一般的になりましたが，実際にプログラムを作っていく上で，いくつかの問題が出てきました。</p>
+<h3 id="変更に弱い">変更に弱い</h3>
+<figure data-type="image" tabindex="1"><img src="https://zy080080.github.io//post-images/1601360542249.jpg" alt="" loading="lazy"></figure>
+<p>各レイヤーは一見独立しているように見えるのですが，実際のところ，隣り合うレイヤーは密接に連結しています。例えば，ビジネス・レイヤーからデータアクセス・レイヤーのオブジェクトにアクセスする場合，通常は以下のようなプログラムになるでしょう。</p>
+<pre><code>DataAccessObject dao = new DataAccessObject();
+</code></pre>
+<p>これは，データアクセス・レイヤー（DataAccessObjectメソッドなど）に変更があった場合，呼び出し元のビジネス・レイヤーにも変更が発生することを意味しています。できるならば，データアクセス・レイヤーの変更だけに留めたいものです。</p>
+<h3 id="単体テストが困難">単体テストが困難</h3>
+<p>レイヤー同士が密接に連結している場合，単体テストが困難になります。例えば，ビジネス・レイヤーの単体テストをする場合，しぞんしているレイヤーの環境，つまり，データアクセス・レイヤーの実装とデータベース環境が必要となります。ビジネス・レイヤーのテストをしたいだけなのに，わざわざデータベースを用意してテストデータを投入するというのは面倒です。</p>
+<p>また，複数のレイヤーをまとめてテストすると，エラーが発生した時に何が原因でエラーになったのか，切り分けの手間が増えます。可能ならば，ビジネス・レイヤー単体で試験したいものです。</p>
+<h3 id="トランザクションコードが散在">トランザクション・コードが散在</h3>
+<p>データベースにアクセスするアプリケーションでは，データベースのトランザクションを処理するコードがプレゼンテーション・レイヤーやビジネス・レイヤーに散在します。プログラムのメンテナンスのしやすさや再利用性を考えると，トランザクション・コードは分離して，まとめて管理したいところです。</p>
+<figure data-type="image" tabindex="2"><img src="https://docs.spring.io/spring-framework/docs/4.3.x/spring-framework-reference/html/images/spring-overview.png" alt="" loading="lazy"></figure>
+<h2 id="spring-frameworkの特徴">Spring Frameworkの特徴</h2>
+<p>Spring Frameworkの特徴として，AOPとDiと呼ばれる概念で構築されていること，専用のテストプログラムがあることなどが挙げられます。</p>
+<h3 id="diにより変更がしやすい">DIにより変更がしやすい</h3>
+<p>Dependency Injection，依存性の注入と言います。<br>
+DIを重視した設計になっていると，依存性のあるプログラムを外部から取り入れできるようになります。<br>
+オブジェクトを注入することより，クラスの依存関係が解消され，動作のテストを行えるようになります。結果として，１つひとつのプログラムを独立させやすくなり，システム開発や改修が楽になるのです。</p>
+<h3 id="aopによりメンテナンスがしやすい">AOPによりメンテナンスがしやすい</h3>
+<p>AOPとは，Aspect Orientation Programmingの略で，アスペクト指向プログラミングと言います。<br>
+システム内で行われる同じ処理（共通処理）を抽出して集約をするプログラミング手法で，プログラムをシンプルにまとめることができます。コードを短くわかりやすくすることで，不具合の特定が容易になるほか，プログラムの修正も行いやすくなります。</p>
+<h3 id="開発に役立つテストプログラムがある">開発に役立つテストプログラムがある</h3>
+<p>１つひとつのシステムを統合した際のバグ検出ができる専用テストプトグラムがあります。開発したシステムが問題なく処理できるかを事前にチェックすることで，バグを最小限に抑えられるようになります。</p>
+<p>参照：<br>
+<a href="https://hnavi.co.jp/knowledge/blog/spring-framework/">https://hnavi.co.jp/knowledge/blog/spring-framework/</a><br>
+<a href="https://xtech.nikkei.com/it/article/COLUMN/20070710/277218/">https://xtech.nikkei.com/it/article/COLUMN/20070710/277218/</a></p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/iMvcbKw2b/" class="tag">
+                    Spring Framework
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/notes/" class="tag">
+                    Notes
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/l0qMHfM-n/">
+                  <h3 class="post-title">
+                    Git：分散型バージョン管理〜チーム開発　メモ
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
