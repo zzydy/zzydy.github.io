@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-09-29T04:16:49.390Z</updated>
+    <updated>2020-09-29T04:18:57.865Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -15,10 +15,10 @@
         <id>https://zy080080.github.io/post/l0qMHfM-n/</id>
         <link href="https://zy080080.github.io/post/l0qMHfM-n/">
         </link>
-        <updated>2020-09-29T04:17:27.000Z</updated>
-        <summary type="html"><![CDATA[<p>ブランチによるチーム開発はGitのとくちょうであり，Gitが多くの開発者に支持される理由となる機能である。</p>
+        <updated>2020-09-29T05:17:27.000Z</updated>
+        <summary type="html"><![CDATA[<p>ブランチによるチーム開発はGitの特徴であり，Gitが多くの開発者に支持される理由となる機能である。</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>ブランチによるチーム開発はGitのとくちょうであり，Gitが多くの開発者に支持される理由となる機能である。</p>
+        <content type="html"><![CDATA[<p>ブランチによるチーム開発はGitの特徴であり，Gitが多くの開発者に支持される理由となる機能である。</p>
 <!-- more -->
 <h2 id="中央リポジトリをクローン">中央リポジトリをクローン</h2>
 <pre><code>git clone https://openg.tracpath.com/git/project project
