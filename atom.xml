@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-09-29T03:14:27.821Z</updated>
+    <updated>2020-09-29T04:16:49.390Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -11,11 +11,123 @@
     <icon>https://zy080080.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 听故事的人</rights>
     <entry>
+        <title type="html"><![CDATA[Git：分散型バージョン管理〜チーム開発　メモ]]></title>
+        <id>https://zy080080.github.io/post/l0qMHfM-n/</id>
+        <link href="https://zy080080.github.io/post/l0qMHfM-n/">
+        </link>
+        <updated>2020-09-29T04:17:27.000Z</updated>
+        <summary type="html"><![CDATA[<p>ブランチによるチーム開発はGitのとくちょうであり，Gitが多くの開発者に支持される理由となる機能である。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>ブランチによるチーム開発はGitのとくちょうであり，Gitが多くの開発者に支持される理由となる機能である。</p>
+<!-- more -->
+<h2 id="中央リポジトリをクローン">中央リポジトリをクローン</h2>
+<pre><code>git clone https://openg.tracpath.com/git/project project
+</code></pre>
+<p>git cloneコマンドで「project」中央リポジトリからローカルリポジトリを作成した。</p>
+<h2 id="オーカルリポジトリから中央リポジトリにプッシュ">オーカルリポジトリから中央リポジトリにプッシュ</h2>
+<pre><code>git push
+</code></pre>
+<h2 id="プルの使い方">プルの使い方</h2>
+<p>git pullコマンドは，中央リポジトリの最新情報を取得し(git fetch)，自分の作業ディレクトリと統合(git merge)することを意味している。</p>
+<p>pullの操作を行うタイミング：</p>
+<ul>
+<li>開発作業を開始する前に</li>
+<li>作業が完了し，pushする前にpull操作を行う</li>
+</ul>
+<h3 id="中央リポジトリの情報を知る">中央リポジトリの情報を知る</h3>
+<pre><code>git remote -v
+</code></pre>
+<h3 id="pushの使い方">pushの使い方</h3>
+<pre><code>git push [romote-name] [branch-name]
+</code></pre>
+<h2 id="ブランチ">ブランチ</h2>
+<p>同時対応が可能なブランチを利用することで，</p>
+<ul>
+<li>同時に異なる目的の作業を進めることが可能</li>
+<li>ブランチはお互いに影響しないため，独立したソースコードとして管理が可能</li>
+<li>ブランチでの作業は他のメンバーに影響を与えない</li>
+<li>ブランチの作成，マージが簡単に可能</li>
+<li>修正内容を戻したり，なかったことにすぐにできる</li>
+</ul>
+<p>というメリットがある</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git branch [branch-name]</td>
+<td>ブランチを作成する</td>
+</tr>
+<tr>
+<td>git branch -vva</td>
+<td>ブランチ一覧を確認する</td>
+</tr>
+<tr>
+<td>git checkout branchName</td>
+<td>ブランチを切り替える</td>
+</tr>
+<tr>
+<td>git merge master</td>
+<td>ブランチをmasterブランチにマージする</td>
+</tr>
+<tr>
+<td>git branch -d [branch-name]</td>
+<td>ブランチを削除する</td>
+</tr>
+</tbody>
+</table>
+<h3 id="マージを理解する">マージを理解する</h3>
+<p>マージは枝分かれしたブランチを1つに統合することをいう。</p>
+<p>コミットされ版を重ねたブランチに対して行うマージ処理は，次の２つを意味している。</p>
+<ol>
+<li>同一のファイルに行われた変更を統合する</li>
+<li>コミットに含まれるファイル全体を統合する</li>
+</ol>
+<h2 id="タグの使い方">タグの使い方</h2>
+<p>タグとは，特定のバージョンに対して目印となるポイントをつけることである。<br>
+例えば，Webアプリケーションのリリースした時点のバージョンをタグ名「v.1.0」としたり，受託開発でお客様に納品した時点のバージョンをタグ名「yyyy-mm-dd」と利用する。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git tag [tag-name]</td>
+<td>タグを作成する</td>
+</tr>
+<tr>
+<td>git tag</td>
+<td>タグの一覧を確認する</td>
+</tr>
+<tr>
+<td>git tag -d [tag-name]</td>
+<td>タグを削除する</td>
+</tr>
+<tr>
+<td>git push origin [tag-name]</td>
+<td>作成したタグを中央リポジトリにプッシュする</td>
+</tr>
+<tr>
+<td>git push origin :tagname</td>
+<td>リモートのタグを削除する</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Git：分散型バージョン管理〜Gitの基本　メモ]]></title>
         <id>https://zy080080.github.io/post/BtnRgcd13/</id>
         <link href="https://zy080080.github.io/post/BtnRgcd13/">
         </link>
-        <updated>2020-09-23T16:57:22.000Z</updated>
+        <updated>2020-09-24T12:57:22.000Z</updated>
         <summary type="html"><![CDATA[<p>分散型バージョン管理は，個々の開発者ごとに複数のリポジトリを持つことができ，開発の形態や規模に応じて柔軟な開発ができる。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>分散型バージョン管理は，個々の開発者ごとに複数のリポジトリを持つことができ，開発の形態や規模に応じて柔軟な開発ができる。</p>
@@ -839,473 +951,5 @@ reloadable=&quot;true&quot;&gt;
         <updated>2020-03-18T15:48:55.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://www.jianshu.com/p/4e2be8b4397f">appBase和docBase</a></p>
 ]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[HTML标签英文全称]]></title>
-        <id>https://zy080080.github.io/post/cHLSqLDIx/</id>
-        <link href="https://zy080080.github.io/post/cHLSqLDIx/">
-        </link>
-        <updated>2020-03-06T01:26:17.000Z</updated>
-        <content type="html"><![CDATA[<!-- more -->
-<html>
-<body>
-  <table>
-    <thead>
-      <tr>
-        <th>标签</th>
-        <th>全称</th>
-        <th>描述</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>&lt; !–…– &gt;</td>
-        <td></td>
-        <td>定义注释。</td>
-      </tr>
-      <tr>
-        <td>&lt; !DOCTYPE &gt;</td>
-        <td></td>
-        <td>定义文档类型。</td>
-      </tr>
-      <tr>
-        <td>&lt; a &gt;</td>
-        <td>anchor</td>
-        <td>定义锚。</td>
-      </tr>
-      <tr>
-        <td>&lt; abbr&gt;</td>
-        <td>abbreviation</td>
-        <td>定义缩写。</td>
-      </tr>
-      <tr>
-        <td>&lt; acronym&gt;</td>
-        <td>acronym</td>
-        <td>定义只取首字母的缩写。</td>
-      </tr>
-      <tr>
-        <td>&lt; address&gt;</td>
-        <td>address</td>
-        <td>定义文档作者或拥有者的联系信息。</td>
-      </tr>
-      <tr>
-        <td>&lt; applet&gt;</td>
-        <td>applet</td>
-        <td>不赞成使用。定义嵌入的 applet。</td>
-      </tr>
-      <tr>
-        <td>&lt; area&gt;</td>
-        <td>area</td>
-        <td>定义图像映射内部的区域。</td>
-      </tr>
-      <tr>
-        <td>&lt; b&gt;</td>
-        <td>blod</td>
-        <td>定义粗体字。</td>
-      </tr>
-      <tr>
-        <td>&lt; base&gt;</td>
-        <td>base</td>
-        <td>定义页面中所有链接的默认地址或默认目标。</td>
-      </tr>
-      <tr>
-        <td>&lt; basefont&gt;</td>
-        <td>Basefont</td>
-        <td>不赞成使用。定义页面中文本的默认字体、颜色或尺寸。</td>
-      </tr>
-      <tr>
-        <td>&lt; bdo&gt;</td>
-        <td>bidirectional override</td>
-        <td>定义文字方向。</td>
-      </tr>
-      <tr>
-        <td>&lt; big&gt;</td>
-        <td>big</td>
-        <td>定义大号文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; blockquote&gt;</td>
-        <td>blockquote</td>
-        <td>定义长的引用。</td>
-      </tr>
-      <tr>
-        <td>&lt; body&gt;</td>
-        <td>Body</td>
-        <td>定义文档的主体。</td>
-      </tr>
-      <tr>
-        <td>&lt; br&gt;</td>
-        <td>Break</td>
-        <td>定义简单的折行。</td>
-      </tr>
-      <tr>
-        <td>&lt; button&gt;</td>
-        <td>Button</td>
-        <td>定义按钮 (push button)。</td>
-      </tr>
-      <tr>
-        <td>&lt; caption&gt;</td>
-        <td>Caption</td>
-        <td>定义表格标题。</td>
-      </tr>
-      <tr>
-        <td>&lt; center&gt;</td>
-        <td>Center</td>
-        <td>不赞成使用。定义居中文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; cite&gt;</td>
-        <td>Cite</td>
-        <td>定义引用(citation)。</td>
-      </tr>
-      <tr>
-        <td>&lt; code&gt;</td>
-        <td>Code</td>
-        <td>定义计算机代码文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; col&gt;</td>
-        <td>Column</td>
-        <td>定义表格中一个或多个列的属性值。</td>
-      </tr>
-      <tr>
-        <td>&lt; colgroup&gt;</td>
-        <td>Colgroup</td>
-        <td>定义表格中供格式化的列组。</td>
-      </tr>
-      <tr>
-        <td>&lt; dd&gt;</td>
-        <td>definition description</td>
-        <td>定义定义列表中项目的描述。</td>
-      </tr>
-      <tr>
-        <td>&lt; del&gt;</td>
-        <td>delete</td>
-        <td>定义被删除文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; dir&gt;</td>
-        <td></td>
-        <td>不赞成使用。定义目录列表。</td>
-      </tr>
-      <tr>
-        <td>&lt; div&gt;</td>
-        <td>division</td>
-        <td>定义文档中的节（块）。</td>
-      </tr>
-      <tr>
-        <td>&lt; dfn&gt;</td>
-        <td>defining instance</td>
-        <td>定义定义项目。</td>
-      </tr>
-      <tr>
-        <td>&lt; dl&gt;</td>
-        <td>definition list</td>
-        <td>定义定义列表。</td>
-      </tr>
-      <tr>
-        <td>&lt; dt&gt;</td>
-        <td>definition term</td>
-        <td>定义定义列表中的项目。</td>
-      </tr>
-      <tr>
-        <td>&lt; em&gt;</td>
-        <td>emphasized</td>
-        <td>定义强调文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; fieldset&gt;</td>
-        <td>Fieldset</td>
-        <td>定义围绕表单中元素的边框。域集</td>
-      </tr>
-      <tr>
-        <td>&lt; font&gt;</td>
-        <td>Font</td>
-        <td>不赞成使用。定义文字的字体、尺寸和颜色。</td>
-      </tr>
-      <tr>
-        <td>&lt; form&gt;</td>
-        <td>Form</td>
-        <td>定义供用户输入的 HTML 表单。</td>
-      </tr>
-      <tr>
-        <td>&lt; frame&gt;</td>
-        <td>Frame</td>
-        <td>定义框架集的窗口或框架。</td>
-      </tr>
-      <tr>
-        <td>&lt; frameset&gt;</td>
-        <td>Frameset</td>
-        <td>定义框架集。</td>
-      </tr>
-      <tr>
-        <td>&lt; h1&gt; to &lt; h6&gt;</td>
-        <td>Header1 to Header6</td>
-        <td>定义 HTML 标题。</td>
-      </tr>
-      <tr>
-        <td>&lt; head&gt;</td>
-        <td>Head</td>
-        <td>定义关于文档的信息。</td>
-      </tr>
-      <tr>
-        <td>&lt; hr&gt;</td>
-        <td>horizontal</td>
-        <td>定义水平线。</td>
-      </tr>
-      <tr>
-        <td>&lt; html&gt;</td>
-        <td>hypertext markup language</td>
-        <td>定义 HTML 文档。</td>
-      </tr>
-      <tr>
-        <td>&lt; i&gt;</td>
-        <td>italic</td>
-        <td>定义斜体字。</td>
-      </tr>
-      <tr>
-        <td>&lt; iframe&gt;</td>
-        <td>inline frame</td>
-        <td>定义内联框架。</td>
-      </tr>
-      <tr>
-        <td>&lt; img&gt;</td>
-        <td>Image</td>
-        <td>定义图像。</td>
-      </tr>
-      <tr>
-        <td>&lt; input&gt;</td>
-        <td>Input</td>
-        <td>定义输入控件。</td>
-      </tr>
-      <tr>
-        <td>&lt; ins&gt;</td>
-        <td>inserted</td>
-        <td>定义被插入文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; isindex&gt;</td>
-        <td></td>
-        <td>不赞成使用。定义与文档相关的可搜索索引。</td>
-      </tr>
-      <tr>
-        <td>&lt; kbd&gt;</td>
-        <td>keyboard</td>
-        <td>定义键盘文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; label&gt;</td>
-        <td>Label</td>
-        <td>定义 input 元素的标注。</td>
-      </tr>
-      <tr>
-        <td>&lt; legend&gt;</td>
-        <td>legend</td>
-        <td>定义域集元素的标题。</td>
-      </tr>
-      <tr>
-        <td>&lt; li&gt;</td>
-        <td>List</td>
-        <td>定义列表的项目。</td>
-      </tr>
-      <tr>
-        <td>&lt; link&gt;</td>
-        <td>Link</td>
-        <td>定义文档与外部资源的关系。</td>
-      </tr>
-      <tr>
-        <td>&lt; map&gt;</td>
-        <td>Map</td>
-        <td>定义图像映射。</td>
-      </tr>
-      <tr>
-        <td>&lt; menu&gt;</td>
-        <td>Menu</td>
-        <td>不赞成使用。定义菜单列表。</td>
-      </tr>
-      <tr>
-        <td>&lt; meta&gt;</td>
-        <td>Meta</td>
-        <td>定义关于 HTML 文档的元信息。</td>
-      </tr>
-      <tr>
-        <td>&lt; noframes&gt;</td>
-        <td>Noframes</td>
-        <td>定义针对不支持框架的用户的替代内容。</td>
-      </tr>
-      <tr>
-        <td>&lt; noscript&gt;</td>
-        <td>noscript</td>
-        <td>定义针对不支持客户端脚本的用户的替代内容。(定义无脚本的节)</td>
-      </tr>
-      <tr>
-        <td>&lt; object&gt;</td>
-        <td>Object</td>
-        <td>定义内嵌对象。</td>
-      </tr>
-      <tr>
-        <td>&lt; ol&gt;</td>
-        <td>Ordered list</td>
-        <td>定义有序列表。</td>
-      </tr>
-      <tr>
-        <td>&lt; optgroup&gt;</td>
-        <td>option group</td>
-        <td>定义选项组。</td>
-      </tr>
-      <tr>
-        <td>&lt; option&gt;</td>
-        <td>Option</td>
-        <td>定义下拉列表的选项。</td>
-      </tr>
-      <tr>
-        <td>&lt; p&gt;</td>
-        <td>paragraph</td>
-        <td>定义段落。</td>
-      </tr>
-      <tr>
-        <td>&lt; param&gt;</td>
-        <td>Param</td>
-        <td>定义对象的参数。</td>
-      </tr>
-      <tr>
-        <td>&lt; pre&gt;</td>
-        <td>preformatted</td>
-        <td>定义预格式文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; q&gt;</td>
-        <td>quotation</td>
-        <td>定义短的引用。</td>
-      </tr>
-      <tr>
-        <td>&lt; s&gt;</td>
-        <td></td>
-        <td>不赞成使用。定义加删除线的文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; samp&gt;</td>
-        <td>Sample</td>
-        <td>定义计算机代码样本。</td>
-      </tr>
-      <tr>
-        <td>&lt; script&gt;</td>
-        <td>Script</td>
-        <td>定义客户端脚本。</td>
-      </tr>
-      <tr>
-        <td>&lt; select&gt;</td>
-        <td>Select</td>
-        <td>定义选择列表（下拉列表）。</td>
-      </tr>
-      <tr>
-        <td>&lt; small&gt;</td>
-        <td>Small</td>
-        <td>定义小号文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; span&gt;</td>
-        <td>Span</td>
-        <td>定义文档中的节。</td>
-      </tr>
-      <tr>
-        <td>&lt; strike&gt;</td>
-        <td></td>
-        <td>不赞成使用。定义加删除线文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; strong&gt;</td>
-        <td>Strong</td>
-        <td>定义强调文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; style&gt;</td>
-        <td>Style</td>
-        <td>定义文档的样式信息。</td>
-      </tr>
-      <tr>
-        <td>&lt; sub&gt;</td>
-        <td>Subscript</td>
-        <td>定义下标文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; sup&gt;</td>
-        <td>Superscript</td>
-        <td>定义上标文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; table&gt;</td>
-        <td>Table</td>
-        <td>定义表格。</td>
-      </tr>
-      <tr>
-        <td>&lt; tbody&gt;</td>
-        <td>Table body</td>
-        <td>定义表格中的主体内容。</td>
-      </tr>
-      <tr>
-        <td>&lt; td&gt;</td>
-        <td>Table data cell</td>
-        <td>定义表格中的单元。</td>
-      </tr>
-      <tr>
-        <td>&lt; textarea&gt;</td>
-        <td>Textarea</td>
-        <td>定义多行的文本输入控件。</td>
-      </tr>
-      <tr>
-        <td>&lt; tfoot&gt;</td>
-        <td>Table foot</td>
-        <td>定义表格中的表注内容（脚注）。</td>
-      </tr>
-      <tr>
-        <td>&lt; th&gt;</td>
-        <td>Table head cell</td>
-        <td>定义表格中的表头单元格。</td>
-      </tr>
-      <tr>
-        <td>&lt; thead&gt;</td>
-        <td>Table head</td>
-        <td>定义表格中的表头内容。</td>
-      </tr>
-      <tr>
-        <td>&lt; title&gt;</td>
-        <td>Title</td>
-        <td>定义文档的标题。</td>
-      </tr>
-      <tr>
-        <td>&lt; tr&gt;</td>
-        <td>Table row</td>
-        <td>定义表格中的行。</td>
-      </tr>
-      <tr>
-        <td>&lt; tt&gt;</td>
-        <td>Teletype</td>
-        <td>定义打字机文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; u&gt;</td>
-        <td>Underline</td>
-        <td>不赞成使用。定义下划线文本。</td>
-      </tr>
-      <tr>
-        <td>&lt; ul&gt;</td>
-        <td>Unordered list</td>
-        <td>定义无序列表。</td>
-      </tr>
-      <tr>
-        <td>&lt; var&gt;</td>
-        <td>Variable</td>
-        <td>定义文本的变量部分。</td>
-      </tr>
-      <tr>
-        <td>&lt; xmp&gt;</td>
-        <td></td>
-        <td>不赞成使用。定义预格式文本。</td>
-      </tr>
-    </tbody>
-  </table>
-</body>
-</html>]]></content>
     </entry>
 </feed>

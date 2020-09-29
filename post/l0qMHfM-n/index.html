@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Git：分散型バージョン管理〜チーム開発　メモ | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1601353005518">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1601353005518" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Git：分散型バージョン管理〜チーム開発　メモ</h2>
+            <div class="post-date">2020-09-29 </div>
+            
+              <div class="feature-container" style="background-image: url('https://titangene.github.io/images/cover/git.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <p>ブランチによるチーム開発はGitのとくちょうであり，Gitが多くの開発者に支持される理由となる機能である。</p>
+<!-- more -->
+<h2 id="中央リポジトリをクローン">中央リポジトリをクローン</h2>
+<pre><code>git clone https://openg.tracpath.com/git/project project
+</code></pre>
+<p>git cloneコマンドで「project」中央リポジトリからローカルリポジトリを作成した。</p>
+<h2 id="オーカルリポジトリから中央リポジトリにプッシュ">オーカルリポジトリから中央リポジトリにプッシュ</h2>
+<pre><code>git push
+</code></pre>
+<h2 id="プルの使い方">プルの使い方</h2>
+<p>git pullコマンドは，中央リポジトリの最新情報を取得し(git fetch)，自分の作業ディレクトリと統合(git merge)することを意味している。</p>
+<p>pullの操作を行うタイミング：</p>
+<ul>
+<li>開発作業を開始する前に</li>
+<li>作業が完了し，pushする前にpull操作を行う</li>
+</ul>
+<h3 id="中央リポジトリの情報を知る">中央リポジトリの情報を知る</h3>
+<pre><code>git remote -v
+</code></pre>
+<h3 id="pushの使い方">pushの使い方</h3>
+<pre><code>git push [romote-name] [branch-name]
+</code></pre>
+<h2 id="ブランチ">ブランチ</h2>
+<p>同時対応が可能なブランチを利用することで，</p>
+<ul>
+<li>同時に異なる目的の作業を進めることが可能</li>
+<li>ブランチはお互いに影響しないため，独立したソースコードとして管理が可能</li>
+<li>ブランチでの作業は他のメンバーに影響を与えない</li>
+<li>ブランチの作成，マージが簡単に可能</li>
+<li>修正内容を戻したり，なかったことにすぐにできる</li>
+</ul>
+<p>というメリットがある</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git branch [branch-name]</td>
+<td>ブランチを作成する</td>
+</tr>
+<tr>
+<td>git branch -vva</td>
+<td>ブランチ一覧を確認する</td>
+</tr>
+<tr>
+<td>git checkout branchName</td>
+<td>ブランチを切り替える</td>
+</tr>
+<tr>
+<td>git merge master</td>
+<td>ブランチをmasterブランチにマージする</td>
+</tr>
+<tr>
+<td>git branch -d [branch-name]</td>
+<td>ブランチを削除する</td>
+</tr>
+</tbody>
+</table>
+<h3 id="マージを理解する">マージを理解する</h3>
+<p>マージは枝分かれしたブランチを1つに統合することをいう。</p>
+<p>コミットされ版を重ねたブランチに対して行うマージ処理は，次の２つを意味している。</p>
+<ol>
+<li>同一のファイルに行われた変更を統合する</li>
+<li>コミットに含まれるファイル全体を統合する</li>
+</ol>
+<h2 id="タグの使い方">タグの使い方</h2>
+<p>タグとは，特定のバージョンに対して目印となるポイントをつけることである。<br>
+例えば，Webアプリケーションのリリースした時点のバージョンをタグ名「v.1.0」としたり，受託開発でお客様に納品した時点のバージョンをタグ名「yyyy-mm-dd」と利用する。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git tag [tag-name]</td>
+<td>タグを作成する</td>
+</tr>
+<tr>
+<td>git tag</td>
+<td>タグの一覧を確認する</td>
+</tr>
+<tr>
+<td>git tag -d [tag-name]</td>
+<td>タグを削除する</td>
+</tr>
+<tr>
+<td>git push origin [tag-name]</td>
+<td>作成したタグを中央リポジトリにプッシュする</td>
+</tr>
+<tr>
+<td>git push origin :tagname</td>
+<td>リモートのタグを削除する</td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/ygzIfFUIG/" class="tag">
+                    Git
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/notes/" class="tag">
+                    Notes
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/xue-xi-bi-ji/" class="tag">
+                    学习笔记
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/BtnRgcd13/">
+                  <h3 class="post-title">
+                    Git：分散型バージョン管理〜Gitの基本　メモ
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
