@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>コンパイラ：プログラムが動作する仕組みと言語が動作する仕組み | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1601699449930">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1601699449930" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">コンパイラ：プログラムが動作する仕組みと言語が動作する仕組み</h2>
+            <div class="post-date">2020-10-03 </div>
+            
+              <div class="feature-container" style="background-image: url('https://secureservercdn.net/160.153.138.219/b79.d22.myftpupload.com/wp-content/uploads/2017/05/source-code-and-object-code.png')">
+              </div>
+            
+            <div class="post-content">
+              <p>コンパイラの役割はプログラミング言語を用いて開発するソフトウェア，つまり人が記述したテキストをコンピュータが解釈，実行できる機械語に変換することである。<br>
+ここでは，コンパイラの目的を理解するために，コンピュータ上でソフトウェアが動作する基本的な仕組みと，プログラミング言語として定義された文法，さらに，この文法にしたがって開発するソフトウェアの目的を説明する。</p>
+<!-- more -->
+<h2 id="コンピュータの仕組み">コンピュータの仕組み</h2>
+<p>基本的な構成要素は，頭脳となるCPUと情報を記憶するメモリである。<br>
+CPUはメモリに記録されているプログラムを制御装置に読み出して分析，解釈し，演算装置が，その意味を理解しながら実行する。<br>
+CPUは人が支持する人間の言葉を直接的に理解できないため，プログラムとして記述された指示書を読みながら実行することになる。この指示書を記述する文法がプログラミング言語である。コンピュータが理解できる言語は，CPUとメモリが連携して行う計算処理の手順を定義できなければならない。<br>
+ここで注意すべき点は，<strong>現在のコンピュータは定義されていないことや矛盾する手順を人間のように自動的に発見して補正する能力も知識もない</strong>ことである。</p>
+<p>CPU内部にも，計算に用いる数値を格納するレジスタと呼ばれる一種の記憶装置を保持している。計算を行う演算装置は，このレジスタに記録されている数値を読み取り，また一時的な計算結果を書き出しながら計算を実行していく。レジスタは演算装置とのやりとりを高速に行えるが，利用できる数は限定的である。<br>
+この構成からCPUの計算速度が向上する，つまりコンピュータ性能が高くなるためには，まず演算装置が高速に計算できること，加えてレジスタへの読み込み，書き込みが高速にできること，さらに一度にレジスタに読み込める情報量を大きくすることが必要になる。</p>
+<p>計算手順と計算に用いる情報を定義しているプログラムは，実行する前にはハードディスクなどに格納されている。利用者がプログラムの起動をコンピュータに指示すると，プログラムがメモリに記録（ロード）される。そして，CPUは記憶装置から，順次，計算単位を一時的に内部記憶装置に読み込みながら，このデータに対して計算を加えて，結果を記憶装置に登録する手順を繰り返す。以上の操作により，利用者は最終的に期待する計算結果を得ることができる。</p>
+<h2 id="言語が動作する仕組み">言語が動作する仕組み</h2>
+<ul>
+<li>自然言語（Natural Language）
+<ul>
+<li>自然発生的にできた言語。日本語，英語が該当する。</li>
+</ul>
+</li>
+<li>人工言語（Artificial Language）
+<ul>
+<li>ある情報を伝える目的のために人が作り出した言語。モールス信号やプログラミング言語が該当する。</li>
+</ul>
+</li>
+</ul>
+<p>人工言語であるプログラミング言語は自然言語と異なり，コンピュータが解釈して実行できるように人が設計した言語であるため，その解釈は厳密的に行われなければならず，曖昧な表現は許されない。</p>
+<p>コンピュータには通常，あらかじめ定義されている一通りの意味でしか解釈できない。このように人工言語に属するプログラミング言語は，自然言語と比較して目的が限定的であり，かつ表現力に乏しい言語といえる。</p>
+<h3 id="プログラミング言語と機械語">プログラミング言語と機械語</h3>
+<figure data-type="image" tabindex="1"><img src="https://zy080080.github.io//post-images/1601697611773.png" alt="" loading="lazy"></figure>
+<p>プログラミング言語は，人が目的に応じてアルゴリズムを記述しやすいように開発された人工言語であるため，プログラムをCPUが理解できる機械語で表現されるコードに置き換えて解釈する仕組みが必要となる。</p>
+<p>この変換を行うツールとして，コンパイラー，インタプリタ，クロスコンパイラなどの処理形態がある。</p>
+<p>機械語プログラムは起動するために必要な初期情報を格納したスタートアップルーチンと呼ばれる情報を持ち，<strong>コンピュータの仕組みに対応して</strong>命令群とデータ群を保持している。<br>
+コンピュータに動作させたい手順は，スタートアップルーチンを呼び出したのち，命令群とデータ群による計算を繰り返すことにより実行される。<br>
+このため，コンパイラがプログラムを機械語に変換してアルゴリズムを実行させるためには，コンピュータの仕組みを強く意識することが重要である。</p>
+<figure data-type="image" tabindex="2"><img src="https://zy080080.github.io//post-images/1601698151224.png" alt="" loading="lazy"></figure>
+<p>コンパイラを設計する際に行われる検討項目を以下に示す。これらの検討は，プログラムから機械語への変換を効率よく行うとともに，コンピュータ性能を十分に生かすことが可能な機械語コードを生成するために行う。</p>
+<ul>
+<li>木（解析木など）や中間言語（アセンブラ）など言語の構造の整理</li>
+<li>生成する機械語の構造</li>
+<li>プログラムの構造や意味に対応した字句，構文，意味解析</li>
+<li>機械語コードの生成と最適化</li>
+<li>コンパイラやインタプリタ，プリプロセッサ，マクロなど，言語処理の形態</li>
+<li>プートストラップ，コンパイラの自動生成，コンパイラ作成などのツール利用</li>
+</ul>
+<h2 id="言語を動作させる工夫">言語を動作させる工夫</h2>
+<p>コンピュータのCPuに依存する言語を，一般に低レベル言語と呼ぶ。これに対して手続き型言語，関数型言語，論理型言語，オブジェクト指向型言語など，プログラムとして表現したい意味に依存して設計された言語は，特定のCPU種別に依存することなく独立に開発されるため，高レベル言語と呼ばれる。</p>
+<hr>
+<h2 id="コンパイラ">コンパイラ</h2>
+<p>コンパイラは高級言語で書かれたプログラムをそれと等価な機械語プログラム等に変換する言語処理系（Language Processing System）である。</p>
+<h2 id="言語処理系">言語処理系</h2>
+<p>あるプログラミング言語で書かれたプログラムを，同じ動作をする別のプログラミング言語のプログラムに変換するソフトウェアを言語処理系という。</p>
+<p>変更前のプログラム＝ソース ，その言語＝ソース言語<br>
+変更後のプログラム＝オブジェクト，その言語＝オブジェクト言語（目的言語）</p>
+<p>Cコンパイラ（言語処理系）<br>
+ソース言語＝C言語，目的言語＝アセンブリ言語</p>
+<p>アセンブラ（言語処理系）<br>
+ソース言語＝アセンブリ言語，目的言語＝機械語</p>
+<h2 id="リンカ">リンカ</h2>
+<p>オブジェクトファイルとライブラリを結合し，動作可能な実行形式プログラムを出力。</p>
+<h2 id="プリプロセッサ">プリプロセッサ</h2>
+<p>ソースプログラムをコンパイル可能な形に整える。ヘッダーファイルの取り込み，マクロ展開（#defineなど）</p>
+<h2 id="分割コンパイル">分割コンパイル</h2>
+<p>システム開発は，通常複数人のチームで行う。<br>
+そのため，一般的ににプログラムは複数のソースプログラムによって構成される。</p>
+<ul>
+<li>各ソースプログラムを個別にコンパイルして結合することを<strong>分割コンパイル</strong>という。</li>
+<li>個別にコンパイルしたオブジェクトファイルの結合は，リンカーが行う。</li>
+<li>各ソースプログラムは完全ではないため，Cコードと呼ぶことがある。</li>
+</ul>
+<h2 id="コンパイラの構造">コンパイラの構造</h2>
+<p>コンパイラの本体は，以下の４つの処理で構成される。</p>
+<ol>
+<li>字句解析（Lexical Analysis）ソースプログラムのテキストを，字句要素（lexeme）と呼ばれる文字列に分割する。</li>
+<li>構文解析（Syntax Analysis）トークン列を解析して文法にしたがっているかを確認し，構文木を生成する。</li>
+<li>意味解析（Semantic Analysis）意味の観点でプログラムの正しさを確認する。</li>
+<li>コード生成（Code Generation）アセンブリ言語のコードを生成する。</li>
+</ol>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/iT-NcpTKs/" class="tag">
+                    コンパイラ
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/notes/" class="tag">
+                    Notes
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/7zzNKr8JI/">
+                  <h3 class="post-title">
+                    Spring Frameworkの特徴と役割
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
