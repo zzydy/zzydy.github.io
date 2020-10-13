@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>コンパイラ：字句解析 | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1602632011271">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1602632011271" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">コンパイラ：字句解析</h2>
+            <div class="post-date">2020-10-10 </div>
+            
+            <div class="post-content">
+              <p>コンパイラが行う最初の処理が字句解析である。字句解析では，文字の並びを解析し，トークンの並びへ変換する作業をする。</p>
+<!-- more -->
+<h2 id="トークン">トークン</h2>
+<p>ソースプログラムを構成する単位は，文字である。この文字を一文字以上集めて，“単語”に相当する単位にしたものがトークンである。</p>
+<p>コンパイラは構文解析を行う前に，文字の並びをトークンの並びに分解する。これは，構文解析をやりやすくするためや，処理方式に違いがあることなどから，一般的に行われるものである。</p>
+<p>トークンの並びに変換する作業を，文字の列を句（トークン）の列に分解する作業であることから，**字句解析（Lexical Analasis）**と呼ぶ。</p>
+<h2 id="トークンの種類">トークンの種類</h2>
+<h3 id="識別子とキーワード">識別子とキーワード</h3>
+<p>識別子は，通常の変数名や関数名のような名前を意味する。しかし，変数名か関数名かといった区別は，字句解析では判断できないため，予約語を除き，全て識別子という区分で扱うことになる。</p>
+<p>通常のプログラミング言語では，‘if’や‘while’のような単語を，キーワードあるいは予約語（reserved word）として特別に扱っている。</p>
+<p>このキーワードは，２つのグループに分けられる。<br>
+１つは，ifやwhileのように，プログラムの構造を示すものであり，他のものに定義をされると解析が困難になるため，予約されている。<br>
+もう１つは，intやfloatのように，特別なデータ型を表すもので，他のものに定義されても解析上は支障がないが，意味などで混乱を起こす可能性があるため，他の定義が禁止されている。</p>
+<h3 id="定数">定数</h3>
+<p>（1）整数<br>
+コンパイラ内部で扱う時に，整数のオーバーフローが起きてはいけない。</p>
+<p>（2）浮動小数点数<br>
+3.2や0.25のほか，3.5e2や2e-4も浮動小数点数である。さらに，eの前後に空白を許すか許さないか，といった書き方の違いもあり，これらをか使うプログラミング言語に応じて正しく認識する必要がある。また，誤差の問題も注意が必要である。</p>
+<p>（3）文字と文字列<br>
+エスケープ文字（C言語の「\」）の扱いを必要とする。また，文字列と文字が異なるのかどうかの違いがある。<br>
+C言語では，'a'は文字で，&quot;a&quot;は文字列となる。ところが，Pascalでは'a'は文字で，'ab'が文字列である。そして，文字として'を含める時にどのように記載するかは言語によって違っている。</p>
+<h3 id="空白改行注釈">空白，改行，注釈</h3>
+<p>空白や改行は，C言語では，トークンの区切りという意味だけを持っている。<br>
+注釈は一般にプログラムを構成する要素ではない。<br>
+通常のプログラミング言語では，１つのトークンの間に注釈や空白を入れることはできない。</p>
+<h2 id="字句解析の手法">字句解析の手法</h2>
+<p>字句解析の処理は，入力文字に対する遷移図（オートマトン）と考えると比較的わかりやすい。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/iT-NcpTKs/" class="tag">
+                    コンパイラ
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/a4vitZ301/">
+                  <h3 class="post-title">
+                    コンパイラ：プログラムが動作する仕組みと言語が動作する仕組み
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
