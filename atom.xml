@@ -2,14 +2,112 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2020-10-13T23:33:38.085Z</updated>
+    <updated>2021-01-11T07:29:31.751Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
     <subtitle>天青色等烟雨，而我在等你</subtitle>
     <logo>https://zy080080.github.io/images/avatar.png</logo>
     <icon>https://zy080080.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 听故事的人</rights>
+    <rights>All rights reserved 2021, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[OS：OSとは]]></title>
+        <id>https://zy080080.github.io/post/mq2xVP1Fs/</id>
+        <link href="https://zy080080.github.io/post/mq2xVP1Fs/">
+        </link>
+        <updated>2021-01-11T10:25:54.000Z</updated>
+        <summary type="html"><![CDATA[<p>教科書第1章　要点まとめ</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>教科書第1章　要点まとめ</p>
+<!-- more -->
+<p>オペレーティングシステムは，ハードウェアの確保，ユーザインタフェース，入出力制御など，プログラム本体とは異なる制御を，プログラマが意識することなく，プログラムすることを可能とする一連の制御プログラムの集合体なのである。</p>
+<p><strong>仮想化</strong>：オペレーティングシステムは『ハードウェアへのアクセスの容易性』，『ハードウェアリソースの確保の確認に対する容易性』を確保するために，有限個しかないハードウェアリソースを無限個，無限大のハードウェアリソースとしてプログラム側に提供すること。</p>
+<p><strong>多重化</strong>：ハードウェアリソース数を，実際の数より多く見せる操作。</p>
+<ul>
+<li><strong>時分割多重化</strong>：時間軸上での多重化。時間を区切ることにより，ハードウェアリソースを複数のプログラムに交互に利用させる方式である。</li>
+<li><strong>空間分割多重化</strong>：空間軸上での多重化。ハードウェアリソースを複数の領域に区切ることにより，複数のプログラムに別々の領域を利用させる方式である。</li>
+</ul>
+<p><strong>バッチ処理</strong>：ユーザがジョブをコンピュータに一括して依頼し，コンピュータはプログラムの実行前に一括に投入されたジョブに含まれる情報のみによって処理を行う方式。</p>
+<ul>
+<li>具体的には，実行時に必要とするリソース（CPU時間，メモリ量など），プログラム本体（ソースコード），データ（入力データ）が投入される。</li>
+<li>特徴：実行上必要なリソースを全て実行前に宣言すること。</li>
+<li>利点：
+<ul>
+<li>スケジューリングが単純。
+<ul>
+<li>前もってプログラムが必要とするリソースが分かる。</li>
+<li>複数のジョブのスケジューリングが楽（必要リソースの少ないジョブを優先的に実行すると，全ジョブの平均待ち時間が短くなる）。</li>
+<li>ジョブの切り替えも少なくてすむため，無駄が少ない。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>欠点：
+<ul>
+<li>前もって全てを決めないとジョブが投入できない。Ï</li>
+</ul>
+</li>
+</ul>
+<p><strong>対話処理</strong>：プログラムの実行中に入力が必要となった場合に，ユーザがその時点で入力を行い，プログラムの実行を制御する処理形態。</p>
+<ul>
+<li>対話処理を採用する場合の代表的なプロセス実行形態として<strong>タイムシェアリングシステム（時分割処理方式　time sharing sysytem:TSS）</strong></li>
+</ul>
+<p><strong>TSS（Time Sharing System 時分割処理方式）</strong>：複数のプロセスに非常に短い時間（10^(-3)秒程度）単位でCPUの実行権を与え，対話処理を実行中の各プロセスにあたかもCPUを占有しているかのように見せかけるCPUの時間軸方向の仮想化手法。(人的反应慢，反应不过来被分配给其他处理的时间，从人的视角来看好像只在处理一个process而已)</p>
+<ul>
+<li>使っていないCPU時間を他に割り当てる。割り当てられる単位時間（クオンタム）は数10ms。</li>
+<li>利点：
+<ul>
+<li>自分の他に大きなプロセスがあっても，そのプロセスが終わるまで長い時間待たされたりしない。（バッチ処理ではありうる）。</li>
+<li>ユーザから見ても，対話的に入力してからその反応が返ってくるまでの時間（レスポンスタイム）が短くなる。</li>
+</ul>
+</li>
+</ul>
+<p><strong>リアルタイム処理</strong>：あるジョブやプロセスが発生した時点から決めた時間内に実行を保証する処理。</p>
+<p><strong>分散処理</strong>：複数のコンピュータを同時に用いて一連の処理を行う方式。</p>
+<hr>
+<p>1.<strong>オペレーティングシステム</strong>の目的は，ハードウェアリソース，ソフトウェアリソースの利用時における容易性，効率性の向上である。</p>
+<p>2.リソースを配分される単位を<strong>プロセス</strong>と呼び，ユーザから見たコンピュータに依頼する仕事のまとまりを<strong>ジョブ</strong>と呼ぶ。</p>
+<p>3.オペレーティングシステムの基本的な枠組みは，リソースの<strong>仮想化</strong>と仮想化されたリソースの<strong>スケジューリング</strong>にある。</p>
+<p>4.プログラムの処理形態は，<strong>バッチ処理</strong>と<strong>対話処理</strong>の２つが基本である。他にも，リアルタイム処理や分散処理などオペレーティングシステムの処理形態は広がりつつある。</p>
+<p>5.効率化の指標は大きく分けて，プログラムの実行を依頼してから結果が帰ってくるまでの時間の尺度である<strong>レスポンズタイム</strong>（対話処理の場合），<strong>ターンアラウンドタイム</strong>(バッチ処理の場合)と，一定時間内にコンピュータシステムが行う仕事量の尺度である<strong>スループット</strong>がある。</p>
+<p>1.1 プロセスとジョブの違いについて説明せよ。<br>
+　プロセスは，オペレーティングシステム側から見たリソースの割り当て対象であり，ジョブとは，ユーザ側から見たオペレーティングシステムに対して処理を依頼する，ひとまとまりの仕事を表す。したがって，１つのジョブは通常１つ以上のプロセスから構成される。なお，ジョブという言葉は，バッチシステムでは一般的であり，TSSを基本とするオペレーティングシステムではあまり用いられない。</p>
+<p>1.2 空間分割によるリソースの多重化時に考えられるオーバーヘッドについて説明せよ。<br>
+　空間分割による多重化を行うためには，プロセスの必要とするリソースがどのような位置に配置されても，プロセス側からは同様のアドレスを指定することにより，アクセスの可能である設計が必要となる。したがって，オペレーティングシステムでは，プロセス側で指定するリソースの位置と実際の物理的なリソースの位置との間の変換を行う作業が必要となる。</p>
+<p>1.3 個人が使用するオペレーティングシスレムにおいてもTSSが一般的に用いられている。この理由を，ユーザからみた利便性，システム資源の有効利用の面から考察せよ。<br>
+　ユーザからみた利便性：個人が使用するオペレーティングシステムにおいても，複数の仕事を同時に実行することが必要である。ネットワーク入出力，華やかなグラフィカルユーザインターフェース，個人のスケジュール管理ソフトなどなど縁の下の力持ち的なソフトウェアの増加など，ユーザの利便性を追求することを目的とするプロセスは増大の一方である。したがって，複数のプロセスを同時に実行可能なTSS環境は必須である。<br>
+　システム資源の有効利用：個人が使用するオペレーティングシステムで実行されているプロセスの大部分は，CPUリソースをほとんど消費しない待ちの状態が多い（ゲームなどCPUリソースを大量に使うアプリケーションの実行時は除く）。例えば，スケジュール管理ソフトは決められた時刻が来た時，もしくはユーザのスケジュール入力時のみ動作すれば良い。したがって，TSSによるCPUリソースの多重化を行っても見かけ上のプログラム実行速度の変化がないだけでなく，待ち時間の有効利用はシステム資源の有効利用となる。</p>
+<p>1.4 時分割多重化の利点と欠点<br>
+　時分割多重化の利点には，時間を区切ることにより，ハードウェアリソースを複数のプログラムに交互に利用させることができ，CPUなど空間分割が不可能な時に利用できることがある。ただし，欠点として，使用者が切り替わる時に無駄（オーバヘッド）が発生する。電子機械では，短い時間で切り替えるため，切り替え回数が増加すると，オーバヘッドも増加してしまう。</p>
+<p>数値の重要性</p>
+<ul>
+<li>
+<p>計算機の基本周期（クロック）は？</p>
+<ul>
+<li>１単位の処理時間10<sup>(-9)秒(1ns)，クロックだと10</sup>9回(1GHz)</li>
+</ul>
+</li>
+<li>
+<p>主記憶へのアクセス遅延は？</p>
+<ul>
+<li>10^(-7)秒(100ns)</li>
+</ul>
+</li>
+<li>
+<p>2次記憶へのアクセス遅延は？</p>
+<ul>
+<li>10^(-2)秒(5ms~10ms)</li>
+</ul>
+</li>
+<li>
+<p>人間のキーボード入力速度は？</p>
+<ul>
+<li>10^(-1)秒</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[コンパイラ：字句解析]]></title>
         <id>https://zy080080.github.io/post/u0YDg1pii/</id>
@@ -706,24 +804,6 @@ PrintWriterのコンストラクタに渡せる変数は，File，String，Write
 <p>发生在同一个类中，方法名必须相同，参数类型不同、个数不同、顺序不同，方法返回值和访问修饰符可以不同。</p>
 <h3 id="重写">重写</h3>
 <p>重写是子类对父类的允许访问的方法的实现过程进行重新编写，发生在子类中，方法名、参数列表必须相同，返回值范围小于等于父类，访问修饰符范围大于等于父类。另外，如果父类方法访问修饰符为private则子类就不能重写该方法。<strong>也就是说方法提供的行为发生改变，而方法的外貌并没有改变</strong>。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[How to start Tomcat with output on console in Linux?]]></title>
-        <id>https://zy080080.github.io/post/pKZECUQCU/</id>
-        <link href="https://zy080080.github.io/post/pKZECUQCU/">
-        </link>
-        <updated>2020-03-20T08:34:49.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://stackoverflow.com/questions/14010448/how-to-start-tomcat-with-output-on-console-in-linux">source: How to start Tomcat with output on console in Linux? [closed]<br>
-</a></p>
-<p>You're looking for</p>
-<pre><code>tomcat/bin/catalina.sh run
-</code></pre>
-<p>instead of</p>
-<pre><code>tomcat/bin/startup.sh; tail -f tomcat/logs/catalina.out
-</code></pre>
-<p>Tomcat stays in foreground this way (first option). If you want to shut it down, Ctrl-C in your console window will do the trick.</p>
-<p>If you choose the second option, tomcat will run in background, while tail will run in foreground, but you'll have to give the same directory path twice.</p>
 ]]></content>
     </entry>
 </feed>
