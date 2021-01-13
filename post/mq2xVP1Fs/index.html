@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1610350154526">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1610579434441">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
 
@@ -39,7 +39,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zy080080.github.io/">
-        <img src="https://zy080080.github.io//images/avatar.png?v=1610350154526" class="site-logo">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1610579434441" class="site-logo">
         <h1 class="site-title">听故事的人</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -143,12 +143,13 @@
 <ul>
 <li>対話処理を採用する場合の代表的なプロセス実行形態として<strong>タイムシェアリングシステム（時分割処理方式　time sharing sysytem:TSS）</strong></li>
 </ul>
+<p><strong>クオンタム</strong>：一回に割当てられる時間。</p>
 <p><strong>TSS（Time Sharing System 時分割処理方式）</strong>：複数のプロセスに非常に短い時間（10^(-3)秒程度）単位でCPUの実行権を与え，対話処理を実行中の各プロセスにあたかもCPUを占有しているかのように見せかけるCPUの時間軸方向の仮想化手法。(人的反应慢，反应不过来被分配给其他处理的时间，从人的视角来看好像只在处理一个process而已)</p>
 <ul>
 <li>使っていないCPU時間を他に割り当てる。割り当てられる単位時間（クオンタム）は数10ms。</li>
 <li>利点：
 <ul>
-<li>自分の他に大きなプロセスがあっても，そのプロセスが終わるまで長い時間待たされたりしない。（バッチ処理ではありうる）。</li>
+<li>自分の他に大きなプロセスがあっても，そのプロセスが終わるまで長い時間待たされたりしない。（バッチ処理ではありうる）。各プロセスの待ち時間は短い。</li>
 <li>ユーザから見ても，対話的に入力してからその反応が返ってくるまでの時間（レスポンスタイム）が短くなる。</li>
 </ul>
 </li>
@@ -156,11 +157,11 @@
 <p><strong>リアルタイム処理</strong>：あるジョブやプロセスが発生した時点から決めた時間内に実行を保証する処理。</p>
 <p><strong>分散処理</strong>：複数のコンピュータを同時に用いて一連の処理を行う方式。</p>
 <hr>
-<p>1.<strong>オペレーティングシステム</strong>の目的は，ハードウェアリソース，ソフトウェアリソースの利用時における容易性，効率性の向上である。</p>
-<p>2.リソースを配分される単位を<strong>プロセス</strong>と呼び，ユーザから見たコンピュータに依頼する仕事のまとまりを<strong>ジョブ</strong>と呼ぶ。</p>
-<p>3.オペレーティングシステムの基本的な枠組みは，リソースの<strong>仮想化</strong>と仮想化されたリソースの<strong>スケジューリング</strong>にある。</p>
-<p>4.プログラムの処理形態は，<strong>バッチ処理</strong>と<strong>対話処理</strong>の２つが基本である。他にも，リアルタイム処理や分散処理などオペレーティングシステムの処理形態は広がりつつある。</p>
-<p>5.効率化の指標は大きく分けて，プログラムの実行を依頼してから結果が帰ってくるまでの時間の尺度である<strong>レスポンズタイム</strong>（対話処理の場合），<strong>ターンアラウンドタイム</strong>(バッチ処理の場合)と，一定時間内にコンピュータシステムが行う仕事量の尺度である<strong>スループット</strong>がある。</p>
+<p>1.<strong>オペレーティングシステム</strong>の目的は，ハードウェアリソース，ソフトウェアリソースの利用時における容易性，効率性の向上である。<br>
+2.リソースを配分される単位を<strong>プロセス</strong>と呼び，ユーザから見たコンピュータに依頼する仕事のまとまりを<strong>ジョブ</strong>と呼ぶ。<br>
+3.オペレーティングシステムの基本的な枠組みは，リソースの<strong>仮想化</strong>と仮想化されたリソースの<strong>スケジューリング</strong>にある。<br>
+4.プログラムの処理形態は，<strong>バッチ処理</strong>と<strong>対話処理</strong>の２つが基本である。他にも，リアルタイム処理や分散処理などオペレーティングシステムの処理形態は広がりつつある。<br>
+5.効率化の指標は大きく分けて，プログラムの実行を依頼してから結果が帰ってくるまでの時間の尺度である<strong>レスポンズタイム</strong>（対話処理の場合），<strong>ターンアラウンドタイム</strong>(バッチ処理の場合)と，一定時間内にコンピュータシステムが行う仕事量の尺度である<strong>スループット</strong>がある。</p>
 <p>1.1 プロセスとジョブの違いについて説明せよ。<br>
 　プロセスは，オペレーティングシステム側から見たリソースの割り当て対象であり，ジョブとは，ユーザ側から見たオペレーティングシステムに対して処理を依頼する，ひとまとまりの仕事を表す。したがって，１つのジョブは通常１つ以上のプロセスから構成される。なお，ジョブという言葉は，バッチシステムでは一般的であり，TSSを基本とするオペレーティングシステムではあまり用いられない。</p>
 <p>1.2 空間分割によるリソースの多重化時に考えられるオーバーヘッドについて説明せよ。<br>

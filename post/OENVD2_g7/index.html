@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>OS：CPUの仮想化ープロセス | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1610579434441">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1610579434441" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">OS：CPUの仮想化ープロセス</h2>
+            <div class="post-date">2021-01-14 </div>
+            
+            <div class="post-content">
+              <p>教科書第二章まとめ</p>
+<!-- more -->
+<p></p>
+<p>プロセス：ユーザの代わりにOSに対してリソースを要求するとともに，リソースの割り当てを受ける単位。システムが処理する仕事の単位。</p>
+<p>プロセス処理形態</p>
+<ul>
+<li>ユニプロセッサ・ユニプログラミング方式
+<ul>
+<li>１つのCPUに対して１つのプロセス</li>
+<li>バッチ処理</li>
+</ul>
+</li>
+<li>ユニプロセッサ・マルチプログラミング方式
+<ul>
+<li>１つのCPUに対して複数のプロセス</li>
+<li>TSS（Time　Sharing　System　時分割処理方式）</li>
+</ul>
+</li>
+<li>マルチプロセッサ・マルチプログラミング方式
+<ul>
+<li>複数のCPUに対して複数のプロセス</li>
+<li>並列・分散処理</li>
+</ul>
+</li>
+</ul>
+<p><strong>同時実行できるプロセス数よりCPUが多いとCPUが遊んでいてもったいないため，プロセスをさらに小さい単位に分割。</strong></p>
+<p><strong>スレッド</strong>：CPUリソースが割り当てられる論理単位。</p>
+<ul>
+<li>CPUリソースをスレッドごとに割り当て</li>
+<li>プログラムの実行においては，スレッドは１つの命令の流れとしてとらえることができる。</li>
+<li>利点
+<ul>
+<li>TSSによる切り替えオーバヘッドが軽い
+<ul>
+<li>同一プロセスから生成されてるから<strong>メモリ領域が同じ</strong>。</li>
+<li>メモリ使用量は<strong>1プロセス分</strong>で済む。</li>
+<li><strong>別名：Light Weight Process</strong></li>
+<li>マルチスレッドの場合，各スレッドは，独自にレジスタ群とスタックを持つともに，CPUリソースのwリアて単位となる。その他，プロセス内で管理される主記憶，プログラム領域，静的変数領域，動的変数領域，PSWなどが，各スレッド間で共有される。また，ファイル情報をプロセス単位で管理されるため，スレッドの生成が軽量（早い）である。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>プロセスとスレッドの違い：</p>
+<ul>
+<li>プロセス
+<ul>
+<li>Microsoft Word</li>
+<li>Microsoft Excel</li>
+<li>各プログラムはプロセスとして処理</li>
+</ul>
+</li>
+<li>スレッド
+<ul>
+<li>Wordの場合，印刷，編集など，同じ『Word』というプログラムの中で<strong>同時（並行）動作できる単位</strong>                                                                                           |<br>
+<strong>イベント</strong>：CPU内での通常の計算処理以外の事象。</li>
+</ul>
+</li>
+</ul>
+<p><strong>インターバルタイマー</strong>：TSSで用いる一定時間ごとに決まったイベントを発生させるための装置。</p>
+<ul>
+<li>TSSでは，定期的な切り替えが必要。インターバルライマが定期的に割込みを発生することで切り替えを実現する。</li>
+</ul>
+<p><strong>割込み</strong>：通常のCPU演算動作とは異なる事象のこと。</p>
+<ul>
+<li>キーボード入力を受け取ったなど</li>
+<li>割込み発生時にプロセスの切り替えが起こる。</li>
+</ul>
+<p><strong>割込み処理</strong>：割り込みが発生した時に，CPUには非常に高速かつ軽量に処理するプログラムを実行可能なプログラム実行方式。</p>
+<ul>
+<li>内部割り込み
+<ul>
+<li>スーパバイザコール割込み</li>
+<li>プログラムチェック（例外）割込み</li>
+<li>実行中のプログラムを発生原因とする</li>
+<li>プログラム自体の異常など</li>
+</ul>
+</li>
+<li>外部割り込み
+<ul>
+<li>入出力割込み</li>
+<li>タイマ割込み</li>
+<li>マシンチェック割込み（冷却装置の異常，電源装置の異常など）</li>
+<li>リスタート割込み</li>
+<li>その他の要因で発生する</li>
+<li>ほかの優先的処理からの要求，ハードウェア異常など</li>
+</ul>
+</li>
+</ul>
+<p><strong>スーパバイザモード</strong>：OSを実行するモードであり，CPUが有する全ての命令とOSが管理する全てのリソース扱うことが可能。</p>
+<p><strong>ユーザモード</strong>：ユーザの作成した応用プログラムを実行するモードであり，実行できる命令や利用できるリソースに制限がある。</p>
+<p><strong>スーパバイザコール割込み</strong>：ユーザプログラムがOSに対して処理を依頼する際に発生する割込み。</p>
+<ul>
+<li>この時にCPUの実行モードが切り替わる</li>
+</ul>
+<p><strong>例外割込み（プログラムチェック割込み）</strong>：実行中のプログラムで以上が起こった時に発生する割込み。</p>
+<p><strong>割込み処理ルーチン</strong>：割込みハンドラ，割込み処理プログラム。</p>
+<p><strong>PSW(Program Status Word)プログラム状態語</strong>：CPU内のプロセスの再開必要なレジスト情報。</p>
+<ul>
+<li>プログラムカウンタの値</li>
+<li>スタックレジスタの値</li>
+<li>汎用レジスタの値</li>
+<li>割込みマスク（割り込みを禁止すること）の値など</li>
+</ul>
+<p><strong>PCB(Process Control Block)プロセス制御ブロック</strong>：メモリ上の，PSWを待避するための領域。</p>
+<ul>
+<li>プロセス識別子　各プロセスに割当てられる一連の番号</li>
+<li>PSW　中断時に伝送されたPSW情報</li>
+<li>ユーザ名　プロセスの所有者</li>
+<li>実行優先度　プロセスに与えられている実行優先度</li>
+<li>既実行時間　プロセスがすでにCPUリソースを消費した時間。実行優先度とともに，スケジューリングに用いる。</li>
+<li>リソース情報　プロセスの確保しているリソース情報</li>
+</ul>
+<p><strong>割込みベクタ</strong>：割込みの種類に対応する数字（ID）<br>
+割込み処理ルーチン内では，割込みの種類を解析し，その割込みの種類に応じた処理ルーチンを実行する</p>
+<p><strong>割込みベクタテーブル</strong>：割込み処理ルーチンは，あらかじめ処理の内容に応じて，実行する処理の番地をテーブル化したもの。<strong>処理の高速化を図る</strong>。<br>
+割込み処理ルーチンはメインメモリ上にある割込みベクタテーブルと，システムバス上の割込みベクタ番号から，次に実行するアドレスを迅速に決定する。</p>
+<p><strong>実行状態（running）</strong>：プロセスを実行している状態。リソースは，そのプロセスのために確保されている。</p>
+<p><strong>実行可能状態（ready）</strong>：実行できるが，CPUリソースが確保できていない状態。CPUリソースを確保した時点で実行開始される。</p>
+<p><strong>待ち状態（waiting）</strong>：CPU以外のリソースも確保できていない状態。入力待ちなどもこれに含まれる。</p>
+<hr>
+<p>1.プロセスの中断，再開は，<strong>割り込み</strong>により行う。割り込みが発生した場合，オペレーティングシステムは，<strong>割込み処理ルーチン</strong>にただちに処理を切り替える。割込み処理ルーチン内で，まず実行中のPSWを主記憶内に伝送し，次にCPUスケジューラを起動させ，そして実行するプロセスを選ぶ。最後に，実行するプロセスのPSWをCPU内に伝送することにより，新しいプロセスを再開する。これら一連の処理を<strong>コンテキスト切り替え</strong>と呼ぶ。</p>
+<p>2.OS内におけるプロセスは，全ての実行に必要なリソースを獲得して実行中の<strong>実行状態</strong>(Running)，CPU以外のリソースは全て獲得CPUリソースさえ獲得できれば<strong>実行可能状態</strong>(ready)，CPU以外のリソースの不足，もしくは他のプロセスからのデータ待ちの<strong>待ち状態</strong>(wait)，の３つの状態で存在する。</p>
+<p>2.1<br>
+　OS内におけるプロセスの状態は，（実行状態），（実行可能状態），（待ち状態）の３つの状態に分けることができる。（実行状態）から（実行可能状態）への状態遷移は優先度の高いプロセスの割込みや，CPUスケジューラにより割り当てられたCPU時間（クオンタム）を使った時に起こる。<br>
+　プロセスの実行情報は，主にレジスタ情報が（PSW）に，それ以外の実行時間やプロセス名などの情報が（PCB）に格納されている。実行中のプロセスが中断された場合，これらの情報を保存しなければならない。この一連の操作を（コンテキスト）切り替えと呼び，最近のCPUには（PSW）を高速に保存する仕組みがある。</p>
+<p>2.2 割込み時に，割込みの種類をベクタとして，割込み処理ルーチンに渡すのはなぜか，また，ベクタとして渡す以外の他の方法についても考査せよ。<br>
+　割込みは，頻繁にかつ様々な原因で発生するため，その処理はできる限り高速に行わなければならない。割込みベクタを用いることで，OSは制御がどのアドレスに移されたかにより，割込みの原因を高速かつ容易に知ることができる。<br>
+　また，割込みベクタを用いない方法として，状態（cause）レジスタを用いる方法がある。この場合，割り込みが発生した時点で，同一の割込み処理ルーチンに制御が移り，割込み処理ルーチン内で，状態レジスタを参照することにより，適切な割込み処理を行う。</p>
+<p>2.3 OSを理解する上で，速度オーダーの理解は重要である。本書が想定する以下の速度を答えよ</p>
+<ul>
+<li>CPUの１命令実行   10^(-9)</li>
+<li>主記憶からCPUに内容を伝送する速度 10^(-7)</li>
+<li>2時記憶の読み出し（書き込み速度） 10^(-3)</li>
+<li>人の反応速度  10^(-1)</li>
+</ul>
+<p>2.4 PCBの場合はA，PSWの場合はB，どちらにも含まれない場合はC<br>
+プロセス識別子（A）  ユーザ名（A）    既実行時間（A）  実行優先度（A）  プログラムカウンタ（B）<br>
+割込みマスク（B）    割込みベクタテーブル（C）    割込み処理ルーチン（C）</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/t07z1l2wA/" class="tag">
+                    OS
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/mq2xVP1Fs/">
+                  <h3 class="post-title">
+                    OS：OSとは
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
