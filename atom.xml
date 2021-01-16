@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2021-01-16T01:34:32.660Z</updated>
+    <updated>2021-01-16T11:08:44.372Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -10,6 +10,150 @@
     <logo>https://zy080080.github.io/images/avatar.png</logo>
     <icon>https://zy080080.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[OS：並行プロセス-モニタ]]></title>
+        <id>https://zy080080.github.io/post/ECsYYoE6u/</id>
+        <link href="https://zy080080.github.io/post/ECsYYoE6u/">
+        </link>
+        <updated>2021-01-16T12:08:05.000Z</updated>
+        <summary type="html"><![CDATA[<p>教科書第6章 まとめ</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>教科書第6章 まとめ</p>
+<!-- more -->
+<p>モニタとセマフォ</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">セマフォ</th>
+<th style="text-align:center">モニタ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">P命令</br>共有リソースの取得トライ。失敗時に待ち行列へ</td>
+<td style="text-align:center">wait()</br>待ち行列へ</td>
+</tr>
+<tr>
+<td style="text-align:center">V命令</br>共有リソース返却，待ちプロセスを１つ実行可能状態へ</td>
+<td style="text-align:center">signal()（Javaではnotify()）</br>待ちプロセスを１つ実行可能状態へ</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">queue()</br>待ちプロセスの有無を返す</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">セマフォ</th>
+<th style="text-align:center">モニタ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">P命令を実行しないとセマフォの状態がわからない</td>
+<td style="text-align:center">メソッドにより，共有リソースの状態を排他的に調べられる</td>
+</tr>
+<tr>
+<td style="text-align:center">リソースを取ろうとしないと，空いているかどうか不明</td>
+<td style="text-align:center">リソースの空きの確認とリソース待ちが分離</td>
+</tr>
+<tr>
+<td style="text-align:center">取れなかったら，いきなり待ち行列に待たされる</td>
+<td style="text-align:center">条件変数へのwaitにより，自由度の高い「待ち」が可能</td>
+</tr>
+</tbody>
+</table>
+<p><strong>モニタの利点（セマフォに対し）</strong>：</p>
+<ul>
+<li>リソース確認と「待ち」状態の分離
+<ul>
+<li>リソースに空きがない場合，「待ち」に入るかどうか自由に選べる</li>
+</ul>
+</li>
+<li>排他制御すべきリソースの明示
+<ul>
+<li>モニタ内に記述されるため明示的</li>
+<li>他の一般的な変数と判別しやすい</li>
+<li>排他的メソッドを通じた処置により保護</li>
+</ul>
+</li>
+<li>プログラマに安全で扱いやすい枠組みを提供</li>
+</ul>
+<hr>
+<p>1.<strong>モニタ</strong>とは，オブジェクト思考の考え方を排他制御（およびプロセス同期）に適用した解法である。モニタ内には，排他制御の対象となる<strong>リソース</strong>，リソースを操作するための<strong>メソッド</strong>，オブジェクトの実体を生成する際に実行する<strong>初期コード</strong>，<strong>終了時コード</strong>が存在する。</p>
+<p>2.モニタ内のリソースは，メソッドを介してのみアクセス可能である。また，各モニタのメソッドは排他的に実行される。したがって，プログラマはモニタ内のリソースの排他制御を考慮する必要はない。</p>
+<p>3.モニタを用いることにより，セマフォよりもさらに抽象度が高くできるとともに，デッドロックの可能性のある処理を，コンパイラで実行前にある程度事前に検出することも可能となる。</p>
+<p>複数のプロセスが，同時に実行されている場合，共通のリソース（共有変数など）にアクセスする場合は（排他制御）が必要となる。また，（排他制御）が必要となる領域のことを（クリティカルセクション）と呼ぶ。（排他制御）の解決方法の代表的な例は（セマフォ）である。これは，待ち行列と整数変数を持つデータ構造であり，（P）命令と（V）命令により制御する。一般的には，（クリティカルセクション）に入る前に（P）命令を，出る前に（V）命令を実行する。さらに，より抽象度の高い（排他制御）の方法として，（モニタ）がある。（モニタ）は，（排他制御）の対象となるリソースを（オブジェクト）指向の枠組みで抽象化したモデルである。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[OS：並列プロセス-セマフォ]]></title>
+        <id>https://zy080080.github.io/post/oEPtkexau/</id>
+        <link href="https://zy080080.github.io/post/oEPtkexau/">
+        </link>
+        <updated>2021-01-16T04:50:30.000Z</updated>
+        <summary type="html"><![CDATA[<p>教科書第5章　まとめ</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>教科書第5章　まとめ</p>
+<!-- more -->
+<p><strong>semaphore　セマフォ</strong>：整数型の変数（セマフォ変数）と，待ち行列からなるデータ構造を有する構造体である。この構造体へは，P命令，V命令の２つの操作が許されている。</p>
+<p><strong>P命令</strong>：リソースを要求し，許可されない場合は待ち状態へ移行。</p>
+<ul>
+<li>空きリソースを1つ使用</li>
+<li>空きリソース数（セマフォ変数）をデクリメント</li>
+<li>空きがない場合，プロセスを待ち状態に</li>
+</ul>
+<p><strong>V命令</strong>：リソースを解放し，待ちプロセスを実行可能状態へ移行。待ちプロセスがない場合，空きリソース数をインクリメント。</p>
+<ul>
+<li>空きリソースを1つ解放</li>
+<li>待ちプロセスを1つ実行可能状態に</li>
+<li>待ちプロセスがない場合，空きリソース数（セマフォ変数）をインクリメント</li>
+</ul>
+<p><strong>デッドロック</strong>：全てのプロセスが，あるリソースを確保するために，別のリソースを確保したママ解放を待っている状態となってしまい，これらのリソースに関連する全てのプロセスの実行が止まってしまう状態。</p>
+<p><strong>ダイニングフィロソファの解法</strong>：</p>
+<ul>
+<li>解法1：フォーク一本一本ではなく，「フォーク全体を使う権利」をセマフォで管理
+<ul>
+<li>うまくいくが，同時に一人しか食事できない。</li>
+<li>実際は二人同時に食事可能な場合があるはず</li>
+<li>リソースが有効利用できていない</li>
+</ul>
+</li>
+<li>解法2：１つのプロセスだけが逆順でフォークを要求
+<ul>
+<li>うまくいくが，哲学者4が特殊であるため，<strong>公平性</strong>を欠いている可能性がある</li>
+</ul>
+</li>
+<li>解法3：少し我慢をする哲学者
+<ul>
+<li>右のフォークを確保後，左のフォークが確保できなければ，一旦右のフォークを解放して少し待つ</li>
+<li>これにより，「全員右フォークを確保した状態」から抜け出せる</li>
+<li>問題点：全員が同時に「右フォーク確保，右フォーク解放」を繰り返すと，デッドロック。</li>
+</ul>
+</li>
+<li>解法4：不定時間だけ我慢をする哲学者
+<ul>
+<li>右のフォークを確保後，左のフォークが確保できなければ，一旦右のフォークを解放して少し待つ</li>
+<li>待つ時間はランダムに決定する</li>
+<li>これによって，全員が同時に「右のフォークを確保，右のフォークを解放」を繰り返すことがなくなる</li>
+<li>問題点：デッドロックが発生しないことを証明できない。フォークを解放して「譲った」哲学者は，次に優先される仕組みがないと公平性に欠ける。</li>
+</ul>
+</li>
+<li>理想的な解法：
+<ul>
+<li>リソース確保に失敗した場合，当該リソースを確保するための<strong>待ち行列に並ぶことができる</strong>こと</li>
+<li>全てのプロセスがリソースを<strong>平等に確保できる</strong>ことを保証すること</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>1.<strong>P命令</strong>(wait)と<strong>V命令</strong>(signal)からなる<strong>セマフォア</strong>は，より抽象的な排他制御の仕組みとして開発された。セマフォを獲得できないプロセスは，待ち状態に移行するため，ビジーウェイティングの問題はない。</p>
+<p>2.プロセス間通信や計算機間の通信(Local Area Network, Internetwork)をモデル化した<strong>プロデュサ/コンシューマ問題</strong>や，データベースアクセス制御をモデル化した<strong>リーダタイム問題</strong>は，非同期問題の解法として重要な例題である。</p>
+<p>3.<strong>食事をする哲学者問題</strong>は，複数リソースを獲得する際のデッドロックをモデル化している。複数リソースを獲得するプログラムを作成する場合，常にデッドロックを考慮する必要がある。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OS：並列プログラム-排他制御基礎]]></title>
         <id>https://zy080080.github.io/post/7nRN9HqLl/</id>
@@ -839,226 +983,6 @@ DIを重視した設計になっていると，依存性のあるプログラム
 </tr>
 </tbody>
 </table>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Git：分散型バージョン管理〜Gitの基本　メモ]]></title>
-        <id>https://zy080080.github.io/post/BtnRgcd13/</id>
-        <link href="https://zy080080.github.io/post/BtnRgcd13/">
-        </link>
-        <updated>2020-09-24T12:57:22.000Z</updated>
-        <summary type="html"><![CDATA[<p>分散型バージョン管理は，個々の開発者ごとに複数のリポジトリを持つことができ，開発の形態や規模に応じて柔軟な開発ができる。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>分散型バージョン管理は，個々の開発者ごとに複数のリポジトリを持つことができ，開発の形態や規模に応じて柔軟な開発ができる。</p>
-<!-- more -->
-<h1 id="git">Git</h1>
-<p>これはGitを勉強する際に大切なことや忘れやすいことをまとめた文章である。</p>
-<h2 id="gitの仕組み">Gitの仕組み</h2>
-<ul>
-<li>Gitがスナップショットとしてデータを記録している。その理由は，Gitが持つブランチ機能を使った開発でその力を発揮することができるからである。</li>
-<li>ローカルリポジトリを持つため，全ての操作をローカルで完結できます（リモートリポジトリにアクセスする必要がない）。</li>
-<li>ローカルリポジトリは自分専用のリポジトリとしてブランチの作成やコミットが可能。</li>
-<li>障害が発生し，ローカルリポジトリを失った場合に別のリポジトリから復元が可能。</li>
-<li>スポードと大規模プロジェクトでも効率の高い開発が可能。</li>
-</ul>
-<h2 id="gitの初期設定">Gitの初期設定</h2>
-<p>チームで共有するためにユーザー情報が必要となる。</p>
-<pre><code>開発者の名前を設定
-git config --global user.name &quot;new username&quot;
-開発者のメールアドレスを設定
-git config --global user.email &quot;user@email.com&quot;
-ユーザー名とパスワードのキャッシュを有効にする
-git config --global credential helper osxkeychain
-git config --global credential helper wincred
-git statusなどで日本語ファイル名をエスケープせずに表示する
-git config --global core.quotepath false
-</code></pre>
-<h2 id="gitの三つの状態">Gitの三つの状態</h2>
-<ol>
-<li>変更がない状態</li>
-<li>変更済み：<br>
-作業コピーのファイルに変更を加えたり，ファイルを新規作成したりした状態のこと。自分の作業コピー内で修正中、または修正を完了していても，ローカルリポジトリにコミット対象であることを示すマークをつけていない。</li>
-<li>ステージ済み状態<br>
-バージョン管理対象のファイルが追跡され，マークされた状態。またローカルリポジトリにコミットされていないことを意味する。</li>
-</ol>
-<h2 id="リポジトリをクローン作成する">リポジトリをクローン/作成する</h2>
-<p>作成：<br>
-ローカルリポジトリのフォルダを作成し，</p>
-<pre><code>git init
-</code></pre>
-<p>を実行する。</p>
-<p>クローン：<br>
-git initでリポジトリを準備し，</p>
-<pre><code>git clone https://username@domain/path/to/repository
-</code></pre>
-<p>を実行する。</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>git status</td>
-<td>作業コピー状態を表示</td>
-</tr>
-<tr>
-<td>git add fileName</td>
-<td>新しいファイルをコミット対象としてステージ済みに登録</td>
-</tr>
-<tr>
-<td>git add .</td>
-<td>複数のファイルを一度にステージ済みに登録</td>
-</tr>
-<tr>
-<td>git commit -m &quot;message&quot;</td>
-<td>変更をコミットする</td>
-</tr>
-<tr>
-<td>git rm fileName</td>
-<td>ファイルの削除を実行し，ステージ済みにする</td>
-</tr>
-<tr>
-<td>git mv fileName newFileName</td>
-<td>ファイルの名前を変更</td>
-</tr>
-</tbody>
-</table>
-<h3 id="コミットメッセージは将来のチームと自分のため">コミットメッセージは将来のチームと自分のため</h3>
-<p>コミット時に，-mオプションを付けない場合，コミットメッセージを入力するために，エディターが起動する。<br>
-コミットメッセいーじには，そのコミットを説明する内容を記述するようにすべきである。機能追加なのか，バグ対応なのか。。。<br>
-人間の記憶は曖昧のため，コミット時のメッセージをできるだけ詳しく記録することが大切。</p>
-<p>良い例：<br>
-HTTP/2に対応するライブラリを追加<br>
-ヘッダーを共通化した（ref　#143）<br>
-起動時にクラッシュするバグに対応</p>
-<h2 id="ファイルの削除移動と名前変更">ファイルの削除，移動と名前変更</h2>
-<p>git rmコマンドは，ファイルの削除を実行して，<strong>ステージングに登録した状態「ステージ済み」にする</strong>。</p>
-<pre><code>git rm sample.txt
-</code></pre>
-<p>ファイルを直接削除した場合も自動で検知する。ただし，自動的に「ステージ済み」にならない。</p>
-<p>git mv コマンドはファイル名の変更，ステージング登録を一度に行う便利なコマンドである。</p>
-<pre><code>git mv sample.txt newSample.txt
-</code></pre>
-<h2 id="バージョン管理から対象外にする">バージョン管理から対象外にする</h2>
-<p>バージョン管理したくてもよいファイル例</p>
-<ul>
-<li>~や.swpや.bakで終わるファイル
-<ul>
-<li>Emacs/Vim/Windows系エディタのバックアップファイル</li>
-</ul>
-</li>
-<li>Thumbs.dbやDS_Store
-<ul>
-<li>WindowsやMacのOSが出力するファイル</li>
-</ul>
-</li>
-<li>~$で始まるファイル
-<ul>
-<li>Office関係のファイルを開いたときに生成される隠しファイル</li>
-</ul>
-</li>
-</ul>
-<h3 id="対象外を定義するgitignoreを作成する">対象外を定義する「.gitignore」を作成する</h3>
-<pre><code>echo &quot;.DS_Store&quot; &gt; .gitignore
-</code></pre>
-<p>.gitignoreの保存場所は，.gitと同じディレクトリを指定する。</p>
-<h3 id="gitignoreファイルの書き方">.gitignoreファイルの書き方</h3>
-<table>
-<thead>
-<tr>
-<th>書式</th>
-<th>説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>#</td>
-<td>空行や＃で始まる行はコメントとして扱われる</td>
-</tr>
-<tr>
-<td>sample.txt</td>
-<td>ディレクトリに関係なくsample.txtを対象外とする</td>
-</tr>
-<tr>
-<td>/sample.txt</td>
-<td>.gitignoreが配置されたディレクトリにあるsample.txtを対象外とする</td>
-</tr>
-<tr>
-<td>folder-a/</td>
-<td>ディレクトリ以下の全てを対象外とする</td>
-</tr>
-<tr>
-<td>*.log</td>
-<td>ファイルの拡張子が.logのファイルを全て対象外とする</td>
-</tr>
-<tr>
-<td>file-[1-9].html</td>
-<td>globパターンに一致するファイルを対象外とする</td>
-</tr>
-</tbody>
-</table>
-<h2 id="コミットログ履歴を確認する">コミットログ（履歴）を確認する</h2>
-<pre><code>git log
-</code></pre>
-<p>git logでよく使われるオプション</p>
-<table>
-<thead>
-<tr>
-<th>オプション</th>
-<th>説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-p</td>
-<td>各コミットのバッチ情報を表示する</td>
-</tr>
-<tr>
-<td>--stat</td>
-<td>各コミットで変更されたファイルの統計情報を表示する</td>
-</tr>
-<tr>
-<td>--numstat</td>
-<td>ファイル毎の削除や追加された行数を表示する</td>
-</tr>
-<tr>
-<td>--name-status</td>
-<td>変更したファイルを表示する</td>
-</tr>
-<tr>
-<td>-- path/to/*.txt</td>
-<td>特定のファイルの履歴を表示する</td>
-</tr>
-<tr>
-<td>--author='xxx'</td>
-<td>コミットしたユーザー「xxx」で絞り込み表示する</td>
-</tr>
-</tbody>
-</table>
-<p>また，表示形式を指定することが可能である。</p>
-<pre><code>git log --oneline --graph --decorate
-</code></pre>
-<p>とすることで見やすく表示することが可能である。</p>
-<h2 id="変更作業のやり直し">変更作業のやり直し</h2>
-<pre><code>git reset HEAD sample.txt
-</code></pre>
-<p>これでsample.txtのステージ済みの状態を取り消した。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MavenでMybatisを使う際のjava.io.IOException: Could not find resource XXX.xmlについて]]></title>
-        <id>https://zy080080.github.io/post/OUJh9scJm/</id>
-        <link href="https://zy080080.github.io/post/OUJh9scJm/">
-        </link>
-        <updated>2020-09-17T07:59:22.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://zy080080.github.io//post-images/1600326566880.png" alt="" loading="lazy"></figure>
-<p>開発環境はIntelliJ IDEAです。<br>
-Mybatisを勉強し始めたところですが，簡単なselect ステートメントを実行すると，java.io.IOException: Could not find resource XXX.xmlという例外が発生しました。</p>
-<p>その理由は，srcディレクトリの中のxmlファイルはコンパイルされないからです。<br>
-xmlファイルをresourceディレクトリに入れれば解決できます。</p>
 ]]></content>
     </entry>
 </feed>

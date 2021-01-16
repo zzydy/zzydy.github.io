@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>OS：並列プロセス-セマフォ | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1610795319921">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1610795319921" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">OS：並列プロセス-セマフォ</h2>
+            <div class="post-date">2021-01-16 </div>
+            
+            <div class="post-content">
+              <p>教科書第5章　まとめ</p>
+<!-- more -->
+<p><strong>semaphore　セマフォ</strong>：整数型の変数（セマフォ変数）と，待ち行列からなるデータ構造を有する構造体である。この構造体へは，P命令，V命令の２つの操作が許されている。</p>
+<p><strong>P命令</strong>：リソースを要求し，許可されない場合は待ち状態へ移行。</p>
+<ul>
+<li>空きリソースを1つ使用</li>
+<li>空きリソース数（セマフォ変数）をデクリメント</li>
+<li>空きがない場合，プロセスを待ち状態に</li>
+</ul>
+<p><strong>V命令</strong>：リソースを解放し，待ちプロセスを実行可能状態へ移行。待ちプロセスがない場合，空きリソース数をインクリメント。</p>
+<ul>
+<li>空きリソースを1つ解放</li>
+<li>待ちプロセスを1つ実行可能状態に</li>
+<li>待ちプロセスがない場合，空きリソース数（セマフォ変数）をインクリメント</li>
+</ul>
+<p><strong>デッドロック</strong>：全てのプロセスが，あるリソースを確保するために，別のリソースを確保したママ解放を待っている状態となってしまい，これらのリソースに関連する全てのプロセスの実行が止まってしまう状態。</p>
+<p><strong>ダイニングフィロソファの解法</strong>：</p>
+<ul>
+<li>解法1：フォーク一本一本ではなく，「フォーク全体を使う権利」をセマフォで管理
+<ul>
+<li>うまくいくが，同時に一人しか食事できない。</li>
+<li>実際は二人同時に食事可能な場合があるはず</li>
+<li>リソースが有効利用できていない</li>
+</ul>
+</li>
+<li>解法2：１つのプロセスだけが逆順でフォークを要求
+<ul>
+<li>うまくいくが，哲学者4が特殊であるため，<strong>公平性</strong>を欠いている可能性がある</li>
+</ul>
+</li>
+<li>解法3：少し我慢をする哲学者
+<ul>
+<li>右のフォークを確保後，左のフォークが確保できなければ，一旦右のフォークを解放して少し待つ</li>
+<li>これにより，「全員右フォークを確保した状態」から抜け出せる</li>
+<li>問題点：全員が同時に「右フォーク確保，右フォーク解放」を繰り返すと，デッドロック。</li>
+</ul>
+</li>
+<li>解法4：不定時間だけ我慢をする哲学者
+<ul>
+<li>右のフォークを確保後，左のフォークが確保できなければ，一旦右のフォークを解放して少し待つ</li>
+<li>待つ時間はランダムに決定する</li>
+<li>これによって，全員が同時に「右のフォークを確保，右のフォークを解放」を繰り返すことがなくなる</li>
+<li>問題点：デッドロックが発生しないことを証明できない。フォークを解放して「譲った」哲学者は，次に優先される仕組みがないと公平性に欠ける。</li>
+</ul>
+</li>
+<li>理想的な解法：
+<ul>
+<li>リソース確保に失敗した場合，当該リソースを確保するための<strong>待ち行列に並ぶことができる</strong>こと</li>
+<li>全てのプロセスがリソースを<strong>平等に確保できる</strong>ことを保証すること</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>1.<strong>P命令</strong>(wait)と<strong>V命令</strong>(signal)からなる<strong>セマフォア</strong>は，より抽象的な排他制御の仕組みとして開発された。セマフォを獲得できないプロセスは，待ち状態に移行するため，ビジーウェイティングの問題はない。</p>
+<p>2.プロセス間通信や計算機間の通信(Local Area Network, Internetwork)をモデル化した<strong>プロデュサ/コンシューマ問題</strong>や，データベースアクセス制御をモデル化した<strong>リーダタイム問題</strong>は，非同期問題の解法として重要な例題である。</p>
+<p>3.<strong>食事をする哲学者問題</strong>は，複数リソースを獲得する際のデッドロックをモデル化している。複数リソースを獲得するプログラムを作成する場合，常にデッドロックを考慮する必要がある。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/t07z1l2wA/" class="tag">
+                    OS
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/7nRN9HqLl/">
+                  <h3 class="post-title">
+                    OS：並列プログラム-排他制御基礎
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

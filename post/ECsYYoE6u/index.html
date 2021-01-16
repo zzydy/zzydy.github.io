@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>OS：並行プロセス-モニタ | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1610795319921">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1610795319921" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">OS：並行プロセス-モニタ</h2>
+            <div class="post-date">2021-01-16 </div>
+            
+            <div class="post-content">
+              <p>教科書第6章 まとめ</p>
+<!-- more -->
+<p>モニタとセマフォ</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">セマフォ</th>
+<th style="text-align:center">モニタ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">P命令</br>共有リソースの取得トライ。失敗時に待ち行列へ</td>
+<td style="text-align:center">wait()</br>待ち行列へ</td>
+</tr>
+<tr>
+<td style="text-align:center">V命令</br>共有リソース返却，待ちプロセスを１つ実行可能状態へ</td>
+<td style="text-align:center">signal()（Javaではnotify()）</br>待ちプロセスを１つ実行可能状態へ</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">queue()</br>待ちプロセスの有無を返す</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">セマフォ</th>
+<th style="text-align:center">モニタ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">P命令を実行しないとセマフォの状態がわからない</td>
+<td style="text-align:center">メソッドにより，共有リソースの状態を排他的に調べられる</td>
+</tr>
+<tr>
+<td style="text-align:center">リソースを取ろうとしないと，空いているかどうか不明</td>
+<td style="text-align:center">リソースの空きの確認とリソース待ちが分離</td>
+</tr>
+<tr>
+<td style="text-align:center">取れなかったら，いきなり待ち行列に待たされる</td>
+<td style="text-align:center">条件変数へのwaitにより，自由度の高い「待ち」が可能</td>
+</tr>
+</tbody>
+</table>
+<p><strong>モニタの利点（セマフォに対し）</strong>：</p>
+<ul>
+<li>リソース確認と「待ち」状態の分離
+<ul>
+<li>リソースに空きがない場合，「待ち」に入るかどうか自由に選べる</li>
+</ul>
+</li>
+<li>排他制御すべきリソースの明示
+<ul>
+<li>モニタ内に記述されるため明示的</li>
+<li>他の一般的な変数と判別しやすい</li>
+<li>排他的メソッドを通じた処置により保護</li>
+</ul>
+</li>
+<li>プログラマに安全で扱いやすい枠組みを提供</li>
+</ul>
+<hr>
+<p>1.<strong>モニタ</strong>とは，オブジェクト思考の考え方を排他制御（およびプロセス同期）に適用した解法である。モニタ内には，排他制御の対象となる<strong>リソース</strong>，リソースを操作するための<strong>メソッド</strong>，オブジェクトの実体を生成する際に実行する<strong>初期コード</strong>，<strong>終了時コード</strong>が存在する。</p>
+<p>2.モニタ内のリソースは，メソッドを介してのみアクセス可能である。また，各モニタのメソッドは排他的に実行される。したがって，プログラマはモニタ内のリソースの排他制御を考慮する必要はない。</p>
+<p>3.モニタを用いることにより，セマフォよりもさらに抽象度が高くできるとともに，デッドロックの可能性のある処理を，コンパイラで実行前にある程度事前に検出することも可能となる。</p>
+<p>複数のプロセスが，同時に実行されている場合，共通のリソース（共有変数など）にアクセスする場合は（排他制御）が必要となる。また，（排他制御）が必要となる領域のことを（クリティカルセクション）と呼ぶ。（排他制御）の解決方法の代表的な例は（セマフォ）である。これは，待ち行列と整数変数を持つデータ構造であり，（P）命令と（V）命令により制御する。一般的には，（クリティカルセクション）に入る前に（P）命令を，出る前に（V）命令を実行する。さらに，より抽象度の高い（排他制御）の方法として，（モニタ）がある。（モニタ）は，（排他制御）の対象となるリソースを（オブジェクト）指向の枠組みで抽象化したモデルである。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/t07z1l2wA/" class="tag">
+                    OS
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/oEPtkexau/">
+                  <h3 class="post-title">
+                    OS：並列プロセス-セマフォ
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
