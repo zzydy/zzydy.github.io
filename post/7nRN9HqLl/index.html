@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>OS：並列プログラム-排他制御基礎 | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1610760850789">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1610760850789" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">OS：並列プログラム-排他制御基礎</h2>
+            <div class="post-date">2021-01-16 </div>
+            
+            <div class="post-content">
+              <p>教科書第4章　まとめ</p>
+<!-- more -->
+<p><strong>プロセス協調</strong>：仕事の分担や通信など，複数プロセスが助け合う。</p>
+<ul>
+<li>プロセス間通信のための仕組み：通信バッファ
+<ul>
+<li>通信バッファがないと，送信側と受信側でタイミングを合わせる必要があり，受信側は，常にメッセージが来ないかをチェックしていなければならない。</li>
+<li><strong>通信バッファの役割：通信バッファは，通信情報を一時的に保存する機能である。全てのプロセスからアクセスできる領域に存在し，送信側からみた場合，受信側プロセスの状態に関わらず，常時送信データを書くことが可能であり，また受信側プロセスからみた場合，常時受信データを通信バッファから読み込むことが可能である</strong>。</li>
+<li>受信すべきメッセージがバッファ内に存在するか否かをフラグで判断
+<ul>
+<li>フラグが立っている間，送信側は新たに送信を行わない-&gt;上書き回避。</li>
+<li>フラグが降りている間，受信側は新たに順を行わない-&gt;再受信回避。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>プロセス競合</strong>：複数プロセスで有限リソースを取り合う。調停し，各プロセスに適切にリソース割り当て。</p>
+<ul>
+<li>プロセス間での命令実行順に起因する矛盾
+<ul>
+<li>変数から値を読んで，変数に値を書くまでの間に，他のプロセスが変数を読んでしまう。
+<ul>
+<li>他のプロセスからみて，変数は変化していない。</li>
+<li>実際は変化させるための手続きが始まっている。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>解決するには，
+<ul>
+<li>共有変数の内容をレジスタ内に読み込み，演算をし，結果を共有変数に格納する一連の処理の実行において，3命令を分解できないような制御が必要。</li>
+<li><strong>クリティカルセクション</strong>：このような分割してはいけない一連の処理。</li>
+<li><strong>排他制御(mutual exclusion)</strong>：クリティカルセクションなどを他のプロセスと排他的に実行するための制御。</li>
+</ul>
+</li>
+</ul>
+<p><strong>プロセス干渉</strong>：他のプロセス影響で異常が発生すること。原因はプログラムのバグ。</p>
+<h2 id="排他制御">排他制御</h2>
+<p>クリティカルセクションなどを他のプロセスと排他的に実行するための制御。</p>
+<p>重要な性質</p>
+<ul>
+<li>即時性
+<ul>
+<li>クリティカルセクションの実行に競合するプロセスが他にない場合，プロセスはクリティカルセクションの実行を直ちに許可される。</li>
+</ul>
+</li>
+<li>デッドロック防止
+<ul>
+<li>競合するプロセスがある場合でも，許可されるまで永久に待たされてはいけない。</li>
+</ul>
+</li>
+<li>公平性
+<ul>
+<li>どのプロセスも，他のプロセスがクリティカルセクションを実行することを防げられない。</li>
+</ul>
+</li>
+</ul>
+<p><strong>エントリーシーケンス</strong>：クリティカルセクジョンに入る権利を獲得する一連の処理。<br>
+<strong>イグジットシーケンス</strong>：クリティカルセクションから出るための処理。</p>
+<p>フラグによる制御：</p>
+<ul>
+<li>クリティカルセクションに入ろうとするプロセスは，フラグを確認し，入れるかどうかを決定。</li>
+<li>入ると同時にフラグを下げる</li>
+<li>以上の２つの処理自体が分割できない操作である。</li>
+</ul>
+<h2 id="dekkerのアルゴリズム">Dekkerのアルゴリズム</h2>
+<p>２プロセスの排他制御を行うことを可能する。</p>
+<p><strong>Interest</strong>：</p>
+<ul>
+<li>プロセスA，Bがクリティカルセクションに興味があるか否かを示す。</li>
+<li>まずクリティカルセクションに入る前に，クリティセクションに入りたい皆を宣言。競合者がいなければ入れる。</li>
+</ul>
+<p><strong>Priorityt</strong>：</p>
+<ul>
+<li>プロセスA，Bがクリティカルセクションに同時に興味を持った場合，どちらを優先するかを決定する。</li>
+<li>自分に優先度が回ってくるまでInterest状態を解除。</li>
+</ul>
+<p>ポイント：</p>
+<ul>
+<li>入る前に手を挙げる。</li>
+<li>優先権により競合を解決。</li>
+</ul>
+<p><strong>問題点</strong>：</p>
+<ul>
+<li>ユーザプログラムに依存
+<ul>
+<li>ちゃんとプロセスが約束を守ってくれないと破綻。</li>
+</ul>
+</li>
+<li><strong>ビジーウェイト（busy　wait）</strong>
+<ul>
+<li>一方がクリティカルセクションを実行中，待っている方は優先権をひたすらチェックし続ける-&gt;CPUリソースの無駄。</li>
+</ul>
+</li>
+<li>最近はメニューコアが主流。CPUリソースが余っているためビジーウェイトが必ずしも悪ではない状況が発生
+<ul>
+<li><strong>ビジーウェイトの利点</strong>
+<ul>
+<li><strong>リソースが空いた時の反応が早い</strong></li>
+<li>スピンロック</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="割り込み制御による排他制御">割り込み制御による排他制御</h2>
+<p>単一プロセッサシステムの場合，</p>
+<ul>
+<li>割り込みのみがプロセス中断を発生させる
+<ul>
+<li>エントリシーケンスで，割り込み禁止命令を実行しておけば良い</li>
+<li>同様にイグジットシーケンスで割り込み禁止を解除</li>
+</ul>
+</li>
+<li>ただし
+<ul>
+<li>割り込み禁止時間の増加はシステムの性能に影響</li>
+<li>OS実行の自由度が少なくなり，応答時間が増加。</li>
+<li>長時間割り込みが禁止された場合，入出力要求への対応ができなくなり，OSが停止する可能性がある。</li>
+</ul>
+</li>
+</ul>
+<h2 id="ハードウェアによる排他制御">ハードウェアによる排他制御</h2>
+<p>対話処理の重要性から排他制御の必要性が認識される</p>
+<p><strong>テストアンドセット命令</strong>：</p>
+<ul>
+<li>ハードウェア自体に，排他制御のための仕組みを</li>
+<li>v = test_and_set(x)
+<ul>
+<li>v = x と x = 0を同時に実行する命令</li>
+</ul>
+</li>
+<li>競合者フラグのチェックとセットを同時に行える。</li>
+<li><strong>２つの変数に同時に作用することにより，非常に少ないソフトウェアの実行コストでの排他制御が実現可能になった。</strong></li>
+</ul>
+<hr>
+<p>1.複数のプロセスを同時に実行する環境においては，<strong>プロセス競合</strong>，<strong>プロセス協調</strong>が重要となる。これらの解決には，プロセス間の同期手法が基本となる。</p>
+<p>2.プログラムが中断されることにより，プロセス競合が起こる可能性のあるプログラム領域を<strong>クリティカルセクション</strong>と呼ぶ。クリティカルセクション実行中は，他のプロセスが同時にクリティカルセクションに入らないように**排他制御(MUTEX)**を行う必要がある。</p>
+<p>3.ソフトウェアによる排他制御の基本的な手法として，Dekkerのアルゴリズムがある。しかし，このアルゴリズムの問題点としては<strong>ビジーウェイテイング</strong>がある。</p>
+<p>4.クリティカルセクションの前後で割り込みを禁止することによる排他制御の実現手法は，システムの性能に影響を及ぼす場合が多いので，できる限り利用は避けるべきである。</p>
+<p>5.排他制御を実現するためのハードウェア支援として**テストアンドセット（TS）**命令が開発され，現在でも排他制御のための基本命令である。</p>
+<p>4.1 排他制御を行う手法として，割り込み禁止命令を用いる方法がある。この方法の利点と欠点を挙げよ。<br>
+　利点：プログラミングが容易である。欠点：長時間の割り込み禁止はシステム性能の低下につながる。</p>
+<p>4.2 排他制御を実現するための命令追加について，TS命令がSWAP命令に比べて容易に実現できることを示せ。<br>
+　SWAP命令は，２つのレジスタを交換するため。以下のような命令操作が必要となる。<br>
+TEMP    &lt;-  R1<br>
+R1      &lt;-  R2<br>
+R2      &lt;-  R1<br>
+　これは。CPU内で3回のデータ転送が必要であることを示している。現在はデータ転送を1回とするRISCアーキテクチャが主流のため，容易に実装することは困難であり，3回のデータ転送を1命令で行う専用回路が必要となる。<br>
+　一方，TS命令の命令操作は以下である。<br>
+R2 &lt;-   R1<br>
+R1 &lt;-   &quot;0&quot;<br>
+　１行目は通常のレジスタ転送であり，CPUのハードウェア拡張は必要としない。さらに，0をレジスタに代入するのはGNDレベルを用いて代入操作ができるため，データ転送のための特別な回路も必要としない。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/t07z1l2wA/" class="tag">
+                    OS
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/RWPOSZYfW/">
+                  <h3 class="post-title">
+                    OS：CPUの仮想化ースケジューリング
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

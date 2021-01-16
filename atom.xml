@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2021-01-13T23:10:59.005Z</updated>
+    <updated>2021-01-16T01:34:32.660Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -10,6 +10,286 @@
     <logo>https://zy080080.github.io/images/avatar.png</logo>
     <icon>https://zy080080.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[OS：並列プログラム-排他制御基礎]]></title>
+        <id>https://zy080080.github.io/post/7nRN9HqLl/</id>
+        <link href="https://zy080080.github.io/post/7nRN9HqLl/">
+        </link>
+        <updated>2021-01-16T02:33:25.000Z</updated>
+        <summary type="html"><![CDATA[<p>教科書第4章　まとめ</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>教科書第4章　まとめ</p>
+<!-- more -->
+<p><strong>プロセス協調</strong>：仕事の分担や通信など，複数プロセスが助け合う。</p>
+<ul>
+<li>プロセス間通信のための仕組み：通信バッファ
+<ul>
+<li>通信バッファがないと，送信側と受信側でタイミングを合わせる必要があり，受信側は，常にメッセージが来ないかをチェックしていなければならない。</li>
+<li><strong>通信バッファの役割：通信バッファは，通信情報を一時的に保存する機能である。全てのプロセスからアクセスできる領域に存在し，送信側からみた場合，受信側プロセスの状態に関わらず，常時送信データを書くことが可能であり，また受信側プロセスからみた場合，常時受信データを通信バッファから読み込むことが可能である</strong>。</li>
+<li>受信すべきメッセージがバッファ内に存在するか否かをフラグで判断
+<ul>
+<li>フラグが立っている間，送信側は新たに送信を行わない-&gt;上書き回避。</li>
+<li>フラグが降りている間，受信側は新たに順を行わない-&gt;再受信回避。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>プロセス競合</strong>：複数プロセスで有限リソースを取り合う。調停し，各プロセスに適切にリソース割り当て。</p>
+<ul>
+<li>プロセス間での命令実行順に起因する矛盾
+<ul>
+<li>変数から値を読んで，変数に値を書くまでの間に，他のプロセスが変数を読んでしまう。
+<ul>
+<li>他のプロセスからみて，変数は変化していない。</li>
+<li>実際は変化させるための手続きが始まっている。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>解決するには，
+<ul>
+<li>共有変数の内容をレジスタ内に読み込み，演算をし，結果を共有変数に格納する一連の処理の実行において，3命令を分解できないような制御が必要。</li>
+<li><strong>クリティカルセクション</strong>：このような分割してはいけない一連の処理。</li>
+<li><strong>排他制御(mutual exclusion)</strong>：クリティカルセクションなどを他のプロセスと排他的に実行するための制御。</li>
+</ul>
+</li>
+</ul>
+<p><strong>プロセス干渉</strong>：他のプロセス影響で異常が発生すること。原因はプログラムのバグ。</p>
+<h2 id="排他制御">排他制御</h2>
+<p>クリティカルセクションなどを他のプロセスと排他的に実行するための制御。</p>
+<p>重要な性質</p>
+<ul>
+<li>即時性
+<ul>
+<li>クリティカルセクションの実行に競合するプロセスが他にない場合，プロセスはクリティカルセクションの実行を直ちに許可される。</li>
+</ul>
+</li>
+<li>デッドロック防止
+<ul>
+<li>競合するプロセスがある場合でも，許可されるまで永久に待たされてはいけない。</li>
+</ul>
+</li>
+<li>公平性
+<ul>
+<li>どのプロセスも，他のプロセスがクリティカルセクションを実行することを防げられない。</li>
+</ul>
+</li>
+</ul>
+<p><strong>エントリーシーケンス</strong>：クリティカルセクジョンに入る権利を獲得する一連の処理。<br>
+<strong>イグジットシーケンス</strong>：クリティカルセクションから出るための処理。</p>
+<p>フラグによる制御：</p>
+<ul>
+<li>クリティカルセクションに入ろうとするプロセスは，フラグを確認し，入れるかどうかを決定。</li>
+<li>入ると同時にフラグを下げる</li>
+<li>以上の２つの処理自体が分割できない操作である。</li>
+</ul>
+<h2 id="dekkerのアルゴリズム">Dekkerのアルゴリズム</h2>
+<p>２プロセスの排他制御を行うことを可能する。</p>
+<p><strong>Interest</strong>：</p>
+<ul>
+<li>プロセスA，Bがクリティカルセクションに興味があるか否かを示す。</li>
+<li>まずクリティカルセクションに入る前に，クリティセクションに入りたい皆を宣言。競合者がいなければ入れる。</li>
+</ul>
+<p><strong>Priorityt</strong>：</p>
+<ul>
+<li>プロセスA，Bがクリティカルセクションに同時に興味を持った場合，どちらを優先するかを決定する。</li>
+<li>自分に優先度が回ってくるまでInterest状態を解除。</li>
+</ul>
+<p>ポイント：</p>
+<ul>
+<li>入る前に手を挙げる。</li>
+<li>優先権により競合を解決。</li>
+</ul>
+<p><strong>問題点</strong>：</p>
+<ul>
+<li>ユーザプログラムに依存
+<ul>
+<li>ちゃんとプロセスが約束を守ってくれないと破綻。</li>
+</ul>
+</li>
+<li><strong>ビジーウェイト（busy　wait）</strong>
+<ul>
+<li>一方がクリティカルセクションを実行中，待っている方は優先権をひたすらチェックし続ける-&gt;CPUリソースの無駄。</li>
+</ul>
+</li>
+<li>最近はメニューコアが主流。CPUリソースが余っているためビジーウェイトが必ずしも悪ではない状況が発生
+<ul>
+<li><strong>ビジーウェイトの利点</strong>
+<ul>
+<li><strong>リソースが空いた時の反応が早い</strong></li>
+<li>スピンロック</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="割り込み制御による排他制御">割り込み制御による排他制御</h2>
+<p>単一プロセッサシステムの場合，</p>
+<ul>
+<li>割り込みのみがプロセス中断を発生させる
+<ul>
+<li>エントリシーケンスで，割り込み禁止命令を実行しておけば良い</li>
+<li>同様にイグジットシーケンスで割り込み禁止を解除</li>
+</ul>
+</li>
+<li>ただし
+<ul>
+<li>割り込み禁止時間の増加はシステムの性能に影響</li>
+<li>OS実行の自由度が少なくなり，応答時間が増加。</li>
+<li>長時間割り込みが禁止された場合，入出力要求への対応ができなくなり，OSが停止する可能性がある。</li>
+</ul>
+</li>
+</ul>
+<h2 id="ハードウェアによる排他制御">ハードウェアによる排他制御</h2>
+<p>対話処理の重要性から排他制御の必要性が認識される</p>
+<p><strong>テストアンドセット命令</strong>：</p>
+<ul>
+<li>ハードウェア自体に，排他制御のための仕組みを</li>
+<li>v = test_and_set(x)
+<ul>
+<li>v = x と x = 0を同時に実行する命令</li>
+</ul>
+</li>
+<li>競合者フラグのチェックとセットを同時に行える。</li>
+<li><strong>２つの変数に同時に作用することにより，非常に少ないソフトウェアの実行コストでの排他制御が実現可能になった。</strong></li>
+</ul>
+<hr>
+<p>1.複数のプロセスを同時に実行する環境においては，<strong>プロセス競合</strong>，<strong>プロセス協調</strong>が重要となる。これらの解決には，プロセス間の同期手法が基本となる。</p>
+<p>2.プログラムが中断されることにより，プロセス競合が起こる可能性のあるプログラム領域を<strong>クリティカルセクション</strong>と呼ぶ。クリティカルセクション実行中は，他のプロセスが同時にクリティカルセクションに入らないように**排他制御(MUTEX)**を行う必要がある。</p>
+<p>3.ソフトウェアによる排他制御の基本的な手法として，Dekkerのアルゴリズムがある。しかし，このアルゴリズムの問題点としては<strong>ビジーウェイテイング</strong>がある。</p>
+<p>4.クリティカルセクションの前後で割り込みを禁止することによる排他制御の実現手法は，システムの性能に影響を及ぼす場合が多いので，できる限り利用は避けるべきである。</p>
+<p>5.排他制御を実現するためのハードウェア支援として**テストアンドセット（TS）**命令が開発され，現在でも排他制御のための基本命令である。</p>
+<p>4.1 排他制御を行う手法として，割り込み禁止命令を用いる方法がある。この方法の利点と欠点を挙げよ。<br>
+　利点：プログラミングが容易である。欠点：長時間の割り込み禁止はシステム性能の低下につながる。</p>
+<p>4.2 排他制御を実現するための命令追加について，TS命令がSWAP命令に比べて容易に実現できることを示せ。<br>
+　SWAP命令は，２つのレジスタを交換するため。以下のような命令操作が必要となる。<br>
+TEMP    &lt;-  R1<br>
+R1      &lt;-  R2<br>
+R2      &lt;-  R1<br>
+　これは。CPU内で3回のデータ転送が必要であることを示している。現在はデータ転送を1回とするRISCアーキテクチャが主流のため，容易に実装することは困難であり，3回のデータ転送を1命令で行う専用回路が必要となる。<br>
+　一方，TS命令の命令操作は以下である。<br>
+R2 &lt;-   R1<br>
+R1 &lt;-   &quot;0&quot;<br>
+　１行目は通常のレジスタ転送であり，CPUのハードウェア拡張は必要としない。さらに，0をレジスタに代入するのはGNDレベルを用いて代入操作ができるため，データ転送のための特別な回路も必要としない。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[OS：CPUの仮想化ースケジューリング]]></title>
+        <id>https://zy080080.github.io/post/RWPOSZYfW/</id>
+        <link href="https://zy080080.github.io/post/RWPOSZYfW/">
+        </link>
+        <updated>2021-01-14T06:48:50.000Z</updated>
+        <summary type="html"><![CDATA[<p>教科書第3章　まとめ</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>教科書第3章　まとめ</p>
+<!-- more -->
+<h2 id="プロセス中断方式">プロセス中断方式</h2>
+<p><strong>プリエンプション方式</strong>：OSが実行中のプロセスの実行権を強制的に取り上げることにより，プロセスを中断させる方式。（Windows　XP以降，UNIX，Mac OSなど）</p>
+<p><strong>ノンプリエンプション方式</strong>：OSではなく，実行中のプロセスが自主的にCPUリソースをOSに戻す方式。この方式によるマルチタスク（マルチプログラミング）の実装は容易であるが，もしプログラムの暴走により，自発的なCPUリソースの返還がない場合は，<strong>システムの停止に繋がる</strong>。</p>
+<h2 id="スケジューリングの目的">スケジューリングの目的</h2>
+<p>リソースを効率的に利用するために，効率の良いスケジューリングが必要。</p>
+<p>スケジューリングアルゴリズムの効率化の指標：</p>
+<ul>
+<li><strong>応答時間</strong>
+<ul>
+<li>その定義は，対象処理がバッチ処理か対話処理かどうかで異なる。
+<ul>
+<li>バッチ処理の場合，ジョブが投入してから結果を受け取るまでの時間と定義され，<strong>ターンアラウンドタイム</strong>とも呼ばれる。</li>
+<li>対話処理の場合，端末から命令を入力した後に，コンピュータシステムから結果を受け取るまでの時間と定義され，<strong>レスポンスタイム</strong>とも呼ばれる。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>スループット</strong>
+<ul>
+<li>単位時間に行われるユーザに有益な仕事量。ただし，プロセスを切り替えるときのオーバーヘッドなど，ユーザの仕事に直接関係しない仕事は仕事量に含まれない。</li>
+</ul>
+</li>
+</ul>
+<p>応答時間とスループットは相反することもある。例えば，レスポンスタイムを向上させるためには，対話処理を実行するプロセスに，非常に短い間隔でCPUリソースを与えるようなスケジューリングアルゴリズムが有効である。しかし，このようにクオンタムの非常に小さいスケジューリング手をスループットの面から見た場合，頻繁なプロセス切り替え操作はオーバーヘッドの増加に繋がる。<br>
+一方，スループットを向上させるためには，入出力操作やコンテキスト切り替えなど，オーバーヘッドの対象となるような操作をできる限り排除し，計算処理そのものにCPUリソースを用いることが有効となる。</p>
+<p><strong>応答時間向上を追求-&gt;対話型処理を優先的に-&gt;TSSクオンタムを短く-&gt;切り替え回数増加，切り替えオーバーヘッド増加-&gt;スループット低下</strong></p>
+<h2 id="様々なスケジューリング方式">様々なスケジューリング方式</h2>
+<p><strong>FIFO(First In First Out)到着順スケジューリング，FCFS(First Come First Served)</strong>：</p>
+<ul>
+<li>特徴：
+<ul>
+<li>単純：プロセス選択機構も簡単になるし，選択オーバーヘッドも小さい</li>
+<li>公平：追い抜き禁止</li>
+</ul>
+</li>
+<li>欠点：ターンアラウンドタイムはよくない
+<ul>
+<li>待ち行列が100s,1s,1s,1sの時平均待ち時間27s</li>
+<li>待ち行列が1s,1s,1s,100sの時平均待ち時間102s</li>
+</ul>
+</li>
+</ul>
+<p><strong>SPTF(Shortest Processing Time First)処理時間順スケジューリング</strong>：</p>
+<ul>
+<li>待ち行列内プロセスを処理時間順でソート</li>
+<li>特徴：応答時間最短，理想的</li>
+<li>欠点：実装不可能，各プロセスの処理時間を事前に知ることができない。
+<ul>
+<li>経験則（heuristic）から近似的に処理時間を求める。</li>
+<li>近似実装：すでに実行した時間から。入出力処理から。</li>
+</ul>
+</li>
+<li>亜種：残り処理時間順（SRTF）</li>
+</ul>
+<p><strong>PS(Priority Scheduling)優先度順スケジューリング</strong>：</p>
+<ul>
+<li>各プロセスに優先度を付加
+<ul>
+<li><strong>静的優先度</strong>：プロセス生成時に指定した優先度を使用。
+<ul>
+<li>例：プロセスの種類ごとに優先度を規定。リアルタイムプロセス&gt;OS&gt;対話型&gt;バッチ</li>
+</ul>
+</li>
+<li><strong>動的優先度</strong>：プロセス実行中に優先度を適宜変化
+<ul>
+<li>例：既実行時間に応じて優先度を変化。入出力操作直後のプロセスの優先度を高く。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>利点：優先度を適切に設定できれば非常に有効。</li>
+<li>欠点：高負荷時，優先度の低いプロセスがなかなか実行権を獲得できない（starvation）-&gt;<strong>待ち時間に応じた優先度変化(agingエージング)などで対処</strong>。</li>
+</ul>
+<p><strong>RR(Round Robin)ラウンドロビン</strong>：</p>
+<ul>
+<li>TSSで用いられる方式。</li>
+<li>待ち行列から選択されたプロセスに，微小なCPU利用時間（クオンタム）を割り当て。</li>
+<li>クオンタム-&gt;無限大：RR＝FIFO</li>
+<li>クオンタム＝極小：処理時間の短いプロセスに有利</li>
+</ul>
+<p><strong>MLF(Muti-Level Feedback)多重レベルフィードバック</strong>：</p>
+<ul>
+<li>Multi-Level Feedback (from Multics Project)
+<ul>
+<li>優先度別に待ち行列を用意。</li>
+<li>プロセスは，クオンタムを得るごとにより優先度の低い待ち行列に移される。</li>
+</ul>
+</li>
+<li>Multi-Level Feedback
+<ul>
+<li>複数のクオンタムを必要とするようなプロセス（すなわち長い時間がかかるプロセス）は，どんどん優先度が下がってゆく。</li>
+<li>SPTFの良い近侍になっている。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>1.CPUスケジューリングには，<strong>到着順スケユーリング</strong>，<strong>処理時間順スケジューリング</strong>，<strong>優先度順スケジューリング</strong>，<strong>ラウンドロビン(Round-Robin)スケジューリング</strong>，<strong>多重レベルフィードバックスケジューリング</strong>などの方式があり，OSが用いられる環境によって様々なスケジューリングが適用されている。スケジューリング自体，１秒間に数十から数百回行う処理であり，スケジューリングの効率とともに，高速性も同時に要求される。</p>
+<p>2.<strong>処理時間順スケジューリング</strong>は，理論上応答時間を最小にすることが知られている。しかし，プロセスの処理時間を，実行前に知ることは不可能である。そこで，既実行時間の少ないプロセスは，処理時間も少ないという経験的な法則を用い，近似的な処理時間順スケジューリングが用いられる。</p>
+<p>3.優先度には，プロセスの生成時に決まる<strong>静的優先度</strong>と，実行中に変化する<strong>動的優先度</strong>がある。通常の対話処理では，この２つの優先度を用いてスケジューリングする場合が多い。優先度スケジューリング時には，スタベーションの問題を解決するためにエージングが併用されることが多い。</p>
+<p>3.1 次の文の括弧を埋めよ（下線部の後では下線部の意味に対応する言葉を書くこと）<br>
+　プロセスのスケジューリング手法の一例として，残り処理時間順(SPT)スケジューリングがある。これは処理時間の短いプロセスから順に実行する方式であり，理論上は応答時間を最小にすることができる。この方式ではあるプロセスが実行中でも，より処理時間の短いプロセスが入ってきた場合には，（実行中のプロセスはオペレーティングシステムにより中断）（<strong>プリエンプション</strong>）される。<br>
+　優先度スケジューリングにおいては，優先度の低いプロセスになかなか実行権が回ってこない場合がある。この現象を（スタベーションstarvation）と呼び，通常（<strong>エージング</strong>）を併用することより回避する。</p>
+<p>3.2 リアルタイム処理に用いられるデッドラインスケジューリングについて調べよ。<br>
+　プロセスの実行に終了目標時間（deadline）を設定し，目標時間に近づくと，プロセスの優先度を上げて該当プロセスにCPUリソースが配分されやすいようにするスケジューリング。この方式だけでは処理のリアルタイム性を厳密に保証することは困難であるが，近似的な実装手法としてよく用いられる。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OS：CPUの仮想化ープロセス]]></title>
         <id>https://zy080080.github.io/post/OENVD2_g7/</id>
@@ -779,116 +1059,6 @@ HTTP/2に対応するライブラリを追加<br>
 Mybatisを勉強し始めたところですが，簡単なselect ステートメントを実行すると，java.io.IOException: Could not find resource XXX.xmlという例外が発生しました。</p>
 <p>その理由は，srcディレクトリの中のxmlファイルはコンパイルされないからです。<br>
 xmlファイルをresourceディレクトリに入れれば解決できます。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[よく使われるストリームのまとめ]]></title>
-        <id>https://zy080080.github.io/post/Sjm2Ui3GK/</id>
-        <link href="https://zy080080.github.io/post/Sjm2Ui3GK/">
-        </link>
-        <updated>2020-07-21T13:20:46.000Z</updated>
-        <content type="html"><![CDATA[<p>1.ファイルを操作するクラスやメソッドの活用方法<br>
-Fileクラス：ファイルおよびディレクトリのパス名の抽象表現である。<br>
-Fileクラスを用いたファイル操作やディレクトリ操作方法：<br>
-boolean delete()：ファイルの削除。<br>
-boolean renameTo(File dest)：ファイルの名前変更する。<br>
-boolean exists()：ファイルの存在確認。<br>
-String[] list()：ディレクトリ一覧を得る。<br>
-File[] listFiles()：ディレクトリ一覧を得る。<br>
-boolean mkdir()：指定したディレクトリを単独で作成する。<br>
-boolean mkdirs()：ディレクトリが深い場合でも親ディレクトリを含めて作成する。<br>
-String getAbsolutePath()：指定したファイルの絶対パスを取得する。<br>
-String getPath()：ファイルの相対パスを取得する。</p>
-<p>2.色々なストリーム：<br>
-バイトストリーム：文字ではない単なるデータ（いわゆるバイナリデータ）を取り扱うためのもの<br>
-InputStream：抽象クラスで、バイト入力ストリームを表現するすべてのクラスのスーパー・クラスである。<br>
-メソッド：<br>
-read()：この入力ストリームからデータのバイトを読み込む。<br>
-read()：最大b.lengthバイトのデータを、この入力ストリームからバイト配列に読み込む。<br>
-close()：最大b.lengthバイトのデータを、この入力ストリームからバイト配列に読み込む。<br>
-よく使うサブクラス：<br>
-FileInputStream：ファイル・システム内のファイルから入力バイトを取得するためのクラスである。イメージ・データなどのrawバイトのストリームを読み込むときに使用する。<br>
-FileInputStreamのサブクラス：<br>
-BufferedInputStream：ほかの入力ストリームに機能、特に入力をバッファに格納する機能とmarkおよびresetメソッドをサポートする機能を追加したクラスである。入力ストリームから必要に応じて一度に多数のバイトが内部バッファに補充される。<br>
-DataInputStream：プリミティブ型のJavaデータをベースとなる入力ストリームからマシンに依存せずに読み込むときに使用する。</p>
-<p>OutputStream：抽象クラスは、バイト出力ストリームを表現するすべてのクラスのスーパー・クラスである。<br>
-よく使うメソッド：<br>
-write(byte[] b)：指定されたバイト配列のb.lengthバイトをこの出力ストリームに書き込む。<br>
-write(int b)：指定されたバイトをこの出力ストリームに書き込む。<br>
-flush()：出力ストリームをフラッシュして、バッファリングされていたすべての出力バイトを強制的に書き込む。<br>
-close()：出力ストリームを閉じ、このストリームに関連するすべてのシステム・リソースを解放する。<br>
-よく使うサブクラス：<br>
-FileOutputStream：FileまたはFileDescriptorにデータを書き込むための出力ストリームである。<br>
-FileOutputStreamのサブクラス：<br>
-BufferedOutputStream：バッファリングされた出力ストリームを実装したクラスである。<br>
-PrintStream：<br>
-ほかの出力ストリームに機能、具体的には、さまざまなデータ値の表現を簡易的に出力する機能を追加したクラスである。PrintStreamはほかの出力ストリームとは違って、IOExceptionをスローすることはない。<br>
-printlnを呼び出すと，PrintStreamを自動的にフラッシュする。<br>
-よく使うメソッド：<br>
-さまざまなデータ値を出力するprint()，println()およびprintf()。<br>
-close()：ストリームを閉じる。<br>
-DataOutputStreamなど。</p>
-<p>文字ストリーム：基本的にはテキストを取り扱うためのものである。<br>
-Reader：文字ストリームを読み込むための抽象クラスである。<br>
-よく使うサブクラス：<br>
-InputStreamReader：バイト・ストリームから文字ストリームへの橋渡しの役目を持つ。バイトを読み込み、指定されたcharsetを使用して文字にデコードする。<br>
-よく使うメソッド：<br>
-read()：単一の文字を読み込む。<br>
-close()：ストリームを閉じて、それに関連するすべてのシステム・リソースを解放する。<br>
-よく使うサブクラス：<br>
-FileReader：文字ファイルを読み込むための簡易クラスである。<br>
-BufferedReader：文字、配列、行をバッファリングすることによって、文字型入力ストリームからテキストを効率良く読み込むクラスである。</p>
-<p>Writer：文字ストリームに書き込むための抽象クラスである。<br>
-OutputStreamWriter：FileまたはFileDescriptorにデータを書き込むための出力ストリームである。<br>
-よく使うメソッド：<br>
-write(String str, int off, int len)：文字列の一部を書き込む。<br>
-write(char[] cbuf, int off, int len)：文字の配列の一部を書き込む。<br>
-write(int c)：単一の文字を書き込む。<br>
-close()：ストリームを最初にフラッシュして、閉じる。<br>
-flush()：ストリームをフラッシュする。<br>
-よく使うサブクラス：<br>
-FileWriter：文字ファイルを書き込むための簡易クラスである。<br>
-PrintWriter：<br>
-オブジェクトの書式付き表現をテキスト出力ストリームに出力するクラスである。<br>
-このクラスは、PrintStreamで見つかったすべてのprintメソッドを実装する。<br>
-ただし、rawバイトを書き込むメソッドは含まれない。<br>
-PrintStreamクラスとは異なり、自動フラッシュが有効な場合は、改行文字が出力されるときではなく、println、printf、またはformatのいずれかのメソッドが呼び出されたときにのみ実行される。<br>
-よく使うメソッド：<br>
-さまざまなデータ値を出力するprint()，println()およびprintf()。これらのメソッドは、改行文字ではなく、プラットフォームに固有の行区切りの表記を使用する。<br>
-close()：ストリームを閉じる。<br>
-BufferedWriter：文字をバッファリングすることによって、文字、配列、または文字列を効率良く文字型出力ストリームに書き込むクラスである。</p>
-<p>3.文字ストリームとバイトストリームの違い<br>
-ストリームとは，連続したデータの流れを抽象化したものである。<br>
-文字ストリームとは，テキストを取り扱うための，16ビット単位（文字リテラル）で入出力するストリームである。<br>
-バイトストリームとは，バイナリデータを取り扱うための，最小単位8ビット単位で入出力するストリームである。<br>
-文字ストリームを使用すれば，文字コードに依存しないプログラムを作成可能になる。入力・出力の文字コードに関わらず，Java内部ではUnicodeに変換される。</p>
-<p>4.バッファリング<br>
-データを二次記憶装置から一時記憶装置にまとめて読み込む処理である。</p>
-<p>5.ファイルの最後に書き込みたい場合<br>
-FileWriterはFileWriter(File file, boolean append)というコンストラクタを持つ。appendがtrueの場合，バイトはファイルの先頭ではなく最後に書き込まれる。<br>
-PrintWriterのコンストラクタに渡せる変数は，File，String，Writer，OutputStreamである。つまり，全てのprintメソッドとファイルの最後に書きたい場合，PrintWriter(new FileWriter(File,true))を使えばよい。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[About protected]]></title>
-        <id>https://zy080080.github.io/post/nj0dzADHm/</id>
-        <link href="https://zy080080.github.io/post/nj0dzADHm/">
-        </link>
-        <updated>2020-05-08T09:17:56.000Z</updated>
-        <summary type="html"><![CDATA[<p>protected variable is a bit interesting in Java</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>protected variable is a bit interesting in Java</p>
-<!-- more -->
-<p>Quoted from Core Java 9th Edition</p>
-<blockquote>
-<p>However, the Manager class methods can peek inside the hireDay field of Manager objects only, not of other Employee objects. This restriction is made so that you can’t abuse the protected mechanism by forming subclasses just to gain access to the protected fields</p>
-</blockquote>
-<p>Quoted from &quot;Thinking in Java&quot; Fourth Edition p180:</p>
-<blockquote>
-<p>In an ideal world, the private keyword would be enough. In real projects, there are times when you want to make something hidden from the world at large and yet allow access for members of derived classes.</p>
-<p>The protected keyword is a nod to pragmatism. It says “This is private as far as the class user is concerned, but available to anyone who inherits from this class or anyone else in the same package.” (In Java, protected also provides package access.)</p>
-<p>Although it’s possible to create protected fields, the best approach is to leave the fields private; you should always preserve your right to change the underlying implementation. You can then allow controlled access to inheritors of your class through protected methods</p>
-</blockquote>
 ]]></content>
     </entry>
 </feed>
