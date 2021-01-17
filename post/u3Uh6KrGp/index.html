@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Scanner-java.util.NoSuchElementException | 听故事的人</title>
+<title>OS：主記憶管理基礎 | 听故事的人</title>
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -105,49 +105,62 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Scanner-java.util.NoSuchElementException</h2>
-            <div class="post-date">2020-01-18 </div>
-            
-              <div class="feature-container" style="background-image: url('https://images.freeimages.com/images/large-previews/7ec/showreel-1144208.jpg')">
-              </div>
+            <h2 class="post-title">OS：主記憶管理基礎</h2>
+            <div class="post-date">2021-01-17 </div>
             
             <div class="post-content">
-              <pre><code>package exceptionTest;
-
-import java.util.Scanner;
-
-public class ScannerExceptionTest {
-    public static void main(String[] args) {
-    	Scanner sc = new Scanner(System.in);
-
-    	sc.close();
-
-    	Scanner scan = new Scanner(System.in);
-	    int num = scan.nextInt();
-	    System.out.println(num);
-    }
-}
-</code></pre>
-<p>出现异常</p>
-<pre><code>Exception in thread &quot;main&quot; java.util.NoSuchElementException
-    at java.util.Scanner.throwFor(Scanner.java:862)
-    at java.util.Scanner.next(Scanner.java:1485)
-    at java.util.Scanner.nextInt(Scanner.java:2117)
-    at java.util.Scanner.nextInt(Scanner.java:2076)
-    at exceptionTest.ScannerExceptionTest.main(ScannerExceptionTest.java:12)
-</code></pre>
-<p>close()方法被调用时，导致标准输入System.in的关闭，<strong>关闭后无法再次打开</strong>。</p>
+              <p>教科書第7章　まとめ</p>
+<p><strong>物理アドレス空間</strong>：主記憶上の実アドレス空間。</p>
+<p><strong>論理アドレス空間</strong>：プログラムからみた，各プロセスごとに独立した実アドレス空間に対応するアドレス空間。</p>
+<p><strong>主記憶管理部</strong>(memory management unit：<strong>MMU</strong>)：各プロセスごとの論理アドレス空間を一次元アドレスで表現されている受寄屋上の物理アドレス空間へ変換（Mapping）を行うハードウェアである。</p>
+<p><strong>ネーミング関数</strong>：</p>
+<ul>
+<li>変数，定数などの識別子を論理アドレスに変換する関数</li>
+<li>コンパイル・リンク時に行われる</li>
+</ul>
+<p><strong>メモリ関数</strong>：</p>
+<ul>
+<li>論理アドレスから物理アドレスに変換する関数。</li>
+<li>OSによって行われる</li>
+</ul>
+<p><strong>内容関数</strong>：</p>
+<ul>
+<li>物理アドレスから，そのアドレスに格納された内容に変換する関数</li>
+<li>ハードウェアによって行われる</li>
+</ul>
+<p><strong>下限レジスタ</strong>：主記憶上のOS領域とユーザ領域の境界を示すレジスタである。</p>
+<p>下限レジスタ機構とその問題点：</p>
+<ul>
+<li>ユーザ領域の下限を設定
+<ul>
+<li>下限レジスタが示す境界でOS/ユーザ領域を区別</li>
+</ul>
+</li>
+<li>問題点
+<ul>
+<li>領域境界が１つしかない</li>
+<li>OS領域を保護することしかできない</li>
+<li>複数のプロセス間でアクセス権は設定できない</li>
+</ul>
+</li>
+</ul>
+<p>そのため，任意・複数の境界を設定し，プロセスごとにアクセス権を設定したい。 -&gt;ロック/キー機構</p>
+<hr>
+<p>1.<strong>主記憶管理</strong>の目的は，ユーザに独立した仮想アドレス空間を提供することである。理想的な仮想アドレス空間を持つべき特徴としては，大きさ無制限，プロセスごとに固有，プロセス間で主記憶空間を共有可，プログラム部，データ部，スタック部など複数の１次元アドレスがある。</p>
+<p>2.<strong>下限レジスタ機構</strong>は，ユーザ領域とオペレーティングシステム領域を下限レジスタが示す位置で分離し，CPUの実行モードにより，オペレーティングシステム領域へのアクセスを制限する基本的な仕組みである。</p>
+<p>3.<strong>ロック/キー機構</strong>は，アドレスを論理的に上位と下位に分け，上位部の内容を主記憶を示すアドレスとしてだけでなく，主記憶ブロックへのアクセス権が格納されているロックデータ配列への添字（ポインタ情報）として用いる。この考え方は，ページング，セグメンテーションによるメモリ管理の基礎である。<br>
+　現在実行中のプロセスの主記憶に対するアクセス権がPSWに格納されていて，それをキー部に対応するロックデータと比較して，アクセスを許可するかどうかを決める。</p>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://zy080080.github.io/tag/AI85XAiNw/" class="tag">
-                    中文(Chinese)
+                  <a href="https://zy080080.github.io/tag/t07z1l2wA/" class="tag">
+                    OS
                   </a>
                 
-                  <a href="https://zy080080.github.io/tag/2a7cYaXp0/" class="tag">
-                    Java
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
                   </a>
                 
               </div>
@@ -155,9 +168,9 @@ public class ScannerExceptionTest {
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://zy080080.github.io/post/MIqBqxzzK/">
+                <a href="https://zy080080.github.io/post/ECsYYoE6u/">
                   <h3 class="post-title">
-                    标准输入输出流
+                    OS：並行プロセス-モニタ
                   </h3>
                 </a>
               </div>

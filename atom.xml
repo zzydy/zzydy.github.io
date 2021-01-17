@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2021-01-16T11:08:44.372Z</updated>
+    <updated>2021-01-17T06:26:03.541Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -10,6 +10,55 @@
     <logo>https://zy080080.github.io/images/avatar.png</logo>
     <icon>https://zy080080.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[OS：主記憶管理基礎]]></title>
+        <id>https://zy080080.github.io/post/u3Uh6KrGp/</id>
+        <link href="https://zy080080.github.io/post/u3Uh6KrGp/">
+        </link>
+        <updated>2021-01-17T08:24:20.000Z</updated>
+        <content type="html"><![CDATA[<p>教科書第7章　まとめ</p>
+<p><strong>物理アドレス空間</strong>：主記憶上の実アドレス空間。</p>
+<p><strong>論理アドレス空間</strong>：プログラムからみた，各プロセスごとに独立した実アドレス空間に対応するアドレス空間。</p>
+<p><strong>主記憶管理部</strong>(memory management unit：<strong>MMU</strong>)：各プロセスごとの論理アドレス空間を一次元アドレスで表現されている受寄屋上の物理アドレス空間へ変換（Mapping）を行うハードウェアである。</p>
+<p><strong>ネーミング関数</strong>：</p>
+<ul>
+<li>変数，定数などの識別子を論理アドレスに変換する関数</li>
+<li>コンパイル・リンク時に行われる</li>
+</ul>
+<p><strong>メモリ関数</strong>：</p>
+<ul>
+<li>論理アドレスから物理アドレスに変換する関数。</li>
+<li>OSによって行われる</li>
+</ul>
+<p><strong>内容関数</strong>：</p>
+<ul>
+<li>物理アドレスから，そのアドレスに格納された内容に変換する関数</li>
+<li>ハードウェアによって行われる</li>
+</ul>
+<p><strong>下限レジスタ</strong>：主記憶上のOS領域とユーザ領域の境界を示すレジスタである。</p>
+<p>下限レジスタ機構とその問題点：</p>
+<ul>
+<li>ユーザ領域の下限を設定
+<ul>
+<li>下限レジスタが示す境界でOS/ユーザ領域を区別</li>
+</ul>
+</li>
+<li>問題点
+<ul>
+<li>領域境界が１つしかない</li>
+<li>OS領域を保護することしかできない</li>
+<li>複数のプロセス間でアクセス権は設定できない</li>
+</ul>
+</li>
+</ul>
+<p>そのため，任意・複数の境界を設定し，プロセスごとにアクセス権を設定したい。 -&gt;ロック/キー機構</p>
+<hr>
+<p>1.<strong>主記憶管理</strong>の目的は，ユーザに独立した仮想アドレス空間を提供することである。理想的な仮想アドレス空間を持つべき特徴としては，大きさ無制限，プロセスごとに固有，プロセス間で主記憶空間を共有可，プログラム部，データ部，スタック部など複数の１次元アドレスがある。</p>
+<p>2.<strong>下限レジスタ機構</strong>は，ユーザ領域とオペレーティングシステム領域を下限レジスタが示す位置で分離し，CPUの実行モードにより，オペレーティングシステム領域へのアクセスを制限する基本的な仕組みである。</p>
+<p>3.<strong>ロック/キー機構</strong>は，アドレスを論理的に上位と下位に分け，上位部の内容を主記憶を示すアドレスとしてだけでなく，主記憶ブロックへのアクセス権が格納されているロックデータ配列への添字（ポインタ情報）として用いる。この考え方は，ページング，セグメンテーションによるメモリ管理の基礎である。<br>
+　現在実行中のプロセスの主記憶に対するアクセス権がPSWに格納されていて，それをキー部に対応するロックデータと比較して，アクセスを許可するかどうかを決める。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OS：並行プロセス-モニタ]]></title>
         <id>https://zy080080.github.io/post/ECsYYoE6u/</id>
@@ -871,118 +920,6 @@ DIを重視した設計になっていると，依存性のあるプログラム
 <p>参照：<br>
 <a href="https://hnavi.co.jp/knowledge/blog/spring-framework/">https://hnavi.co.jp/knowledge/blog/spring-framework/</a><br>
 <a href="https://xtech.nikkei.com/it/article/COLUMN/20070710/277218/">https://xtech.nikkei.com/it/article/COLUMN/20070710/277218/</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Git：分散型バージョン管理〜チーム開発　メモ]]></title>
-        <id>https://zy080080.github.io/post/l0qMHfM-n/</id>
-        <link href="https://zy080080.github.io/post/l0qMHfM-n/">
-        </link>
-        <updated>2020-09-29T05:17:27.000Z</updated>
-        <summary type="html"><![CDATA[<p>ブランチによるチーム開発はGitの特徴であり，Gitが多くの開発者に支持される理由となる機能である。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>ブランチによるチーム開発はGitの特徴であり，Gitが多くの開発者に支持される理由となる機能である。</p>
-<!-- more -->
-<h2 id="中央リポジトリをクローン">中央リポジトリをクローン</h2>
-<pre><code>git clone https://openg.tracpath.com/git/project project
-</code></pre>
-<p>git cloneコマンドで「project」中央リポジトリからローカルリポジトリを作成した。</p>
-<h2 id="オーカルリポジトリから中央リポジトリにプッシュ">オーカルリポジトリから中央リポジトリにプッシュ</h2>
-<pre><code>git push
-</code></pre>
-<h2 id="プルの使い方">プルの使い方</h2>
-<p>git pullコマンドは，中央リポジトリの最新情報を取得し(git fetch)，自分の作業ディレクトリと統合(git merge)することを意味している。</p>
-<p>pullの操作を行うタイミング：</p>
-<ul>
-<li>開発作業を開始する前に</li>
-<li>作業が完了し，pushする前にpull操作を行う</li>
-</ul>
-<h3 id="中央リポジトリの情報を知る">中央リポジトリの情報を知る</h3>
-<pre><code>git remote -v
-</code></pre>
-<h3 id="pushの使い方">pushの使い方</h3>
-<pre><code>git push [romote-name] [branch-name]
-</code></pre>
-<h2 id="ブランチ">ブランチ</h2>
-<p>同時対応が可能なブランチを利用することで，</p>
-<ul>
-<li>同時に異なる目的の作業を進めることが可能</li>
-<li>ブランチはお互いに影響しないため，独立したソースコードとして管理が可能</li>
-<li>ブランチでの作業は他のメンバーに影響を与えない</li>
-<li>ブランチの作成，マージが簡単に可能</li>
-<li>修正内容を戻したり，なかったことにすぐにできる</li>
-</ul>
-<p>というメリットがある</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>git branch [branch-name]</td>
-<td>ブランチを作成する</td>
-</tr>
-<tr>
-<td>git branch -vva</td>
-<td>ブランチ一覧を確認する</td>
-</tr>
-<tr>
-<td>git checkout branchName</td>
-<td>ブランチを切り替える</td>
-</tr>
-<tr>
-<td>git merge master</td>
-<td>ブランチをmasterブランチにマージする</td>
-</tr>
-<tr>
-<td>git branch -d [branch-name]</td>
-<td>ブランチを削除する</td>
-</tr>
-</tbody>
-</table>
-<h3 id="マージを理解する">マージを理解する</h3>
-<p>マージは枝分かれしたブランチを1つに統合することをいう。</p>
-<p>コミットされ版を重ねたブランチに対して行うマージ処理は，次の２つを意味している。</p>
-<ol>
-<li>同一のファイルに行われた変更を統合する</li>
-<li>コミットに含まれるファイル全体を統合する</li>
-</ol>
-<h2 id="タグの使い方">タグの使い方</h2>
-<p>タグとは，特定のバージョンに対して目印となるポイントをつけることである。<br>
-例えば，Webアプリケーションのリリースした時点のバージョンをタグ名「v.1.0」としたり，受託開発でお客様に納品した時点のバージョンをタグ名「yyyy-mm-dd」と利用する。</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>git tag [tag-name]</td>
-<td>タグを作成する</td>
-</tr>
-<tr>
-<td>git tag</td>
-<td>タグの一覧を確認する</td>
-</tr>
-<tr>
-<td>git tag -d [tag-name]</td>
-<td>タグを削除する</td>
-</tr>
-<tr>
-<td>git push origin [tag-name]</td>
-<td>作成したタグを中央リポジトリにプッシュする</td>
-</tr>
-<tr>
-<td>git push origin :tagname</td>
-<td>リモートのタグを削除する</td>
-</tr>
-</tbody>
-</table>
 ]]></content>
     </entry>
 </feed>
