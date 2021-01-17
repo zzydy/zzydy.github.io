@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>OS：主記憶管理ー主記憶割り当て | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1610894532369">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1610894532369" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">OS：主記憶管理ー主記憶割り当て</h2>
+            <div class="post-date">2021-01-18 </div>
+            
+            <div class="post-content">
+              <p>教科書第8章　まとめ</p>
+<!-- more -->
+<p>領域要求のタイミング：</p>
+<ul>
+<li>静的（static）要求
+<ul>
+<li>プログラム実行開始時に必要領域を要求</li>
+</ul>
+</li>
+<li>動的（dynamic）要求
+<ul>
+<li>プログラム実行開始時に最低限の領域を要求</li>
+<li>実行につれてさらに必要となった場合はその都度要求</li>
+</ul>
+</li>
+</ul>
+<p><strong>固定区画方式</strong>：</p>
+<ul>
+<li>プロセスに割り当てる領域の大きさをあらかじめ決めておく</li>
+<li>プロセスから要求があった際，その決められた大きさの領域を割り当てる</li>
+<li>特徴：
+<ul>
+<li>新しいプロセスの生成時に，領域を割り当てるコストが非常に少ない（選択の幅がない）</li>
+</ul>
+</li>
+<li>欠点：
+<ul>
+<li>小規模の主記憶領域しか必要としないプロセスにとっては，利用しない領域まで割り当ての対象となり，結果としてOS全体で考えた場合の主記憶領域の使用効率が低下する。</li>
+</ul>
+</li>
+</ul>
+<p><strong>可変区画方式</strong>：</p>
+<ul>
+<li>プロセスは，必要な分だけ領域を要求</li>
+<li>プロセスごとに要求サイズは異なる</li>
+<li>要求があった分だけ割り当てる</li>
+<li>問題点
+<ul>
+<li>空き領域の検索コスト
+<ul>
+<li>処理が進行するに従い，様々な大きさの空き領域が発生</li>
+<li>新しいプロセスの要求に合う大きさの空き領域を探すコストが増大</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>断片化（フラグメンテーション）</strong>：</p>
+<ul>
+<li>プロセスからの要求サイズは異なるため，可変区画方式で眼持ちを割り当てると，プロセスが使えない大量の小さな領域が残ってしまう現象。</li>
+<li>解決法：<strong>メモリコンパクション</strong>
+<ul>
+<li>メモリを確保しているプロセスの実行を止めた後に，断片化した領域を１つの連続した領域にまとめる。</li>
+</ul>
+</li>
+</ul>
+<p>可変区画方式における空き領域管理：</p>
+<ul>
+<li><strong>ベストフィット方式</strong>
+<ul>
+<li>割り当てた残り領域がもっとも少なくなる空き領域に割り当てる方式</li>
+<li>一番効率的に見えるが</li>
+<li>欠点
+<ul>
+<li>空き容量の探索コストが大きくなる場合がある</li>
+<li>残った領域が小さすぎて他のプロセスが使用できない確率が高い</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>ワーストフィット方式</strong>
+<ul>
+<li>割り当てた残り領域がもっとも大きくなる空き領域に割り当てる方式</li>
+<li>残った領域は，ベストフィット方式より比較的大きくなる</li>
+<li>欠点
+<ul>
+<li>処理が進むにつれ空き領域の大きさが均一化し，大きい要求に応じられない</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>ファーストフィット方式</strong>
+<ul>
+<li>要求された量を確保できる最初に見つかった領域を割り当てる方式</li>
+<li>探索コストが小さい。主記憶領域の全てを調べる必要がない</li>
+<li>アドレス上位に大きい領域が残りやすくなり，大きい要求にも対応しやすい</li>
+</ul>
+</li>
+</ul>
+<h2 id="領域管理">領域管理</h2>
+<h3 id="リスト方式">リスト方式</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">アドレス：A1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">サイズ：S1</td>
+</tr>
+<tr>
+<td style="text-align:center">next</td>
+</tr>
+</tbody>
+</table>
+<p>アドレス順リストの場合：ファーストフィット方式での検索が高速。<br>
+大きさ順リストの場合：ベストフィット方式での検索が高速。</p>
+<h3 id="ビットマップ方式">ビットマップ方式</h3>
+<p>空き情報を示す配列</p>
+<ul>
+<li>ビットマップ
+<ul>
+<li>記憶領域を単位ブロックに分割
+<ul>
+<li>例：アドレスの上位数ビットが共通の部分など</li>
+</ul>
+</li>
+<li>各領域に対応するビットを用意</li>
+</ul>
+</li>
+<li>ビット配列により，主記憶全体の空き領域を表現
+<ul>
+<li>大きい連続した空き領域を検索する際は
+<ul>
+<li>フラグに０が続いている部分を探索</li>
+</ul>
+</li>
+<li>各要素へのアクセスは高速だが，<strong>空き領域の検索コストが大きくなりがち</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="プログラムのロードと領域の再配置">プログラムのロードと領域の再配置</h2>
+<p>プログラム記述から実行までの流れ：<br>
+通常はリンケージエディタにおいてユーザがプログラム中に使ったライブラリ関数を結合し，即時実行可能形式（<strong>ロードモジュール</strong>）として，ファイルに格納されるとともに，実行時にはこのイメージのまま主記憶にロードされる。</p>
+<p><strong>静的ライブラリ</strong></p>
+<ul>
+<li>リンク時にロードモジュールに<strong>埋め込み</strong>（静的リンク）</li>
+<li>複数プログラムで使用されるライブラリがある場合，主記憶領域の無駄</li>
+</ul>
+<p><strong>共有ライブラリ</strong>：</p>
+<ul>
+<li>主記憶内にロードされた複数のプログラムから共有可能なライブラリ。</li>
+<li>リンカはロードモジュールにライブラリの埋め込みを行わない。</li>
+<li>共有ライブラリに対するリンク情報のみロードモジュールに書き込む</li>
+<li>ロードモジュールは<strong>リンク情報のみ</strong>を持ち，<strong>実行時にリンク</strong>（ダイナミックリンク）</li>
+<li>複数プログラムで使用される場合でも，各ライブラリは１つのイメージだけ主記憶上に存在すればよい</li>
+<li>主記憶領域（およびディスク領域）の有効活用</li>
+<li>共有ライブラリが<strong>リエントラント</strong>である</li>
+</ul>
+<p><strong>リエントラント性</strong></p>
+<ul>
+<li>複数のプログラム間で同一関数を共有するには，あるプログラムがその関数を実行中に中断された後，他のプログラムが同一関数を実行した後であっても，中断直後の状態から同一関すを再開できる必要がある。</li>
+<li>複数のプログラムが主記憶上にロードされた変数を同時に利用可能な性質を<strong>リエントラント性</strong>(再入可能性)と呼ぶ。</li>
+<li>各呼び出しごとに，作業領域を保存する仕組みが必要
+<ul>
+<li>関数内でグローバル偏すをアクセスしない。関数内でstaticな変数を使わないなど。</li>
+</ul>
+</li>
+</ul>
+<p><strong>実行時結合</strong>：実行時にリンク操作を行う</p>
+<p><strong>リロケータブル（再配置可能）</strong>：プログラム本体が，主記憶上の任意の位置に配置（ロード）されても実行可能である性質。</p>
+<ul>
+<li>この場合，プログラム内の全てのアドレス指定が，プログラムの先頭のアドレスからの相対位置で表現されている必要がある。</li>
+</ul>
+<p><strong>共有ライブラリの現状</strong></p>
+<ul>
+<li>共有ライブラリは，主記憶の効率的利用という観点からは望ましい</li>
+<li>しかし，プログラム（ライブラリ）全てがリエントラント性を満たすためには相当な書き換えが必要。</li>
+<li>現状
+<ul>
+<li>ダイナミックリンク（単体）は，利用されている
+<ul>
+<li>２次記憶の有効利用</li>
+<li>脆弱性対応時の容易性 =&gt;ライブラリだけを配布すれば良い（例　Windows　DLL）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="オーバーレイ">オーバーレイ</h2>
+<p>オーバーレイ</p>
+<ul>
+<li>指定した時刻に，アプリケーションのどの部分が主記憶上に存在すべきかをプログラマが指定する仕組み</li>
+<li>毎に実行されたコード（親関数など）のうち，さしあたり(目前)必要のなくなったコードがロードされている主記憶領域に対して，新しく必要となったコードを上書き（overlay）できる</li>
+<li>欠点
+<ul>
+<li>非常に複雑でエラーを起こしやすい</li>
+<li>プログラマの負担が増大</li>
+</ul>
+</li>
+</ul>
+<p>軽量に仮想記憶を実装できるオーバーレイはIoTなどの分野で今後も重要な位置を占める</p>
+<hr>
+<p>1.マルチプログラミング環境では，プログラムの発生，消滅が頻繁に起こるため，プログラム（およびデータ）を格納する領域を管理する方式が重要となる。</p>
+<p>2.メモリの割り当て方式には，あらかじめ決められたシステムで決めた大きさの領域を全てのプロセスに平等に割り当てる<strong>固定区画方式</strong>と，プロセスが要求する大きさの領域を与える可変区画方式がある。</p>
+<p>3.可変区画方式において，もし適切な管理を行わないと，プロセスが使えない断片的なメモリ領域が数多く発生する<strong>メモリフラグメンテーション</strong>が起こる。</p>
+<p>4.空き領域を管理する方法として，リストデータ構造を用いるリスト方式と，配列を用いる<strong>ビットマップ方式</strong>がある。また，割り当て方式として，<strong>ベストフィット方式</strong>，<strong>ファーストフィット方式</strong>，<strong>ワーストフィット方式</strong>がある。</p>
+<p>5.マルチプログラミング環境では，主記憶を効率よく利用するために，複数のプログラムが，主記憶中にロードされたライブラリを共有できる<strong>共有ライブラリ</strong>が有効な手法である。共有ライブラリを実現するためには，プログラムのリエントラント性，およびプログラムの実行時にライブラリを結合する<strong>ダイナミックリンク</strong>が必要である。</p>
+<p>6.プログラマが明示的にプログラムの主記憶へのロードを管理し，現在実行している部分のみを主記憶にロードすることにより，プログラムの実行に必要な主記憶量を提言する方法を<strong>オーバーレイ</strong>と呼ぶ。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/t07z1l2wA/" class="tag">
+                    OS
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/u3Uh6KrGp/">
+                  <h3 class="post-title">
+                    OS：主記憶管理基礎
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
