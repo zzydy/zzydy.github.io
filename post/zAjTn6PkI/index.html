@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>OS：主記憶管理ーセグメンテーション，ページかセグメンテーション | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1610966165494">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1610966165494" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">OS：主記憶管理ーセグメンテーション，ページかセグメンテーション</h2>
+            <div class="post-date">2021-01-18 </div>
+            
+            <div class="post-content">
+              <p>教科書第10章　まとめ</p>
+<!-- more -->
+<p><strong>多重レベルページング</strong>：</p>
+<ul>
+<li>従来のページングにおける，仮想アドレスの「ページ番号部」を複数に分割</li>
+<li>それぞれをページ番号として階層化したテーブルを検索</li>
+<li>必要なテーブルのみを主記憶上に置くことで，主記憶使用量を削減（残りは仮想記憶へ）</li>
+<li>ただし，多段化により，主記憶アクセスは増加 =&gt;TLBにより解決</li>
+</ul>
+<p><strong>0レベルページング（連想写像方式）</strong>：</p>
+<ul>
+<li>一般的なページング
+<ul>
+<li>主記憶上にページテーブル</li>
+<li>CPU内のMMUが，ページテーブルを用いてアドレス変換</li>
+</ul>
+</li>
+<li>0レベルページング
+<ul>
+<li>ハードウェアとしてのMMUを持たない</li>
+<li>一般的なページテーブルを持たず，連想メモリで構成したTLBでアドレス変換</li>
+</ul>
+</li>
+<li>メリット
+<ul>
+<li><strong>高クロック</strong>実装が可能
+<ul>
+<li>MMU不要のため，CPU機構が単純化</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>デメリット
+<ul>
+<li>TLBヒットしなかった場合のオーバーヘッドが膨大
+<ul>
+<li>ソフトウェア処理のため</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>よって
+<ul>
+<li>主記憶使用量の少ないプログラムには<strong>高速</strong></li>
+<li>主記憶使用量の多いプログラムには<strong>非常に低速</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>セグメンテーション</strong>：</p>
+<p>ページングの上，プログラム部，データ部，スタック部などの分離とプロセス間で共有を実現する。</p>
+<ul>
+<li>ページ（ページング）
+<ul>
+<li>一定の大きさを割り当て単位とする</li>
+</ul>
+</li>
+<li>セグメント（セグメンテーション）
+<ul>
+<li>プロセスに対し<strong>複数</strong>のセグメントを割り当て
+<ul>
+<li>各セグメントは論理的に<strong>独立</strong></li>
+<li>プログラム部，データ部など固有領域として使用可能</li>
+</ul>
+</li>
+<li>各セグメントはその論理区間の大きさを自由に<strong>増減可能</strong></li>
+</ul>
+</li>
+<li>利点
+<ul>
+<li>プログラム部，データ部など，用途別に複数をプロセスに割り当て</li>
+<li>各セグメンテーションは大きさを増減可能</li>
+</ul>
+</li>
+<li>欠点
+<ul>
+<li>フラグメンテーション</li>
+</ul>
+</li>
+</ul>
+<p><strong>ページ化セグメンテーション</strong>：</p>
+<ul>
+<li>セグメンテーションを複数のページにより構成する。</li>
+<li>セグメントごとにページテーブルを用意</li>
+<li>利点：
+<ul>
+<li>フラグメンテーションの回避
+<ul>
+<li>主記憶割り当ては基本的にページ単位</li>
+</ul>
+</li>
+<li>複数セグメント
+<ul>
+<li>各セグメントは大きさ増減可能</li>
+<li>複数使用により，用途別に使い分け可能</li>
+</ul>
+</li>
+<li>プロセス間共有
+<ul>
+<li>セグメンテーションとほぼ同様に共有可能<br>
+　- ページテーブルの分散</li>
+<li>ページテーブルが複数に分割されるので，多重レベルページング同様，その一部を<strong>仮想記憶に追い出すことで主記憶使用量削減</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="ポイント">ポイント</h2>
+<p>1.高級言語では，プログラム領域，データ領域，スタック領域，動的データ領域など複数のアドレス空間を用いる。<strong>セグメンテーション</strong>を用いることにより，プログラムに対して複数の異なるアドレス空間を提供することが可能である。さらに，複数のプロセス間で仮想アドレス空間を共有する共有メモリも容易に実現可能である。</p>
+<p>2.<strong>ページカセングメンテーション</strong>は，ページングとセグメンテーションの両方の利点を有する方式であり，現在の主記憶管理手法の主流である。</p>
+<p>3.ページングシステムでは，ページテーブルの大きさが大きくなり，主記憶領域を圧迫する。しかし，<strong>ページかセグメンテーション</strong>や<strong>多重レベルページング</strong>などでは，ページテーブルも仮想記憶内で管理するため，解決可能である。</p>
+<p>4.最小限のハードウェアで高性能を得るために開発され，MIPS社のR2000で採用された0レベルページングは，ページテーブルの管理を，ハードウェアで実装されたMMUではなく，ソフトウェア割り込みで実装した。</p>
+<p>10.1　多重レベルページングと仮想記憶を用いることにより，主記憶内に存在するページテーブルの大きさが無視できることを示せ。<br>
+　多重レベルページングを用いることにより，各プロセスが必要とするページテーブル自体も仮想記憶の対象となる。つまり，全てのページテーブルのうち，直近にアクセスされたページテーブルの一部のみが主記憶に存在することになる。したがって，プロセスが現時点で必要としているページテーブル部分のみが主記憶に配置される。</p>
+<p>10.2　ページ化セグメンテーションにおいて，外部・内部フラグメンテーションの問題について説明せよ。<br>
+　ページ化セグメンテーションは主記憶の割り当てはページ単位の固定長割り当てなので，外部セグメンテーションは存在しない。しかし，プロセスには主記憶をページ単位で割り当てるため，例えばページサイズが8kBの場合，複数割り当てたページ群の最後のページで平均4KBの未使用領域（内部フラグメンテーション）が発生する。しかし，現在のプロセスに必要な主記憶量に比べると無視できる量である。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/t07z1l2wA/" class="tag">
+                    OS
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/M7ToAnBlI/">
+                  <h3 class="post-title">
+                    OS：主記憶管理ーページング
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

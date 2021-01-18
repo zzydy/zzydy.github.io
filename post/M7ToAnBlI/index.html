@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>OS：主記憶管理ーページング | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1610966165494">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1610966165494" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">OS：主記憶管理ーページング</h2>
+            <div class="post-date">2021-01-18 </div>
+            
+            <div class="post-content">
+              <p>教科書第9章　まとめ</p>
+<!-- more -->
+<p><strong>仮想記憶</strong>：主記憶の動的再配置により，プロセスが使用できる主記憶領域を無限大にする方式。</p>
+<p><strong>仮想アドレス</strong>：記憶容量に制限のない論理アドレス。</p>
+<p><strong>スワップイン</strong>：</p>
+<ul>
+<li>実行中のプログラムが必要となる領域を二次記憶から主記憶に転送する操作。</li>
+</ul>
+<p><strong>スワップアウト</strong>：</p>
+<ul>
+<li>スワップインを行う際，その空き領域を確保するために，当面必要としない領域を主記憶から二次記憶に転送する操作。</li>
+</ul>
+<p>記憶領域の仮想化</p>
+<ul>
+<li>仮想アドレス空間の一部が物理メモリに存在</li>
+<li>仮想アドレスと物理アドレスの対応付けが必要</li>
+<li>物理メモリ上に存在する「仮想記憶の一部」は時々刻々変化する（<strong>動的再配置</strong>）</li>
+<li>対応付けも時々刻々へ変化</li>
+</ul>
+<p><strong>ページング</strong>：ロック/キー機構に動的再配置機能を加えた方式である。</p>
+<p><strong>ページ</strong>：<strong>仮想アドレス</strong>を上位部と下位部に分割することによって生成されたブロック単位。</p>
+<p><strong>ページフレーム</strong>：<strong>物理アドレス</strong>を上位部と下位部に分割することによって生成されたブロック単位。</p>
+<p><strong>ページテーブル</strong>：ページ番号からページフレーム番号へのマッピングを行うテーブル。</p>
+<p>仮想アドレスは通常プロセスごとに独立して存在する多重仮想記憶として実装される。したがって，ページテーブルもプロセスごとに複数必要となり，書くプロセスのPSW情報中に，主記憶中のどこに自プロセスのページテーブルが格納されているかを示すポインタ情報を格納する<strong>ページテーブルレジスタ</strong>がある。</p>
+<p>フラグ</p>
+<ul>
+<li><strong>Vフラグ</strong>（Virtual Memory Flag）
+<ul>
+<li>そのページが主記憶に存在するか否かを示す</li>
+<li>1の場合はスワップインが必要</li>
+</ul>
+</li>
+<li><strong>Pフラグ</strong>（Permission Flag）
+<ul>
+<li>そのページに対するアクセス条件を表す</li>
+<li>例：001（読み込み可）010（書き込み可）100（実行可）</li>
+</ul>
+</li>
+<li><strong>Cフラグ</strong>（Change Flag）
+<ul>
+<li>スワップイン後，そのフレームに対して書き込みが行われたか（変更されたか）否かを表す</li>
+<li>1の場合は，スワップアウト時に二次記憶へのフレームの書き戻しが必要</li>
+</ul>
+</li>
+</ul>
+<p>プロセスはページ単位でしかメモリ量を要求でいないため，メモリフラグメンテーションの問題は発生しない。<br>
+<strong>内部フラグメンテーション</strong>：割り当てられたが，使用されない領域。</p>
+<ul>
+<li>一ページが4~8kB程度なので，主記憶の全容量からすると微々たる大きさ，ほとんど無視できる。</li>
+</ul>
+<p><strong>ページングの問題点</strong>：</p>
+<ul>
+<li>ページテーブルの巨大さ
+<ul>
+<li>例）仮想アドレス32bit，1ページ8kBの場合
+<ul>
+<li>ページエントリ数：50万</li>
+</ul>
+</li>
+<li>ページテーブルはプロセス毎に独立
+<ul>
+<li>例）100プロセスの場合のエントリ数：5000万，1エントリ10Bで構成すると500MB</li>
+</ul>
+</li>
+<li>解決法：
+<ul>
+<li>ハッシュ関数によるページテーブル</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>メモリアクセスの増大
+<ul>
+<li>ページテーブルは主記憶内に存在</li>
+<li>1回で２度の主記憶アクセスが必要
+<ul>
+<li>ページテーブルへのアクセス</li>
+<li>物理アドレスへのアクセス</li>
+</ul>
+</li>
+<li>解決法：
+<ul>
+<li>連想レジスタ方式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>連想レジスタ</strong>（TLB：Translation Lookaside Buffer）：</p>
+<ul>
+<li>最近行われた変換結果をCPU内で保持</li>
+<li>小容量で高速</li>
+<li>一般的にプログラムは，「<strong>一度アクセスしたアドレスを近いうちに再度アクセスする可能性が高い</strong>」ことを利用</li>
+</ul>
+<p>アクセス速度の違い</p>
+<ul>
+<li>CPU基本サイクル   約10^(-9)秒</li>
+<li>CPUが主記憶へアクセスする速度 約10^(-7)秒</li>
+<li>スワップイン・スワップアウトで二次記憶へアクセス速度  約10^(-3)秒</li>
+</ul>
+<hr>
+<p>1.主記憶の再配置機能を持つ<strong>ページング</strong>は，現在用いられている主記憶管理の基本である。仮想アドレスの上位をページ番号部，下部をオフセット部とし，ページ番号部は，ページテーブルを参照して，物理アドレスであるページフレーム番号に変換される。また，ページテーブルには各ページごとにアクセス制御グラフなどが配置され，ページのアクセス権を設定することができる。</p>
+<p>2.ページングは，仮想記憶が実現できるとともに，メモリフラグメンテーション問題も解決可能である。しかし，ページテーブルを主記憶に配置する必要があるため，主記憶へのアクセス速度が低下する可能性がある。アクセス速度を低下させないために，<strong>TLB</strong>（<strong>連想レジスタ</strong>）を用いる。</p>
+<p>3.ページテーブルを主記憶上に全て配置した場合，その大きさが無視できなくなる。主記憶上のページテーブルを削減するとして，ハッシュ関数を用いて，現在主記憶上にあるページフレームを管理するページテーブルのみを主記憶上に配置する方式がある。</p>
+<p>4.仮想記憶の利用を前提とした場合，主記憶のアクセス速度と，２次記憶のアクセス速度に注意する必要がある。両者のアクセス速度は数万倍の差があり，過度な仮想記憶の利用はできる限り避けるべき。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/t07z1l2wA/" class="tag">
+                    OS
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/ES4qIO3DM/">
+                  <h3 class="post-title">
+                    OS：主記憶管理ー主記憶割り当て
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
