@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>OS：主記憶管理ーページ置き換え方式 | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1611011580291">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1611011580291" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">OS：主記憶管理ーページ置き換え方式</h2>
+            <div class="post-date">2021-01-19 </div>
+            
+            <div class="post-content">
+              <p>教科書第12章　まとめ</p>
+<!-- more -->
+<p>静的ページ置き換え方式</p>
+<ul>
+<li>LRU(Least Recently Used)</li>
+<li>LFU(Least Frequently Used)</li>
+<li>FIFO(First In First Out)</li>
+</ul>
+<p><strong>Beladyの例外</strong>：</p>
+<ul>
+<li>ページフレーム数を増やした時，ページフォルトが増加してしまう現象</li>
+<li>原因
+<ul>
+<li>ページフレーム数により置き換えパターンが変化してしまうアルゴリズム　例）FIFO</li>
+</ul>
+</li>
+</ul>
+<p><strong>ワーキングセット方の近似</strong>：</p>
+<ul>
+<li>ワーキングセットの大きさ＝プロセスに割り当てるページ数
+<ul>
+<li>ワーキングセットを調べるのはコスト膨大</li>
+<li>何らかの方法で近似</li>
+</ul>
+</li>
+<li>ページフォルト発生の平均間隔
+<ul>
+<li>大きい場合（頻度小）
+<ul>
+<li>プロセスに与えられているページフレームは比較的十分</li>
+</ul>
+</li>
+<li>小さい場合（頻度大）
+<ul>
+<li>プロセスには十分なページフレームが与えられていない</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>ページフォルト平均間隔＋LRU</strong>：</p>
+<ul>
+<li>ワーキングセット方の近似とLRUの組み合わせ</li>
+<li>プロセスに割り当てるページフレーム数を<strong>動的</strong>に変更</li>
+<li>アルゴリズム
+<ul>
+<li>ページフォルトの平均間隔を計算</li>
+<li>平均間隔がある値より小さい場合
+<ul>
+<li>プロセスに与えるページフレーム数を増やす</li>
+</ul>
+</li>
+<li>平均間隔がある値より大きい場合
+<ul>
+<li>プロセスに与えるページフレーム数を減らす</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>1.ページ置き換え方式として，プロセスの生成時にプロセスに与えるページ数を決定する<strong>静的ページ置き換え方式</strong>と，プロセスの実行中にプロセスに与えるページ数が変化する<strong>動的ページ置き換え方式</strong>がある。</p>
+<p>2.ページ置き換えアルゴリズムとして，<strong>最長不使用ページ置き換え（LRU）アルゴリズム</strong>，<strong>最低使用頻度順ページ置き換え（LFU）アルゴリズム</strong>，<strong>到着順ページ置き換え（FIFO）アルゴリズム</strong>などがある。</p>
+<p>3.プロセスに与えるページ数を増やした結果，ページフォルト回数が増加してしまうBeladyの例外という現象がある。このような性質を持たないページ置き換えアルゴリズムを<strong>スタックアルゴリズム</strong>と呼ぶ。</p>
+<p>4.動的ページ置き換えにおいて，プロセスに与えるページ数を決める手法として，プロセスが直近にアクセスしたページ集合（ワーキングセット）の大きさに応じて決定する<strong>ワーキングセット法</strong>がある。</p>
+<p>5.ワーキングセットを下回るメモリ量しかプロセスが確保できない場合，常時ページフォルトが発生し，CPUの実効効率を低下させる<strong>スラッシング</strong>が発生する。</p>
+<p>12.2)ワーキングセットを求めるのは事実上不能な理由を示すとともに、動的ページ置き換えにおけるページフォールト平均間隔＋LRU法について、ワーキングセットを求めずにどのように実現したかを中心に説明しなさい。<br>
+ワーキングセットは常時に命令フェッチ、デコード、命令実効のサイクルで変わるため，求めるのは事実上不可能である。そこで，ワーキングセット法を近似するために，ページフォルト発生の平均間隔を計算し，この情報を静的置換えアルゴリズムに加えて，動的にプロセスに与えるページフレーム数を変えるのは，ページフォルト平均間隔+LRU法である。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/t07z1l2wA/" class="tag">
+                    OS
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/D3L-F6vjm/">
+                  <h3 class="post-title">
+                    OS：主記憶管理ー仮想記憶
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>OS：主記憶管理ー仮想記憶 | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1611011580291">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1611011580291" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">OS：主記憶管理ー仮想記憶</h2>
+            <div class="post-date">2021-01-19 </div>
+            
+            <div class="post-content">
+              <p>教科書第11章　まとめ</p>
+<!-- more -->
+<p>仮想記憶</p>
+<ul>
+<li>大きさが無限の仮想アドレスを提供</li>
+<li>ただし，スワップ操作に膨大な時間を要する</li>
+</ul>
+<p><strong>デマンドページング</strong>：</p>
+<ul>
+<li>ページフォルトが発生した時点</li>
+<li>必要になった際に必要なページをスワップイン</li>
+<li>スワップインの前にページフォルトが必ず発生</li>
+<li><strong>ページフォルト処理にかかるコスト</strong>を削減したい</li>
+</ul>
+<p><strong>プリページング</strong>（予測ページング）</p>
+<ul>
+<li>必要になりそうなページを前もってスワップイン</li>
+<li>予測が当たればページフォルトは発生せず<strong>コスト削減</strong></li>
+</ul>
+<p>デマンドプリフェッチ：</p>
+<ul>
+<li>ページフォルト割り込みが発生したタイミングで
+<ul>
+<li>ページフォルトを起こした対象ページは無論スワップイン</li>
+<li><strong>将来必要と予想される数ページを同時に</strong>スワップイン</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>1.仮想記憶の性能を向上させるためには，できる限りスワップ操作を行わないことが重要である。したがって，ページフォルト時にどのページをスワップアウトするかを決定するスワップスケジューリングは重要である。</p>
+<p>2.スワップ操作は最小限にするべきであり，あらかじめ必要とされるページを事前にスワップインする方式として，<strong>デマンドプリフェッチ</strong>，<strong>初期ロードプリフェッチ</strong>などがある。</p>
+<p>3.もっともアクセスされていないページをスワップアウトの対象とする<strong>LRUアルゴリズム</strong>は，今後アクセスされる確率のもっとも少ないページを近似的に選択可能なアルゴリズムである。しかし，このLEUアルゴリズムを正確に実装することも困難であり，経験的手法による近似的な実装が必要となる。</p>
+<p>4.LRUアルゴリズムを近似的に実装するために，ページテーブル内に前回のページフォルト以降，当該ページの参照の有無を示す参照ビットを追加する。次のページフォルト時点で，参照頻度表を更新することにより，近似的，かつ少ない不可でLRUアルゴリズムを実装することが可能となる。</p>
+<p>5.プログラムのアクセスする主記憶領域には，時間的および空間的局所性がある。さらに，プログラムが関数や手続きを高級言語で記述した場合は，関数や手続きの呼び出し時点で，急激にアクセスするページが変化する<strong>フェーズ現象</strong>が発生する。</p>
+<p>(11-1)正確なLRUはなぜ実装困難なのかを、具体的な操作、および数字を示して説明しなさい。<br>
+LRUを実現するには，ページテーブルに，各ページのアクセス時刻を記録する項目を追加する必要がある。具体的には，主記憶アクセスごとに時刻を調べてアクセス時刻を更新し，ページフォルト時にページテーブルを走査して，最もアクセス時刻の古い項目を探す必要がある。<br>
+しかし，主記憶アクセスは10の-9乗秒程度の速度を要求され，時刻を更新するのに10の-9乗秒でできないため，LRUは実装困難である。</p>
+<p>(11-2)高級言語によるプログラムの主記憶アクセスパターンのフェーズ化が、どのような時点で、なぜ起こるかを、２つ事例を示して、説明しなさい。<br>
+フェーズ化は，プログラムがアクセスするページは主記憶上隣接した領域を連続してアクセスする時，及びある時刻を境にプログラムがアクセスするページが急に切り替わる時に起こる。<br>
+事例：1.ループを抜けた時。2.実行する関数が変わった時。<br>
+その理由は，プログラムが頻繁にアクセスするページ，またはその近くのアドレスに再びアクセスしなくなるからである。</p>
+<p>(11-3)スワップインすべき場所の選択に意味がないことを示しなさい。<br>
+ページシステムの特徴に，ページテーブルを介して，ページとページフレームをマッピンッグすることによるページフレームの動的再配置機能がある。よって，スワップイン操作により，該当ページが主記憶上のどのページフレームに読み込まれてもシステムの性能やプロフラム側が発行するアドレスに全く影響しない。<br>
+　通常のメモリアクセスは10<sup>(-9)秒程度の速度を要求されるが，スワップ操作時は10</sup>(-1)秒程度の時間を要求されるだけである。したがった，スワップ操作時にさらに10<sup>(-3)〜10</sup>(-2)秒程度の追加の処理を挿入しても，ほとんどシステム全体の性能に影響することはない。</p>
+<p>ページングによるメモリ管理は，アドレスの上位を（ページ番号），下位を（オフセット）に分けて管理する方式である。（ページ番号）は（ページテーブル）内の位置を示し，示された（ページテーブル）のエントリーには各種フラグと（ページフレーム番号）を示すポインタが格納されている。仮想記憶におけるページ置き換えをページフォルト時に行う方式を（デマンドページング）と呼ぶ。さらに，ページフォルトが起こった時に，そのページだけではなく，将来必要となるページも呼び込む方式が（<strong>デマンドプリフェッチ</strong>）である。理想的なページ置き換えは，次にアクセスされる確率のもっとも（低い）ページを置き換え（スワップアウトする）方法である。この近似解として（LRU）がある。しかし，（LRU）も正確に実装することが困難なので，さらに近似が必要となる。<br>
+　プログラムが使用するページの集合は，プログラムの実行にしたがって急激に変化することが多い，これを（フェーズ化）現象と呼び，一般に関数などにより，プログラムを（<strong>構造化</strong>）した場合に顕著となる</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/t07z1l2wA/" class="tag">
+                    OS
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/zAjTn6PkI/">
+                  <h3 class="post-title">
+                    OS：主記憶管理ーセグメンテーション，ページかセグメンテーション
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
