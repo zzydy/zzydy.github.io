@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>デバッガコマンド | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1613370237265">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1613370237265" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">デバッガコマンド</h2>
+            <div class="post-date">2021-02-15 </div>
+            
+            <div class="post-content">
+              <p>gdb Filename.exe</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">略称</th>
+<th style="text-align:left">例</th>
+<th style="text-align:left">例示コマンドの機能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">quit</td>
+<td style="text-align:left">q</td>
+<td style="text-align:left">q</td>
+<td style="text-align:left">デバッガを終了</td>
+</tr>
+<tr>
+<td style="text-align:left">help</td>
+<td style="text-align:left">h</td>
+<td style="text-align:left">h list</td>
+<td style="text-align:left">コマンドの説明</td>
+</tr>
+<tr>
+<td style="text-align:left">file</td>
+<td style="text-align:left">file</td>
+<td style="text-align:left">file e4-3-x64-g.exe</td>
+<td style="text-align:left">デバッグ対象を指定</td>
+</tr>
+<tr>
+<td style="text-align:left">set logging</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">set logging file e4-3a-x64g.log</td>
+<td style="text-align:left">ログファイル名を変更</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">set logging overwrite</td>
+<td style="text-align:left">ログファイル上書き指定</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">set logging overwrite off</td>
+<td style="text-align:left">ログファイル追記指定</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">set logging on</td>
+<td style="text-align:left">ログ記録の有効化</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">set logging off</td>
+<td style="text-align:left">ログ記録の無効化</td>
+</tr>
+<tr>
+<td style="text-align:left">target</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">target remote:1234</td>
+<td style="text-align:left">通信ポート1234を使い遠隔端末に接続</td>
+</tr>
+<tr>
+<td style="text-align:left">list</td>
+<td style="text-align:left">l</td>
+<td style="text-align:left">l main</td>
+<td style="text-align:left">関数mainのコードを10行表示</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">l</td>
+<td style="text-align:left">次の10行表示</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">l 10</td>
+<td style="text-align:left">ソースコードの10行目前後を表示</td>
+</tr>
+<tr>
+<td style="text-align:left">info</td>
+<td style="text-align:left">i</td>
+<td style="text-align:left">i register</td>
+<td style="text-align:left">全レジスタの内容を表示</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">i register $eax</td>
+<td style="text-align:left">レジスタeaxを表示</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">i break</td>
+<td style="text-align:left">ブレークポイントを一覧表示</td>
+</tr>
+<tr>
+<td style="text-align:left">backtrace</td>
+<td style="text-align:left">bt</td>
+<td style="text-align:left">bt</td>
+<td style="text-align:left">バックトレースしスタックフレーム表示</td>
+</tr>
+<tr>
+<td style="text-align:left">disas</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">disas</td>
+<td style="text-align:left">実行中の関数のコードを逆アセンブル</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">disas max3</td>
+<td style="text-align:left">関数max3のコードを逆アセンブル</td>
+</tr>
+<tr>
+<td style="text-align:left">where</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">where</td>
+<td style="text-align:left">中断地点を表示</td>
+</tr>
+<tr>
+<td style="text-align:left">run</td>
+<td style="text-align:left">r</td>
+<td style="text-align:left">r</td>
+<td style="text-align:left">プログラムを実行開始</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">r 3 5</td>
+<td style="text-align:left">コマンドライン引数(3,5)を指定してプログラムを実行開始</td>
+</tr>
+<tr>
+<td style="text-align:left">break</td>
+<td style="text-align:left">b</td>
+<td style="text-align:left">b main</td>
+<td style="text-align:left">関数mainの先頭にブレイクポイントを設定</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">b 10</td>
+<td style="text-align:left">10行目にブレイクポイントを設定</td>
+</tr>
+<tr>
+<td style="text-align:left">delete</td>
+<td style="text-align:left">d</td>
+<td style="text-align:left">d 2</td>
+<td style="text-align:left">2番目のブレイクポイントを解除</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">d</td>
+<td style="text-align:left">全ブレイクポイントを解除</td>
+</tr>
+<tr>
+<td style="text-align:left">continue</td>
+<td style="text-align:left">c</td>
+<td style="text-align:left">c</td>
+<td style="text-align:left">中断中のプログラムの実行再開</td>
+</tr>
+<tr>
+<td style="text-align:left">step</td>
+<td style="text-align:left">s</td>
+<td style="text-align:left">s</td>
+<td style="text-align:left">1ステップ（１命令）実行</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">s 10</td>
+<td style="text-align:left">10ステップ（10命令）実行</td>
+</tr>
+<tr>
+<td style="text-align:left">display/fmt</td>
+<td style="text-align:left">disp</td>
+<td style="text-align:left">display/x $eax</td>
+<td style="text-align:left">中断ごとにレジスタeaxの値を16進数表示する</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">disp/t a1</td>
+<td style="text-align:left">中断ごとに変数a1の値を2進数表示</td>
+</tr>
+<tr>
+<td style="text-align:left">x/fmt</td>
+<td style="text-align:left">x</td>
+<td style="text-align:left">x/x　0x400606</td>
+<td style="text-align:left">0x400606番地から4バイトを16進数表示</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">x/t $eax</td>
+<td style="text-align:left">レジスタeaxの値を2進数表示</td>
+</tr>
+<tr>
+<td style="text-align:left">print/fmt</td>
+<td style="text-align:left">p</td>
+<td style="text-align:left">p/x $eax</td>
+<td style="text-align:left">レジスタeaxの値を16進数表示</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">p i</td>
+<td style="text-align:left">変数iの値を10進数表示</td>
+</tr>
+<tr>
+<td style="text-align:left">set</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">set v1 = 10</td>
+<td style="text-align:left">変数v1の値を10にする</td>
+</tr>
+</tbody>
+</table>
+<p>fmt：書式指定</p>
+<ul>
+<li>t:2進数</li>
+<li>o:8進数</li>
+<li>d:10進数</li>
+<li>x:16進数</li>
+<li>c:文字</li>
+<li>f:浮動小数店</li>
+</ul>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/xue-xi-bi-ji/" class="tag">
+                    学习笔记
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/PXPlWYWB9/">
+                  <h3 class="post-title">
+                    OS：ファイルーより進んだファイルシステム
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
