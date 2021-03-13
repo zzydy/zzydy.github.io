@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Mybatisを始める：Quick Start | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1615626214972">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1615626214972" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Mybatisを始める：Quick Start</h2>
+            <div class="post-date">2021-03-13 </div>
+            
+              <div class="feature-container" style="background-image: url('https://avatars.githubusercontent.com/u/1483254?s=280&amp;v=4')">
+              </div>
+            
+            <div class="post-content">
+              <p>MyBatis はカスタム SQL，ストアドプロシージャ，高度なマッピング処理に対応した優れた永続化フレームワークである。MyBatisを使うことで、直接 JDBC を扱うコードを書いたり、クエリ引数やクエリ結果を手動で設定する必要がほとんどなくなる。</p>
+<!-- more -->
+<h2 id="installation">Installation</h2>
+<p>Mavenを利用する場合は下記の依存性を追加する。もしくは，mybatis-x.x.x.jarをクラスパスに追加する必要がある。</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.mybatis&lt;/groupID&gt;
+    &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h2 id="xml形式の設定ファイルを使ってsqlsessionfactoryを生成する">XML形式の設定ファイルを使ってSqlSessionFactoryを生成する</h2>
+<p>Mybatisアプリケーションは，SqlSessionFactoryのインスタンスを中心に構成されている。<br>
+SqlSessionFactoryのインスランスは，SqlSessionFactoryBuilderを使って取得することができる。<br>
+SqlSessionFactoryBuilderがSqlSessionFactoryを生成する際の設定は，XML形式の設定ファイルを読み込むか，独自に用意したConfigurationクラスのインスタンスを渡すことで行う。</p>
+<pre><code>String resource = &quot;mybatis-config.xml&quot;;
+InputStream inputStream = Resources.getResourceAsStream(resource);
+SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+</code></pre>
+<p>XML形式の設定ファイルには，Mybatisシステムの基本設定が含まれる。例えば，データベースからConnectionのインスタンスを取得するDataSourceや，トランザクションの制御方法を決定するTransactionManagerなどである。</p>
+<p>簡単なサンプル：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE configuration
+  PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+  &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;enviroments default=&quot;development&quot;&gt;
+        &lt;enviroment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot; /&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot; /&gt;
+                &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/databaseName?characterEncoding=UTF-8&quot; /&gt;
+                &lt;property name=&quot;username&quot; value=&quot;root&quot; /&gt;
+                &lt;property name=&quot;password&quot; value=&quot;123&quot;&gt;
+            &lt;/dataSource&gt;
+        &lt;/enviroments&gt;
+    &lt;/enviroments&gt;
+    &lt;mappers&gt;
+        &lt;mapper resource=&quot;org/mybatis/xxx/xxx/MapperName.xml&quot; /&gt;
+    &lt;/mappers&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>enviroment要素には，トランザクション管理やコネクションプーリングといった環境依存の設定が含まれている。<br>
+mapper要素にはMapperのリストが含まれている。Mapperとは，SQL文とマッピングの定義を含むXMLファイルである。</p>
+<h2 id="mapped-sql-statementsについて">Mapped SQL Statementsについて</h2>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+　PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+　&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;org.mybatis.example.BlogMapper&quot;&gt;
+    &lt;select id=&quot;selectBlog&quot; resultType=&quot;Blog&quot;&gt;
+        select * from Blog where id = #{id}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<p>１つのMapper XMLファイルに複数のMapped Statementを定義することができるので，XMLヘッダやdoctype宣言は一度書く。<br>
+「org.mybatis.example.BlogMapper」というネームスペース中に「selectBlog」という名前のMapped Statementを定義している。</p>
+<p>このMapped Statementを実行するには，以下のように完全修飾名「org.mybatis.example.BlogMapper.selectBlog」を指定してSqlSessionのメソッドを呼び出す。</p>
+<pre><code>Blog blog = session.selectOne(&quot;org.mybatis.example.BlogMapper.selectBlog&quot;, 101);
+</code></pre>
+<p>ただし，mybatis-config.xmlに，typeAliasesを追加すれば，完全修飾名を使わずに済む。</p>
+<pre><code>&lt;configuration&gt;
+    &lt;typeAliases&gt;
+        &lt;package name=&quot;com.how2java.pojo&quot;/&gt;
+    &lt;/typeAliases&gt;
+    &lt;enviroments&gt;
+    ...
+&lt;/configuration&gt;
+</code></pre>
+<h2 id="スコープとライフサイクル">スコープとライフサイクル</h2>
+<h3 id="sqlsessionfactorybuilder">SqlSessionFactoryBuilder</h3>
+<p>このクラスは，インスタンス化し，使用し，破壊することができる。一旦SqlSessionFactoryを生成してしまえば，このクラスを残しておく理由はない。したがって，このクラスのスコープとして最適なのは<strong>メソッドスコープ</strong>（つまり，ローカルメソッド変数）である。<br>
+SqlSessionFactoryBuilderを再利用して複数のSqlSessionFactoryを生成することも可能だが，XMLをパースするためのリソースが他の重要なものを圧迫しないように，このクラスを保持して使いまわさない方が得策である。</p>
+<h3 id="sqlsessionfactory">SqlSessionFactory</h3>
+<p>生成したSqlSessionFactoryは，あなたのアプリケーション実行中はそのまま残しておくべきである。生成したSqlSessionFactoryを破棄したり，再度生成する理由はないはずである。したがって，SqlSessionFactoryに最適なのは<strong>アプリケーションスコープ</strong>である。これを実現する方法はいくつもある。もっとも簡単なのはシングルトンパターンまたはスタティックシングルトンパターンを使う方法である。</p>
+<h3 id="sqlsession">SqlSession</h3>
+<p>各スレッドは，独立したSqlSessionのインスタンスを使うべきである。SqlSessionのインスタンスは共有されることを前提としていないため，スレッドセーフではない。当然，最適なスコープは<strong>メソッドスコープ</strong>になる。SqlSessionのインスタンスへの参照をstaticなフィールドや，インスタンスフィールドにも格納してはいけない。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/doiPfjpu0/" class="tag">
+                    Mybatis
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/8IAmAkZZ0/">
+                  <h3 class="post-title">
+                    MySQL
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
