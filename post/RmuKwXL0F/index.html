@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>database | 听故事的人</title>
+<title>Spring AOPにおけるPointcut式例 | 听故事的人</title>
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,35 +104,55 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: database</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://zy080080.github.io/post/8IAmAkZZ0/">
-                  <h2 class="post-title">MySQL</h2>
-                </a>
-                <div class="post-date">
-                  2021-02-26 
-                </div>
-                <div class="post-abstract">
-                  <p>MySQL必知必会总结<br>
-MySQL是最流行的关系型数据库管理系统。</p>
+          <div class="post-detail">
+            <h2 class="post-title">Spring AOPにおけるPointcut式例</h2>
+            <div class="post-date">2021-03-22 </div>
+            
+            <div class="post-content">
+              <p>ポイントカットとは，ジョインポイントに一致する述語である。アドバイスはポイントカット式に関連づけられ，ポイントカットに一致する任意のジョインポイントで実行される。ポイントカット式と一致するジョインポイントの概念はAOPの中心であり，SpringはデフォルトでAspectJポイントカット式言語を使用する。</p>
+<!-- more -->
+<pre><code>execution(modifiers-pattern? ret-type-pattern declaring-type-pattern?name-pattern(param-pattern) throws-pattern?)
+</code></pre>
+<p>publicメソッドの実行</p>
+<pre><code>execute(public * *(..))
+</code></pre>
+<p>setで始まる名前のメソッドの実行</p>
+<pre><code>execution(* set*(..))
+</code></pre>
+<p>AccountServiceインターフェースによって定義されたメソッドの実行</p>
+<pre><code>execution(* com.xyz.service.AccountService.*(..))
+</code></pre>
+<p>serviceパッケージで定義されたメソッドの実行</p>
+<pre><code>execution(* com.xyz.service.*.*(..))
+</code></pre>
+<p>サービスパッケージまたはそのサブパッケージのいずれかで定義されたメソッドの実行</p>
+<pre><code>execution(* com.xyz.service..*.*(..))
+</code></pre>
 
-                </div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/iMvcbKw2b/" class="tag">
+                    Spring Framework
+                  </a>
+                
               </div>
-              
-                <a class="right" href="https://zy080080.github.io/post/8IAmAkZZ0/">
-                  <div class="feature-container" style="background-image: url('https://d1.awsstatic.com/asset-repository/products/amazon-rds/1024px-MySQL.ff87215b43fd7292af172e2a5d9b844217262571.png')">
-                  </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/kk4jq6fpX/">
+                  <h3 class="post-title">
+                    Mybatisを始める：Quick Start
+                  </h3>
                 </a>
-              
-            </article>
-          
+              </div>
+            
 
-          <div class="pagination-container">
-  
-  
-</div>
+            
+
+          </div>
 
         </div>
       </div>
