@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>ソフトウェア工学 | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1619191365029">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1619191365029" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">ソフトウェア工学</h2>
+            <div class="post-date">2021-04-24 </div>
+            
+            <div class="post-content">
+              <p>ソフトウェア工学の概要，システム開発のプロジェクト</p>
+<!-- more -->
+<h2 id="第一回">第一回</h2>
+<h3 id="概要">概要</h3>
+<h4 id="ソフトウェアとは">ソフトウェアとは</h4>
+<p>定義：情報処理システムのプログラム，手続き，規則および関連文書の全体または一部分。</p>
+<h4 id="ソフトウェアの種類">ソフトウェアの種類</h4>
+<ul>
+<li>市販ソフトウェア：同一製品
+<ul>
+<li>パッケージソフト
+<ul>
+<li>DVDなどの媒体を購入</li>
+</ul>
+</li>
+<li>アプリ
+<ul>
+<li>アプリストアからダウンロード</li>
+</ul>
+</li>
+<li>クラウドサービス
+<ul>
+<li>ブラウザなどからアクセス</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>カスタムソフトウェア：個別製品
+<ul>
+<li>受託開発，企業システムに利用。</li>
+</ul>
+</li>
+</ul>
+<h4 id="システムの例">システムの例</h4>
+<p>予約・発券システム，搭乗員シフト管理システム，経営管理システム，採点システムなど。</p>
+<h3 id="ソフトウェア工学とシステム開発">ソフトウェア工学とシステム開発</h3>
+<h4 id="ソフトウェア工学とは">ソフトウェア工学とは</h4>
+<p>ソフトウェアが大規模化，複雑化し，<br>
+ソフトウェア開発に工学的な方法を取り入れる取り組み。</p>
+<h4 id="ソフトウェア工学">ソフトウェア「工学」</h4>
+<ul>
+<li>工学であるかどうかは議論の的
+<ul>
+<li>経験則の集まり，ノウハウのかたまり
+<ul>
+<li>工学：数式による実世界のモデル化（物理）</li>
+<li>ソフトウェア工学：プロジェクト管理による効率的なシステム開発</li>
+</ul>
+</li>
+<li>Wikipediaより
+<ul>
+<li>もともと，プログラミングおよびシステム分析と呼ばれていた活動などを総称的にsoftware engineeringと呼ぶ。</li>
+<li>プログラミングに必要とされる理論的側面をコンピュータ科学と呼び，そうでないあらゆる面をsoftware engineeringと称する。</li>
+<li>「プログラミング」を単なる技巧や技能ではなく工学として扱うことを主張する用語であり，そのような指針を文書化したもので使われる。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="工学を導入する理由">工学を導入する理由</h4>
+<ul>
+<li>ソフトウェアの発注はビジネス契約である
+<ul>
+<li>コスト，品質，納期が守られる必要がある</li>
+</ul>
+</li>
+<li>小売の場合，全ての人に対して同じ品物を提供するため，失敗しても小額</li>
+<li>注文：ビジネスにおける売買
+<ul>
+<li>選定，見積り，発注，納品，検収，請求，支払い</li>
+<li>それぞれの人に対して個別の製品・システムを提供</li>
+<li>失敗すると多額の負債</li>
+</ul>
+</li>
+</ul>
+<h4 id="営業における顧客のbantbantch">営業における顧客の<strong>BANT</strong>，<strong>BANTCH</strong></h4>
+<ul>
+<li>Budget：予算
+<ul>
+<li>払える金額はいくらか，現状の金額はいくらか，費用対効果をどう見積もるか。</li>
+</ul>
+</li>
+<li>Authority：権限のある人
+<ul>
+<li>担当者か，上司か，社長か，親会社か，社内稟議書が必要か</li>
+</ul>
+</li>
+<li>Needs：必要性
+<ul>
+<li>発言されたニーズだけでなく真のニーズは何か</li>
+</ul>
+</li>
+<li>Timefreame：導入時期
+<ul>
+<li>契約，社内決裁，納品，導入の時期，社内会議の時期</li>
+</ul>
+</li>
+<li>Competitor：競合他社
+<ul>
+<li>他社の見積額は，他社との比較点は</li>
+</ul>
+</li>
+<li>Human resources：社内人材
+<ul>
+<li>担当者がスキルを持っているか，全体の体制はどうなっているか</li>
+</ul>
+</li>
+</ul>
+<h3 id="システム開発のプロジェクト">システム開発のプロジェクト</h3>
+<h4 id="システム開発のライフサイクル">システム開発のライフサイクル</h4>
+<ul>
+<li>要求分析・要件定義
+<ul>
+<li>顧客の望むこと（要求）を仕様（要件）に落とし込む</li>
+</ul>
+</li>
+<li>外部設計
+<ul>
+<li>システムの使い方と構成を仕様にする</li>
+</ul>
+</li>
+<li>内部設計
+<ul>
+<li>実装の方針を決定する</li>
+</ul>
+</li>
+<li>プログラミング
+<ul>
+<li>実際の開発を行う</li>
+</ul>
+</li>
+<li>テスト
+<ul>
+<li>品質を保証するための確認を行う</li>
+</ul>
+</li>
+<li>運用・保守
+<ul>
+<li>納品後のメンテナンスを続ける</li>
+</ul>
+</li>
+</ul>
+<h4 id="プロジェクト">プロジェクト</h4>
+<ul>
+<li>プロジェクト＝ある期間に行われるイベント
+<ul>
+<li>メンバーはプロジェクト単位で召集される。</li>
+<li>プロジェクトが終了したら次のプロジェクトへメンバーは移動する</li>
+<li>複数のプロジェクトを掛け持つメンバーもいる</li>
+</ul>
+</li>
+<li>システム開発というプロジェクトの進行を管理する
+<ul>
+<li>管理者はプロジェクトマネージャ（PM）</li>
+<li>国家資格あり</li>
+<li>管理する対象：QCD
+<ul>
+<li>Quality</li>
+<li>Costs</li>
+<li>Delivery</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="人的資源の管理">人的資源の管理</h4>
+<ul>
+<li>プロジェクトチームでの開発が必須
+<ul>
+<li>システムが大規模になると，分担して開発しなければならない
+<ul>
+<li>Q:品質が保てない（複数人の体系的なチェックが必要）</li>
+<li>C：コストが高くなる（単価は低いが多数の人材が必要）</li>
+<li>D：間に合わない（システムの分割と並列開発が必要）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>人的資源の見積もり：工数（単位：人月）
+<ul>
+<li>作業量を一人あたりの時間（月）で表す</li>
+<li>例：10人月
+<ul>
+<li>1人で10ヶ月，10人で１ヶ月</li>
+</ul>
+</li>
+<li>スキルには当然個人差がある
+<ul>
+<li>少数の高スキルの人材は困難な工程へ割り振る</li>
+<li>多数の低スキルの人材を容易な工程へ割り振る</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="プロジェクトマネジメント">プロジェクトマネジメント</h4>
+<ul>
+<li>標準化された方法論：PMBOK
+<ul>
+<li>名称：プロジェクトマネジメント知識体系（Project Management Body of Knowledge）</li>
+<li>発行：プロジェクトマネジメント協会</li>
+<li>PMBOK
+<ul>
+<li>プロセス群：立ち上げ，計画，実行，監視・制御，集結</li>
+<li>知識エリア：統合，スコープ，スケジュール，コスト，コミュニケーション，品質，人的資源，リスク，調達，ステークホルダー</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="リスクマネジメント">リスクマネジメント</h4>
+<ul>
+<li>プロジェクトの進行を阻害する潜在的な要因
+<ul>
+<li>顧客：要求が曖昧，間違っていた，頻繁に変更する</li>
+<li>体制：要員不足，病気・退職などによる減員，スキル不足，自然災害</li>
+</ul>
+</li>
+<li>対処
+<ul>
+<li>予防：リスクの発生を抑える</li>
+<li>回避：リスクの原因を取り除く</li>
+<li>転嫁：リスクの影響を第三者に委託</li>
+<li>軽減：リスクの影響を抑える</li>
+<li>受容：リスクの結果を受け入れる</li>
+</ul>
+</li>
+<li>評価
+<ul>
+<li>リスク毎に優先順位をつける</li>
+<li>発生頻度，影響度を数値化</li>
+</ul>
+</li>
+</ul>
+<h4 id="プロセス改善">プロセス改善</h4>
+<ul>
+<li>プロジェクト管理できる能力の指標：CMMI
+<ul>
+<li>能力成熟度モデル統合(Capability Maturity Model Integreation)</li>
+<li>プロジェクト管理のプロセスが常に改善されるかどうかの指標<br>
+　- レベル1：初期段階，場当たり的。<br>
+　- レベル2：開発が管理済み，反復して実行が可能。<br>
+　- レベル3：標準プロセスが定義済みで，改善されている。<br>
+　- レベル4：定量的に管理され，予測が可能。<br>
+　- レベル5：プロセス改善が最適化されている。</li>
+</ul>
+</li>
+</ul>
+<h4 id="見積もり">見積もり</h4>
+<ul>
+<li>規模の見積もり
+<ul>
+<li>経験
+<ul>
+<li>過去のプロジェクト</li>
+</ul>
+</li>
+<li>LOC（Lines of code）法
+<ul>
+<li>総コード数，プログラマ一人あたり一ヶ月あたりの生成可能コード数</li>
+<li>プログラムステップ法とは</li>
+</ul>
+</li>
+<li>ファンクションポイント（FP）法
+<ul>
+<li>外部入出力，ユーザーインタラクション，外部インターフェース，使用ファイルなどの各項目の点数（FP）を積算</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>工数の見積もり
+<ul>
+<li>経験
+<ul>
+<li>過去のプロジェクト</li>
+</ul>
+</li>
+<li>COCOMO
+<ul>
+<li>constructive cost model</li>
+<li>統計的なコスト推計モデル
+<ul>
+<li>LOCから工数への変換式</li>
+<li>習熟度や難易度で補正</li>
+<li>基本，中間，詳細COCOMO</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>COCOMOⅡ
+<ul>
+<li>FPも取り入れる</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="形態">形態</h4>
+<ul>
+<li>開発
+<ul>
+<li>プロジェクトマネージャー（PM）
+<ul>
+<li>責任者，企画立案，計画提案，リスク管理，予算獲得や人材確保。</li>
+</ul>
+</li>
+<li>プロジェクトリーダー（PL）
+<ul>
+<li>PMとほぼ同じ，大規模開発でPMの一部を担う。</li>
+</ul>
+</li>
+<li>システムエンジニア（SE）
+<ul>
+<li>開発全般を担当。仕様策定と設計が責務。顧客との打ち合わせも行う。</li>
+<li>システムの具体的な構成を検討。多方面の知識が必要。</li>
+</ul>
+</li>
+<li>プログラマ（PG）各種エンジニア
+<ul>
+<li>開発担当，各分野の高度なスキルが必要</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="発注と受注">発注と受注</h3>
+<h4 id="発注と受注の形態">発注と受注の形態</h4>
+<ul>
+<li>呼称
+<ul>
+<li>発注側：クライアント，ユーザー，カスタマー，顧客，お客様</li>
+<li>受注側：ベンダ，業者</li>
+</ul>
+</li>
+<li>受注側がさらに外注する場合
+<ul>
+<li>発注側：元請け（1次下請け）</li>
+<li>受注側：下請け（2次下請け）
+<ul>
+<li>さらに外注すると3次下請け</li>
+<li>多重下請けの大元請けをITゼネコンとも呼ぶ（General contractor承包商）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>企業規模
+<ul>
+<li>大企業：社内にシステム開発を請け負う部門がある</li>
+<li>ベンチャー：中小企業：数十人から数百人程度，システム開発専門。</li>
+<li>フリーランス：個人で受託開発を請け負う。</li>
+</ul>
+</li>
+</ul>
+<h3 id="プロジェクト管理">プロジェクト管理</h3>
+<h4 id="プロジェクト進歩管理の初歩">プロジェクト進歩管理の初歩</h4>
+<ul>
+<li>WBS
+<ul>
+<li>作業分解構成図（Work Breakdown Structure）</li>
+<li>プロジェクトを，必要な全ての作業要素（タスク）に分解・列挙し，管理する
+<ul>
+<li>モレなくダブりなく（MECE, Mutually Exclusive and Collective）</li>
+<li>階層的に分解する
+<ul>
+<li>大まかな作業（親タスク）の下に，それぞれの細かい作業（小タスク）をぶら下げる</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ガントチャート
+<ul>
+<li>WBSで列挙した作業要素（タスク）の進歩を管理する</li>
+<li>タスク間の順序と進歩を可視化する</li>
+</ul>
+</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Work_Breakdown_Structure_of_Aircraft_System.jpg" alt="WBS" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Gantt_Chart_Template_for_Film_Production.png" alt="Gantt Chart" loading="lazy"></figure>
+<h4 id="ev分析-evm-earned-value-management">EV分析　EVM 【Earned Value Management】</h4>
+<ul>
+<li>
+<p>アーンドバリュー分析</p>
+<ul>
+<li>Earned Value (EV) Analysis /Management</li>
+<li>コスト，資源，生産性の管理</li>
+<li>実績と計画からEVを計算
+<ul>
+<li>過剰コストと遅れがズレ</li>
+</ul>
+</li>
+<li>WBSの各作業に対して
+<ul>
+<li>コストを時間を割り当てる</li>
+<li>進歩率 = 完了作業 / 全作業</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>パラメータ</p>
+<ul>
+<li>BAC（Budget at Completion）　プロジェクトの総予算</li>
+<li>EAC（Estimate At Completion）　完成時そうコスト見積り　現状のまま進歩した場合の最終コストの見積り</li>
+<li>EV（Earned Value）出来高
+<ul>
+<li>完了済みの作業に対する予算コスト</li>
+<li>EV = BAC * 進歩率</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure data-type="image" tabindex="3"><img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Project_Management_%28metriche_di_progetto%29.png" alt="EV" loading="lazy"></figure>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/notes/" class="tag">
+                    Notes
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/nGuWFEYj1/" class="tag">
+                    日本語(Japanese)
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/A2C8pQJ7y/">
+                  <h3 class="post-title">
+                    JPAでパラメータで変数の値を渡す方法
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
