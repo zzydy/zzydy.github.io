@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>モジュールが持つ特性 | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1621511945330">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zy080080.github.io/">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1621511945330" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zy080080.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">モジュールが持つ特性</h2>
+            <div class="post-date">2021-05-20 </div>
+            
+            <div class="post-content">
+              <p>モジュール凝集度およびモジュール結合度</p>
+<!-- more -->
+<h2 id="モジュール凝集度">モジュール凝集度</h2>
+<p>モジュールの凝集度は高いものほどよく，情報的もしくは機能的凝集を目標とする。</p>
+<h3 id="暗号的-coincidental-cohesion-低">暗号的 Coincidental Cohesion （低）</h3>
+<ul>
+<li>複数の，無関係な機能をモジュール化したもの</li>
+<li>大きさだけで分割，偶然一致している部分を共通モジュール化</li>
+</ul>
+<h3 id="論理的-logical-cohesion">論理的 Logical Cohesion</h3>
+<ul>
+<li>複数の機能を一つのモジュールにし，動かすものを外部から指示する形</li>
+<li>論理が似ている/呼称が同じだけでモジュール化</li>
+</ul>
+<h3 id="時間的-classical-cohesion">時間的 Classical Cohesion</h3>
+<ul>
+<li>複数の実行時間が同じ逐次的な機能を一つのモジュールにまとめたもの</li>
+<li>処理タイミングが同じだけでモジュール化</li>
+</ul>
+<h3 id="手順的-procedural-cohesion">手順的 Procedural Cohesion</h3>
+<ul>
+<li>複数の関連性を持つ逐次的な機能を一つのモジュールにまとめたもの</li>
+<li>コントロールの流れのまとまったひとかたまりをモジュール化</li>
+</ul>
+<h3 id="連絡的-communicational-cohesion">連絡的 Communicational Cohesion</h3>
+<ul>
+<li>モジュール内の要素間でデータの受け渡しを行うもの</li>
+<li>コントロールの流れ＋扱うデータの流れを考慮してモジュール化</li>
+</ul>
+<h3 id="情報的-informational-cohesion">情報的 Informational Cohesion</h3>
+<ul>
+<li>特定のデータ構造を持つ複数の機能をまとめたもの</li>
+<li>特定のデータ構造を扱う複数機能をモジュール化</li>
+</ul>
+<h3 id="機能的-functional-cohesion-高">機能的 Functional Cohesion （高）</h3>
+<ul>
+<li>全ての要素が一つの機能を実行するために関連しあっているもの</li>
+</ul>
+<h2 id="モジュールの結合度">モジュールの結合度</h2>
+<p>モジュールの結合度は低いものほど良く，スタンプ結合もしくは，データ結合を目標とする。</p>
+<h3 id="内容結合">内容結合</h3>
+<ul>
+<li>他のモジュール内のデータを直接参照したり，直接ブランチしたりする</li>
+<li>相手の内容の参照，修正，使用</li>
+</ul>
+<h3 id="共通結合">共通結合</h3>
+<ul>
+<li>共通域のデータ構造を参照する</li>
+<li>共通データ構造の複数モジュールでの使用</li>
+</ul>
+<h3 id="外部結合">外部結合</h3>
+<ul>
+<li>外部宣言しているデータを参照する</li>
+<li>共通データを複数モジュールで参照</li>
+</ul>
+<h3 id="制御結合">制御結合</h3>
+<ul>
+<li>制御要素がパラメータとして渡される</li>
+<li>相手に渡すパラメータで，相手の処理を変更</li>
+</ul>
+<h3 id="スタンプ結合">スタンプ結合</h3>
+<ul>
+<li>二つ以上のモジュールが，共通域にはない同じデータを共有する</li>
+<li>共通データ構造の複数モジュールに置ける使用であるが，その構造定義はモジュール側に持つ（パラメータで参照）</li>
+</ul>
+<h3 id="データ結合">データ結合</h3>
+<ul>
+<li>データ要素のパラメータ受け渡しでインターフェースを取る</li>
+<li>モジュール間の関係は，必要なデータのみの受け渡しその値によって相手は影響を受けない</li>
+</ul>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/notes/" class="tag">
+                    Notes
+                  </a>
+                
+                  <a href="https://zy080080.github.io/tag/xue-xi-bi-ji/" class="tag">
+                    学习笔记
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/1KjJfbkSn/">
+                  <h3 class="post-title">
+                    ソフトウェア工学
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
