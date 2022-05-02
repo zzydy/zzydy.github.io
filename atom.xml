@@ -2,14 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2021-05-20T11:59:31.885Z</updated>
+    <updated>2022-05-02T12:48:25.343Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
     <subtitle>天青色等烟雨，而我在等你</subtitle>
     <logo>https://zy080080.github.io/images/avatar.png</logo>
     <icon>https://zy080080.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, 听故事的人</rights>
+    <rights>All rights reserved 2022, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[What is sequence?]]></title>
+        <id>https://zy080080.github.io/post/FS9Dkp9hu/</id>
+        <link href="https://zy080080.github.io/post/FS9Dkp9hu/">
+        </link>
+        <updated>2022-05-02T13:39:22.000Z</updated>
+        <summary type="html"><![CDATA[<p>from http://support.kodable.com/en/articles/417330-what-is-sequence</p>
+<p><strong>Definition</strong>:</p>
+<p>Sequence, the order that commands are executed by a computer, allows us to carry out tasks that have multiple steps.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>from http://support.kodable.com/en/articles/417330-what-is-sequence</p>
+<p><strong>Definition</strong>:</p>
+<p>Sequence, the order that commands are executed by a computer, allows us to carry out tasks that have multiple steps.</p>
+<!-- more -->
+<p>In programming, sequence is a basic algorithm: A set of logical steps carried out in order. Computers need instructions in the form of an algorithm in order to complete a desired task, and this algorithm must have the correct order of strps, or sequence.</p>
+<p><strong>Why is Sequence Important?</strong> In both programming and day to day tasks, if we don't put every step in the right sequence, the end result isn't what we wanted. Sequence is the most foundational concept in programming, and everything we learn moving forward will build on this concept.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[モジュールが持つ特性]]></title>
         <id>https://zy080080.github.io/post/ChAMKuYiO/</id>
@@ -1547,84 +1565,6 @@ journalモードは，サイズの小さい管理情報だけでなく，書き�
 <p>連続領域割り当て時：全体的にはハードディスクの容量は十分余っているのに，連続したセクターが割り当てられないことより，使えない細かな領域のみが残ってしまう状態。<br>
 性能低下の定義：割り当てに適さない小さな領域が多く発生するほど，ディスクの利用効率が低下する。<br>
 解決方法：主記憶領域割り当て時に可変長割り当てをする。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[OS：主記憶管理ーページ置き換え方式]]></title>
-        <id>https://zy080080.github.io/post/XhbY1TXpf/</id>
-        <link href="https://zy080080.github.io/post/XhbY1TXpf/">
-        </link>
-        <updated>2021-01-19T00:02:07.000Z</updated>
-        <summary type="html"><![CDATA[<p>教科書第12章　まとめ</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>教科書第12章　まとめ</p>
-<!-- more -->
-<p>静的ページ置き換え方式</p>
-<ul>
-<li>LRU(Least Recently Used)</li>
-<li>LFU(Least Frequently Used)</li>
-<li>FIFO(First In First Out)</li>
-</ul>
-<p><strong>Beladyの例外</strong>：</p>
-<ul>
-<li>ページフレーム数を増やした時，ページフォルトが増加してしまう現象</li>
-<li>原因
-<ul>
-<li>ページフレーム数により置き換えパターンが変化してしまうアルゴリズム　例）FIFO</li>
-</ul>
-</li>
-</ul>
-<p><strong>ワーキングセット方の近似</strong>：</p>
-<ul>
-<li>ワーキングセットの大きさ＝プロセスに割り当てるページ数
-<ul>
-<li>ワーキングセットを調べるのはコスト膨大</li>
-<li>何らかの方法で近似</li>
-</ul>
-</li>
-<li>ページフォルト発生の平均間隔
-<ul>
-<li>大きい場合（頻度小）
-<ul>
-<li>プロセスに与えられているページフレームは比較的十分</li>
-</ul>
-</li>
-<li>小さい場合（頻度大）
-<ul>
-<li>プロセスには十分なページフレームが与えられていない</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>ページフォルト平均間隔＋LRU</strong>：</p>
-<ul>
-<li>ワーキングセット方の近似とLRUの組み合わせ</li>
-<li>プロセスに割り当てるページフレーム数を<strong>動的</strong>に変更</li>
-<li>アルゴリズム
-<ul>
-<li>ページフォルトの平均間隔を計算</li>
-<li>平均間隔がある値より小さい場合
-<ul>
-<li>プロセスに与えるページフレーム数を増やす</li>
-</ul>
-</li>
-<li>平均間隔がある値より大きい場合
-<ul>
-<li>プロセスに与えるページフレーム数を減らす</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>1.ページ置き換え方式として，プロセスの生成時にプロセスに与えるページ数を決定する<strong>静的ページ置き換え方式</strong>と，プロセスの実行中にプロセスに与えるページ数が変化する<strong>動的ページ置き換え方式</strong>がある。</p>
-<p>2.ページ置き換えアルゴリズムとして，<strong>最長不使用ページ置き換え（LRU）アルゴリズム</strong>，<strong>最低使用頻度順ページ置き換え（LFU）アルゴリズム</strong>，<strong>到着順ページ置き換え（FIFO）アルゴリズム</strong>などがある。</p>
-<p>3.プロセスに与えるページ数を増やした結果，ページフォルト回数が増加してしまうBeladyの例外という現象がある。このような性質を持たないページ置き換えアルゴリズムを<strong>スタックアルゴリズム</strong>と呼ぶ。</p>
-<p>4.動的ページ置き換えにおいて，プロセスに与えるページ数を決める手法として，プロセスが直近にアクセスしたページ集合（ワーキングセット）の大きさに応じて決定する<strong>ワーキングセット法</strong>がある。</p>
-<p>5.ワーキングセットを下回るメモリ量しかプロセスが確保できない場合，常時ページフォルトが発生し，CPUの実効効率を低下させる<strong>スラッシング</strong>が発生する。</p>
-<p>12.2)ワーキングセットを求めるのは事実上不能な理由を示すとともに、動的ページ置き換えにおけるページフォールト平均間隔＋LRU法について、ワーキングセットを求めずにどのように実現したかを中心に説明しなさい。<br>
-ワーキングセットは常時に命令フェッチ、デコード、命令実効のサイクルで変わるため，求めるのは事実上不可能である。そこで，ワーキングセット法を近似するために，ページフォルト発生の平均間隔を計算し，この情報を静的置換えアルゴリズムに加えて，動的にプロセスに与えるページフレーム数を変えるのは，ページフォルト平均間隔+LRU法である。</p>
 ]]></content>
     </entry>
 </feed>
