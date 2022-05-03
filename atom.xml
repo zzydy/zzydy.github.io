@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2022-05-02T12:48:25.343Z</updated>
+    <updated>2022-05-03T10:32:53.131Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -10,6 +10,46 @@
     <logo>https://zy080080.github.io/images/avatar.png</logo>
     <icon>https://zy080080.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 听故事的人</rights>
+    <entry>
+        <title type="html"><![CDATA[About slice]]></title>
+        <id>https://zy080080.github.io/post/FCxr0jmyz/</id>
+        <link href="https://zy080080.github.io/post/FCxr0jmyz/">
+        </link>
+        <updated>2022-05-03T06:36:10.000Z</updated>
+        <summary type="html"><![CDATA[<p>In the early development of Go, it took about a year to decide the answers to these questions before the design felt right. The key step was the introduction of slices, which built on fixed-size arrays to give a flexible, extensible data structure. To this day, however, programmers new to Go often stumble over the way slices work, perhaps because experience from other languages has colored their thinking.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>In the early development of Go, it took about a year to decide the answers to these questions before the design felt right. The key step was the introduction of slices, which built on fixed-size arrays to give a flexible, extensible data structure. To this day, however, programmers new to Go often stumble over the way slices work, perhaps because experience from other languages has colored their thinking.</p>
+<!-- more -->
+<p>Resource: https://go.dev/blog/slices</p>
+<h2 id="the-slice-header">The slice header</h2>
+<p>It’s not quite the full story, but for now think of a slice as a little data structure with two elements: a length and a pointer to an element of an array. You can think of it as being built like this behind the scenes:</p>
+<pre><code>type sliceHeader struct {
+    Length        int
+    ZerothElement *byte
+}
+
+slice := sliceHeader{
+    Length:        50,
+    ZerothElement: &amp;buffer[100],
+}
+</code></pre>
+<h2 id="passing-slice-to-functions">Passing slice to functions</h2>
+<p>It’s important to understand that even though a slice contains a pointer, it is itself a value. Under the covers, it is a struct value holding a pointer and a length. It is not a pointer to a struct.</p>
+<pre><code>slashPos := bytes.IndexRune(slice, '/')
+</code></pre>
+<p>When we called IndexRune in the previous example, it was passed a copy of the slice header. That behavior has important ramifications.</p>
+<p><strong>Note</strong>: Even though the slice header is passed by value, the header includes a <strong>pointer to elements of an array</strong>, so both the original slice header and the copy of the header passed to the function describe the same array. Therefore, when the function returns, the modified elements can be seen through the original slice variable.</p>
+<h2 id="capacity">Capacity</h2>
+<p>Besides the array pointer and length, the slice header also stores its capacity:</p>
+<pre><code>type sliceHeader struct {
+    Length        int
+    Capacity      int
+    ZerothElement *byte
+}
+</code></pre>
+<p>The Capacity field records how much space the underlying array actually has; it is the maximum value the Length can reach. Trying to grow the slice beyond its capacity will step beyond the limits of the array and will trigger a panic.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What is sequence?]]></title>
         <id>https://zy080080.github.io/post/FS9Dkp9hu/</id>
@@ -1540,31 +1580,6 @@ WHERE Year(order_date) = 2005 AND Month(order_date) = 9;</code></pre>
 プログラム中で読み込み(書き込み)を依頼した操作の終了を明示的に確認した後，読み込んだ(書き込んだ)データへの処理を行う必要があることに注意する必要がある。</p>
 <p>(14-2)ジャーナルファイルのjournal modeにおいて、読み出しが他のモードより遅い理由を示しなさい。<br>
 journalモードは，サイズの小さい管理情報だけでなく，書き込みデータもジャーナル領域に書き，さらにジャーナル領域から保存領域にも転送する必要があるため，データがファイル実体に反映された後にinode情報とディレクトリ情報のみを書き込むOrderedモードや，データの保存領域への書き込み終了を待たずにメタデータをジャーナル領域に書き込むWritebackモードよりも遅い。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[OS：ファイルーファイル基礎]]></title>
-        <id>https://zy080080.github.io/post/aj_P4T-me/</id>
-        <link href="https://zy080080.github.io/post/aj_P4T-me/">
-        </link>
-        <updated>2021-01-19T02:17:46.000Z</updated>
-        <summary type="html"><![CDATA[<p>教科書第13章　まとめ</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>教科書第13章　まとめ</p>
-<!-- more -->
-<hr>
-<p>ファイルへのアクセス方式は大きく分けて，（順次アクセス）方式と（直接アクセス）方式がある。（順次アクセス）方式は主に（テープ型）デバイスで用いられ，（直接アクセス）方式は（ディスク型）デバイスで用いられる。<br>
-　ファイルは，（テープ型）デバイスの場合，（レコード）と呼ばれる単位で読み書きが行われる。プログラム側からみた（レコード）を（論理レコード）と呼び，その（論理レコード）を複数集めて読み書きのオーバーヘッドを軽減した（物理レコード）と呼ばれる単位で，実際にはテープ型デバイスに格納される。<br>
-　（ディスク型）デバイスは，（ボリューム）番号，（シリンダ）番号，（トラック）番号，（セクタ）番号を指定することにより，ディスクのどの位置でも読み書き可能であり，最少アクセス単位は（セクタ）単位となり，また，システムによっては複数の（セクタ）を集めた（クラスタ）と呼ばれる単位でのアクセスを行う場合もある。<br>
-　ユーザにとって，自由でよりわかりやすい名前をつけることができるために開発されたファイルシステムが（階層化ディレクトリ）である。（階層化ディレクトリ）には，現在プログラムが注目しているディレクトリ上の位置を示す（カレントディレクトリ）と呼ばれる概念が存在し，（カレントディレクトリ）からみた注目ファイルの名前表現を（相対パス）表現と呼び。ルートを起点とする名前表現を（絶対パス）表現と呼ぶ。<br>
-　直接アクセス方式では，複数のセクタの間の連結関係を情報として保持する必要がある。その方法に，（リスト）方式と，（インデックス）方式がある。（インデックス）方式は，FATファイルシステムなどで一般的に用いられている。性能向上のために，（インデックス）テーブルを（主記憶）内にあらかじめ読み込むことが行われる。</p>
-<p>13.2)ディスクフラグメンテーションを２種類定義し、システム性能低下の定義（どのような性能低下か）と、解決方法についてについて、それぞれ説明しなさい</p>
-<p>固定長割り当て時：ハードディスクにおいて，とびとびのセクターをアクセスするために，ヘッドのシーク時間及びトラック内の当該セクターへの移動時間による速度が低下する状態。<br>
-性能低下の定義：とびとびのセクタをアクセスするためにヘッドの移動時間によってアクセス速度が低下する。<br>
-解決方法：連続領域に再割り当てをする。</p>
-<p>連続領域割り当て時：全体的にはハードディスクの容量は十分余っているのに，連続したセクターが割り当てられないことより，使えない細かな領域のみが残ってしまう状態。<br>
-性能低下の定義：割り当てに適さない小さな領域が多く発生するほど，ディスクの利用効率が低下する。<br>
-解決方法：主記憶領域割り当て時に可変長割り当てをする。</p>
 ]]></content>
     </entry>
 </feed>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>标签列表 | 听故事的人</title>
+<title>About slice | 听故事的人</title>
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -104,50 +104,67 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="tag-list-title">标签列表</h2>
-          <div class="tags-container">
+          <div class="post-detail">
+            <h2 class="post-title">About slice</h2>
+            <div class="post-date">2022-05-03 </div>
             
-              <a class="tag" href="https://zy080080.github.io/tag/5-98E8LbH/">Go</a>
+            <div class="post-content">
+              <p>In the early development of Go, it took about a year to decide the answers to these questions before the design felt right. The key step was the introduction of slices, which built on fixed-size arrays to give a flexible, extensible data structure. To this day, however, programmers new to Go often stumble over the way slices work, perhaps because experience from other languages has colored their thinking.</p>
+<!-- more -->
+<p>Resource: https://go.dev/blog/slices</p>
+<h2 id="the-slice-header">The slice header</h2>
+<p>It’s not quite the full story, but for now think of a slice as a little data structure with two elements: a length and a pointer to an element of an array. You can think of it as being built like this behind the scenes:</p>
+<pre><code>type sliceHeader struct {
+    Length        int
+    ZerothElement *byte
+}
+
+slice := sliceHeader{
+    Length:        50,
+    ZerothElement: &amp;buffer[100],
+}
+</code></pre>
+<h2 id="passing-slice-to-functions">Passing slice to functions</h2>
+<p>It’s important to understand that even though a slice contains a pointer, it is itself a value. Under the covers, it is a struct value holding a pointer and a length. It is not a pointer to a struct.</p>
+<pre><code>slashPos := bytes.IndexRune(slice, '/')
+</code></pre>
+<p>When we called IndexRune in the previous example, it was passed a copy of the slice header. That behavior has important ramifications.</p>
+<p><strong>Note</strong>: Even though the slice header is passed by value, the header includes a <strong>pointer to elements of an array</strong>, so both the original slice header and the copy of the header passed to the function describe the same array. Therefore, when the function returns, the modified elements can be seen through the original slice variable.</p>
+<h2 id="capacity">Capacity</h2>
+<p>Besides the array pointer and length, the slice header also stores its capacity:</p>
+<pre><code>type sliceHeader struct {
+    Length        int
+    Capacity      int
+    ZerothElement *byte
+}
+</code></pre>
+<p>The Capacity field records how much space the underlying array actually has; it is the maximum value the Length can reach. Trying to grow the slice beyond its capacity will step beyond the limits of the array and will trigger a panic.</p>
+
+            </div>
             
-              <a class="tag" href="https://zy080080.github.io/tag/on9YtEMLD/">programming</a>
+              <div class="tag-container">
+                
+                  <a href="https://zy080080.github.io/tag/5-98E8LbH/" class="tag">
+                    Go
+                  </a>
+                
+              </div>
             
-              <a class="tag" href="https://zy080080.github.io/tag/notes/">Notes</a>
             
-              <a class="tag" href="https://zy080080.github.io/tag/xue-xi-bi-ji/">学习笔记</a>
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zy080080.github.io/post/FS9Dkp9hu/">
+                  <h3 class="post-title">
+                    What is sequence?
+                  </h3>
+                </a>
+              </div>
             
-              <a class="tag" href="https://zy080080.github.io/tag/nGuWFEYj1/">日本語(Japanese)</a>
+
             
-              <a class="tag" href="https://zy080080.github.io/tag/iMvcbKw2b/">Spring Framework</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/doiPfjpu0/">Mybatis</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/EgqcbSedJ/">database</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/t07z1l2wA/">OS</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/iT-NcpTKs/">コンパイラ</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/ygzIfFUIG/">Git</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/S_X7H6n_S/">Java SE</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/8X28YPImF/">English</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/AI85XAiNw/">中文(Chinese)</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/nbExELLRD/">Tomcat</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/2a7cYaXp0/">Java</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/hui-bian-yu-yan/">汇编语言</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/zhuan-zai/">转载</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/DQLqh7V4P/">Assembly Language</a>
-            
-              <a class="tag" href="https://zy080080.github.io/tag/ri-chang/">日常</a>
-            
+
           </div>
+
         </div>
       </div>
     </div>
