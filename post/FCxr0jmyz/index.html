@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1651676109858">
+<link rel="shortcut icon" href="https://zy080080.github.io//favicon.ico?v=1651843001663">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zy080080.github.io//styles/main.css">
 
@@ -39,7 +39,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zy080080.github.io/">
-        <img src="https://zy080080.github.io//images/avatar.png?v=1651676109858" class="site-logo">
+        <img src="https://zy080080.github.io//images/avatar.png?v=1651843001663" class="site-logo">
         <h1 class="site-title">听故事的人</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -139,6 +139,15 @@ slice := sliceHeader{
 }
 </code></pre>
 <p>The Capacity field records how much space the underlying array actually has; it is the maximum value the Length can reach. Trying to grow the slice beyond its capacity will step beyond the limits of the array and will trigger a panic.</p>
+<h2 id="nil">Nil</h2>
+<p>As an aside, with our newfound knowledge we can see what the representation of a nil slice is. Naturally, it is the zero value of the slice header:</p>
+<pre><code>sliceHeader{
+    Length:        0,
+    Capacity:      0,
+    ZerothElement: nil,
+}
+</code></pre>
+<p>An empty slice can grow (assuming it has non-zero capacity), but a nil slice has no array to put values in and can never grow to hold even one element.</p>
 
             </div>
             

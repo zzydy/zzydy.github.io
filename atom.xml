@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zy080080.github.io/</id>
     <title>听故事的人</title>
-    <updated>2022-05-04T14:55:11.659Z</updated>
+    <updated>2022-05-06T13:16:45.863Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zy080080.github.io/"/>
     <link rel="self" href="https://zy080080.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zy080080.github.io/post/FCxr0jmyz/</id>
         <link href="https://zy080080.github.io/post/FCxr0jmyz/">
         </link>
-        <updated>2022-05-03T06:36:10.000Z</updated>
+        <updated>2022-05-03T07:36:10.000Z</updated>
         <summary type="html"><![CDATA[<p>In the early development of Go, it took about a year to decide the answers to these questions before the design felt right. The key step was the introduction of slices, which built on fixed-size arrays to give a flexible, extensible data structure. To this day, however, programmers new to Go often stumble over the way slices work, perhaps because experience from other languages has colored their thinking.</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>In the early development of Go, it took about a year to decide the answers to these questions before the design felt right. The key step was the introduction of slices, which built on fixed-size arrays to give a flexible, extensible data structure. To this day, however, programmers new to Go often stumble over the way slices work, perhaps because experience from other languages has colored their thinking.</p>
@@ -48,6 +48,15 @@ slice := sliceHeader{
 }
 </code></pre>
 <p>The Capacity field records how much space the underlying array actually has; it is the maximum value the Length can reach. Trying to grow the slice beyond its capacity will step beyond the limits of the array and will trigger a panic.</p>
+<h2 id="nil">Nil</h2>
+<p>As an aside, with our newfound knowledge we can see what the representation of a nil slice is. Naturally, it is the zero value of the slice header:</p>
+<pre><code>sliceHeader{
+    Length:        0,
+    Capacity:      0,
+    ZerothElement: nil,
+}
+</code></pre>
+<p>An empty slice can grow (assuming it has non-zero capacity), but a nil slice has no array to put values in and can never grow to hold even one element.</p>
 ]]></content>
     </entry>
     <entry>
