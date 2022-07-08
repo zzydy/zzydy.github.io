@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://zy080080.github.io/</id>
+    <id>https://zzy-tech.github.io/</id>
     <title>听故事的人</title>
-    <updated>2022-05-06T13:16:45.863Z</updated>
+    <updated>2022-07-08T03:33:49.489Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://zy080080.github.io/"/>
-    <link rel="self" href="https://zy080080.github.io/atom.xml"/>
+    <link rel="alternate" href="https://zzy-tech.github.io/"/>
+    <link rel="self" href="https://zzy-tech.github.io/atom.xml"/>
     <subtitle>天青色等烟雨，而我在等你</subtitle>
-    <logo>https://zy080080.github.io/images/avatar.png</logo>
-    <icon>https://zy080080.github.io/favicon.ico</icon>
+    <logo>https://zzy-tech.github.io/images/avatar.png</logo>
+    <icon>https://zzy-tech.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 听故事的人</rights>
     <entry>
-        <title type="html"><![CDATA[About slice]]></title>
-        <id>https://zy080080.github.io/post/FCxr0jmyz/</id>
-        <link href="https://zy080080.github.io/post/FCxr0jmyz/">
+        <title type="html"><![CDATA[Go学习笔记]]></title>
+        <id>https://zzy-tech.github.io/post/wVjJ9Td2t/</id>
+        <link href="https://zzy-tech.github.io/post/wVjJ9Td2t/">
         </link>
-        <updated>2022-05-03T07:36:10.000Z</updated>
+        <updated>2022-05-06T15:30:11.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>Structs are mutable.</strong></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[About slice]]></title>
+        <id>https://zzy-tech.github.io/post/FCxr0jmyz/</id>
+        <link href="https://zzy-tech.github.io/post/FCxr0jmyz/">
+        </link>
+        <updated>2022-05-03T09:36:10.000Z</updated>
         <summary type="html"><![CDATA[<p>In the early development of Go, it took about a year to decide the answers to these questions before the design felt right. The key step was the introduction of slices, which built on fixed-size arrays to give a flexible, extensible data structure. To this day, however, programmers new to Go often stumble over the way slices work, perhaps because experience from other languages has colored their thinking.</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>In the early development of Go, it took about a year to decide the answers to these questions before the design felt right. The key step was the introduction of slices, which built on fixed-size arrays to give a flexible, extensible data structure. To this day, however, programmers new to Go often stumble over the way slices work, perhaps because experience from other languages has colored their thinking.</p>
@@ -61,8 +70,8 @@ slice := sliceHeader{
     </entry>
     <entry>
         <title type="html"><![CDATA[What is sequence?]]></title>
-        <id>https://zy080080.github.io/post/FS9Dkp9hu/</id>
-        <link href="https://zy080080.github.io/post/FS9Dkp9hu/">
+        <id>https://zzy-tech.github.io/post/FS9Dkp9hu/</id>
+        <link href="https://zzy-tech.github.io/post/FS9Dkp9hu/">
         </link>
         <updated>2022-05-02T13:39:22.000Z</updated>
         <summary type="html"><![CDATA[<p>from http://support.kodable.com/en/articles/417330-what-is-sequence</p>
@@ -79,8 +88,8 @@ slice := sliceHeader{
     </entry>
     <entry>
         <title type="html"><![CDATA[モジュールが持つ特性]]></title>
-        <id>https://zy080080.github.io/post/ChAMKuYiO/</id>
-        <link href="https://zy080080.github.io/post/ChAMKuYiO/">
+        <id>https://zzy-tech.github.io/post/ChAMKuYiO/</id>
+        <link href="https://zzy-tech.github.io/post/ChAMKuYiO/">
         </link>
         <updated>2021-05-20T12:58:16.000Z</updated>
         <summary type="html"><![CDATA[<p>モジュール凝集度およびモジュール結合度</p>
@@ -159,8 +168,8 @@ slice := sliceHeader{
     </entry>
     <entry>
         <title type="html"><![CDATA[ソフトウェア工学]]></title>
-        <id>https://zy080080.github.io/post/1KjJfbkSn/</id>
-        <link href="https://zy080080.github.io/post/1KjJfbkSn/">
+        <id>https://zzy-tech.github.io/post/1KjJfbkSn/</id>
+        <link href="https://zzy-tech.github.io/post/1KjJfbkSn/">
         </link>
         <updated>2021-04-23T17:19:49.000Z</updated>
         <summary type="html"><![CDATA[<p>ソフトウェア工学の概要，システム開発のプロジェクト</p>
@@ -584,22 +593,22 @@ slice := sliceHeader{
     </entry>
     <entry>
         <title type="html"><![CDATA[JPAでパラメータで変数の値を渡す方法]]></title>
-        <id>https://zy080080.github.io/post/A2C8pQJ7y/</id>
-        <link href="https://zy080080.github.io/post/A2C8pQJ7y/">
+        <id>https://zzy-tech.github.io/post/A2C8pQJ7y/</id>
+        <link href="https://zzy-tech.github.io/post/A2C8pQJ7y/">
         </link>
         <updated>2021-04-10T15:46:17.000Z</updated>
         <summary type="html"><![CDATA[<p>Spring Data JPAでORマッパーではかけないようなSQLを実行したい場合，Repositoryに直接構文を書き，この時にパラメータで変数の値をどうやったら渡せるでしょうか</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>Spring Data JPAでORマッパーではかけないようなSQLを実行したい場合，Repositoryに直接構文を書き，この時にパラメータで変数の値をどうやったら渡せるでしょうか</p>
 <!-- more -->
-<p><img src="https://zy080080.github.io//post-images/1618066009899.png" alt="" loading="lazy"><br>
+<p><img src="https://zzy-tech.github.io//post-images/1618066009899.png" alt="" loading="lazy"><br>
 図で示したように，「?変数の番号」で渡すことができる</p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Spring AOPにおけるPointcut式例]]></title>
-        <id>https://zy080080.github.io/post/RmuKwXL0F/</id>
-        <link href="https://zy080080.github.io/post/RmuKwXL0F/">
+        <id>https://zzy-tech.github.io/post/RmuKwXL0F/</id>
+        <link href="https://zzy-tech.github.io/post/RmuKwXL0F/">
         </link>
         <updated>2021-03-22T03:28:30.000Z</updated>
         <summary type="html"><![CDATA[<p>ポイントカットとは，ジョインポイントに一致する述語である。アドバイスはポイントカット式に関連づけられ，ポイントカットに一致する任意のジョインポイントで実行される。ポイントカット式と一致するジョインポイントの概念はAOPの中心であり，SpringはデフォルトでAspectJポイントカット式言語を使用する。</p>
@@ -627,8 +636,8 @@ slice := sliceHeader{
     </entry>
     <entry>
         <title type="html"><![CDATA[Mybatisを始める：Quick Start]]></title>
-        <id>https://zy080080.github.io/post/kk4jq6fpX/</id>
-        <link href="https://zy080080.github.io/post/kk4jq6fpX/">
+        <id>https://zzy-tech.github.io/post/kk4jq6fpX/</id>
+        <link href="https://zzy-tech.github.io/post/kk4jq6fpX/">
         </link>
         <updated>2021-03-13T12:59:13.000Z</updated>
         <summary type="html"><![CDATA[<p>MyBatis はカスタム SQL，ストアドプロシージャ，高度なマッピング処理に対応した優れた永続化フレームワークである。MyBatisを使うことで、直接 JDBC を扱うコードを書いたり、クエリ引数やクエリ結果を手動で設定する必要がほとんどなくなる。</p>
@@ -712,8 +721,8 @@ SqlSessionFactoryBuilderを再利用して複数のSqlSessionFactoryを生成す
     </entry>
     <entry>
         <title type="html"><![CDATA[MySQL]]></title>
-        <id>https://zy080080.github.io/post/8IAmAkZZ0/</id>
-        <link href="https://zy080080.github.io/post/8IAmAkZZ0/">
+        <id>https://zzy-tech.github.io/post/8IAmAkZZ0/</id>
+        <link href="https://zzy-tech.github.io/post/8IAmAkZZ0/">
         </link>
         <updated>2021-02-26T08:27:18.000Z</updated>
         <summary type="html"><![CDATA[<p>MySQL必知必会总结<br>
@@ -1260,8 +1269,8 @@ WHERE Year(order_date) = 2005 AND Month(order_date) = 9;</code></pre>
     </entry>
     <entry>
         <title type="html"><![CDATA[デバッガコマンド]]></title>
-        <id>https://zy080080.github.io/post/uDwPfDRbx/</id>
-        <link href="https://zy080080.github.io/post/uDwPfDRbx/">
+        <id>https://zzy-tech.github.io/post/uDwPfDRbx/</id>
+        <link href="https://zzy-tech.github.io/post/uDwPfDRbx/">
         </link>
         <updated>2021-02-15T08:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>gdb Filename.exe</p>
@@ -1496,99 +1505,6 @@ WHERE Year(order_date) = 2005 AND Month(order_date) = 9;</code></pre>
 <li>c:文字</li>
 <li>f:浮動小数店</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[OS：ファイルーより進んだファイルシステム]]></title>
-        <id>https://zy080080.github.io/post/PXPlWYWB9/</id>
-        <link href="https://zy080080.github.io/post/PXPlWYWB9/">
-        </link>
-        <updated>2021-01-19T02:18:24.000Z</updated>
-        <summary type="html"><![CDATA[<p>教科書第14章　まとめ</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>教科書第14章　まとめ</p>
-<!-- more -->
-<p><strong>ライトスルー</strong>：書き込み発生時，ディスクに対しても書き込みを行う。</p>
-<p><strong>ライトバック</strong>：書き込み発生時はディスクキャッシュに対してのみ行う。定期的に（数十秒程度）キャッシュの内容を二次記憶にい書き出す。</p>
-<p><strong>ジャーナルファイルシステム</strong>：</p>
-<ul>
-<li>**二次記憶の一部（固定領域）**をジャーナル領域とする</li>
-<li>書き込み時
-<ul>
-<li>ジャーナル領域に，下記の情報を書き込む。
-<ul>
-<li>空きセクタ確保情報</li>
-<li>inode（ファイル、ディレクトリなどのファイルシステム上のオブジェクトに関する基本情報が格納される）確保・更新情報</li>
-<li>セクタ書き込み情報</li>
-<li>ディレクトリ更新情報</li>
-</ul>
-</li>
-<li>書き込み終了後，プロセスに書き込み完了通知（commit）</li>
-<li>非同期に，ジャーナル領域にあるファイル変更情報を用いて，ファイル実体を更新</li>
-</ul>
-</li>
-<li>commit前に異常終了した場合，ファイルの書き込みがなかったものとして扱う
-<ul>
-<li>ファイル実体の変更はないので，不整合は発生しない。</li>
-</ul>
-</li>
-<li>非同期書き込みの際に停止した場合は
-<ul>
-<li>再実行すればいい</li>
-</ul>
-</li>
-</ul>
-<p><strong>ジャーナルファイルのモード</strong>：</p>
-<ul>
-<li>Orderedモード
-<ul>
-<li>データが，ファイル実体に反映された後で，そのデータを管理する<strong>inode情報</strong>，<strong>ディレクトリ情報</strong>のみをジャーナル領域に書き込む</li>
-</ul>
-</li>
-<li>Writebackモード
-<ul>
-<li>データの保存領域への書き込み終了を待たずに，メタデータをジャーナル領域に書き込む</li>
-<li>書き込み性能は向上するが，データの保存が失敗したっばいでもジャーナル領域が更新される可能性がある</li>
-</ul>
-</li>
-<li>Journalモード
-<ul>
-<li>データの書き込み情報もジャーナル領域に書き込む</li>
-<li>確実だが，遅い</li>
-</ul>
-</li>
-</ul>
-<p><strong>非同期入出力</strong>：プログラムが実行する入出力の終了を待たずに，次の命令を実行する方式であり，余計な待ち状態への意向をなくすことにより，システムのスループットを向上させる。</p>
-<p>ディスクに関する仮想化：</p>
-<ul>
-<li>ディスクキャッシュ
-<ul>
-<li><strong>ディスク</strong>上のデータを一部主記憶に置くことで，低速なディスクへの読み書きを<strong>主記憶</strong>アクセス時間で実現する</li>
-</ul>
-</li>
-<li>VFS
-<ul>
-<li>アプリケーションと二次記憶装置との間に位置する</li>
-<li>アプリケーションからのファイル操作要求を，各二次記憶システムごとのAPIに変換</li>
-</ul>
-</li>
-<li>ステージング
-<ul>
-<li><strong>テープ</strong>等のデータを一部<strong>ハードディスク</strong>に置くことで，低速な二次記憶への読み書きを（比較的高速な二次記憶である）<strong>ハードディスク</strong>へのアクセス時間で実現する。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>1.ファイルシステムの性能向上のために，ファイルを必要とする前に主記憶にあらかじめ読み込み，また書き込みを主記憶にのみ行う<strong>ディスクキャッシュ</strong>が用いられる。</p>
-<p>2.入出力の完了を待たずに，入出力関数の終了を呼び出し側プログラムに返す入出力方式として，<strong>非同期入出力</strong>がある。この方式を用いることによりプログラム中で入出力処理と，他の仕事を多重化して実行することが可能となる。</p>
-<p>3.様々な二次記憶に対して，統一したアクセス方式を提供するために，ファイルシステムを仮想化する方式が用いられることが多くなった。</p>
-<p>(14-1)非同期入出力について以下の問いに答えなさい。<br>
-(a)性能が上がる理由<br>
-プログラムが実行する入出力命令の終了を待たずに，次の命令を実行するため，余計な待ち状態への移行をなくすことにより，システムのスループットを向上させることができる。</p>
-<p>(b)プログラム側で注意する必要のある点<br>
-プログラム中で読み込み(書き込み)を依頼した操作の終了を明示的に確認した後，読み込んだ(書き込んだ)データへの処理を行う必要があることに注意する必要がある。</p>
-<p>(14-2)ジャーナルファイルのjournal modeにおいて、読み出しが他のモードより遅い理由を示しなさい。<br>
-journalモードは，サイズの小さい管理情報だけでなく，書き込みデータもジャーナル領域に書き，さらにジャーナル領域から保存領域にも転送する必要があるため，データがファイル実体に反映された後にinode情報とディレクトリ情報のみを書き込むOrderedモードや，データの保存領域への書き込み終了を待たずにメタデータをジャーナル領域に書き込むWritebackモードよりも遅い。</p>
 ]]></content>
     </entry>
 </feed>
