@@ -7,836 +7,80 @@
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1657251317531">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1657251400987">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zzy-tech.github.io//styles/main.css">
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
   </head>
   <body>
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://zzy-tech.github.io/">听故事的人</a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
-        
-          <li>
-            
-              <a href="https://zy080080.github.io/" class="menu">
-                HOME
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="https://zy080080.github.io/archives" class="menu">
-                Archives
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="https://zy080080.github.io//tags" class="menu">
-                Tags
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="https://zy080080.github.io//post/about/" class="menu">
-                About
-              </a>
-            
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
+    <div id="app" class="main">
 
-
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/a4vitZ301/">コンパイラ：プログラムが動作する仕組みと言語が動作する仕組み</a>
-    </h2>
-    <p class="article-meta">
-      2020-10-03 
-      
-        <a href="https://zzy-tech.github.io/tag/iT-NcpTKs/" class="badge ">
-          コンパイラ
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge warning">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge ">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>コンパイラの役割はプログラミング言語を用いて開発するソフトウェア，つまり人が記述したテキストをコンピュータが解釈，実行できる機械語に変換することである。<br>
-ここでは，コンパイラの目的を理解するために，コンピュータ上でソフトウェアが動作する基本的な仕組みと，プログラミング言語として定義された文法，さらに，この文法にしたがって開発するソフトウェアの目的を説明する。</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/a4vitZ301/" class="readmore-link">
-        <button>
-          Read More
-        </button>
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zzy-tech.github.io/">
+        <img src="https://zzy-tech.github.io//images/avatar.png?v=1657251400987" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
       </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/7zzNKr8JI/">Spring Frameworkの特徴と役割</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-29 
-      
-        <a href="https://zzy-tech.github.io/tag/iMvcbKw2b/" class="badge secondary">
-          Spring Framework
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge success">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge secondary">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>アプリケーションやシステム開発においては，開発効率を向上させるためにフレームワークを使用する企業は少なくありません。<br>
-Javaの開発環境でよく使用されるフレームワークはSpring Framework。</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/7zzNKr8JI/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/l0qMHfM-n/">Git：分散型バージョン管理〜チーム開発　メモ</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-29 
-      
-        <a href="https://zzy-tech.github.io/tag/ygzIfFUIG/" class="badge secondary">
-          Git
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge secondary">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge success">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge success">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>ブランチによるチーム開発はGitの特徴であり，Gitが多くの開発者に支持される理由となる機能である。</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/l0qMHfM-n/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/BtnRgcd13/">Git：分散型バージョン管理〜Gitの基本　メモ</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-24 
-      
-        <a href="https://zzy-tech.github.io/tag/ygzIfFUIG/" class="badge ">
-          Git
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge warning">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge ">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge warning">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>分散型バージョン管理は，個々の開発者ごとに複数のリポジトリを持つことができ，開発の形態や規模に応じて柔軟な開発ができる。</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/BtnRgcd13/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/OUJh9scJm/">MavenでMybatisを使う際のjava.io.IOException: Could not find resource XXX.xmlについて</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-17 
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge secondary">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge secondary">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/OUJh9scJm/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/Sjm2Ui3GK/">よく使われるストリームのまとめ</a>
-    </h2>
-    <p class="article-meta">
-      2020-07-21 
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge ">
-          日本語(Japanese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge success">
-          Java SE
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/Sjm2Ui3GK/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/nj0dzADHm/">About protected</a>
-    </h2>
-    <p class="article-meta">
-      2020-05-08 
-      
-        <a href="https://zzy-tech.github.io/tag/8X28YPImF/" class="badge warning">
-          English
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge success">
-          Java SE
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>protected variable is a bit interesting in Java</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/nj0dzADHm/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/VSrq0PRIu/">Java基礎まとめ・２</a>
-    </h2>
-    <p class="article-meta">
-      2020-04-17 
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge secondary">
-          日本語(Japanese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge secondary">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge secondary">
-          Java SE
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/VSrq0PRIu/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/pKZECUQCU/">How to start Tomcat with output on console in Linux?</a>
-    </h2>
-    <p class="article-meta">
-      2020-03-20 
-      
-        <a href="https://zzy-tech.github.io/tag/8X28YPImF/" class="badge warning">
-          English
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nbExELLRD/" class="badge secondary">
-          Tomcat
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/pKZECUQCU/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/XECKGlACS/">Java基礎まとめ・１</a>
-    </h2>
-    <p class="article-meta">
-      2020-03-19 
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge secondary">
-          日本語(Japanese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge warning">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge secondary">
-          Java SE
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>Java基础知识总结</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/XECKGlACS/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/lDrxzMPwn/">Demystifying Tomcat 4&#39;s server.xml File</a>
-    </h2>
-    <p class="article-meta">
-      2020-03-19 
-      
-        <a href="https://zzy-tech.github.io/tag/8X28YPImF/" class="badge secondary">
-          English
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nbExELLRD/" class="badge secondary">
-          Tomcat
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p><a name="top"></a><br>
-The Tomcat server.xml file allows you to configure Tomcat using a simple XML descriptor. This XML file is at the heart of Tomcat.</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/lDrxzMPwn/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/ffFtbMD3A/">appBase和docBase</a>
-    </h2>
-    <p class="article-meta">
-      2020-03-19 
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge secondary">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nbExELLRD/" class="badge secondary">
-          Tomcat
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/ffFtbMD3A/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/cHLSqLDIx/">HTML标签英文全称</a>
-    </h2>
-    <p class="article-meta">
-      2020-03-06 
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge success">
-          中文(Chinese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/cHLSqLDIx/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/h3kJtgJgp/">The definition of Component, Container, and Frame</a>
-    </h2>
-    <p class="article-meta">
-      2020-02-26 
-      
-        <a href="https://zzy-tech.github.io/tag/8X28YPImF/" class="badge ">
-          English
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/2a7cYaXp0/" class="badge secondary">
-          Java
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>References from API</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/h3kJtgJgp/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/9KbTa6Jc8/">Scanner-java.util.NoSuchElementException</a>
-    </h2>
-    <p class="article-meta">
-      2020-01-18 
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge secondary">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/2a7cYaXp0/" class="badge warning">
-          Java
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/9KbTa6Jc8/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/MIqBqxzzK/">标准输入输出流</a>
-    </h2>
-    <p class="article-meta">
-      2020-01-18 
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge success">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge success">
-          Java SE
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/MIqBqxzzK/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/9uq8XXg02/">线程的状态转换图</a>
-    </h2>
-    <p class="article-meta">
-      2020-01-13 
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge secondary">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge warning">
-          Java SE
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/9uq8XXg02/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/wgV5DncBt/">IO Stream总结</a>
-    </h2>
-    <p class="article-meta">
-      2019-12-08 
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge secondary">
-          Java SE
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>IO流种类虽然多，但用法基本相同。</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/wgV5DncBt/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/7045yjWiy/">计算机如何识别中文字符</a>
-    </h2>
-    <p class="article-meta">
-      2019-12-01 
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge warning">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge warning">
-          Java SE
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>使用字节输入流将中文字符打印到控制台时往往无法识别，而使用字节流复制文件却可以完美显示，计算机是如何识别中文字符的呢？</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/7045yjWiy/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/RtEn3DuwS/">流的关闭方式</a>
-    </h2>
-    <p class="article-meta">
-      2019-11-16 
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge secondary">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge secondary">
-          Java SE
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p> 所有的流都应该在使用完毕后关闭。如果不关闭，会占用资源。</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/RtEn3DuwS/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/jfUUCCexq/">异常 Exception</a>
-    </h2>
-    <p class="article-meta">
-      2019-11-13 
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge ">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge secondary">
-          Java SE
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>异常分为运行时异常（可查异常）和非运行时异常（不可查异常），他们的主要区别是……</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/jfUUCCexq/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/1tSysQNzy/">ラズベリーパイ 4Bが起動しない時の対応法</a>
-    </h2>
-    <p class="article-meta">
-      2019-10-06 
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge secondary">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a><br>
-<a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a></p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/1tSysQNzy/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a>
-    </h2>
-    <p class="article-meta">
-      2019-10-06 
-      
-    </p>
-    <p class="text-lead">
-      <p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a><br>
-<a href="https://zy080080.github.io/post/1tSysQNzy/">ラズベリーパイ 4Bが起動しない時の対応法</a></p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/dgAVKMhPS/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a>
-    </h2>
-    <p class="article-meta">
-      2019-10-06 
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge secondary">
-          中文(Chinese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a><br>
-<a href="https://zy080080.github.io/post/1tSysQNzy/">ラズベリーパイ 4Bが起動しない時の対応法</a></p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/pE2JY0ig0/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/fFi1CAqNV/">Does Java pass by reference or pass by value?</a>
-    </h2>
-    <p class="article-meta">
-      2019-09-16 
-      
-        <a href="https://zzy-tech.github.io/tag/8X28YPImF/" class="badge secondary">
-          English
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge success">
-          Java SE
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>Source：<a href="https://www.javaworld.com/article/2077424/learn-java-does-java-pass-by-reference-or-pass-by-value.html">https://www.javaworld.com/article/2077424/learn-java-does-java-pass-by-reference-or-pass-by-value.html</a></p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/fFi1CAqNV/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-
-        </div>
-        
-        <div class="row flex-edges">
-  
-    <a href="https://zzy-tech.github.io/" class="paper-btn">
-      上一页
-    </a>
-  
-  
-    <a href="https://zzy-tech.github.io/page/3/" class="paper-btn">
-      下一页
-    </a>
-  
-</div>
-
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
       </div>
+    </div>
+    <div>
       
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://zzy-tech.github.io//images/avatar.png?v=1657251317531" class="no-responsive avatar">
-    <div class="text-muted">天青色等烟雨，而我在等你</div>
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
     <div class="social-container">
       
         
-      
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
         
       
         
@@ -845,274 +89,528 @@ The Tomcat server.xml file allows you to configure Tomcat using a simple XML des
       
         
       
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
-    </div>
-    <div class="row">
-      <ul>
         
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/wVjJ9Td2t/">Go学习笔记</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/FCxr0jmyz/">About slice</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/FS9Dkp9hu/">What is sequence?</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/ChAMKuYiO/">モジュールが持つ特性</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/1KjJfbkSn/">ソフトウェア工学</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/A2C8pQJ7y/">JPAでパラメータで変数の値を渡す方法</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/RmuKwXL0F/">Spring AOPにおけるPointcut式例</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/kk4jq6fpX/">Mybatisを始める：Quick Start</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/8IAmAkZZ0/">MySQL</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/uDwPfDRbx/">デバッガコマンド</a>
-            </li>
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://zzy-tech.github.io/tag/5-98E8LbH/" class="badge secondary">
-          Go
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/on9YtEMLD/" class="badge warning">
-          programming
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge success">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge ">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge warning">
-          日本語(Japanese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/iMvcbKw2b/" class="badge ">
-          Spring Framework
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/doiPfjpu0/" class="badge success">
-          Mybatis
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/EgqcbSedJ/" class="badge warning">
-          database
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/t07z1l2wA/" class="badge warning">
-          OS
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/iT-NcpTKs/" class="badge secondary">
-          コンパイラ
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/ygzIfFUIG/" class="badge success">
-          Git
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge secondary">
-          Java SE
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/8X28YPImF/" class="badge warning">
-          English
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge warning">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nbExELLRD/" class="badge success">
-          Tomcat
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/2a7cYaXp0/" class="badge secondary">
-          Java
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/hui-bian-yu-yan/" class="badge warning">
-          汇编语言
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/zhuan-zai/" class="badge secondary">
-          转载
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/DQLqh7V4P/" class="badge success">
-          Assembly Language
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/ri-chang/" class="badge ">
-          日常
-        </a>
       
     </div>
-  </div>
-  <div class="paper">
-    zzylikemj@outlook.com | <a class="rss" href="https://zzy-tech.github.io//atom.xml" target="_blank">RSS</a>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zzy-tech.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/a4vitZ301/">
+                  <h2 class="post-title">コンパイラ：プログラムが動作する仕組みと言語が動作する仕組み</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-03 
+                </div>
+                <div class="post-abstract">
+                  <p>コンパイラの役割はプログラミング言語を用いて開発するソフトウェア，つまり人が記述したテキストをコンピュータが解釈，実行できる機械語に変換することである。<br>
+ここでは，コンパイラの目的を理解するために，コンピュータ上でソフトウェアが動作する基本的な仕組みと，プログラミング言語として定義された文法，さらに，この文法にしたがって開発するソフトウェアの目的を説明する。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/a4vitZ301/">
+                  <div class="feature-container" style="background-image: url('https://secureservercdn.net/160.153.138.219/b79.d22.myftpupload.com/wp-content/uploads/2017/05/source-code-and-object-code.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/7zzNKr8JI/">
+                  <h2 class="post-title">Spring Frameworkの特徴と役割</h2>
+                </a>
+                <div class="post-date">
+                  2020-09-29 
+                </div>
+                <div class="post-abstract">
+                  <p>アプリケーションやシステム開発においては，開発効率を向上させるためにフレームワークを使用する企業は少なくありません。<br>
+Javaの開発環境でよく使用されるフレームワークはSpring Framework。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/7zzNKr8JI/">
+                  <div class="feature-container" style="background-image: url('https://www.websoptimization.com/blog/wp-content/uploads/2019/03/top-10-reasons-to-use-spring-framework-1.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/l0qMHfM-n/">
+                  <h2 class="post-title">Git：分散型バージョン管理〜チーム開発　メモ</h2>
+                </a>
+                <div class="post-date">
+                  2020-09-29 
+                </div>
+                <div class="post-abstract">
+                  <p>ブランチによるチーム開発はGitの特徴であり，Gitが多くの開発者に支持される理由となる機能である。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/l0qMHfM-n/">
+                  <div class="feature-container" style="background-image: url('https://titangene.github.io/images/cover/git.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/BtnRgcd13/">
+                  <h2 class="post-title">Git：分散型バージョン管理〜Gitの基本　メモ</h2>
+                </a>
+                <div class="post-date">
+                  2020-09-24 
+                </div>
+                <div class="post-abstract">
+                  <p>分散型バージョン管理は，個々の開発者ごとに複数のリポジトリを持つことができ，開発の形態や規模に応じて柔軟な開発ができる。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/BtnRgcd13/">
+                  <div class="feature-container" style="background-image: url('https://titangene.github.io/images/cover/git.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/OUJh9scJm/">
+                  <h2 class="post-title">MavenでMybatisを使う際のjava.io.IOException: Could not find resource XXX.xmlについて</h2>
+                </a>
+                <div class="post-date">
+                  2020-09-17 
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/OUJh9scJm/">
+                  <div class="feature-container" style="background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIQEhMQEhAVFRUXFhYVFhYVFRUXGBoVFxIXFxUWFhUZHiggHR4lIBgVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQ0OGhAQFy4lHyU3OCsuMjctNzc3Ny43Mi4vNys3KzcsMTc3KzYuLSsrMDcwNzArLS0uOC0tMTUrKzc1Nf/AABEIAKgBLAMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABgcBBQgEAwL/xABMEAABAwIDBQIHCgsGBwAAAAABAAIDBBEFEiEGBxMxQVFhCBQicYGR0RUjMzVzk7GywcIyNENTVFVig6Gz0hgkUnKCtBYXQkSi4fD/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAQIDBAUG/8QAJBEBAAICAgECBwAAAAAAAAAAAAECAxEEITEFQRIUIlGBocH/2gAMAwEAAhEDEQA/ALxREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAWCVlflxQZBXyqKhrAXOIAGpJ6BQnEdsX09eKaVobE5t2PJ5u0vfoB0Xq2pxillgfBJJmztsWxgvd3GzVSbx3ps/K5Imu46t30k9PXMkaHMeCCLgjkQeq9AcqLo8blpWiKKsLQNGtlgLf4lWBu72kkrInGbLma4tuORA62VKZotOtds/I9PvirOSJ3X9psFla+sxaKIXe8DzkLWM2ypCcomZf/MFmc9I0XkpMQjkF2uBXrQEREBEWLoMosXS6DKLF0JQZRAiAiLF0GUWEugyiIgIiICIiAixdLoMosArKAiIgIiICwQsrzYjUGONzwLkAm3bYXsg1mObOQVVjNG19tRf+Ki8e2uG0kr6PM2J0ZylpbkHLo7kVHGb7oSS18EsZFwQbOseo0VXbY1rKyrdUxXs8C9xY3GnLzWUahf47zWK76XJt9JBV0xfC5riPKFiDy52IUEwLaWSjY9sYuXG4vyva2qhlLJJGNC4eYmy9VJXdHev2rWzVtE/HR2/Tc+G+OeLyJ6nuJ/j3YlX1FQ4vme5xPfp5gF5WtPYvWD2FfqMAkAmwJAJ7ATqVgjlX8TDq29A4+t1vOvw2mze001G8EOcWX1YT07uxX5s7i7KqJsjTcEXVHbYUNFBUx0bWCnHCbJ4450j87i24HDHkkEi1x1Kk26nGeE51NI9oObyQTa/bYHVbkXmJiJ93m74MVsd745n6Z9/suJFhrr6rKytBgrlTefic7MVrWtnlaBLoBI8AeSOQBXVZXJO9X42rvlfutQaIYzU8/GZvnH+1dB728acMDjlZIWumMADmuIOozusRr0K5usrO25xcS4DhEd7m77+eEGM/WQV97sVP6TN86/2q3fB1rZZair4kr3gRMtmc51vLPK5VKkK09xkL5BibI3uY80tmOabODruykEd9kHR6xdcfu20xMGxxCpuD+df09Kvjb3aCRuANq4ZXNkfHT2ka4h13luYhw9KCyCuYN8uIzMxeqayaRrRwrBr3AD3hnIArx7IbUYlUV1LCcQqSHzRhwMryC3MC4EX7AV+99fxzVfuv5DEET92Kn9Jm+df7VtMH21xGkIdFWSixBs5xe09xa6+ik24KNrsUs5oI4EuhAI5s6FRXbiBseIVjGNAa2eQADkPLOgQdObudrBitG2otlkDjHK0chI0Am3cQQfSpRdU34Njz4vWDpxWEecs1+gKLbzN6lVPPJT0cphgY4tzRmz5CNC4uGoF72A7EHRuYdqXXHb6Sv8AFxXuM3AL8gl4hsXi+nO/Mc1Jt3u82so5445pnTU7nNa5shzFoJtmY46i3ZyQXfvJ2zOD08dQIBNnl4eUvLLeQ5172PYq+pt/j3vaz3NaMzg2/jB6m35vvWm8IHF6h9W2lMhNMGRytblbbiFrhmzWudOl1VUTy0hw5ggjzg6IOot8WH1dTQNZRskdLxo3WiNnZcj7m4I01CpP/g3H/wBHq/nD/UpXX7WYhJs/41JVSifx0R522jdk4Z8nyANFXX/G2JfrGp+ef7UHW2Dsc2CFrwQ4RRhwPPMGC9/TdezMqu3k7dS4bh9IIXf3iojbZ7hmytbGwvfroXEuFr9pPRUfT1GI4nOI2yzzzOuQOIeQBLrXNgALoOwcyyuQKDafEcNlc1lTLG9ji18bnZm5gbOa5puOll03u/2m906KOqy5XG7Ht6B7TZ1u7r6UEkREQF8qiPM0tPVfVfl7wOZQcv72dkH0NU6djfeZXF1wNGvPMHsudQolSvXSG8rGaJlO9tQWkEEZTqSe4dq5q4jczsgIbc5QTcgdLlEw3lK9euWkbINNHdCPtWrpZFsRViMXPoHaqskeGuilLTobL1x1h6ha7Pck9uq+rCqWxUt5htYOdyMPVLy3zcclLGxl2ZrdGh7Wvy9zS4Ej0KT7utnvHJxO/K5rDYtewOueZOvIqAMcugt1eEcClYSNXDMfT/8ABK4qxO05+fmyUmltanz0m8bbABftEWVz2CuSd6vxtXfK/dautiuSd6vxtXfK/dag17KIHDnT21bVBl+50N7f+K8lVijpKeCnP4MJkLf3jg4qV4LSZ9n69/WOqgd/AN+8VBWhBudp6IQup2gWvTQvPne3N9qsnwbfxis+SZ9cqK736URVzGDpS04t2WiAUq8Gz8YrPkmfXKCvNvMONNiNXD0Ez3DS3kudnb/AgKf7Q4qJNlaNt/yzYfmy8/dXi8IXDuFiDJhymhB/1MJafsUYlxLNgsdOT+BXucB+yaf2koPVubo+Li9L+wXSH/S0+1fTfX8c1X7r+Qxbfwe6TPib3/m4Hn0ucxv2lajfX8cVX7r+QxBFsExmeik41NKYpMpbmFr5TzGoPYF8oniWbNPK4B7i6STLnN3Ekuy3F7nvHNTncRTMlxPJIxr28CTyXtDhe7ehUY24pmRYhWRxtDWtnkDQOQGbkPWg6L3WUFFBh59z5uMHFzpHnR5lyAWcz/osA3yfbdc+SbDYoST7nVOpJ+Cd1KsTwbawiSshv5ORklu8OLSfUtLtxvdrKmR8VM/xeEEtBZ8I4C4u5/TzBBscblbS7NR0NR73UmUkQPsJABM45izmBb6Qqgaba+rzqTQ7L1E9BPi0shyNcGNLiXPkdezjcnQDtKjCC+t+xvhFA7qZIv8Aav6qjsN+Fj+UZ9YK79+Bvg2HH9uH/avVIYb8LF8oz6yDojwgG2wlth/3EX1Hrm5dJeED8VN+Xi+o9c2oLe37QO4GESWOXxctv0DskJt5yPoUI3dbStwyuiqnsL2AOY4DmGvbYuHm00XSdXs7T4jh0FNUNu0wxEEaOa7hizmntVB7bbq63Ds0kY8YgH5SMeU0X0zxjUdNRcIJN/y0hxmaeupcWic2WR8hYITmZndmyvaXggi45hWpu52TdhNKaV0wl98c/MGln4QGliT2LlPDMSmppBLBK+J45OY6x/8AfmXUO6jbB2K0ZklAEsbuHJl0BNgQ4DpcIJqiIg8mJVYhjdIb2aC42BJsBfQBUPtbvke/NHSMIGozvFvU3n61f1RCHixVK7x91Jkc6ppAGvOrmcmuPaOwoKXxLEpal5kmkc9x6k8u4di87SvrX0MkDzHKwscOYIsvgg9MchHIr7B5OpN142OX3a5Qs9TCvsxy8rCtrgmFy1cgiibcnmejR2kolutisFdWVLWW8hpBee7oPSul8NphHG1o7FGdgdkmUMIFvKOrieZNuamCQrM7ZREUoYK5J3q/G1d8r91q63VObXbmJa6snq21rGCV+YNMbiRoBYnN3II1u6pOLgGMNtc3JA72xNcPsVaYBT8Wpp47XzSxt9bxddLbBbv3YbR1VI+dsvHLjmDS2wMYZYgnXtUU2Y3JS0lXBUurY3tika8tEbgTboDmQQ3f6zLihHTgRW8wBC3fg2fjNZ8lH9cqW7xt1UmK1fjTatkQ4bWZXRucfJvrcEdq9m7DdvJg8s0j6lsolY1tmsLbZXE31JQafwjMMz0kFSB8FKWn/LI32tHrXPvENst9L3t0va11bO9veNLOavCTTxhjZQ3iXcXe9vDgbctbfxVSFBdng20d31k/Y2OP1ku+wKGb6/jmq/dfyGK4dxWz8lJh5fKwtfO8yZToQzKGsv57X9K1e3W6CXEq2asbWMjEmSzDG4kZY2t1IdryJ9KCo9221EeFVnjUkbpBw3sysIBu61jc9NFpcfxI1VTPUluXiyPkt2ZnXAVr/wBn+b9YR/NO/qX1pvB/fmHExBuXrkiN/QS5B5vB2piX18gH5JrL95JNlUE34TvOfpXXmxWyMGFQcCC5ucz3utmc6wFzbly0AVYbZbkJZJnzUM0Ya9xdwpSW5SSSQ1zQdNdBZBpfdiAbLCn4rOLxSOHcZ/hnOvl52trdVQrvwfcS/gS+MVDOO4AR5Q5zI/KGZxOhcbcuXNef+z/P+sI/mnf1INnvrjJwSgP+F0BPppnD7VRVJKGPY88mua427jddeYvsnFWUDcPnJLRHG3O3Qh8YFnt9I5dmiqmo3ASZjkxBuXpmiN7d9nWQbTfHtBTV+DiSlmbK1tTE1xbfR3DebG4GqoBdCxbn5W4bJh3jjLuqWz5+G61mxluUtzc9b3WhPg/z/rCP5p39SD977jKykwmSN72t4RY4tcW+UYoS29u4OUW3P45w8ThNRUuEZZK33yR2S5jNgbm3rXQOL7KQ1lE2hqBmDWMaHN0IexoAe3sVOYvuGq2uPi1TFI0k2EmaNwHS9gQSgge8R8LsSqzTlpiMhLSy2XkM2W2lr3Vv+DdA4UtU8g2MzQO+0Yvb1qOYPuGq3O/vNTDGy+vDzPcR1tcAA+tXfs3gUOHwMpYG2Y3t1JJ5ucepKDaIiIC/L2A8wv0iCNbQ7G01Y3LLE13nGo8x5qr8c3Ii5NPK5n7LhmHtV6rBCDl+q3Q4gw+SY3DzuB9WX7V+afdViLjYtjb3lzvsauoSwdiwIx2BBReB7l3kg1ExI/wsFh6zqrV2d2Sp6JobHGB9veT1UhssoMNFllEQEREBERAREQEREEbrdg8MnkfLLQxPe8lznEG5J5k6r6YfsRhtO7PFQwtd25AfpupAiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiD//2Q==')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/Sjm2Ui3GK/">
+                  <h2 class="post-title">よく使われるストリームのまとめ</h2>
+                </a>
+                <div class="post-date">
+                  2020-07-21 
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/nj0dzADHm/">
+                  <h2 class="post-title">About protected</h2>
+                </a>
+                <div class="post-date">
+                  2020-05-08 
+                </div>
+                <div class="post-abstract">
+                  <p>protected variable is a bit interesting in Java</p>
+
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/VSrq0PRIu/">
+                  <h2 class="post-title">Java基礎まとめ・２</h2>
+                </a>
+                <div class="post-date">
+                  2020-04-17 
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/VSrq0PRIu/">
+                  <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1519419166318-4f5c601b8e6c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2467&amp;q=80')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/pKZECUQCU/">
+                  <h2 class="post-title">How to start Tomcat with output on console in Linux?</h2>
+                </a>
+                <div class="post-date">
+                  2020-03-20 
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/XECKGlACS/">
+                  <h2 class="post-title">Java基礎まとめ・１</h2>
+                </a>
+                <div class="post-date">
+                  2020-03-19 
+                </div>
+                <div class="post-abstract">
+                  <p>Java基础知识总结</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/XECKGlACS/">
+                  <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1519419166318-4f5c601b8e6c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2467&amp;q=80')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/lDrxzMPwn/">
+                  <h2 class="post-title">Demystifying Tomcat 4&#39;s server.xml File</h2>
+                </a>
+                <div class="post-date">
+                  2020-03-19 
+                </div>
+                <div class="post-abstract">
+                  <p><a name="top"></a><br>
+The Tomcat server.xml file allows you to configure Tomcat using a simple XML descriptor. This XML file is at the heart of Tomcat.</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/lDrxzMPwn/">
+                  <div class="feature-container" style="background-image: url('https://halab4dev.files.wordpress.com/2016/07/tomcat-logo.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/ffFtbMD3A/">
+                  <h2 class="post-title">appBase和docBase</h2>
+                </a>
+                <div class="post-date">
+                  2020-03-19 
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/cHLSqLDIx/">
+                  <h2 class="post-title">HTML标签英文全称</h2>
+                </a>
+                <div class="post-date">
+                  2020-03-06 
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/cHLSqLDIx/">
+                  <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/h3kJtgJgp/">
+                  <h2 class="post-title">The definition of Component, Container, and Frame</h2>
+                </a>
+                <div class="post-date">
+                  2020-02-26 
+                </div>
+                <div class="post-abstract">
+                  <p>References from API</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/h3kJtgJgp/">
+                  <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1528795336402-85f2e50fbb2e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2556&amp;q=80')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/9KbTa6Jc8/">
+                  <h2 class="post-title">Scanner-java.util.NoSuchElementException</h2>
+                </a>
+                <div class="post-date">
+                  2020-01-18 
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/9KbTa6Jc8/">
+                  <div class="feature-container" style="background-image: url('https://images.freeimages.com/images/large-previews/7ec/showreel-1144208.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/MIqBqxzzK/">
+                  <h2 class="post-title">标准输入输出流</h2>
+                </a>
+                <div class="post-date">
+                  2020-01-18 
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/9uq8XXg02/">
+                  <h2 class="post-title">线程的状态转换图</h2>
+                </a>
+                <div class="post-date">
+                  2020-01-13 
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/9uq8XXg02/">
+                  <div class="feature-container" style="background-image: url('https://zzy-tech.github.io//post-images/9uq8XXg02.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/wgV5DncBt/">
+                  <h2 class="post-title">IO Stream总结</h2>
+                </a>
+                <div class="post-date">
+                  2019-12-08 
+                </div>
+                <div class="post-abstract">
+                  <p>IO流种类虽然多，但用法基本相同。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/wgV5DncBt/">
+                  <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1561736778-92e52a7769ef?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/7045yjWiy/">
+                  <h2 class="post-title">计算机如何识别中文字符</h2>
+                </a>
+                <div class="post-date">
+                  2019-12-01 
+                </div>
+                <div class="post-abstract">
+                  <p>使用字节输入流将中文字符打印到控制台时往往无法识别，而使用字节流复制文件却可以完美显示，计算机是如何识别中文字符的呢？</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/7045yjWiy/">
+                  <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1542695807939-063af86fa22f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=3264&amp;q=80')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/RtEn3DuwS/">
+                  <h2 class="post-title">流的关闭方式</h2>
+                </a>
+                <div class="post-date">
+                  2019-11-16 
+                </div>
+                <div class="post-abstract">
+                  <p> 所有的流都应该在使用完毕后关闭。如果不关闭，会占用资源。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/RtEn3DuwS/">
+                  <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1559834648-865411cc1498?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1234&amp;q=80')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/jfUUCCexq/">
+                  <h2 class="post-title">异常 Exception</h2>
+                </a>
+                <div class="post-date">
+                  2019-11-13 
+                </div>
+                <div class="post-abstract">
+                  <p>异常分为运行时异常（可查异常）和非运行时异常（不可查异常），他们的主要区别是……</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/jfUUCCexq/">
+                  <div class="feature-container" style="background-image: url('https://images.freeimages.com/images/large-previews/933/that-s-important-1527389.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/1tSysQNzy/">
+                  <h2 class="post-title">ラズベリーパイ 4Bが起動しない時の対応法</h2>
+                </a>
+                <div class="post-date">
+                  2019-10-06 
+                </div>
+                <div class="post-abstract">
+                  <p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a><br>
+<a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a></p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/1tSysQNzy/">
+                  <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1553406830-1c853b38df08?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=3289&amp;q=80')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/dgAVKMhPS/">
+                  <h2 class="post-title">A solution of unable to boot up Raspberry Pi 4B</h2>
+                </a>
+                <div class="post-date">
+                  2019-10-06 
+                </div>
+                <div class="post-abstract">
+                  <p><a href="https://zy080080.github.io/post/pE2JY0ig0/">解决无法启动树莓派4B的问题</a><br>
+<a href="https://zy080080.github.io/post/1tSysQNzy/">ラズベリーパイ 4Bが起動しない時の対応法</a></p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/dgAVKMhPS/">
+                  <div class="feature-container" style="background-image: url('https://images.unsplash.com/photo-1553406830-4fd6df625354?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=3578&amp;q=80')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/pE2JY0ig0/">
+                  <h2 class="post-title">解决无法启动树莓派4B的问题</h2>
+                </a>
+                <div class="post-date">
+                  2019-10-06 
+                </div>
+                <div class="post-abstract">
+                  <p><a href="https://zy080080.github.io/post/dgAVKMhPS/">A solution of unable to boot up Raspberry Pi 4B</a><br>
+<a href="https://zy080080.github.io/post/1tSysQNzy/">ラズベリーパイ 4Bが起動しない時の対応法</a></p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/pE2JY0ig0/">
+                  <div class="feature-container" style="background-image: url('https://zzy-tech.github.io//post-images/pE2JY0ig0.jpeg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/fFi1CAqNV/">
+                  <h2 class="post-title">Does Java pass by reference or pass by value?</h2>
+                </a>
+                <div class="post-date">
+                  2019-09-16 
+                </div>
+                <div class="post-abstract">
+                  <p>Source：<a href="https://www.javaworld.com/article/2077424/learn-java-does-java-pass-by-reference-or-pass-by-value.html">https://www.javaworld.com/article/2077424/learn-java-does-java-pass-by-reference-or-pass-by-value.html</a></p>
+
+                </div>
+              </div>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+    <a href="https://zzy-tech.github.io/" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
+  
+  
+    <a href="https://zzy-tech.github.io/page/3/" class="next">下一页 <i class="icon-arrow-ios-forward-outline"></i></a>
+  
+</div>
+
+        </div>
+      </div>
     </div>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <script type="application/javascript">
@@ -1120,6 +618,13 @@ The Tomcat server.xml file allows you to configure Tomcat using a simple XML des
 AOS.init();
 
 hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 

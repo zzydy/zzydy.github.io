@@ -7,93 +7,106 @@
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1657251317531">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1657251400987">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zzy-tech.github.io//styles/main.css">
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
   </head>
   <body>
-  
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://zzy-tech.github.io/">听故事的人</a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zzy-tech.github.io/">
+        <img src="https://zzy-tech.github.io//images/avatar.png?v=1657251400987" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
         
-          <li>
-            
-              <a href="https://zy080080.github.io/" class="menu">
-                HOME
-              </a>
-            
-          </li>
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
         
-          <li>
-            
-              <a href="https://zy080080.github.io/archives" class="menu">
-                Archives
-              </a>
-            
-          </li>
+      
         
-          <li>
-            
-              <a href="https://zy080080.github.io//tags" class="menu">
-                Tags
-              </a>
-            
-          </li>
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
         
-          <li>
-            
-              <a href="https://zy080080.github.io//post/about/" class="menu">
-                About
-              </a>
-            
-          </li>
+      
         
-      </ul>
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
     </div>
   </div>
-</nav>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zzy-tech.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <article class="article">
-            <h1>How to start Tomcat with output on console in Linux?</h1>
-            <p class="article-meta">
-              2020-03-20 
-              
-                <a href="https://zzy-tech.github.io/tag/8X28YPImF/" class="badge ">
-                  English
-                </a>
-              
-                <a href="https://zzy-tech.github.io/tag/nbExELLRD/" class="badge secondary">
-                  Tomcat
-                </a>
-              
-            </p>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">How to start Tomcat with output on console in Linux?</h2>
+            <div class="post-date">2020-03-20 </div>
             
             <div class="post-content">
               <p><a href="https://stackoverflow.com/questions/14010448/how-to-start-tomcat-with-output-on-console-in-linux">source: How to start Tomcat with output on console in Linux? [closed]<br>
@@ -108,309 +121,36 @@
 <p>If you choose the second option, tomcat will run in background, while tail will run in foreground, but you'll have to give the same directory path twice.</p>
 
             </div>
-          </article>
-        </div>
-        <div class="paper" data-aos="fade-in">
-          
-            <div class="next-post">
-              <div class="next">
-                下一篇
+            
+              <div class="tag-container">
+                
+                  <a href="https://zzy-tech.github.io/tag/8X28YPImF/" class="tag">
+                    English
+                  </a>
+                
+                  <a href="https://zzy-tech.github.io/tag/nbExELLRD/" class="tag">
+                    Tomcat
+                  </a>
+                
               </div>
-              <a href="https://zzy-tech.github.io/post/XECKGlACS/">
-                <h3 class="post-title">
-                  Java基礎まとめ・１
-                </h3>
-              </a>
-            </div>
-          
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zzy-tech.github.io/post/XECKGlACS/">
+                  <h3 class="post-title">
+                    Java基礎まとめ・１
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
         </div>
-        
       </div>
-
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://zzy-tech.github.io//images/avatar.png?v=1657251317531" class="no-responsive avatar">
-    <div class="text-muted">天青色等烟雨，而我在等你</div>
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
-    </div>
-    <div class="row">
-      <ul>
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/wVjJ9Td2t/">Go学习笔记</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/FCxr0jmyz/">About slice</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/FS9Dkp9hu/">What is sequence?</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/ChAMKuYiO/">モジュールが持つ特性</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/1KjJfbkSn/">ソフトウェア工学</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/A2C8pQJ7y/">JPAでパラメータで変数の値を渡す方法</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/RmuKwXL0F/">Spring AOPにおけるPointcut式例</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/kk4jq6fpX/">Mybatisを始める：Quick Start</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/8IAmAkZZ0/">MySQL</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/uDwPfDRbx/">デバッガコマンド</a>
-            </li>
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://zzy-tech.github.io/tag/5-98E8LbH/" class="badge secondary">
-          Go
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/on9YtEMLD/" class="badge ">
-          programming
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge secondary">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge success">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge warning">
-          日本語(Japanese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/iMvcbKw2b/" class="badge secondary">
-          Spring Framework
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/doiPfjpu0/" class="badge warning">
-          Mybatis
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/EgqcbSedJ/" class="badge success">
-          database
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/t07z1l2wA/" class="badge success">
-          OS
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/iT-NcpTKs/" class="badge secondary">
-          コンパイラ
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/ygzIfFUIG/" class="badge success">
-          Git
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge secondary">
-          Java SE
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/8X28YPImF/" class="badge warning">
-          English
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge secondary">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nbExELLRD/" class="badge secondary">
-          Tomcat
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/2a7cYaXp0/" class="badge success">
-          Java
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/hui-bian-yu-yan/" class="badge secondary">
-          汇编语言
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/zhuan-zai/" class="badge warning">
-          转载
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/DQLqh7V4P/" class="badge ">
-          Assembly Language
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/ri-chang/" class="badge secondary">
-          日常
-        </a>
-      
-    </div>
-  </div>
-  <div class="paper">
-    zzylikemj@outlook.com | <a class="rss" href="https://zzy-tech.github.io//atom.xml" target="_blank">RSS</a>
-  </div>
-</div>
-
-
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -420,6 +160,13 @@
 AOS.init();
 
 hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 

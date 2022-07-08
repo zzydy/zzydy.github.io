@@ -7,321 +7,80 @@
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1657251317531">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1657251400987">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zzy-tech.github.io//styles/main.css">
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
   </head>
   <body>
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://zzy-tech.github.io/">听故事的人</a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
-        
-          <li>
-            
-              <a href="https://zy080080.github.io/" class="menu">
-                HOME
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="https://zy080080.github.io/archives" class="menu">
-                Archives
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="https://zy080080.github.io//tags" class="menu">
-                Tags
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="https://zy080080.github.io//post/about/" class="menu">
-                About
-              </a>
-            
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
+    <div id="app" class="main">
 
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <h2 class="current-tag">标签: Notes</h2>
-          
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/ChAMKuYiO/">モジュールが持つ特性</a>
-    </h2>
-    <p class="article-meta">
-      2021-05-20 
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge warning">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge secondary">
-          学习笔记
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>モジュール凝集度およびモジュール結合度</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/ChAMKuYiO/" class="readmore-link">
-        <button>
-          Read More
-        </button>
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zzy-tech.github.io/">
+        <img src="https://zzy-tech.github.io//images/avatar.png?v=1657251400987" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
       </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/1KjJfbkSn/">ソフトウェア工学</a>
-    </h2>
-    <p class="article-meta">
-      2021-04-24 
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge ">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge secondary">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>ソフトウェア工学の概要，システム開発のプロジェクト</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/1KjJfbkSn/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/A2C8pQJ7y/">JPAでパラメータで変数の値を渡す方法</a>
-    </h2>
-    <p class="article-meta">
-      2021-04-11 
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge warning">
-          Notes
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>Spring Data JPAでORマッパーではかけないようなSQLを実行したい場合，Repositoryに直接構文を書き，この時にパラメータで変数の値をどうやったら渡せるでしょうか</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/A2C8pQJ7y/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/a4vitZ301/">コンパイラ：プログラムが動作する仕組みと言語が動作する仕組み</a>
-    </h2>
-    <p class="article-meta">
-      2020-10-03 
-      
-        <a href="https://zzy-tech.github.io/tag/iT-NcpTKs/" class="badge ">
-          コンパイラ
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge ">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge success">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>コンパイラの役割はプログラミング言語を用いて開発するソフトウェア，つまり人が記述したテキストをコンピュータが解釈，実行できる機械語に変換することである。<br>
-ここでは，コンパイラの目的を理解するために，コンピュータ上でソフトウェアが動作する基本的な仕組みと，プログラミング言語として定義された文法，さらに，この文法にしたがって開発するソフトウェアの目的を説明する。</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/a4vitZ301/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/7zzNKr8JI/">Spring Frameworkの特徴と役割</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-29 
-      
-        <a href="https://zzy-tech.github.io/tag/iMvcbKw2b/" class="badge warning">
-          Spring Framework
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge secondary">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge secondary">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>アプリケーションやシステム開発においては，開発効率を向上させるためにフレームワークを使用する企業は少なくありません。<br>
-Javaの開発環境でよく使用されるフレームワークはSpring Framework。</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/7zzNKr8JI/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/l0qMHfM-n/">Git：分散型バージョン管理〜チーム開発　メモ</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-29 
-      
-        <a href="https://zzy-tech.github.io/tag/ygzIfFUIG/" class="badge ">
-          Git
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge ">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge success">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge secondary">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>ブランチによるチーム開発はGitの特徴であり，Gitが多くの開発者に支持される理由となる機能である。</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/l0qMHfM-n/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/BtnRgcd13/">Git：分散型バージョン管理〜Gitの基本　メモ</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-24 
-      
-        <a href="https://zzy-tech.github.io/tag/ygzIfFUIG/" class="badge success">
-          Git
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge success">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge ">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge success">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>分散型バージョン管理は，個々の開発者ごとに複数のリポジトリを持つことができ，開発の形態や規模に応じて柔軟な開発ができる。</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/BtnRgcd13/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-
-        </div>
-        <div class="row flex-edges">
-  
-  
-</div>
-
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
       </div>
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://zzy-tech.github.io//images/avatar.png?v=1657251317531" class="no-responsive avatar">
-    <div class="text-muted">天青色等烟雨，而我在等你</div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
     <div class="social-container">
       
         
-      
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
         
       
         
@@ -330,273 +89,165 @@ Javaの開発環境でよく使用されるフレームワークはSpring Framew
       
         
       
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
-    </div>
-    <div class="row">
-      <ul>
         
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/wVjJ9Td2t/">Go学习笔记</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/FCxr0jmyz/">About slice</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/FS9Dkp9hu/">What is sequence?</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/ChAMKuYiO/">モジュールが持つ特性</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/1KjJfbkSn/">ソフトウェア工学</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/A2C8pQJ7y/">JPAでパラメータで変数の値を渡す方法</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/RmuKwXL0F/">Spring AOPにおけるPointcut式例</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/kk4jq6fpX/">Mybatisを始める：Quick Start</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/8IAmAkZZ0/">MySQL</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/uDwPfDRbx/">デバッガコマンド</a>
-            </li>
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://zzy-tech.github.io/tag/5-98E8LbH/" class="badge success">
-          Go
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/on9YtEMLD/" class="badge success">
-          programming
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge secondary">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge warning">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge secondary">
-          日本語(Japanese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/iMvcbKw2b/" class="badge secondary">
-          Spring Framework
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/doiPfjpu0/" class="badge warning">
-          Mybatis
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/EgqcbSedJ/" class="badge warning">
-          database
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/t07z1l2wA/" class="badge ">
-          OS
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/iT-NcpTKs/" class="badge ">
-          コンパイラ
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/ygzIfFUIG/" class="badge secondary">
-          Git
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge ">
-          Java SE
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/8X28YPImF/" class="badge secondary">
-          English
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge secondary">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nbExELLRD/" class="badge success">
-          Tomcat
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/2a7cYaXp0/" class="badge success">
-          Java
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/hui-bian-yu-yan/" class="badge ">
-          汇编语言
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/zhuan-zai/" class="badge secondary">
-          转载
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/DQLqh7V4P/" class="badge ">
-          Assembly Language
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/ri-chang/" class="badge secondary">
-          日常
-        </a>
       
     </div>
-  </div>
-  <div class="paper">
-    zzylikemj@outlook.com | <a class="rss" href="https://zzy-tech.github.io//atom.xml" target="_blank">RSS</a>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zzy-tech.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: Notes</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/ChAMKuYiO/">
+                  <h2 class="post-title">モジュールが持つ特性</h2>
+                </a>
+                <div class="post-date">
+                  2021-05-20 
+                </div>
+                <div class="post-abstract">
+                  <p>モジュール凝集度およびモジュール結合度</p>
+
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/1KjJfbkSn/">
+                  <h2 class="post-title">ソフトウェア工学</h2>
+                </a>
+                <div class="post-date">
+                  2021-04-24 
+                </div>
+                <div class="post-abstract">
+                  <p>ソフトウェア工学の概要，システム開発のプロジェクト</p>
+
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/A2C8pQJ7y/">
+                  <h2 class="post-title">JPAでパラメータで変数の値を渡す方法</h2>
+                </a>
+                <div class="post-date">
+                  2021-04-11 
+                </div>
+                <div class="post-abstract">
+                  <p>Spring Data JPAでORマッパーではかけないようなSQLを実行したい場合，Repositoryに直接構文を書き，この時にパラメータで変数の値をどうやったら渡せるでしょうか</p>
+
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/a4vitZ301/">
+                  <h2 class="post-title">コンパイラ：プログラムが動作する仕組みと言語が動作する仕組み</h2>
+                </a>
+                <div class="post-date">
+                  2020-10-03 
+                </div>
+                <div class="post-abstract">
+                  <p>コンパイラの役割はプログラミング言語を用いて開発するソフトウェア，つまり人が記述したテキストをコンピュータが解釈，実行できる機械語に変換することである。<br>
+ここでは，コンパイラの目的を理解するために，コンピュータ上でソフトウェアが動作する基本的な仕組みと，プログラミング言語として定義された文法，さらに，この文法にしたがって開発するソフトウェアの目的を説明する。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/a4vitZ301/">
+                  <div class="feature-container" style="background-image: url('https://secureservercdn.net/160.153.138.219/b79.d22.myftpupload.com/wp-content/uploads/2017/05/source-code-and-object-code.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/7zzNKr8JI/">
+                  <h2 class="post-title">Spring Frameworkの特徴と役割</h2>
+                </a>
+                <div class="post-date">
+                  2020-09-29 
+                </div>
+                <div class="post-abstract">
+                  <p>アプリケーションやシステム開発においては，開発効率を向上させるためにフレームワークを使用する企業は少なくありません。<br>
+Javaの開発環境でよく使用されるフレームワークはSpring Framework。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/7zzNKr8JI/">
+                  <div class="feature-container" style="background-image: url('https://www.websoptimization.com/blog/wp-content/uploads/2019/03/top-10-reasons-to-use-spring-framework-1.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/l0qMHfM-n/">
+                  <h2 class="post-title">Git：分散型バージョン管理〜チーム開発　メモ</h2>
+                </a>
+                <div class="post-date">
+                  2020-09-29 
+                </div>
+                <div class="post-abstract">
+                  <p>ブランチによるチーム開発はGitの特徴であり，Gitが多くの開発者に支持される理由となる機能である。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/l0qMHfM-n/">
+                  <div class="feature-container" style="background-image: url('https://titangene.github.io/images/cover/git.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/BtnRgcd13/">
+                  <h2 class="post-title">Git：分散型バージョン管理〜Gitの基本　メモ</h2>
+                </a>
+                <div class="post-date">
+                  2020-09-24 
+                </div>
+                <div class="post-abstract">
+                  <p>分散型バージョン管理は，個々の開発者ごとに複数のリポジトリを持つことができ，開発の形態や規模に応じて柔軟な開発ができる。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/BtnRgcd13/">
+                  <div class="feature-container" style="background-image: url('https://titangene.github.io/images/cover/git.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+  
+</div>
+
+        </div>
+      </div>
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -606,6 +257,13 @@ Javaの開発環境でよく使用されるフレームワークはSpring Framew
 AOS.init();
 
 hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 

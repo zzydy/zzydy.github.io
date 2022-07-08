@@ -7,255 +7,80 @@
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1657251317531">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1657251400987">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zzy-tech.github.io//styles/main.css">
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
   </head>
   <body>
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://zzy-tech.github.io/">听故事的人</a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
-        
-          <li>
-            
-              <a href="https://zy080080.github.io/" class="menu">
-                HOME
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="https://zy080080.github.io/archives" class="menu">
-                Archives
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="https://zy080080.github.io//tags" class="menu">
-                Tags
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="https://zy080080.github.io//post/about/" class="menu">
-                About
-              </a>
-            
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
+    <div id="app" class="main">
 
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <h2 class="current-tag">标签: 学习笔记</h2>
-          
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/ChAMKuYiO/">モジュールが持つ特性</a>
-    </h2>
-    <p class="article-meta">
-      2021-05-20 
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge success">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge warning">
-          学习笔记
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>モジュール凝集度およびモジュール結合度</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/ChAMKuYiO/" class="readmore-link">
-        <button>
-          Read More
-        </button>
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zzy-tech.github.io/">
+        <img src="https://zzy-tech.github.io//images/avatar.png?v=1657251400987" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
       </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/uDwPfDRbx/">デバッガコマンド</a>
-    </h2>
-    <p class="article-meta">
-      2021-02-15 
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge secondary">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge warning">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/uDwPfDRbx/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/l0qMHfM-n/">Git：分散型バージョン管理〜チーム開発　メモ</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-29 
-      
-        <a href="https://zzy-tech.github.io/tag/ygzIfFUIG/" class="badge ">
-          Git
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge secondary">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge secondary">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge success">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>ブランチによるチーム開発はGitの特徴であり，Gitが多くの開発者に支持される理由となる機能である。</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/l0qMHfM-n/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/BtnRgcd13/">Git：分散型バージョン管理〜Gitの基本　メモ</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-24 
-      
-        <a href="https://zzy-tech.github.io/tag/ygzIfFUIG/" class="badge ">
-          Git
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge success">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge secondary">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge secondary">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      <p>分散型バージョン管理は，個々の開発者ごとに複数のリポジトリを持つことができ，開発の形態や規模に応じて柔軟な開発ができる。</p>
-
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/BtnRgcd13/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://zzy-tech.github.io/post/OUJh9scJm/">MavenでMybatisを使う際のjava.io.IOException: Could not find resource XXX.xmlについて</a>
-    </h2>
-    <p class="article-meta">
-      2020-09-17 
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge success">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge success">
-          日本語(Japanese)
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://zzy-tech.github.io/post/OUJh9scJm/" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-
-        </div>
-        <div class="row flex-edges">
-  
-  
-</div>
-
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
       </div>
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://zzy-tech.github.io//images/avatar.png?v=1657251317531" class="no-responsive avatar">
-    <div class="text-muted">天青色等烟雨，而我在等你</div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
     <div class="social-container">
       
         
-      
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
         
       
         
@@ -264,273 +89,124 @@
       
         
       
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
-    </div>
-    <div class="row">
-      <ul>
         
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/wVjJ9Td2t/">Go学习笔记</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/FCxr0jmyz/">About slice</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/FS9Dkp9hu/">What is sequence?</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/ChAMKuYiO/">モジュールが持つ特性</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/1KjJfbkSn/">ソフトウェア工学</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/A2C8pQJ7y/">JPAでパラメータで変数の値を渡す方法</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/RmuKwXL0F/">Spring AOPにおけるPointcut式例</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/kk4jq6fpX/">Mybatisを始める：Quick Start</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/8IAmAkZZ0/">MySQL</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/uDwPfDRbx/">デバッガコマンド</a>
-            </li>
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://zzy-tech.github.io/tag/5-98E8LbH/" class="badge secondary">
-          Go
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/on9YtEMLD/" class="badge success">
-          programming
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge success">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge ">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge success">
-          日本語(Japanese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/iMvcbKw2b/" class="badge warning">
-          Spring Framework
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/doiPfjpu0/" class="badge success">
-          Mybatis
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/EgqcbSedJ/" class="badge secondary">
-          database
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/t07z1l2wA/" class="badge success">
-          OS
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/iT-NcpTKs/" class="badge success">
-          コンパイラ
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/ygzIfFUIG/" class="badge success">
-          Git
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge secondary">
-          Java SE
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/8X28YPImF/" class="badge warning">
-          English
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge success">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nbExELLRD/" class="badge success">
-          Tomcat
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/2a7cYaXp0/" class="badge ">
-          Java
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/hui-bian-yu-yan/" class="badge ">
-          汇编语言
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/zhuan-zai/" class="badge ">
-          转载
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/DQLqh7V4P/" class="badge secondary">
-          Assembly Language
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/ri-chang/" class="badge secondary">
-          日常
-        </a>
       
     </div>
-  </div>
-  <div class="paper">
-    zzylikemj@outlook.com | <a class="rss" href="https://zzy-tech.github.io//atom.xml" target="_blank">RSS</a>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zzy-tech.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: 学习笔记</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/ChAMKuYiO/">
+                  <h2 class="post-title">モジュールが持つ特性</h2>
+                </a>
+                <div class="post-date">
+                  2021-05-20 
+                </div>
+                <div class="post-abstract">
+                  <p>モジュール凝集度およびモジュール結合度</p>
+
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/uDwPfDRbx/">
+                  <h2 class="post-title">デバッガコマンド</h2>
+                </a>
+                <div class="post-date">
+                  2021-02-15 
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/l0qMHfM-n/">
+                  <h2 class="post-title">Git：分散型バージョン管理〜チーム開発　メモ</h2>
+                </a>
+                <div class="post-date">
+                  2020-09-29 
+                </div>
+                <div class="post-abstract">
+                  <p>ブランチによるチーム開発はGitの特徴であり，Gitが多くの開発者に支持される理由となる機能である。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/l0qMHfM-n/">
+                  <div class="feature-container" style="background-image: url('https://titangene.github.io/images/cover/git.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/BtnRgcd13/">
+                  <h2 class="post-title">Git：分散型バージョン管理〜Gitの基本　メモ</h2>
+                </a>
+                <div class="post-date">
+                  2020-09-24 
+                </div>
+                <div class="post-abstract">
+                  <p>分散型バージョン管理は，個々の開発者ごとに複数のリポジトリを持つことができ，開発の形態や規模に応じて柔軟な開発ができる。</p>
+
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/BtnRgcd13/">
+                  <div class="feature-container" style="background-image: url('https://titangene.github.io/images/cover/git.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://zzy-tech.github.io/post/OUJh9scJm/">
+                  <h2 class="post-title">MavenでMybatisを使う際のjava.io.IOException: Could not find resource XXX.xmlについて</h2>
+                </a>
+                <div class="post-date">
+                  2020-09-17 
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://zzy-tech.github.io/post/OUJh9scJm/">
+                  <div class="feature-container" style="background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIQEhMQEhAVFRUXFhYVFhYVFRUXGBoVFxIXFxUWFhUZHiggHR4lIBgVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQ0OGhAQFy4lHyU3OCsuMjctNzc3Ny43Mi4vNys3KzcsMTc3KzYuLSsrMDcwNzArLS0uOC0tMTUrKzc1Nf/AABEIAKgBLAMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABgcBBQgEAwL/xABMEAABAwIDBQIHCgsGBwAAAAABAAIDBBEFEiEGBxMxQVFhCBQicYGR0RUjMzVzk7GywcIyNENTVFVig6Gz0hgkUnKCtBYXQkSi4fD/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAQIDBAUG/8QAJBEBAAICAgECBwAAAAAAAAAAAAECAxEEITEFQRIUIlGBocH/2gAMAwEAAhEDEQA/ALxREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAWCVlflxQZBXyqKhrAXOIAGpJ6BQnEdsX09eKaVobE5t2PJ5u0vfoB0Xq2pxillgfBJJmztsWxgvd3GzVSbx3ps/K5Imu46t30k9PXMkaHMeCCLgjkQeq9AcqLo8blpWiKKsLQNGtlgLf4lWBu72kkrInGbLma4tuORA62VKZotOtds/I9PvirOSJ3X9psFla+sxaKIXe8DzkLWM2ypCcomZf/MFmc9I0XkpMQjkF2uBXrQEREBEWLoMosXS6DKLF0JQZRAiAiLF0GUWEugyiIgIiICIiAixdLoMosArKAiIgIiICwQsrzYjUGONzwLkAm3bYXsg1mObOQVVjNG19tRf+Ki8e2uG0kr6PM2J0ZylpbkHLo7kVHGb7oSS18EsZFwQbOseo0VXbY1rKyrdUxXs8C9xY3GnLzWUahf47zWK76XJt9JBV0xfC5riPKFiDy52IUEwLaWSjY9sYuXG4vyva2qhlLJJGNC4eYmy9VJXdHev2rWzVtE/HR2/Tc+G+OeLyJ6nuJ/j3YlX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')">
+                  </div>
+                </a>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+  
+</div>
+
+        </div>
+      </div>
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -540,6 +216,13 @@
 AOS.init();
 
 hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 

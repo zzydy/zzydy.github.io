@@ -7,92 +7,116 @@
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1657251317531">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1657251400987">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zzy-tech.github.io//styles/main.css">
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
   </head>
   <body>
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://zzy-tech.github.io/">听故事的人</a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zzy-tech.github.io/">
+        <img src="https://zzy-tech.github.io//images/avatar.png?v=1657251400987" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
         
-          <li>
-            
-              <a href="https://zy080080.github.io/" class="menu">
-                HOME
-              </a>
-            
-          </li>
+          <a href="https://zy080080.github.io/" class="site-nav">
+            HOME
+          </a>
         
-          <li>
-            
-              <a href="https://zy080080.github.io/archives" class="menu">
-                Archives
-              </a>
-            
-          </li>
+      
         
-          <li>
-            
-              <a href="https://zy080080.github.io//tags" class="menu">
-                Tags
-              </a>
-            
-          </li>
+          <a href="https://zy080080.github.io/archives" class="site-nav">
+            Archives
+          </a>
         
-          <li>
-            
-              <a href="https://zy080080.github.io//post/about/" class="menu">
-                About
-              </a>
-            
-          </li>
+      
         
-      </ul>
+          <a href="https://zy080080.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zy080080.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
     </div>
   </div>
-</nav>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzylikemj@outlook.com | <a class="rss" href="https://zzy-tech.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
-    
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
           
 
           <h2 class="archives-title">文章归档</h2>
           <div class="archives-container">
             
-              <h3 class="year" data-aos-delay="500">2022</h3>
+              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2022</h2>
               
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/wVjJ9Td2t/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         Go学习笔记
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -100,9 +124,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/FCxr0jmyz/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         About slice
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -110,9 +134,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/FS9Dkp9hu/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         What is sequence?
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -212,7 +236,7 @@
                 
               
             
-              <h3 class="year" data-aos-delay="500">2021</h3>
+              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2021</h2>
               
                 
               
@@ -223,9 +247,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/ChAMKuYiO/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         モジュールが持つ特性
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -233,9 +257,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/1KjJfbkSn/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         ソフトウェア工学
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -243,9 +267,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/A2C8pQJ7y/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         JPAでパラメータで変数の値を渡す方法
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -253,9 +277,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/RmuKwXL0F/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         Spring AOPにおけるPointcut式例
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -263,9 +287,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/kk4jq6fpX/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         Mybatisを始める：Quick Start
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -273,9 +297,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/8IAmAkZZ0/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         MySQL
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -283,9 +307,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/uDwPfDRbx/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         デバッガコマンド
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -293,9 +317,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/PXPlWYWB9/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：ファイルーより進んだファイルシステム
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -303,9 +327,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/aj_P4T-me/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：ファイルーファイル基礎
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -313,9 +337,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/XhbY1TXpf/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：主記憶管理ーページ置き換え方式
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -323,9 +347,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/D3L-F6vjm/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：主記憶管理ー仮想記憶
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -333,9 +357,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/zAjTn6PkI/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：主記憶管理ーセグメンテーション，ページかセグメンテーション
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -343,9 +367,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/M7ToAnBlI/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：主記憶管理ーページング
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -353,9 +377,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/ES4qIO3DM/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：主記憶管理ー主記憶割り当て
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -363,9 +387,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/u3Uh6KrGp/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：主記憶管理基礎
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -373,9 +397,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/ECsYYoE6u/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：並行プロセス-モニタ
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -383,9 +407,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/oEPtkexau/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：並列プロセス-セマフォ
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -393,9 +417,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/7nRN9HqLl/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：並列プログラム-排他制御基礎
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -403,9 +427,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/RWPOSZYfW/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：CPUの仮想化ースケジューリング
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -413,9 +437,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/OENVD2_g7/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：CPUの仮想化ープロセス
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -423,9 +447,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/mq2xVP1Fs/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         OS：OSとは
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -483,7 +507,7 @@
                 
               
             
-              <h3 class="year" data-aos-delay="500">2020</h3>
+              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2020</h2>
               
                 
               
@@ -536,9 +560,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/u0YDg1pii/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         コンパイラ：字句解析
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -546,9 +570,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/a4vitZ301/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         コンパイラ：プログラムが動作する仕組みと言語が動作する仕組み
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -556,9 +580,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/7zzNKr8JI/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         Spring Frameworkの特徴と役割
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -566,9 +590,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/l0qMHfM-n/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         Git：分散型バージョン管理〜チーム開発　メモ
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -576,9 +600,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/BtnRgcd13/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         Git：分散型バージョン管理〜Gitの基本　メモ
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -586,9 +610,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/OUJh9scJm/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         MavenでMybatisを使う際のjava.io.IOException: Could not find resource XXX.xmlについて
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -596,9 +620,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/Sjm2Ui3GK/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         よく使われるストリームのまとめ
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -606,9 +630,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/nj0dzADHm/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         About protected
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -616,9 +640,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/VSrq0PRIu/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         Java基礎まとめ・２
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -626,9 +650,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/pKZECUQCU/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         How to start Tomcat with output on console in Linux?
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -636,9 +660,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/XECKGlACS/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         Java基礎まとめ・１
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -646,9 +670,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/lDrxzMPwn/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         Demystifying Tomcat 4&#39;s server.xml File
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -656,9 +680,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/ffFtbMD3A/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         appBase和docBase
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -666,9 +690,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/cHLSqLDIx/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         HTML标签英文全称
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -676,9 +700,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/h3kJtgJgp/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         The definition of Component, Container, and Frame
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -686,9 +710,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/9KbTa6Jc8/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         Scanner-java.util.NoSuchElementException
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -696,9 +720,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/MIqBqxzzK/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         标准输入输出流
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -706,9 +730,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/9uq8XXg02/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         线程的状态转换图
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -730,7 +754,7 @@
                 
               
             
-              <h3 class="year" data-aos-delay="500">2019</h3>
+              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
               
                 
               
@@ -819,9 +843,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/wgV5DncBt/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         IO Stream总结
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -829,9 +853,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/7045yjWiy/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         计算机如何识别中文字符
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -839,9 +863,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/RtEn3DuwS/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         流的关闭方式
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -849,9 +873,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/jfUUCCexq/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         异常 Exception
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -859,9 +883,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/1tSysQNzy/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         ラズベリーパイ 4Bが起動しない時の対応法
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -869,9 +893,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/dgAVKMhPS/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         A solution of unable to boot up Raspberry Pi 4B
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -879,9 +903,9 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/pE2JY0ig0/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         解决无法启动树莓派4B的问题
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
@@ -889,309 +913,26 @@
                 
                   <article class="post">
                     <a href="https://zzy-tech.github.io/post/fFi1CAqNV/">
-                      <h4 class="post-title">
+                      <h2 class="post-title">
                         Does Java pass by reference or pass by value?
-                      </h4>
+                      </h2>
                     </a>
                   </article>
                 
               
             
           </div>
+
+          <div class="pagination-container">
+  
+  
+    <a href="https://zzy-tech.github.io/archives/page/2" class="next">下一页 <i class="icon-arrow-ios-forward-outline"></i></a>
+  
+</div>
+
         </div>
-        <div class="row flex-edges">
-  
-  
-    <a href="https://zzy-tech.github.io/archives/page/2" class="paper-btn">
-      下一页
-    </a>
-  
-</div>
-
       </div>
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://zzy-tech.github.io//images/avatar.png?v=1657251317531" class="no-responsive avatar">
-    <div class="text-muted">天青色等烟雨，而我在等你</div>
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
-    </div>
-    <div class="row">
-      <ul>
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/wVjJ9Td2t/">Go学习笔记</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/FCxr0jmyz/">About slice</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/FS9Dkp9hu/">What is sequence?</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/ChAMKuYiO/">モジュールが持つ特性</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/1KjJfbkSn/">ソフトウェア工学</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/A2C8pQJ7y/">JPAでパラメータで変数の値を渡す方法</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/RmuKwXL0F/">Spring AOPにおけるPointcut式例</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/kk4jq6fpX/">Mybatisを始める：Quick Start</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/8IAmAkZZ0/">MySQL</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://zzy-tech.github.io/post/uDwPfDRbx/">デバッガコマンド</a>
-            </li>
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://zzy-tech.github.io/tag/5-98E8LbH/" class="badge warning">
-          Go
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/on9YtEMLD/" class="badge ">
-          programming
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/notes/" class="badge success">
-          Notes
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/xue-xi-bi-ji/" class="badge success">
-          学习笔记
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nGuWFEYj1/" class="badge warning">
-          日本語(Japanese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/iMvcbKw2b/" class="badge ">
-          Spring Framework
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/doiPfjpu0/" class="badge ">
-          Mybatis
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/EgqcbSedJ/" class="badge secondary">
-          database
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/t07z1l2wA/" class="badge secondary">
-          OS
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/iT-NcpTKs/" class="badge ">
-          コンパイラ
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/ygzIfFUIG/" class="badge warning">
-          Git
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="badge secondary">
-          Java SE
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/8X28YPImF/" class="badge secondary">
-          English
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="badge secondary">
-          中文(Chinese)
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/nbExELLRD/" class="badge warning">
-          Tomcat
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/2a7cYaXp0/" class="badge secondary">
-          Java
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/hui-bian-yu-yan/" class="badge secondary">
-          汇编语言
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/zhuan-zai/" class="badge ">
-          转载
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/DQLqh7V4P/" class="badge success">
-          Assembly Language
-        </a>
-      
-        <a href="https://zzy-tech.github.io/tag/ri-chang/" class="badge warning">
-          日常
-        </a>
-      
-    </div>
-  </div>
-  <div class="paper">
-    zzylikemj@outlook.com | <a class="rss" href="https://zzy-tech.github.io//atom.xml" target="_blank">RSS</a>
-  </div>
-</div>
-
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
@@ -1200,6 +941,13 @@
 AOS.init();
 
 hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 
