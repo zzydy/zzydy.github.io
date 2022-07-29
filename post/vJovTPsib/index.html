@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>[repro] Overcoming type erasure in Scala | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1659063283562">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zzy-tech.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zzy-tech.github.io/">
+        <img src="https://zzy-tech.github.io//images/avatar.png?v=1659063283562" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zzy-tech.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zzy-tech.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zzy-tech.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zzy-tech.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzychat@outlook.com | <a class="rss" href="https://zzy-tech.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">[repro] Overcoming type erasure in Scala</h2>
+            <div class="post-date">2022-07-29 </div>
+            
+            <div class="post-content">
+              <p><strong>source: <a href="https://medium.com/@sinisalouc/overcoming-type-erasure-in-scala-8f2422070d20">https://medium.com/@sinisalouc/overcoming-type-erasure-in-scala-8f2422070d20</a></strong></p>
+<p>This article aims to show a couple of techniques to tackle some common problems caused by type erasure in Scala.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Scala has a really strong type system. Existential types, structural types, nested types, path-dependant types, abstract and concrete type members, type bounds (upper, lower, view, context), use-site and declaration-site type variance, support for type polymorphism (subtype, parametric, F-bounded, ad-hoc), higher-kinded types, generalized type constraints… And the list goes on.</p>
+<p>But even though Scala’s type system is theoretically very strong, in practice some type-related features are weakened by the restrictions and limitations of its runtime environment — that’s right, I’m looking at you, <a href="https://docs.oracle.com/javase/tutorial/java/generics/erasure.html">type erasure</a>.</p>
+<p>What is type erasure? Well, simply put, it’s a procedure performed by Java and Scala compilers which removes all generic type information after compilation. This means that we are not able to differentiate between, say, List[Int] and List[String] at runtime. Why does the compiler do this? Well, because Java Virtual Machine (the underlying runtime environment that runs both Java and Scala) doesn’t know anything about generics.</p>
+<p>What happens is that type parameters in a generic class get replaced either with Object or its upper bound. For example:</p>
+<pre><code>class Foo[T] {
+    val foo: T
+}
+
+class Bar[T &lt;: Something] {
+    val bar: Something
+}
+</code></pre>
+<p>becomes</p>
+<pre><code>class Foo {
+    val foo: Object
+}
+
+class Bar {
+    val bar: Something
+}
+</code></pre>
+<p>So you see, runtime has no idea about the actual class that a generic class was parameterized with. In our example, it only sees raw Foo and Bar.</p>
+<p>Don’t think that type erasure is a product of someone’s incompetence or ignorance or whatever. It’s not bad design (which would suggest it was a product of someone not being smart enough or competent enough); it’s a deliberate trade-off. Not only did it help with <a href="https://blogs.oracle.com/darcy/entry/kinds_of_compatibility">source, binary and behavioral compatibility</a> in the earlier Java days, but it also helps with some advanced type system mechanisms, such as <a href="https://typelevel.org/blog/2016/08/21/hkts-moving-forward.html">higher-kinded types</a> (thanks Gabriel Claramunt for pointing this out).</p>
+<p>Now let’s see what are some handy ways that we can handle the downsides of type erasure in Scala.</p>
+<h2 id="how-it-works-or-doesnt-work">How it works (or doesn’t work)</h2>
+<p>Here’s one simple example of type erasure:</p>
+<pre><code>object Extractor {
+    def extract[T](list: List[Any]) = list.flatMap {
+        case element: T =&gt; Some(element)
+        case _ =&gt; None
+    }
+}
+
+val list = List(1, &quot;string1&quot;, List(), &quot;string2&quot;)
+val result = Extractor.extract[String](list)
+println(result) // List(1, string1, List(), string2)
+</code></pre>
+<p>Method extract() takes a list of all kinds of objects; since it holds objects of type Any, we can put numbers, booleans, strings, bananas, oranges, whatever. By the way, seeing List[Any] in a piece of code should be an instant “code smell”, but let’s forget about best practices for a second and focus on the problem with type erasure.</p>
+<p>So, our desire is to have a method that takes a list of mixed objects and extracts only objects of certain type. We can choose this type by parameterizing the method extract() with it. In the given example the chosen type is String, which means that we will try to extract all strings from a given list.</p>
+<p>From a strictly language point of view (without going into runtime details), this code is reasonable. We know that pattern matching is able to figure out the type of a given object without problems by deconstructing it. However, due to program being executed on JVM, all generic types are erased after compilation. Therefore pattern matching cannot really get far; everything beyond the “first level” of type is erased. Matching our variable directly on Int or String (or any non-generic type, such as MyNonGenericClass) would work fine, but matching it on T, where T is a generic parameter, cannot work. Compiler will give us a warning saying “abstract type pattern T is unchecked since it is eliminated by erasure”.</p>
+<p>To provide some assistance with these situations, Scala introduced Manifests somewhere around version 2.7. However, they had problems with not being able to represent certain types so Scala 2.10. deprecated them in favour of the more powerful <a href="http://docs.scala-lang.org/overviews/reflection/typetags-manifests.html">TypeTags</a>.</p>
+<p>Type tags are divided into three separate types:</p>
+<ul>
+<li>TypeTag</li>
+<li>ClassTag</li>
+<li>WeakTypeTag</li>
+</ul>
+<p>Even though this is the official classification from the documentation, better division in my opinion would be something like:</p>
+<ul>
+<li>TypeTag:
+<ul>
+<li>“classic”</li>
+<li>WeakTypeTag</li>
+</ul>
+</li>
+<li>ClassTag</li>
+</ul>
+<p>I’m trying to make a point that TypeTag and WeakTypeTag are actually two flavours of the same thing with only one significant difference (as we’ll show later), while ClassTag is a quite different construct.</p>
+<h2 id="classtag">ClassTag</h2>
+<p>Let’s get back to our extractor example and see how we can fix the type erasure problem. All we’re going to do now is add a single implicit parameter to the extract() method:</p>
+<pre><code>import scala.reflect.ClassTag
+object Extractor {
+    def extract[T](list: List[Any])(implicit tag: ClassTag[T]) = list.flatMap {
+        case element: T =&gt; Some(element)
+        case _ =&gt; None
+    }
+}
+
+val list: List[Any] = List(1, &quot;string1&quot;, List(), &quot;string2&quot;)
+val result = Extractor.extract[String](list)
+println(result) // List(string1, string2)
+</code></pre>
+<p>And voila! Suddenly the print statement displays “List(string1, string2)”. In your face, type erasure. Note that we can also use context bound syntax here:</p>
+<pre><code>// def extract[T](list: List[Any])(implicit tag: ClassTag[T]) =
+def extract[T : ClassTag](list: List[Any]) =
+</code></pre>
+<p>I will use the standard syntax simply to make the code as clear as possible, without any extra syntax sugar.</p>
+<p>So, how does it work? Well, the thing is that when we require an implicit value that is of type ClassTag, compiler will create this value for us. <a href="http://lampwww.epfl.ch/~hmiller/scaladoc/library/scala/reflect/ClassTag.html">Documentation</a> says:</p>
+<blockquote>
+<p>If an implicit value of type u.ClassTag[T] is required, the compiler will make one up on demand.</p>
+</blockquote>
+<p>So, the compiler is happy to provide us with an implicit instance of a needed ClassTag, we just need to ask. This mechanism will also be used with TypeTag and WeakTypeTag.</p>
+<p>OK, we have our implicit ClassTag value available in extract() method (thanks, compiler). What happens once we’re inside the method body? Look at the example once again — not only did the compiler automatically provide us with the value for our implicit parameter tag, which is nice enough, but we <strong>never needed to use the parameter itself</strong>. We never had to do anything with the “tag” value. It’s the mere existence of it that allowed our pattern matching to successfully match the String elements in our list. OK, that’s pretty nice of the compiler, but it feels like there’s too much “magical stuff” going on. Let’s see that in more detail.</p>
+<p>We can check the <a href="http://The%20compiler%20tries%20to%20turn%20unchecked%20type%20tests%20in%20pattern%20matches%20into%20checked%20ones%20by%20wrapping%20a%20%28_:%20T%29%20type%20pattern%20as%20ct%28_:%20T%29,%20where%20ct%20is%20the%20ClassTag%5BT%5D%20instance.">docs</a> in search for an explanation. Indeed, it’s hidden here:</p>
+<blockquote>
+<p>Compiler tries to turn unchecked type tests in pattern matches into checked ones by wrapping a (<em>: T) type pattern as ct(</em>: T), where ct is the ClassTag[T] instance.</p>
+</blockquote>
+<p>Basically what happens is that if we provide the compiler with an implicit ClassTag, it will rewrite the condition(s) in pattern matching to use the given tag as an extractor. Our condition:</p>
+<pre><code>case element: T =&gt; Some(element)
+</code></pre>
+<p>gets translated by the compiler (if there is an implicit tag in scope) into this:</p>
+<pre><code>case (element @ tag(_: T)) =&gt; Some(element)
+</code></pre>
+<p>In case you never saw the “@” construct before, it’s just a way of giving a name to the class you’re matching, for example:</p>
+<pre><code>case Foo(p, q) =&gt; // we can only reference parameters via p and q
+case f @ Foo(p, q) =&gt; // we can reference the whole object via f
+</code></pre>
+<p>If there is no available implicit ClassTag for type T to be used, compiler will be crippled (due to lack of type information) and it will issue a warning that our pattern matching will suffer from type erasure on type T. Compilation won’t break, but don’t expect compiler to know what T is when we get to pattern matching (since it will be erased by the JVM at runtime). If we do provide an implicit ClassTag for type T, compiler will be happy to provide a proper ClassTag at compile-time as we have seen in our example. The tag will bring along the information about T being a String and type erasure cannot touch it.</p>
+<p>Looks good, doesn’t it? But there’s one important weakness. If we wanted to differentiate our types on a higher level and get values of List[Int] from our initial list while ignoring e.g. List[String], we would not be able to do so:</p>
+<pre><code>val list: List[List[Any]] = List(List(1, 2), List(&quot;a&quot;, &quot;b&quot;))
+val result = Extractor.extract[List[Int]](list)
+println(result) // List(List(1, 2), List(a, b))
+</code></pre>
+<p>Whoops! We wanted to extract only List[Int], but we got a List[String] too. Class tags <strong>cannot differentiate on a higher level</strong>. Only on the first one. This means that our extractor can differentiate between e.g. sets and lists, but it cannot tell apart one list from another (e.g. List[Int] vs List[String]). Of course, it’s not just the lists — this goes for all generic traits/classes.</p>
+<h2 id="typetag">TypeTag</h2>
+<p>Where ClassTag fails, TypeTag succeeds gloriously. It can differentiate a List[String] from a List[Integer]. It can go deeper too, such as differentiating List[Set[Int]] from List[Set[String]. This is possible because TypeTag has richer information about the generic type at run time. We can easily get the full path of the type in question, as well as all the nested types (if there are any). To get this information, you just need to invoke tpe() on a given tag.</p>
+<p>Here’s an example. The implicit tag parameter is provided by the compiler, just like with ClassTag. Pay attention to the “args” argument — it’s the one that contains additional type information which ClassTag doesn’t have (information about List being parameterized by Int).</p>
+<pre><code>import scala.reflect.runtime.universe._
+object Recognizer {
+    def recognize[T](x: T)(implicit tag: TypeTag[T]): String =
+        tag.tpe match {
+            case TypeRef(utype, usymbol, args) =&gt;
+                List(utype, usymbol, args).mkString(&quot;\n&quot;)
+        }
+}
+
+val list: List[Int] = List(1, 2)
+val result = Recognizer.recognize(list)
+println(result)
+// prints:
+//   scala.type
+//   type List
+//   List(Int)
+</code></pre>
+<p>(You may need to add a <a href="http://mvnrepository.com/artifact/org.scala-lang/scala-reflect">dependency</a>).</p>
+<p>I introduced a new object here — a Recognizer. What happened to the good-old Extractor? Well, sad news. We cannot implement an Extractor using TypeTags. Good thing about them is having more information about the type, such as knowing about the higher types (that is, being able to differentiate List[X] from List[Y]), but their downside is that they <strong>cannot be used on objects at runtime</strong>. We can use the TypeTag to get information about a certain type at runtime, but we cannot use it to find out the type of some object at runtime. Do you see the difference? What we passed to recognize() was a straightforward List[Int]; it was the declared type of our List(1,2) value. But if we declared our List(1, 2) as a List[Any], TypeTag would tell us that we passed a List[Any] to it.</p>
+<p>OK, here are the two main differences between ClassTags and TypeTags in one place:</p>
+<ol>
+<li>
+<p>ClassTag doesn’t know about “higher type”; given a List[T], a ClassTag only knows that the value is a List and knows nothing about T.</p>
+</li>
+<li>
+<p>TypeTag knows about “higher type” and has a much richer type information, but cannot be used for getting type information about values at runtime. In other words, TypeTag provides runtime information about the type while ClassTag provides runtime information about the value (more specifically, information that tells us what is the actual type of the value in question at runtime).</p>
+</li>
+</ol>
+<p>There’s one more thing worth mentioning regarding the difference between ClassTag and (Weak)TypeTag: ClassTag is a classical good old type class. It comes bundled with a separate implementation for each type, which makes it a standard <a href="https://medium.com/@sinisalouc/ad-hoc-polymorphism-and-type-classes-442ae22e5342#.41sf94ijq">type class pattern</a>. On the other hand, (Weak)TypeTag is a bit more sophisticated and to use it we need to have a special import in our code, as you may have noticed in the snippet given earlier. We need to import the <a href="http://www.scala-lang.org/api/current/scala-reflect/index.html#scala.reflect.api.Universe@WeakTypeTag%5BT%5DextendsEqualswithSerializable">universe</a>:</p>
+<blockquote>
+<p>Universe provides a complete set of reflection operations which make it possible for one to reflectively inspect Scala type relations, such as membership or subtyping.</p>
+</blockquote>
+<p>Don’t worry, all you need to do is to simply import the correct universe, and in case of (Weak)TypeTag that is scala.reflect.runtime.universe._ (<a href="http://www.scala-lang.org/api/current/scala-reflect/index.html#scala.reflect.runtime.package">docs</a>).</p>
+<h2 id="weaktypetag">WeakTypeTag</h2>
+<p>You are probably under the impression that TypeTag and WeakTypeTag are quite similar as all the differences so far were explained in respect to the ClassTag. And that is correct; they are indeed two variants of the same tool. But, there is an important difference.</p>
+<p>We saw that TypeTag is smart enough to examine a type as well as its type parameters, then their type parameters etc. However, all those types were concrete. If a type is abstract, TypeTag will not be able to resolve it. This is where WeakTypeTag comes into play. Let’s revise the TypeTag example for a second:</p>
+<pre><code>val list: List[Int] = List(1, 2)
+val result = Recognizer.recognize(list)
+</code></pre>
+<p>See that Int over there? It could have been any other concrete type, such as String, Set[Double] or MyCustomClass. But if you have an abstract type, you need a WeakTypeTag.</p>
+<p>Here’s an example. Note that we need a reference to an abstract type so we will simply wrap everything in an abstract class.</p>
+<pre><code>import scala.reflect.runtime.universe._
+abstract class SomeClass[T] {
+
+    object Recognizer {
+        def recognize[T](x: T)(implicit tag: WeakTypeTag[T]): String =
+            tag.tpe match {
+                case TypeRef(utype, usymbol, args) =&gt;
+                    List(utype, usymbol, args).mkString(&quot;\n&quot;)
+            }
+    }
+
+    val list: List[T]
+    val result = Recognizer.recognize(list)
+    println(result)
+}
+
+new SomeClass[Int] { val list = List(1) }
+// prints:
+//   scala.type
+//   type List
+//   List(T)
+</code></pre>
+<p>Resulting type is a List[T]. If we had used a TypeTag instead of a WeakTypeTag, compiler would have complained that there is “<em>no TypeTag available for List[T]</em>”. So, you can look at WeakTypeTag as a sort of a superset of the TypeTag.</p>
+<p>Note that WeakTypeTag tries to be as concrete as possible, so if there is a type tag available for some abstract type, WeakTypeTag will use that type tag and thus make the type concrete instead of leaving it abstract.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Before we finish, let me mention that each type tag can also be instantiated explicitly using available helpers:</p>
+<pre><code>import scala.reflect.classTag
+import scala.reflect.runtime.universe._
+
+val ct = classTag[String]
+val tt = typeTag[List[Int]]
+val wtt = weakTypeTag[List[Int]]
+
+val array = ct.newArray(3)
+array.update(2, &quot;Third&quot;)
+
+println(array.mkString(&quot;,&quot;))
+println(tt.tpe)
+println(wtt.equals(tt))
+
+//  prints:
+//    null,null,Third
+//    List[Int]
+//    true
+</code></pre>
+<p>That’s all. We saw three constructs, ClassTag, TypeTag and WeakTypeTag, that will get you through most of your type erasure troubles in your everyday Scala life. Note that using tags (which is basically <a href="http://docs.scala-lang.org/overviews/reflection/overview.html">reflection</a> under the hood) can slow things down and make the generated code significantly bigger, so don’t go around adding implicit type tags all over your library to make the compiler smarter “just in case” and for no practical reason. Save them for when you really need them. And when you do need them, they will provide a powerful weapon against JVM’s type erasure.</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zzy-tech.github.io/tag/4DDBvrTcM/" class="tag">
+                    scala
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zzy-tech.github.io/post/wVjJ9Td2t/">
+                  <h3 class="post-title">
+                    Go学习笔记
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
