@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1681911335295">
+<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1681912152306">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://zzy-tech.github.io//styles/main.css">
 
@@ -39,7 +39,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zzy-tech.github.io/">
-        <img src="https://zzy-tech.github.io//images/avatar.png?v=1681911335295" class="site-logo">
+        <img src="https://zzy-tech.github.io//images/avatar.png?v=1681912152306" class="site-logo">
         <h1 class="site-title">听故事的人</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -106,7 +106,7 @@
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
             <h2 class="post-title">Java Core 笔记</h2>
-            <div class="post-date">2023-04-19 </div>
+            <div class="post-date">2023-04-20 </div>
             
               <div class="feature-container" style="background-image: url('https://m.media-amazon.com/images/I/81eslqTiI9L.jpg')">
               </div>
@@ -117,21 +117,23 @@
 <h1 id="core-java-volume">Core Java Volume</h1>
 <p>一个.java文件中只能有一个public class，如果有多个会报错。<br>
 但是可以存在多个非public class<br>
-如：<br>
-public class A {}<br>
-class B{}<br>
-class C{}</p>
+如：</p>
+<pre><code>public class A {}
+class B{}
+class C{}
+</code></pre>
 <p>Javaではプログラムのコンパイル時に型の整合性をチェックするため，静的型付け言語である．型付けが強い言語とは，型が一致するかどうかだけでなく，型に対する操作も含めてコンパイル時にチェックするなどし，プログラムの安全性を保障できる．</p>
 <hr>
 <h2 id="对象与类">对象与类</h2>
 <p>p118<br>
 Java程序设计语言总是采用按值调用(call by value)。</p>
 <p>p124<br>
-如果类中提供了至少一个构造器，但是没有提供无参构造器，则在构造对象时如果没有提供参数就会被视为不合法。<br>
-class Student{<br>
-public Student(int age){}<br>
-}<br>
-//此时 Student s = new Student();不合法</p>
+如果类中提供了至少一个构造器，但是没有提供无参构造器，则在构造对象时如果没有提供参数就会被视为不合法。</p>
+<pre><code>class Student{
+    public Student(int age){}
+}
+//此时 Student s = new Student();不合法
+</code></pre>
 <p>p136<br>
 如果没有指定public或private，这个部分(类、方法或变量)可以被同一个包中的所有方法访问。</p>
 <p>p144<br>
@@ -185,41 +187,51 @@ Java语言规范要求equals方法具有下面的特性<br>
 <p>然而，就对称性来说，当参数不属于同一个类的时候需要仔细地思考一下。</p>
 <p>下面给出编写一个完美的equals方法的建议：<br>
 1.显式参数命名为otherObject，稍后需要将它转换成另一个叫做other的变量。<br>
-2.检测this与otherObject是否引用同一个对象。<br>
-if(this == otherObject) return true;<br>
-这条语句只是一个优化。实际上，这是一种经常采用的形式。因为计算这个等式要比一个一个地比较类中的域所付出的代价小得多。<br>
-3.检测otherObject是否为null，如果为null，返回false。这项检测是很必要的。<br>
-if(otherObject == null) return false;<br>
-4.比较this与otherObject是否属于同一个类。如果equals的语义在每个子类中有所改变，就是用getClass检测。(即使使用强转，getClass返回值依然不变)<br>
-if(getClass() != otherObject.getClass()) return false;<br>
-如果所有的子类都拥有统一的语义，就是用instanceof检测。<br>
-if(!(otherObject instanceof className)) return false;</p>
+2.检测this与otherObject是否引用同一个对象。</p>
+<pre><code>if(this == otherObject) return true;
+</code></pre>
+<p>这条语句只是一个优化。实际上，这是一种经常采用的形式。因为计算这个等式要比一个一个地比较类中的域所付出的代价小得多。<br>
+3.检测otherObject是否为null，如果为null，返回false。这项检测是很必要的。</p>
+<pre><code>if(otherObject == null) return false;
+</code></pre>
+<p>4.比较this与otherObject是否属于同一个类。如果equals的语义在每个子类中有所改变，就是用getClass检测。(即使使用强转，getClass返回值依然不变)</p>
+<pre><code>if(getClass() != otherObject.getClass()) return false;
+</code></pre>
+<p>如果所有的子类都拥有统一的语义，就是用instanceof检测。</p>
+<pre><code>if(!(otherObject instanceof className)) return false;
+</code></pre>
 <blockquote>
 <p>补充：(p168)<br>
 如果子类能够拥有自己的相等概念，则对称性需求将强制采用getClass进行检测。(只允许同类相比的情况)<br>
 如果由超类决定相等的概念，那么就可以使用instanceof进行检测，<strong>这样可以在不同子类的对象之间进行相等的比较</strong>。</p>
 </blockquote>
-<p>5.将otherObject转换为相应的类类型变量。(以保证对称性中用的同一个equals)<br>
-ClassName other = (ClassName) otherObject;<br>
-6.现在开始对所有需要比较的域进行比较。使用==比较基本类型域，使用equals比较对象域。如果所有的域都匹配，就返回true，否则返回false。<br>
-return field1 == other.field1 &amp;&amp; Objecttts.equals(field2, other.field2) &amp;&amp; ...<br>
-如果在子类中重新定义equals，就要在其中包含调用super.equals(other).</p>
+<p>5.将otherObject转换为相应的类类型变量。(以保证对称性中用的同一个equals)</p>
+<pre><code>ClassName other = (ClassName) otherObject;
+</code></pre>
+<p>6.现在开始对所有需要比较的域进行比较。使用==比较基本类型域，使用equals比较对象域。如果所有的域都匹配，就返回true，否则返回false。</p>
+<pre><code>return field1 == other.field1 &amp;&amp; Objecttts.equals(field2, other.field2) &amp;&amp; ...
+</code></pre>
+<p>如果在子类中重新定义equals，就要在其中包含调用super.equals(other).</p>
 <p>《算法》p83<br>
-由于某些历史和技术原因，创建泛型数组在Java中是不允许的，需要使用类型转换。<br>
-a = (Item[]) new Object[];</p>
+由于某些历史和技术原因，创建泛型数组在Java中是不允许的，需要使用类型转换。</p>
+<pre><code>a = (Item[]) new Object[];
+</code></pre>
 <p>p179<br>
-分配数组列表，如下所示：<br>
-new ArrayList&lt;&gt;(100) // capacity is 100<br>
-它与为新数组分配空间有所不同：<br>
-new Employee[100] // size is 100</p>
+分配数组列表，如下所示：</p>
+<pre><code>new ArrayList&lt;&gt;(100) // capacity is 100
+</code></pre>
+<p>它与为新数组分配空间有所不同：</p>
+<pre><code>new Employee[100] // size is 100
+</code></pre>
 <p>数组列表的容量与数组的大小有一个非常重要的区别。如果为数组分配100个元素的存储空间，数组就有100个空位置可以使用（初始化后含有初始值）。而容量为100个元素的数组列表只是拥有保存100个元素的潜力，但是在最初，甚至完成初始化构造之后，数组列表根本就不含有任何元素。</p>
 <p>只有i小于或等于ArrayList的大小时，才能够调用list.set(i,x)。set方法只能替换数组中已经存在的元素内容。</p>
 <p>p185<br>
-==运算符也可以应用于对象包装器(wrapper)对象，只不过检测的事对象是否指向同一个存储区域，因此，下面的比较通常不会成立：<br>
-Integer a = 1000;<br>
-Integer b = 1000;<br>
-if(a == b)... //不成立<br>
-然而，Java实现却有可能(may)让它成立，如果经常出现的值包装到同一个对象中，这种比较就有可能成立。但这种结果并不是我们所希望的。解决这个问题的办法是两个包装器对象比较时调用equals方法。</p>
+==运算符也可以应用于对象包装器(wrapper)对象，只不过检测的事对象是否指向同一个存储区域，因此，下面的比较通常不会成立：</p>
+<pre><code>Integer a = 1000;
+Integer b = 1000;
+if(a == b)... //不成立
+</code></pre>
+<p>然而，Java实现却有可能(may)让它成立，如果经常出现的值包装到同一个对象中，这种比较就有可能成立。但这种结果并不是我们所希望的。解决这个问题的办法是两个包装器对象比较时调用equals方法。</p>
 <p>自动装箱规范要求boolean、byte、char≤127，介于-128~127之间的short和int被包装到<strong>固定对象</strong>中。例如，前面的例子中将a和b初始化为100，对他们进行比较的结果一定成立。</p>
 <p>p186<br>
 包装器类<strong>不可以</strong>被用来实现修改数值参数的方法。<br>
@@ -245,12 +257,13 @@ protected机制并不能够带来更好地保护：第一，任何一个人都�
 4.除非所有继承的方法都有意义，否则不要使用继承。<br>
 5.在覆盖方法时，不要改变预期的行为。<br>
 6.使用多态，而非类型信息。<br>
-无论什么时候，对于下面这种形式的代码<br>
-if (x is of type 1)<br>
-action1(x);<br>
-if (x is of type 2)<br>
-action2(x);<br>
-都应该考虑用多态性。<br>
+无论什么时候，对于下面这种形式的代码</p>
+<pre><code>if (x is of type 1)
+    action1(x);
+if (x is of type 2)
+    action2(x);
+</code></pre>
+<p>都应该考虑用多态性。<br>
 使用多态方法或接口编写的代码比使用对多种类型进行检测的代码更加易于维护和扩展。<br>
 7.不要过多地使用反射。<br>
 反射机制使得人们可以通过在运行时查看域和方法，让人们编写出更具有通用性的程序。这种功能对于编写系统程序来说及其实用，但是通常不适于编写应用程序。反射是很脆弱的，即编译器很难帮助人们发现程序中的错误，因此只有在运行时才发现错误并导致异常。</p>
@@ -265,18 +278,20 @@ action2(x);<br>
 在Java SE 8 中，允许在接口中增加静态方法。理论上讲，没有任何理由认为这是不合法的。只是这有违于将接口作为抽象规范的初衷。(P218)</p>
 <p>p213<br>
 为什么不能直接提供一个compareTo方法，而必须实现Comparable接口呢？<br>
-主要原因在于Java是一种强类型语言。在调用方法的时候，编译器将会检查这个方法是否存在。在sort方法中可能存在下面这样的语句：(a代表一个Employee数组)<br>
-if(a[i].compareTo(a[j]) &gt; 0){<br>
-// rearrange a[i] and a[j]<br>
-}<br>
-Arrays.sort方法中可能已经写有了compareTo方法。为此，编译器必须确认a[i]一定有compareTo方法。如果a是一个Compare对象的数组，就可以确保拥有compareTo方法，因为每个实现Compareble接口的类都必须提供这个方法的定义。</p>
+主要原因在于Java是一种强类型语言。在调用方法的时候，编译器将会检查这个方法是否存在。在sort方法中可能存在下面这样的语句：(a代表一个Employee数组)</p>
+<pre><code>if(a[i].compareTo(a[j]) &gt; 0){
+    // rearrange a[i] and a[j]
+}
+</code></pre>
+<p>Arrays.sort方法中可能已经写有了compareTo方法。为此，编译器必须确认a[i]一定有compareTo方法。如果a是一个Compare对象的数组，就可以确保拥有compareTo方法，因为每个实现Compareble接口的类都必须提供这个方法的定义。</p>
 <p>p216<br>
 与equals方法一样，compareTo方法在继承过程中有可能会出现问题。<br>
 如果x是一个Employee对象，y是一个Manager对象，调用x.compareTo(y)与调用y.compareTo(x)的结果可能不同，这违反了&quot;反对称性&quot;原则。<br>
 修改方式与equals一样，有两种不同的情况：<br>
-如果子类之间的比较含义不一样，那就属于不同类对象的非法比较。每个compareTo方法都应该在开始时进行下列检测：<br>
-if (getClass() != other.getClass()) throw new ClassCastException();<br>
-如果存在这样一种通用算法，它能够对两个不同的子类对象进行比较，则应该在超类中提供一个compareTo方法，并将这个方法声明为final。</p>
+如果子类之间的比较含义不一样，那就属于不同类对象的非法比较。每个compareTo方法都应该在开始时进行下列检测：</p>
+<pre><code>if (getClass() != other.getClass()) throw new ClassCastException();
+</code></pre>
+<p>如果存在这样一种通用算法，它能够对两个不同的子类对象进行比较，则应该在超类中提供一个compareTo方法，并将这个方法声明为final。</p>
 <p>p218<br>
 <strong>接口与抽象类</strong><br>
 抽象类是用来扩展/继承的(extends)，接口是用来实现的(implements)。<br>
@@ -284,10 +299,11 @@ Java单继承，多实现。<br>
 多继承会让语言本身变得非常复杂(C++)，效率也会降低(Eiffel)。<br>
 实际上，接口可以提供多重继承的大多数好处，同时还能避免多重继承的复杂性和低效性。</p>
 <p>p219<br>
-可以为接口方法提供一个默认实现。必须用default修饰符标记这样一个方法。<br>
-public interface Comparable<T>{<br>
-default int compareTo(T other){return 0;}<br>
-}</p>
+可以为接口方法提供一个默认实现。必须用default修饰符标记这样一个方法。</p>
+<pre><code>public interface Comparable&lt;T&gt;{
+    default int compareTo(T other){return 0;}
+}
+</code></pre>
 <p>提供了默认实现后，子类就可以不用实现此方法，为实现如同鼠标点击事件等时提供便利。</p>
 <p>Java SE 8 中，接口的伴随类技术已经过时，如MouseListener/MouseAdapter。</p>
 <p>接口中的域变量为public且static且final。</p>
@@ -324,7 +340,7 @@ p242<br>
 匿名内部类初始化的那一刻，外围环境函数就结束了，所以函数的局部变量也销毁了。那么内部类就没法保留函数的引用，所以只能保留一份拷贝值。无法保留引用干脆直接写成final。(<strong>Java SE 8之后，可以不用特意写明final。</strong>)</p>
 <p>内部类不能有static方法。也可以允许有静态方法，但只能访问外围类的静态域和方法。</p>
 <p>P248<br>
-编译器将会把内部类翻译成用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi mathvariant="normal">美</mi><mi mathvariant="normal">元</mi><mi mathvariant="normal">符</mi><mi mathvariant="normal">号</mi><mo>)</mo><mi mathvariant="normal">分</mi><mi mathvariant="normal">隔</mi><mi mathvariant="normal">外</mi><mi mathvariant="normal">部</mi><mi mathvariant="normal">类</mi><mi mathvariant="normal">名</mi><mi mathvariant="normal">与</mi><mi mathvariant="normal">内</mi><mi mathvariant="normal">部</mi><mi mathvariant="normal">类</mi><mi mathvariant="normal">名</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">常</mi><mi mathvariant="normal">规</mi><mi mathvariant="normal">类</mi><mi mathvariant="normal">文</mi><mi mathvariant="normal">件</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">而</mi><mi mathvariant="normal">虚</mi><mi mathvariant="normal">拟</mi><mi mathvariant="normal">机</mi><mi mathvariant="normal">则</mi><mi mathvariant="normal">对</mi><mi mathvariant="normal">此</mi><mi mathvariant="normal">一</mi><mi mathvariant="normal">无</mi><mi mathvariant="normal">所</mi><mi mathvariant="normal">知</mi><mi mathvariant="normal">。</mi><mo>(</mo><mi>T</mi><mi>a</mi><mi>l</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>C</mi><mi>l</mi><mi>o</mi><mi>c</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">(美元符号)分隔外部类名与内部类名的常规类文件，而虚拟机则对此一无所知。(TalkingClock</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord cjk_fallback">美</span><span class="mord cjk_fallback">元</span><span class="mord cjk_fallback">符</span><span class="mord cjk_fallback">号</span><span class="mclose">)</span><span class="mord cjk_fallback">分</span><span class="mord cjk_fallback">隔</span><span class="mord cjk_fallback">外</span><span class="mord cjk_fallback">部</span><span class="mord cjk_fallback">类</span><span class="mord cjk_fallback">名</span><span class="mord cjk_fallback">与</span><span class="mord cjk_fallback">内</span><span class="mord cjk_fallback">部</span><span class="mord cjk_fallback">类</span><span class="mord cjk_fallback">名</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">常</span><span class="mord cjk_fallback">规</span><span class="mord cjk_fallback">类</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">件</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">而</span><span class="mord cjk_fallback">虚</span><span class="mord cjk_fallback">拟</span><span class="mord cjk_fallback">机</span><span class="mord cjk_fallback">则</span><span class="mord cjk_fallback">对</span><span class="mord cjk_fallback">此</span><span class="mord cjk_fallback">一</span><span class="mord cjk_fallback">无</span><span class="mord cjk_fallback">所</span><span class="mord cjk_fallback">知</span><span class="mord cjk_fallback">。</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>TimePrinter.class)</p>
+编译器将会把内部类翻译成用$(美元符号)分隔外部类名与内部类名的常规类文件，而虚拟机则对此一无所知。(TalkingClock$TimePrinter.class)</p>
 <p>通过使用javap -private className，可以清楚地看到，编译器为了引用外围类，生成了一个附加的实例域this$0。另外，还可以看到构造器的TalkingClock参数。</p>
 <p>P249<br>
 private boolean beep;<br>
@@ -336,8 +352,9 @@ private boolean beep;<br>
 <p>P253<br>
 匿名类不能有构造器。取而代之的是，将构造器参数传递给超类构造器。尤其是在内部类实现接口的时候，不能有任何构造参数。</p>
 <p>P255<br>
-双括号初始化：<br>
-invite(new ArrayList<String>(){add(&quot;Harry);add(&quot;Tony);});</p>
+双括号初始化：</p>
+<pre><code>invite(new ArrayList&lt;String&gt;(){add(&quot;Harry);add(&quot;Tony);});
+</code></pre>
 <p>建立一个与超类大体类似（但不完全相同）的匿名子类通常会很方便，不过对于equals方法要特别当心。<br>
 if (getClass() != other.getClass()) return false;<br>
 对匿名子类做这个测试时会失败。</p>
@@ -405,12 +422,14 @@ Error类层次结构描述了Java运行时系统的内部错误和资源耗尽�
 <p>P311<br>
 在Java库中，使用变量E表示集合的元素类型，K和V分别表示表的关键字与值的类型。T（需要时还可以用邻近的字母U和S）表示“任意类型”。</p>
 <p>P314<br>
-将T限制为实现了Comparable接口的类。可以通过对类型变量T设置限定(bound)实现这一点：<br>
-public static <T extends Comparable> T min(T[] a)<br>
-但是在此为什么使用关键字extends而不是implements？<br>
-下面的记法<br>
-<T extends BoundingType><br>
-表示T应该是绑定类型的子类型(subtype)。T和绑定类型可以是类，也可以是接口。选择关键字extends的原因是更接近子类的概念，并且Java的设计者也不打算在语言中再添加一个新的关键字。</p>
+将T限制为实现了Comparable接口的类。可以通过对类型变量T设置限定(bound)实现这一点：</p>
+<pre><code>public static &lt;T extends Comparable&gt; T min(T[] a)
+</code></pre>
+<p>但是在此为什么使用关键字extends而不是implements？<br>
+下面的记法</p>
+<pre><code>&lt;T extends BoundingType&gt;
+</code></pre>
+<p>表示T应该是绑定类型的子类型(subtype)。T和绑定类型可以是类，也可以是接口。选择关键字extends的原因是更接近子类的概念，并且Java的设计者也不打算在语言中再添加一个新的关键字。</p>
 <p>一个类型变量或通配符可以有多个限定，例如：<br>
 T extends Comparable &amp; Serializable<br>
 限定类型用&amp;分隔，而逗号用来分隔类型变量。</p>
@@ -462,12 +481,13 @@ T extends Comparable &amp; Serializable<br>
 <p>P646<br>
 有两种机制防止代码块受并发访问的干扰。</p>
 <p><strong>用ReentrantLock保护代码块：</strong></p>
-<p>myLock.lock();<br>
-try{<br>
-critical section<br>
-}finally{<br>
-myLock.unlock();<br>
-}</p>
+<pre><code>myLock.lock();
+try{
+    critical section
+}finally{
+    myLock.unlock();
+}
+</code></pre>
 <p>把解锁操作放在finally子句之内是至关重要的。如果在临界区的代码抛出异常，锁必须被释放，否则其他线程将永远阻塞。<br>
 如果使用锁，就不能用带资源的try语句。</p>
 <p>要留心临界区中的代码，不要因为异常的抛出而跳出临界区。如果在临界区代码结束之前抛出了异常，finally子句将释放锁，但会使对象可能处于一种受损状态。</p>
