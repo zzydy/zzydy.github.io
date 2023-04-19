@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Java Core 笔记 | 听故事的人</title>
+<meta name="description" content="天青色等烟雨，而我在等你">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://zzy-tech.github.io//favicon.ico?v=1681911335295">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://zzy-tech.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148353246-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148353246-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zzy-tech.github.io/">
+        <img src="https://zzy-tech.github.io//images/avatar.png?v=1681911335295" class="site-logo">
+        <h1 class="site-title">听故事的人</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zzy-tech.github.io/" class="site-nav">
+            HOME
+          </a>
+        
+      
+        
+          <a href="https://zzy-tech.github.io/archives" class="site-nav">
+            Archives
+          </a>
+        
+      
+        
+          <a href="https://zzy-tech.github.io//tags" class="site-nav">
+            Tags
+          </a>
+        
+      
+        
+          <a href="https://zzy-tech.github.io//post/about/" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/zy080080" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      天青色等烟雨，而我在等你
+    </div>
+    <div class="site-footer">
+      zzychat@outlook.com | <a class="rss" href="https://zzy-tech.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Java Core 笔记</h2>
+            <div class="post-date">2023-04-19 </div>
+            
+              <div class="feature-container" style="background-image: url('https://m.media-amazon.com/images/I/81eslqTiI9L.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <p>此笔记记录于2020/04/26~2020/7/31，感谢当初坚持啃完一本书的我自己</p>
+<!-- more -->
+<h1 id="core-java-volume">Core Java Volume</h1>
+<p>一个.java文件中只能有一个public class，如果有多个会报错。<br>
+但是可以存在多个非public class<br>
+如：<br>
+public class A {}<br>
+class B{}<br>
+class C{}</p>
+<p>Javaではプログラムのコンパイル時に型の整合性をチェックするため，静的型付け言語である．型付けが強い言語とは，型が一致するかどうかだけでなく，型に対する操作も含めてコンパイル時にチェックするなどし，プログラムの安全性を保障できる．</p>
+<hr>
+<h2 id="对象与类">对象与类</h2>
+<p>p118<br>
+Java程序设计语言总是采用按值调用(call by value)。</p>
+<p>p124<br>
+如果类中提供了至少一个构造器，但是没有提供无参构造器，则在构造对象时如果没有提供参数就会被视为不合法。<br>
+class Student{<br>
+public Student(int age){}<br>
+}<br>
+//此时 Student s = new Student();不合法</p>
+<p>p136<br>
+如果没有指定public或private，这个部分(类、方法或变量)可以被同一个包中的所有方法访问。</p>
+<p>p144<br>
+类设计技巧<br>
+1.一定要保证数据私有。<br>
+2.一定要对数据初始化。<br>
+3.不要在类中使用过多的基本类型。<br>
+4.不是所有的域都需要独立的域访问器和域更改器。<br>
+5.将职责过多的类进行分解。<br>
+6.类名和方法要能够体现他们的职责。<br>
+7.优先使用不可变的类。</p>
+<hr>
+<h2 id="继承">继承</h2>
+<p>若父对象中没有默认构造方法，那么子对象中不能省略super()。</p>
+<p>P154<br>
+多态<br>
+&quot;is-a&quot;规则的另一种表述法是<strong>置换法则</strong>。它表明程序中出现超类对象的任何地方都可以用子类对象置换。</p>
+<p>p156<br>
+允许子类将覆盖方法的返回类型定义为原返回类型的子类。</p>
+<p>调用非private,static,final方法时会使用动态绑定调用方式。每次调用方法都要进行搜索，时间开销相当大。因此，虚拟机预先为每个类创建了一个<strong>方法表</strong>(method table)，其中列出了所有方法的签名和实际调用的方法。</p>
+<p>p157<br>
+动态绑定有一个非常重要的特性：无需对现存的代码进行修改，就可以对程序进行扩展。假设增加一个新类Executive，并且变量e有可能引用这个类的对象，我们不需要对包含调用e.getSalary()的代码进行重新编译。如果e恰好引用一个Executive类的对象，就会自动地调用Executive.getSalary()的方法。</p>
+<p><strong>在覆盖一个方法的时候，子类方法不能低于超类方法的可见性。</strong></p>
+<p>p159<br>
+（多态中）进行强制类型转换的唯一原因是：在暂时忽略对象的实际类型之后，使用对象的全部功能。</p>
+<p>p161<br>
+人们将抽象类作为派生其他类的基类，而不作为想使用的特定的实例类。</p>
+<p>为了提高程序的清晰度，包含一个或多个抽象方法的类本身必须被声明为抽象的。</p>
+<p>抽象方法充当着占位的角色，他们的具体实现在子类中。扩展抽象类可以有两种选择。一种是在抽象类中定义部分抽象类方法或不定义抽象类方法，这样就必须将子类也标记为抽象类；另一种是定义全部的抽象方法，这样一来，子类就不是抽象的了。</p>
+<p>类即使不含抽象方法，也可以将其声明为抽象类。抽象类不能被实例化。可以定义一个抽象类的对象变量，但是它只能引用非抽象子类的实例。</p>
+<p>使用抽象类名作隐式参数来调用方法时，实际被调用的是子类的方法。</p>
+<p>p165<br>
+4个访问修饰符<br>
+1）仅对本类可见——private。<br>
+2）对所有类可见——public。<br>
+3）对本包和所有子类可见——protected。<br>
+4）对本包可见——默认。（对包外子类不可见，包内子类可见）</p>
+<p>受保护的方法更具有实际意义。如果需要限制某个方法的使用，就可以将它声明为protected。这表明子类（可能很熟悉祖先）得到信任，可以正确的使用这个方法，而其他类则不行。</p>
+<p>Manager类的方法只能够访问Manager对象中的hireDay域，而不能访问其他Employee对象中的这个域: 子类于父类不在同一个包时，子类A中不能访问子类B继承自父类的protected域，此时A只能访问自己继承自父类的protected域（即使AB同包）。</p>
+<p>补充：（Thinking in Java p138）<br>
+在理想世界中，仅靠关键字private就已经足够了。但在实际项目中，经常会想要将某些事物尽可能对这个世界隐藏起来，但仍然允许导出类的成员访问它们。<br>
+关键字protected就是起这个作用的。它指明“就类用户而言，这是private的，但对于任何继承于此类的导出类或其他任何位于同一个包内的类来说，它却是可以访问的。”（protected也提供了包内访问权限。）<br>
+尽管可以创建protected域，但是最好的方式还是将域保持为private；你应当一直保留“更改底层实现”的权利。然后通过protected方法来控制类的继承者的访问权限。</p>
+<p>p168<br>
+Java语言规范要求equals方法具有下面的特性<br>
+1.自反性：对于任何<strong>非空</strong>引用x，x.equals(x)应该返回true。<br>
+2.对称性：对于任何引用x和y，当且仅当y.equals(x)返回true，x.equals(y)也应该返回true。<br>
+3.传递性：对于任何引用x、y和z，如果x.equals(y)返回true，y.equals(z)返回true，x.equals(z)也应该返回true。<br>
+4.一致性：如果x，y引用的对象没有发生变化，反复调用x.eauqls(y)应该返回同样的结果。<br>
+5.对于任意非空引用x，x.equals(null)应该返回fals。</p>
+<p>然而，就对称性来说，当参数不属于同一个类的时候需要仔细地思考一下。</p>
+<p>下面给出编写一个完美的equals方法的建议：<br>
+1.显式参数命名为otherObject，稍后需要将它转换成另一个叫做other的变量。<br>
+2.检测this与otherObject是否引用同一个对象。<br>
+if(this == otherObject) return true;<br>
+这条语句只是一个优化。实际上，这是一种经常采用的形式。因为计算这个等式要比一个一个地比较类中的域所付出的代价小得多。<br>
+3.检测otherObject是否为null，如果为null，返回false。这项检测是很必要的。<br>
+if(otherObject == null) return false;<br>
+4.比较this与otherObject是否属于同一个类。如果equals的语义在每个子类中有所改变，就是用getClass检测。(即使使用强转，getClass返回值依然不变)<br>
+if(getClass() != otherObject.getClass()) return false;<br>
+如果所有的子类都拥有统一的语义，就是用instanceof检测。<br>
+if(!(otherObject instanceof className)) return false;</p>
+<blockquote>
+<p>补充：(p168)<br>
+如果子类能够拥有自己的相等概念，则对称性需求将强制采用getClass进行检测。(只允许同类相比的情况)<br>
+如果由超类决定相等的概念，那么就可以使用instanceof进行检测，<strong>这样可以在不同子类的对象之间进行相等的比较</strong>。</p>
+</blockquote>
+<p>5.将otherObject转换为相应的类类型变量。(以保证对称性中用的同一个equals)<br>
+ClassName other = (ClassName) otherObject;<br>
+6.现在开始对所有需要比较的域进行比较。使用==比较基本类型域，使用equals比较对象域。如果所有的域都匹配，就返回true，否则返回false。<br>
+return field1 == other.field1 &amp;&amp; Objecttts.equals(field2, other.field2) &amp;&amp; ...<br>
+如果在子类中重新定义equals，就要在其中包含调用super.equals(other).</p>
+<p>《算法》p83<br>
+由于某些历史和技术原因，创建泛型数组在Java中是不允许的，需要使用类型转换。<br>
+a = (Item[]) new Object[];</p>
+<p>p179<br>
+分配数组列表，如下所示：<br>
+new ArrayList&lt;&gt;(100) // capacity is 100<br>
+它与为新数组分配空间有所不同：<br>
+new Employee[100] // size is 100</p>
+<p>数组列表的容量与数组的大小有一个非常重要的区别。如果为数组分配100个元素的存储空间，数组就有100个空位置可以使用（初始化后含有初始值）。而容量为100个元素的数组列表只是拥有保存100个元素的潜力，但是在最初，甚至完成初始化构造之后，数组列表根本就不含有任何元素。</p>
+<p>只有i小于或等于ArrayList的大小时，才能够调用list.set(i,x)。set方法只能替换数组中已经存在的元素内容。</p>
+<p>p185<br>
+==运算符也可以应用于对象包装器(wrapper)对象，只不过检测的事对象是否指向同一个存储区域，因此，下面的比较通常不会成立：<br>
+Integer a = 1000;<br>
+Integer b = 1000;<br>
+if(a == b)... //不成立<br>
+然而，Java实现却有可能(may)让它成立，如果经常出现的值包装到同一个对象中，这种比较就有可能成立。但这种结果并不是我们所希望的。解决这个问题的办法是两个包装器对象比较时调用equals方法。</p>
+<p>自动装箱规范要求boolean、byte、char≤127，介于-128~127之间的short和int被包装到<strong>固定对象</strong>中。例如，前面的例子中将a和b初始化为100，对他们进行比较的结果一定成立。</p>
+<p>p186<br>
+包装器类<strong>不可以</strong>被用来实现修改数值参数的方法。<br>
+包含在包装器中的内容不会改变。不能使用这些包装器类创建修改数值参数的方法。</p>
+<p>如果想编写一个修改数值参数值的方法，就需要使用在org.omg.CORBA包中定义的持有者(holder)类型，包括IntHolder、BooleanHolder等。每个持有者类型都包含一个公有(!)域值，通过它可以访问存储在其中的值。</p>
+<p>p190<br>
+反射库(reflection library)提供了一个非常丰富且精心设计的工具集，以便编写能够动态操纵Java代码的程序。</p>
+<p>能够分析类的能力的程序称为反射(reflective)。反射机制可以用来：<br>
+1.在运行时分析类的能力。<br>
+2.在运行时查看对象，例如，编写一个toString方法提供所有类使用。<br>
+3.实现通用的数组操作代码。<br>
+4.利用Method对象，这个对象很像C++中的函数指针。</p>
+<p>Class has no public constructor. Instead Class objects are constructed automatically by the Java Virtual Machine as classes are loaded and by calls to the defineClass method in the class loader.</p>
+<p>虚拟机为每个类型管理一个Class对象。</p>
+<p>反射非常强大，但是学习了之后，会不知道该如何使用，反而觉得还不如直接调用方法来的直接和方便。通常来说，需要在学习了Spring 的依赖注入，反转控制之后，才会对反射有更好的理解。</p>
+<p>p208<br>
+继承的设计技巧<br>
+1.将公共操作和域放在超类。<br>
+如把姓名域放在Person中，而不放在Employee和Student类中。<br>
+2.不要使用受保护的域(protected)。<br>
+protected机制并不能够带来更好地保护：第一，任何一个人都能够由某个类派生一个子类，并编写代码以直接访问protected的实例域，从而破坏了封装性。第二，在Java程序设计语言中，在同一个包中的所有类都可以访问protected域，而不管它是否为这个类的子类。<br>
+3.使用继承实现“is-a”关系。<br>
+4.除非所有继承的方法都有意义，否则不要使用继承。<br>
+5.在覆盖方法时，不要改变预期的行为。<br>
+6.使用多态，而非类型信息。<br>
+无论什么时候，对于下面这种形式的代码<br>
+if (x is of type 1)<br>
+action1(x);<br>
+if (x is of type 2)<br>
+action2(x);<br>
+都应该考虑用多态性。<br>
+使用多态方法或接口编写的代码比使用对多种类型进行检测的代码更加易于维护和扩展。<br>
+7.不要过多地使用反射。<br>
+反射机制使得人们可以通过在运行时查看域和方法，让人们编写出更具有通用性的程序。这种功能对于编写系统程序来说及其实用，但是通常不适于编写应用程序。反射是很脆弱的，即编译器很难帮助人们发现程序中的错误，因此只有在运行时才发现错误并导致异常。</p>
+<hr>
+<h2 id="接口">接口</h2>
+<p>p211<br>
+在Java程序设计语言中，接口不是类，而是对类的一组需求描述，这些类要遵从接口描述的统一格式进行定义。（即定义方法名，参数，返回类型的格式）</p>
+<p>p212<br>
+接口中的所有方法自动地属于public。因此在接口中声明方法时，不必提供关键字public。不过，在实现接口时，必须把方法声明为public，否则编译器将认为这个方法是protected。</p>
+<p>接口绝不能含有实例域（但可以包含常量， public static final double SPEED = 95;）。<br>
+在Java SE 8 之前，也不能在接口中实现方法。<br>
+在Java SE 8 中，允许在接口中增加静态方法。理论上讲，没有任何理由认为这是不合法的。只是这有违于将接口作为抽象规范的初衷。(P218)</p>
+<p>p213<br>
+为什么不能直接提供一个compareTo方法，而必须实现Comparable接口呢？<br>
+主要原因在于Java是一种强类型语言。在调用方法的时候，编译器将会检查这个方法是否存在。在sort方法中可能存在下面这样的语句：(a代表一个Employee数组)<br>
+if(a[i].compareTo(a[j]) &gt; 0){<br>
+// rearrange a[i] and a[j]<br>
+}<br>
+Arrays.sort方法中可能已经写有了compareTo方法。为此，编译器必须确认a[i]一定有compareTo方法。如果a是一个Compare对象的数组，就可以确保拥有compareTo方法，因为每个实现Compareble接口的类都必须提供这个方法的定义。</p>
+<p>p216<br>
+与equals方法一样，compareTo方法在继承过程中有可能会出现问题。<br>
+如果x是一个Employee对象，y是一个Manager对象，调用x.compareTo(y)与调用y.compareTo(x)的结果可能不同，这违反了&quot;反对称性&quot;原则。<br>
+修改方式与equals一样，有两种不同的情况：<br>
+如果子类之间的比较含义不一样，那就属于不同类对象的非法比较。每个compareTo方法都应该在开始时进行下列检测：<br>
+if (getClass() != other.getClass()) throw new ClassCastException();<br>
+如果存在这样一种通用算法，它能够对两个不同的子类对象进行比较，则应该在超类中提供一个compareTo方法，并将这个方法声明为final。</p>
+<p>p218<br>
+<strong>接口与抽象类</strong><br>
+抽象类是用来扩展/继承的(extends)，接口是用来实现的(implements)。<br>
+Java单继承，多实现。<br>
+多继承会让语言本身变得非常复杂(C++)，效率也会降低(Eiffel)。<br>
+实际上，接口可以提供多重继承的大多数好处，同时还能避免多重继承的复杂性和低效性。</p>
+<p>p219<br>
+可以为接口方法提供一个默认实现。必须用default修饰符标记这样一个方法。<br>
+public interface Comparable<T>{<br>
+default int compareTo(T other){return 0;}<br>
+}</p>
+<p>提供了默认实现后，子类就可以不用实现此方法，为实现如同鼠标点击事件等时提供便利。</p>
+<p>Java SE 8 中，接口的伴随类技术已经过时，如MouseListener/MouseAdapter。</p>
+<p>接口中的域变量为public且static且final。</p>
+<p>Javaでインタフェースは多重<strong>継承</strong>できる<br>
+interface D <strong>extends</strong> B,C{}</p>
+<p>p220<br>
+<strong>解决默认方法冲突</strong><br>
+如果在一个接口中将一个方法定义为默认方法，然后又在超类或另一接口中定义了同样的方法，会发生什么？<br>
+规则如下：<br>
+1.超类优先。<br>
+2.接口冲突。如果一个超接口提供了一个默认方法，另一个接口义工了一个同名而且参数类型相同的方法，必须覆盖这个方法来解决冲突。</p>
+<p>p227<br>
+Cloneable接口只是作为一个标记，指示类设计者了解克隆过程。对象对于克隆很“偏执”，如果一个对象请求克隆，但没有实现这个接口，就会生成一个受查异常。</p>
+<p>Cloneable接口是Java提供的一组标机接口(tagging interface)之一。有些人称之为记号接口(marker interface)。应该记得，Comparable等接口的通常用途是确保一个类实现一个或一组特定的方法。标记接口不包括任何方法；它唯一的作用就是允许在类型查询中使用instanceof：<br>
+if(obj instanceof Cloneable) . . .<br>
+建议你自己的程序中不要使用标记接口。</p>
+<p>即使clone的默认（浅拷贝）实现能够满足要求，还是需要实现Cloneable接口，将clone重新定义为public，再调用super.clone()。</p>
+<p>p229<br>
+所有的数组类型都有一个public的clone方法。</p>
+<p><strong>内部类</strong><br>
+p242<br>
+使用内部类的主要原因：</p>
+<ul>
+<li>内部类方法可以访问该类定义所在的作用域中的数据，包括私有的数据。</li>
+<li>内部类可以对同一个包中的其他类隐藏起来。</li>
+<li>当想要定义一个回调函数且不想编写大量代码时，使用匿名(anonymous)内部类比较便捷。</li>
+</ul>
+<p>p245<br>
+只有内部类可以是私有类，而常规类可以具有包可见性，或公有可见性。</p>
+<p>P247<br>
+<strong>内部类中声明的所有静态域都必须是final</strong>。原因很简单。我们希望一个静态域只有一个实例，不过对于每个外部对象，会分别有一个单独的内部类实例。如果这个域不是final，它可能就不是唯一的。</p>
+<p>自己总结：<br>
+为了避免数据不同步，内部类只能访问外围类的final局部变量。（使得局部变量与在局部类内建立的拷贝保持一致。）<br>
+匿名内部类初始化的那一刻，外围环境函数就结束了，所以函数的局部变量也销毁了。那么内部类就没法保留函数的引用，所以只能保留一份拷贝值。无法保留引用干脆直接写成final。(<strong>Java SE 8之后，可以不用特意写明final。</strong>)</p>
+<p>内部类不能有static方法。也可以允许有静态方法，但只能访问外围类的静态域和方法。</p>
+<p>P248<br>
+编译器将会把内部类翻译成用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi mathvariant="normal">美</mi><mi mathvariant="normal">元</mi><mi mathvariant="normal">符</mi><mi mathvariant="normal">号</mi><mo>)</mo><mi mathvariant="normal">分</mi><mi mathvariant="normal">隔</mi><mi mathvariant="normal">外</mi><mi mathvariant="normal">部</mi><mi mathvariant="normal">类</mi><mi mathvariant="normal">名</mi><mi mathvariant="normal">与</mi><mi mathvariant="normal">内</mi><mi mathvariant="normal">部</mi><mi mathvariant="normal">类</mi><mi mathvariant="normal">名</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">常</mi><mi mathvariant="normal">规</mi><mi mathvariant="normal">类</mi><mi mathvariant="normal">文</mi><mi mathvariant="normal">件</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">而</mi><mi mathvariant="normal">虚</mi><mi mathvariant="normal">拟</mi><mi mathvariant="normal">机</mi><mi mathvariant="normal">则</mi><mi mathvariant="normal">对</mi><mi mathvariant="normal">此</mi><mi mathvariant="normal">一</mi><mi mathvariant="normal">无</mi><mi mathvariant="normal">所</mi><mi mathvariant="normal">知</mi><mi mathvariant="normal">。</mi><mo>(</mo><mi>T</mi><mi>a</mi><mi>l</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>C</mi><mi>l</mi><mi>o</mi><mi>c</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">(美元符号)分隔外部类名与内部类名的常规类文件，而虚拟机则对此一无所知。(TalkingClock</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord cjk_fallback">美</span><span class="mord cjk_fallback">元</span><span class="mord cjk_fallback">符</span><span class="mord cjk_fallback">号</span><span class="mclose">)</span><span class="mord cjk_fallback">分</span><span class="mord cjk_fallback">隔</span><span class="mord cjk_fallback">外</span><span class="mord cjk_fallback">部</span><span class="mord cjk_fallback">类</span><span class="mord cjk_fallback">名</span><span class="mord cjk_fallback">与</span><span class="mord cjk_fallback">内</span><span class="mord cjk_fallback">部</span><span class="mord cjk_fallback">类</span><span class="mord cjk_fallback">名</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">常</span><span class="mord cjk_fallback">规</span><span class="mord cjk_fallback">类</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">件</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">而</span><span class="mord cjk_fallback">虚</span><span class="mord cjk_fallback">拟</span><span class="mord cjk_fallback">机</span><span class="mord cjk_fallback">则</span><span class="mord cjk_fallback">对</span><span class="mord cjk_fallback">此</span><span class="mord cjk_fallback">一</span><span class="mord cjk_fallback">无</span><span class="mord cjk_fallback">所</span><span class="mord cjk_fallback">知</span><span class="mord cjk_fallback">。</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault">c</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>TimePrinter.class)</p>
+<p>通过使用javap -private className，可以清楚地看到，编译器为了引用外围类，生成了一个附加的实例域this$0。另外，还可以看到构造器的TalkingClock参数。</p>
+<p>P249<br>
+private boolean beep;<br>
+内部类如何管理那些额外的访问特权呢？<br>
+通过使用ReflectTest查看TalkingClock类，发现编译器在外围类添加静态方法access$0(static boolean access$0(TalkingClock)😉。它将返回作为参数传递给它的对象域beep，内部类调用这个方法，便可得到beep的值。</p>
+<p>P250<br>
+局部内部类定义在外部类的方法内，局部类不能用public或private访问说明符进行声明。<br>
+局部类有一个优势，即对外部世界可以完全地隐藏起来。即使外部类的其他方法也无法访问它。</p>
+<p>P253<br>
+匿名类不能有构造器。取而代之的是，将构造器参数传递给超类构造器。尤其是在内部类实现接口的时候，不能有任何构造参数。</p>
+<p>P255<br>
+双括号初始化：<br>
+invite(new ArrayList<String>(){add(&quot;Harry);add(&quot;Tony);});</p>
+<p>建立一个与超类大体类似（但不完全相同）的匿名子类通常会很方便，不过对于equals方法要特别当心。<br>
+if (getClass() != other.getClass()) return false;<br>
+对匿名子类做这个测试时会失败。</p>
+<hr>
+<h2 id="异常-断言与日志">异常、断言与日志</h2>
+<p>P264<br>
+如果由于出现错误而使得某些操作没有完成，程序应该:<br>
+返回到一种安全状态，并能够让用户执行一些其他的命令。或者允许用户保存所有的操作结果，并以妥善的方式终止程序。</p>
+<p>异常处理的任务就是将控制权从错误产生的地方转移给能够处理这种情况的错误处理器。</p>
+<p>P266<br>
+Error类层次结构描述了Java运行时系统的内部错误和资源耗尽错误。应用程序不应该抛出这种类型的对象。</p>
+<p>Exception的两个分支：<br>
+由程序错误导致的异常RuntimeException。<br>
+程序本身没有问题，但由于像I/O错误这类问题导致的其他异常IOException。</p>
+<p>派生于RuntimeException的异常包含下面几种情况：</p>
+<ul>
+<li>错误的类型转换。ClassCastException</li>
+<li>数组访问越界。ArrayIndexOutOfBoundsException</li>
+<li>访问null指针。NullPointerException</li>
+</ul>
+<p>不是派生于RuntimeException的异常包括：</p>
+<ul>
+<li>试图在文件尾部后面读取数据。</li>
+<li>试图打开一个不存在的文件。</li>
+<li>试图根据给定的字符串查找Class对象，而这个字符串表示的类不存在。</li>
+</ul>
+<p>如果出现RuntimeException异常，那么就一定是你的问题。</p>
+<p>Java语言规范将派生于Error类或RuntimeException类的所有异常称为<strong>非受查异常</strong>(unchecked)，所有其他的异常称为受查异常(checked)。编译器将<strong>核查是否为所有的受查异常提供了异常处理器</strong>。</p>
+<p>P267<br>
+需要记住在遇到下面四种情况时应该抛出异常：</p>
+<ol>
+<li>调用一个抛出受检查异常的方法，例如，FileInputStream构造器。</li>
+<li>程序运行过程中发现错误，并且利用throw语句抛出一个受检查异常。</li>
+<li>程序出现错误，例如，a[-1] = 0 会抛出一个ArrayIndexOutOfBoundsException这样的非受查异常。</li>
+<li>Java虚拟机和运行时库出现的内部错误。</li>
+</ol>
+<p>P268<br>
+不需要声明Java的内部错误，即从Error继承的错误。任何程序代码都具有抛出那些异常的潜能，而我们对其没有任何控制能力。<br>
+同样，也不应该声明从RuntimeException继承的那些非受查异常。如ArrayIndexOutOfBoundsException。</p>
+<p>总之，一个方法必须声明所有可能抛出的受查异常，而非受查异常要么不可控制(Error)，要么就应该避免发生(RuntimeException)。</p>
+<blockquote>
+<p>（来自网络https://blog.csdn.net/wobushixiaobailian/article/details/86677573）<br>
+运行时异常：编译时，机器发现不了的异常；不是由系统自身产生的，而是系统所在应用环境导致的。如数组越界。<br>
+受检查异常：在编译时之前就可以进行处理的异常，如果产生受检查异常必须做处理，否则编译都不允许。如类型转换异常，Java.lang.ClassNotFoundException</p>
+<p>如果出现RuntimeException异常，那么就<strong>一定是你的问题</strong><br>
+对于运行时异常，虽然可以对他进行捕获。但是，不建议进行catch处理。<br>
+如果你要捕获它的话，你就会冒这样一个风险:程序代码的错误(bug)被掩盖在运行当中无法被察觉。因为在程序测试过程中，系统打印出来的调用堆栈路径(StackTrace)往往使你更快找到并修改代码中的错误。有些程序员建议捕获runtime exception并纪录在log中，我反对这样做。这样做的坏处是你必须通过浏览log来找出问题，而用来测试程序的测试系统(比如Unit Test)却无法直接捕获问题并报告出来。</p>
+</blockquote>
+<p>P277<br>
+假设利用return语句从try语句块中退出。在方法返回钱，finally子句的内容将被执行。如果finally子句中也有一个return语句，这个返回值将会<strong>覆盖原始的返回值</strong>。</p>
+<p>P287<br>
+在Java语言中，给出了三种处理系统错误的机制：</p>
+<ul>
+<li>抛出一个异常</li>
+<li>日志</li>
+<li>使用断言</li>
+</ul>
+<p>什么时候应该选择使用断言呢？请记住以下几点：</p>
+<ul>
+<li>断言失败是致命的、不可恢复的错误。</li>
+<li>断言检查只用于开发和测试阶段（这种做法有时被戏称为&quot;在靠近海岸是穿上救生衣，但在海中央时就把救生衣抛掉吧&quot;）</li>
+</ul>
+<hr>
+<h2 id="泛型程序设计">泛型程序设计</h2>
+<p>P311<br>
+在Java库中，使用变量E表示集合的元素类型，K和V分别表示表的关键字与值的类型。T（需要时还可以用邻近的字母U和S）表示“任意类型”。</p>
+<p>P314<br>
+将T限制为实现了Comparable接口的类。可以通过对类型变量T设置限定(bound)实现这一点：<br>
+public static <T extends Comparable> T min(T[] a)<br>
+但是在此为什么使用关键字extends而不是implements？<br>
+下面的记法<br>
+<T extends BoundingType><br>
+表示T应该是绑定类型的子类型(subtype)。T和绑定类型可以是类，也可以是接口。选择关键字extends的原因是更接近子类的概念，并且Java的设计者也不打算在语言中再添加一个新的关键字。</p>
+<p>一个类型变量或通配符可以有多个限定，例如：<br>
+T extends Comparable &amp; Serializable<br>
+限定类型用&amp;分隔，而逗号用来分隔类型变量。</p>
+<p>在Java的继承中，可以根据需要拥有多个接口超类型，但限定中至多有一个类。如果用一个类作为限定，它必须是限定列表中的第一个。</p>
+<hr>
+<h2 id="并发">并发</h2>
+<p>P630<br>
+通过构建一个Thread类的子类定义一个线程，再构造一个子类对象并调用run方法，<strong>这种方法已不再推荐</strong>。<br>
+应该将要并行运行的任务与运行机制解耦合。如果有很多任务，要为每个任务创建一个独立的线程所付出的代价太大了。<strong>可以使用线程池来解决这个问题</strong>。</p>
+<p>P633<br>
+没有可以强制线程终止的方法。然而，interrupt方法可以用来请求终止线程。<br>
+当对一个线程调用interrupt方法时，线程的<strong>中断状态</strong>将被位置。<br>
+每个线程都应该不时地检查是否被中断，使用isInterrupted。<br>
+但是，如果线程被阻塞，就无法检测中断状态。这是产生InterruptedException异常的地方。当在一个被阻塞的线程(调用sleep或wait)上调用interrupt方法时，阻塞调用将会被InterruptedException异常中断。</p>
+<p>P634<br>
+有两个非常类似的方法，interrupted和isInterrupted。interrupted方法是一个静态方法，他检测当前的线程是否被中断。而且，调用interrupted方法会清除该线程的中断状态。另一方面，isInterrupted方法是一个实例方法，可用来检验是否有线程被中断。调用这个方法不会改变中断状态。</p>
+<p>线程有6种状态：New(新创建)Runnable(可运行)Blocked(被阻塞)Waiting(等待)Timed waiting(计时等待)Terminated(被终止)</p>
+<p><strong>New 新创建线程：</strong></p>
+<p>当用new操作符创建一个新线程时，该线程还没有开始运行，这意味着他的状态是new。</p>
+<p><strong>Runnable 可运行线程：</strong></p>
+<p>一旦调用start方法，线程处于runnable状态。一个可运行的线程可能正在运行也可能没有运行，这取决于操作系统给线程提供运行的时间。（Java的规范说明没有将它作为一个单独状态。一个正在运行中的线程仍然处于可运行状态。）<br>
+一个线程开始运行，它不必适中保持运行。运行中的线程被中断，目的是为了让其他线程获得运行机会。<br>
+在任何给定时刻，一个可运行的线程可能正在运行也可能没有运行(这就是为什么这个状态被称为可运行而不是运行)。</p>
+<p><strong>Blocked Waiting 被阻塞和等待线程：</strong></p>
+<p>当线程处于被阻塞或等待状态时，它暂时不活动。它不运行任何代码且消耗最少的资源。直到线程调度器重新激活它。<br>
+当一个线程试图获取一个内部的锁对象，而该锁被其他线程持有，则该线程进入阻塞状态。当所有其他线程释放该锁，并且线程调度器允许本线程持有它的时候，该线程将变为非阻塞状态<br>
+当线程等待另一个线程通知调度器一个条件时，他自己进入等待状态。被阻塞状态与等待状态是有很大不同的(稍后讲)。<br>
+有几个方法有一个超时参数，调用他们导致线程进入计时等待(timed waiting)状态。</p>
+<p><strong>Terminated 被终止的线程：</strong></p>
+<p>两个原因之一：<br>
+因为run方法正常退出而自然死亡。<br>
+因为一个没有捕获的异常终止了run方法二意外死亡。。<br>
+特别是，可以调用线程的stop方法杀死一个线程。该方法抛出ThreadDeath错误对象。但是，stop方法已经过时。</p>
+<p>P638<br>
+默认情况下，一个线程继承他的父线程的优先级。<br>
+当线程调度器有机会选择新线程时，它首先会选择具有较高优先级的线程。但是，<strong>线程的优先级是高度依赖于系统的</strong>。<br>
+当虚拟机依赖于宿主机平台的线程实现机制时，Java线程的优先级被映射到宿主机平台的优先级上，优先级个数也许更多，也许更少。<br>
+例如，Windows7有7个优先级别。一些Java优先级将映射到相同的操作系统优先级。在Oracle为Linux提供的Java虚拟机中，线程的优先级被护忽略——所有线程具有相同的优先级。</p>
+<p>不要将程序构建为功能的正确性依赖于优先级。</p>
+<p>如果确实要使用优先级，应该避免初学者常犯的一个错误。如果有几个高优先级的线程没有进入非活动状态，低优先级的线程可能永远也不能执行。</p>
+<p>P639<br>
+通过调用t.setDaemon(true)将线程转换为守护线程。守护线程的唯一用途是为其他线程提供服务。计时线程就是一个例子。，它定时发送&quot;计时器滴答&quot;信号给其他线程或清空过时的高速缓存项的线程。<br>
+当只剩下守护线程时，虚拟机就退出了，由于如果只剩下守护线程，就没必要继续运行程序了。</p>
+<p>守护线程有时会被初学者错误地使用，他们不打算考虑关机动作。但是，这是很危险的。守护线程应该用云不去访问固有资源，如文件、数据库，因为它会在任何时候甚至在一个操作的中间发生中断。</p>
+<p>线程的run方法不能抛出任何受查异常，但是非受查异常会导致线程终止。<br>
+但是，不需要任何catch子句来处理可以被传播的异常。相反，就在线程死亡之前，异常被传递到一个用于未捕获异常的处理器。该处理器必须属于一个实现Thread.UncaughtExceptionHandler接口的类。</p>
+<p>如果不安装默认的处理器，默认的处理器为空。但是，如果不为独立的线程安装处理器，此时的处理器就是该线程的ThreadGroup(线程组)对象。</p>
+<p>线程组是一个可以统一管理的线程集合。默认情况下，创建的所有线程属于相同的线程组，但是，也可能会建立其他的组。现在引入了更好的特性用于线程集合的操作，所以建议不要在自己的程序中使用线程组。</p>
+<p>P646<br>
+有两种机制防止代码块受并发访问的干扰。</p>
+<p><strong>用ReentrantLock保护代码块：</strong></p>
+<p>myLock.lock();<br>
+try{<br>
+critical section<br>
+}finally{<br>
+myLock.unlock();<br>
+}</p>
+<p>把解锁操作放在finally子句之内是至关重要的。如果在临界区的代码抛出异常，锁必须被释放，否则其他线程将永远阻塞。<br>
+如果使用锁，就不能用带资源的try语句。</p>
+<p>要留心临界区中的代码，不要因为异常的抛出而跳出临界区。如果在临界区代码结束之前抛出了异常，finally子句将释放锁，但会使对象可能处于一种受损状态。</p>
+<h2 id="集合">集合</h2>
+<p>P345<br>
+队列通常有两种实现方式：循环数组或链表。</p>
+<p>P346<br>
+循环数组要比链表更高效。然而，选择循环数组也要付出一定的代价。<br>
+循环数组是一个有界集合，即容量有限。程序中要收集的对象数量没有上限时最好使用链表来实现。</p>
+<p>API文档中以Abstract开头的类，如AbstractQueue。这些类是为类库实现着而设计的。如果想实现自己的队列类(也许不太可能)，会发现扩展AbstractQueue类要比实现Queue接口中的所有方法轻松得多。</p>
+<p>P347<br>
+编译器简单的将for each循环翻译为带有迭代器的循环。<br>
+for each循环可以与任何实现了Iterable接口的对象一起工作，这个接口只包含一个抽象方法Iterator<E> iterator();。</p>
+<p>P348<br>
+对ArrayList进行迭代，迭代器将从索引0开始。然而，如果访问HashSet中的元素，<strong>每个元素将会按照某种随机的次序出现</strong>。虽然可以确定在迭代过程中能够遍历到集合中的所有元素，但却无法预知元素被访问的次序。</p>
+<p>Iterator接口的next和hasNext方法与Enumeration接口的nextElement和hasMoreElements方法的作用一样。但是Enumeration接口方法名太长，所以引用了具有较短方法名的新街口。</p>
+<p>在传统的集合类库中，迭代器是根据数组索引建模的。就像只要数组索引i就可以查看元素a[i]一样。但是Java迭代器并不是这样操作的。查找操作与位置变更是紧密相连的。查找一个元素的唯一方法就是调用next，而在查找操作的同时，迭代器的位置随之向前移动。<br>
+因此，应将Java迭代器认为是<strong>位于两个元素之间</strong>。</p>
+<p>可以将Iterator.next与InputStream.read看做等效的。</p>
+<p>对next方法和remove方法的调用具有互相依赖性。如果调用remove之前没有调用next将是不合法的。</p>
+<p>P349<br>
+Collection接口声明了很多有用的方法，但是如果实现此接口，就必须提供如此多的例行方法是一件很烦人的事情。为了能够让实现着更容易地实现这个接口，Java类库提供了一个类AbstractCollection，它将基础方法size和iterator抽象化了。</p>
+<p>P352<br>
+集合的两个基本接口：Collection、Map。,<br>
+List是一个有序集合(ordered collection)。元素会增加到容器中的特定位置。可以采用迭代器或一个整数索引来访问。后一种方法称为随机访问(random access)。<br>
+ListIterator接口是Iterator的一个子接口。它定义了add(E element)方法用于在迭代器为止前面增加一个元素。<br>
+由数组支持的有序集合可以快速地随机访问，但链表随机访问很慢，最好使用迭代器来遍历（集合框架这个地方设计的不好，链表和数组集合如果分开提供两个接口会更容易一些）。</p>
+<p>Set接口等同于Collection接口，不过其方法的行为有更严谨的定义。集（Set）的add方法不允许增加重复的元素。所以要适当的定义equals方法：只要两个集包含同样的元素就认为是相等的，而不要求这些元素有同样的顺序。hashCode方法也是如此。</p>
+<p>P358 <strong>LinkedList</strong><br>
+如果迭代器发现他的集合被另一个迭代器修改了，或是被该集合自身的方法修改了，就会抛出一个ConcurrentModificationException异常。<br>
+为了避免这个异常，遵循以下规则：根据需要给容器附加许多的迭代器，但这些迭代器只能读取列表。另外，再单独付加一个既能读又能写的迭代器。<br>
+有一种简单的方法可以检测到并发修改的问题。集合可以跟踪改写操作（诸如添加或删除元素）的次数。每个迭代器都维护一个独立的计数值。在每个迭代器方法的开始处检查自己改写操作的计数值是否与集合的改写操作计数值一致。如果不一致，抛出ConcurrentModificationException异常。<br>
+LinkedList的get方法效率不高。如果发现自己正在用这个方法，说明有可能对所要解决的问题使用了错误的数据结构。<br>
+每次查找一个元素都要从列表的头部开始重新搜索。LinkedList对象根本不做任何缓存位置信息的操作。<br>
+list.listIterator(n)返回一个迭代器，这个迭代器指向索引为n的元素<strong>前面的位置</strong>。但是获得这个迭代器的效率比较低。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="tag">
+                    Java SE
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zzy-tech.github.io/post/eyZAmimnj/">
+                  <h3 class="post-title">
+                    Ubuntu su: Authentication failure的解决方法
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
