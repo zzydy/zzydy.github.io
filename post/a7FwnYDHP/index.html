@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>StringBuffer作为参数传递问题 | 听故事的人</title>
+<title> WebSecurityConfigurerAdapter is deprecated | 听故事的人</title>
 <meta name="description" content="天青色等烟雨，而我在等你">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -105,59 +105,22 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">StringBuffer作为参数传递问题</h2>
-            <div class="post-date">2019-09-12 </div>
-            
-              <div class="feature-container" style="background-image: url('https://images.freeimages.com/images/large-previews/0d6/programing-languages-5-1242039.jpg')">
-              </div>
+            <h2 class="post-title"> WebSecurityConfigurerAdapter is deprecated</h2>
+            <div class="post-date">2023-06-03 </div>
             
             <div class="post-content">
-              <pre><code>public class StringBufferTest {
-    public static void main(String[] args) {
-	    String s1 = &quot;hello&quot;;
-		String s2 = &quot;world&quot;;
-    	System.out.println(s1 + &quot;---&quot; + s2);// hello---world
-	    change(s1, s2);
-		System.out.println(s1 + &quot;---&quot; + s2);// hello---world 
-
-    	StringBuffer sb1 = new StringBuffer(&quot;hello&quot;);
-	    StringBuffer sb2 = new StringBuffer(&quot;world&quot;);
-    	System.out.println(sb1 + &quot;---&quot; + sb2);// hello---world
-		change(sb1, sb2);
-		System.out.println(sb1 + &quot;---&quot; + sb2);// hello---worldworld
-	}
-
-	public static void change(StringBuffer sb1, StringBuffer sb2) {
-		sb1 = sb2;//引用的东西变了而已，main中的sb1引用没变
-		sb2.append(sb1);
-	}
-
-    public static void change(String s1, String s2) {
-	    s1 = s2;
-	    s2 = s1 + s2;
-    }
-}</code></pre>
+              <p><a href="https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter">Spring Security without the WebSecurityConfigurerAdapter</a></p>
+<p>使用SpringBoot 2.7.7的话还可以用，但是使用3.x版本就直接找不到WebSecurityConfigurerAdapter了。</p>
+<p>今后将项目中的代码修改为最新版。</p>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://zzy-tech.github.io/tag/AI85XAiNw/" class="tag">
-                    中文(Chinese)
-                  </a>
-                
-                  <a href="https://zzy-tech.github.io/tag/S_X7H6n_S/" class="tag">
-                    Java SE
-                  </a>
-                
-              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://zzy-tech.github.io/post/UYqd_tZ7B/">
+                <a href="https://zzy-tech.github.io/post/f7rG8B9Ph/">
                   <h3 class="post-title">
-                    Java到底是值传递还是引用传递？
+                    Java Core 笔记
                   </h3>
                 </a>
               </div>
