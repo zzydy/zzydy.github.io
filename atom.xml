@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://zzy-tech.github.io/</id>
+    <id>https://zzydy.github.io/</id>
     <title>听故事的人</title>
-    <updated>2023-06-03T08:49:18.072Z</updated>
+    <updated>2024-07-13T18:03:49.301Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://zzy-tech.github.io/"/>
-    <link rel="self" href="https://zzy-tech.github.io/atom.xml"/>
+    <link rel="alternate" href="https://zzydy.github.io/"/>
+    <link rel="self" href="https://zzydy.github.io/atom.xml"/>
     <subtitle>天青色等烟雨，而我在等你</subtitle>
-    <logo>https://zzy-tech.github.io/images/avatar.png</logo>
-    <icon>https://zzy-tech.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2023, 听故事的人</rights>
+    <logo>https://zzydy.github.io/images/avatar.png</logo>
+    <icon>https://zzydy.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, 听故事的人</rights>
     <entry>
         <title type="html"><![CDATA[ WebSecurityConfigurerAdapter is deprecated]]></title>
-        <id>https://zzy-tech.github.io/post/a7FwnYDHP/</id>
-        <link href="https://zzy-tech.github.io/post/a7FwnYDHP/">
+        <id>https://zzydy.github.io/post/a7FwnYDHP/</id>
+        <link href="https://zzydy.github.io/post/a7FwnYDHP/">
         </link>
         <updated>2023-06-03T10:46:52.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter">Spring Security without the WebSecurityConfigurerAdapter</a></p>
@@ -23,8 +23,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Java Core 笔记]]></title>
-        <id>https://zzy-tech.github.io/post/f7rG8B9Ph/</id>
-        <link href="https://zzy-tech.github.io/post/f7rG8B9Ph/">
+        <id>https://zzydy.github.io/post/f7rG8B9Ph/</id>
+        <link href="https://zzydy.github.io/post/f7rG8B9Ph/">
         </link>
         <updated>2023-04-19T19:32:47.000Z</updated>
         <summary type="html"><![CDATA[<p>此笔记记录于2020/04/26~2020/7/31，感谢当初坚持啃完一本书的我自己</p>
@@ -444,8 +444,8 @@ list.listIterator(n)返回一个迭代器，这个迭代器指向索引为n的�
     </entry>
     <entry>
         <title type="html"><![CDATA[Ubuntu su: Authentication failure的解决方法]]></title>
-        <id>https://zzy-tech.github.io/post/eyZAmimnj/</id>
-        <link href="https://zzy-tech.github.io/post/eyZAmimnj/">
+        <id>https://zzydy.github.io/post/eyZAmimnj/</id>
+        <link href="https://zzydy.github.io/post/eyZAmimnj/">
         </link>
         <updated>2023-04-08T10:51:29.000Z</updated>
         <content type="html"><![CDATA[<p>很可能是装机时没有设置root密码，sudo passwd root设置密码后便可以登入</p>
@@ -453,8 +453,8 @@ list.listIterator(n)返回一个迭代器，这个迭代器指向索引为n的�
     </entry>
     <entry>
         <title type="html"><![CDATA[[repro] Overcoming type erasure in Scala]]></title>
-        <id>https://zzy-tech.github.io/post/vJovTPsib/</id>
-        <link href="https://zzy-tech.github.io/post/vJovTPsib/">
+        <id>https://zzydy.github.io/post/vJovTPsib/</id>
+        <link href="https://zzydy.github.io/post/vJovTPsib/">
         </link>
         <updated>2022-07-29T05:32:01.000Z</updated>
         <content type="html"><![CDATA[<p><strong>source: <a href="https://medium.com/@sinisalouc/overcoming-type-erasure-in-scala-8f2422070d20">https://medium.com/@sinisalouc/overcoming-type-erasure-in-scala-8f2422070d20</a></strong></p>
@@ -659,8 +659,8 @@ println(wtt.equals(tt))
     </entry>
     <entry>
         <title type="html"><![CDATA[Go学习笔记]]></title>
-        <id>https://zzy-tech.github.io/post/wVjJ9Td2t/</id>
-        <link href="https://zzy-tech.github.io/post/wVjJ9Td2t/">
+        <id>https://zzydy.github.io/post/wVjJ9Td2t/</id>
+        <link href="https://zzydy.github.io/post/wVjJ9Td2t/">
         </link>
         <updated>2022-05-06T15:30:11.000Z</updated>
         <content type="html"><![CDATA[<p><strong>Structs are mutable.</strong></p>
@@ -668,8 +668,8 @@ println(wtt.equals(tt))
     </entry>
     <entry>
         <title type="html"><![CDATA[About slice]]></title>
-        <id>https://zzy-tech.github.io/post/FCxr0jmyz/</id>
-        <link href="https://zzy-tech.github.io/post/FCxr0jmyz/">
+        <id>https://zzydy.github.io/post/FCxr0jmyz/</id>
+        <link href="https://zzydy.github.io/post/FCxr0jmyz/">
         </link>
         <updated>2022-05-03T09:36:10.000Z</updated>
         <summary type="html"><![CDATA[<p>In the early development of Go, it took about a year to decide the answers to these questions before the design felt right. The key step was the introduction of slices, which built on fixed-size arrays to give a flexible, extensible data structure. To this day, however, programmers new to Go often stumble over the way slices work, perhaps because experience from other languages has colored their thinking.</p>
@@ -717,8 +717,8 @@ slice := sliceHeader{
     </entry>
     <entry>
         <title type="html"><![CDATA[What is sequence?]]></title>
-        <id>https://zzy-tech.github.io/post/FS9Dkp9hu/</id>
-        <link href="https://zzy-tech.github.io/post/FS9Dkp9hu/">
+        <id>https://zzydy.github.io/post/FS9Dkp9hu/</id>
+        <link href="https://zzydy.github.io/post/FS9Dkp9hu/">
         </link>
         <updated>2022-05-02T13:39:22.000Z</updated>
         <summary type="html"><![CDATA[<p>from http://support.kodable.com/en/articles/417330-what-is-sequence</p>
@@ -735,8 +735,8 @@ slice := sliceHeader{
     </entry>
     <entry>
         <title type="html"><![CDATA[モジュールが持つ特性]]></title>
-        <id>https://zzy-tech.github.io/post/ChAMKuYiO/</id>
-        <link href="https://zzy-tech.github.io/post/ChAMKuYiO/">
+        <id>https://zzydy.github.io/post/ChAMKuYiO/</id>
+        <link href="https://zzydy.github.io/post/ChAMKuYiO/">
         </link>
         <updated>2021-05-20T12:58:16.000Z</updated>
         <summary type="html"><![CDATA[<p>モジュール凝集度およびモジュール結合度</p>
@@ -815,8 +815,8 @@ slice := sliceHeader{
     </entry>
     <entry>
         <title type="html"><![CDATA[ソフトウェア工学]]></title>
-        <id>https://zzy-tech.github.io/post/1KjJfbkSn/</id>
-        <link href="https://zzy-tech.github.io/post/1KjJfbkSn/">
+        <id>https://zzydy.github.io/post/1KjJfbkSn/</id>
+        <link href="https://zzydy.github.io/post/1KjJfbkSn/">
         </link>
         <updated>2021-04-23T17:19:49.000Z</updated>
         <summary type="html"><![CDATA[<p>ソフトウェア工学の概要，システム開発のプロジェクト</p>
@@ -1240,15 +1240,15 @@ slice := sliceHeader{
     </entry>
     <entry>
         <title type="html"><![CDATA[JPAでパラメータで変数の値を渡す方法]]></title>
-        <id>https://zzy-tech.github.io/post/A2C8pQJ7y/</id>
-        <link href="https://zzy-tech.github.io/post/A2C8pQJ7y/">
+        <id>https://zzydy.github.io/post/A2C8pQJ7y/</id>
+        <link href="https://zzydy.github.io/post/A2C8pQJ7y/">
         </link>
         <updated>2021-04-10T15:46:17.000Z</updated>
         <summary type="html"><![CDATA[<p>Spring Data JPAでORマッパーではかけないようなSQLを実行したい場合，Repositoryに直接構文を書き，この時にパラメータで変数の値をどうやったら渡せるでしょうか</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>Spring Data JPAでORマッパーではかけないようなSQLを実行したい場合，Repositoryに直接構文を書き，この時にパラメータで変数の値をどうやったら渡せるでしょうか</p>
 <!-- more -->
-<p><img src="https://zzy-tech.github.io//post-images/1618066009899.png" alt="" loading="lazy"><br>
+<p><img src="https://zzydy.github.io//post-images/1618066009899.png" alt="" loading="lazy"><br>
 図で示したように，「?変数の番号」で渡すことができる</p>
 ]]></content>
     </entry>
